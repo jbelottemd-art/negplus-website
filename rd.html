@@ -278,6 +278,18 @@
             .nav-hamburger { display: flex; }
         }
 
+        @media (max-width: 480px) {
+            .container { padding: 0 1rem; }
+            .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .page-hero { padding: 56px 1rem 48px; }
+            section { padding: 48px 0; }
+            .hero-actions { flex-direction: column; align-items: center; }
+        }
+
+        html { overflow-x: hidden; }
+        body { overflow-x: hidden; }
+
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
     <meta name="description" content="Stage-gated development pipeline for four women's health devices: Belotte Colpotomizer™, POP-Q AutoSense™, Pudendal Nerve Block Device™, and MUMS™.">

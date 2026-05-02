@@ -199,6 +199,15 @@
             .footer-inner { grid-template-columns: 1fr 1fr; }
             .page-hero { padding: 56px 1.5rem 48px; }
         }
+        @media (max-width: 480px) {
+            .container { padding: 0 1rem; }
+            .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .page-hero { padding: 48px 1rem 40px; }
+            .disclaimer-box { padding: 1.25rem 1rem; }
+        }
+        html { overflow-x: hidden; }
+        body { overflow-x: hidden; }
     </style>
 </head>
 <body>
