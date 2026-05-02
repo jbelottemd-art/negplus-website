@@ -136,7 +136,56 @@
             background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h80v80H0z' fill='none'/%3E%3Cpath d='M0 40h80M40 0v80' stroke='rgba(65,179,163,0.06)' stroke-width='1'/%3E%3C/svg%3E");
         }
 
-        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+        .hero-content { position: relative; z-index: 1; max-width: 1240px; margin: 0 auto; }
+
+        /* ── HERO 2-COL SPLIT ── */
+        .hero-split {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 0;
+        }
+        .hero-text { text-align: left; }
+
+        /* ── HERO VIDEO CARD ── */
+        .hero-media { position: relative; }
+        .hero-video-wrap {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1.5px solid rgba(65,179,163,0.35);
+            box-shadow: 0 12px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(65,179,163,0.08), 0 0 60px rgba(65,179,163,0.08);
+            position: relative;
+            background: #000;
+        }
+        .hero-video-wrap video {
+            display: block; width: 100%; height: auto;
+        }
+        .hero-video-badge {
+            position: absolute; top: 0.85rem; left: 0.85rem;
+            background: rgba(14,42,71,0.88);
+            border: 1px solid rgba(65,179,163,0.45);
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--gold-light);
+            backdrop-filter: blur(6px);
+        }
+        .hero-video-caption {
+            background: linear-gradient(135deg, #0c2240 0%, var(--brown-dark) 100%);
+            padding: 1.1rem 1.4rem;
+            border-top: 2px solid var(--gold);
+        }
+        .hero-video-caption .vcap-tag {
+            font-size: 0.62rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem;
+        }
+        .hero-video-caption .vcap-title {
+            font-size: 1rem; font-weight: 800; color: var(--white); line-height: 1.25;
+        }
+        .hero-video-caption .vcap-sub {
+            font-size: 0.75rem; color: rgba(125,211,203,0.75); margin-top: 0.35rem; line-height: 1.5;
+        }
 
         .hero-eyebrow {
             display: inline-block;
@@ -173,7 +222,7 @@
         .hero-actions {
             display: flex;
             gap: 1rem;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
 
@@ -857,6 +906,15 @@
         }
 
         /* ── RESPONSIVE ── */
+        @media (max-width: 1100px) {
+            .hero-split { grid-template-columns: 1fr 360px; gap: 2.5rem; }
+        }
+        @media (max-width: 900px) {
+            .hero-split { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero-text { text-align: center; }
+            .hero-actions { justify-content: center; }
+            .hero-media { max-width: 420px; margin: 0 auto; }
+        }
         @media (max-width: 1024px) {
             .products-grid { grid-template-columns: 1fr 1fr; }
             .advisory-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1217,13 +1275,38 @@
 <!-- ── HERO ── -->
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-eyebrow">Physician-Led Medical Device Innovation</div>
-        <h1>Transforming <span class="gold">Women's Health</span><br>Through Precision Technology</h1>
-        <p class="hero-sub">NEG+ Innovations, Inc. is building a differentiated, physician-designed medical device portfolio targeting critical unmet needs in women's pelvic surgery, diagnostics, interventional analgesia, and intrapartum monitoring — positioned as the ERAS innovation engine for women's health.</p>
-        <div class="hero-actions">
-            <a href="#products" class="btn-primary">Explore Our Platform</a>
-            <a href="#pipeline" class="btn-outline">View Development Pipeline</a>
-        </div>
+        <div class="hero-split">
+
+            <!-- LEFT: Text -->
+            <div class="hero-text">
+                <div class="hero-eyebrow">Physician-Led Medical Device Innovation</div>
+                <h1>Transforming <span class="gold">Women's Health</span><br>Through Precision Technology</h1>
+                <p class="hero-sub">NEG+ Innovations, Inc. is building a differentiated, physician-designed medical device portfolio targeting critical unmet needs in women's pelvic surgery, diagnostics, interventional analgesia, and intrapartum monitoring — positioned as the ERAS innovation engine for women's health.</p>
+                <div class="hero-actions">
+                    <a href="#products" class="btn-primary">Explore Our Platform</a>
+                    <a href="#pipeline" class="btn-outline">View Development Pipeline</a>
+                </div>
+            </div>
+
+            <!-- RIGHT: Video showcase -->
+            <div class="hero-media">
+                <div class="hero-video-wrap">
+                    <video autoplay muted loop playsinline preload="auto"
+                           aria-label="Pudendal Nerve Block Device™ — concept animation">
+                        <source src="pnb-hero.mp4" type="video/mp4">
+                    </video>
+                    <div class="hero-video-badge">Pre-Clinical Stage</div>
+                </div>
+                <div class="hero-video-caption">
+                    <div class="vcap-tag">Featured Device · Pudendal Nerve Block Device™</div>
+                    <div class="vcap-title">No Opioids. No Guesswork.<br>Precision Pudendal Analgesia.</div>
+                    <div class="vcap-sub">Anatomically guided · ERAS-ready · Surgeon-delivered · Outpatient-optimized</div>
+                </div>
+            </div>
+
+        </div><!-- /hero-split -->
+
+        <!-- Badges row — full width -->
         <div class="hero-badges">
             <div class="hero-badge">
                 <div class="hero-badge-num">Portfolio</div>
