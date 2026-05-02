@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer | NEG+ Innovations, Inc.</title>
+    <meta name="description" content="Legal disclaimer for NEG+ Innovations, Inc. All products are pre-clinical. No FDA review. Not an offer to sell securities.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <style>
+        :root {
+            --black:      #1B263B;
+            --gold:       #41B3A3;
+            --gold-dark:  #2A9D8F;
+            --gold-light: #7DD3CB;
+            --teal:       #41B3A3;
+            --teal-dark:  #2A9D8F;
+            --teal-light: #7DD3CB;
+            --brown-dark: #0E2A47;
+            --brown-mid:  #2D4A6B;
+            --brown-light:#778DA9;
+            --cream:      #E8EEF4;
+            --cream-dark: #D8E3EE;
+            --white:      #FFFFFF;
+            --text-dark:  #1B263B;
+            --text-mid:   #4A6580;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.65; color: var(--text-dark); background: var(--white);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--white); border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+        }
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between; height: 72px;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-img { display: block; height: 44px; width: auto; }
+        .nav-links { display: flex; gap: 0; list-style: none; }
+        .nav-links a {
+            display: block; padding: 0 0.6rem; height: 72px; line-height: 72px;
+            font-size: 0.8rem; font-weight: 600; text-decoration: none;
+            color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.4px;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 3px solid transparent; margin-bottom: -3px;
+        }
+        .nav-links a:hover { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-cta {
+            background: var(--gold); color: var(--black) !important;
+            border-radius: 50px; padding: 0 1rem !important;
+            height: 40px !important; line-height: 40px !important;
+            margin: auto 0; font-size: 0.85rem !important;
+            transition: background 0.2s, transform 0.2s !important;
+            border-bottom: none !important;
+        }
+        .nav-cta:hover { background: var(--gold-dark) !important; transform: scale(1.04); }
+        .nav-hamburger {
+            display: none; flex-direction: column; justify-content: center;
+            align-items: center; gap: 5px; width: 42px; height: 42px;
+            background: none; border: none; cursor: pointer; padding: 6px;
+            border-radius: 8px; transition: background 0.2s;
+        }
+        .nav-hamburger:hover { background: var(--cream); }
+        .nav-hamburger span {
+            display: block; width: 22px; height: 2px;
+            background: var(--black); border-radius: 2px;
+            transition: transform 0.28s ease, opacity 0.2s ease;
+        }
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .mobile-nav {
+            display: none; position: fixed; top: 75px; left: 0; right: 0;
+            background: var(--white); border-bottom: 3px solid var(--gold);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; overflow: hidden;
+        }
+        .mobile-nav.open { display: block; }
+        .mobile-nav ul { list-style: none; padding: 1rem 0; }
+        .mobile-nav ul li a {
+            display: block; padding: 0.85rem 2rem;
+            font-size: 0.95rem; font-weight: 600; color: var(--text-dark);
+            text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .mobile-nav ul li a:hover { background: var(--cream); color: var(--gold-dark); }
+        .mobile-nav .mobile-cta {
+            margin: 0.75rem 2rem 1rem; display: block; text-align: center;
+            background: var(--gold); color: var(--black) !important; border-radius: 50px;
+            padding: 0.85rem 1.5rem !important; font-weight: 700 !important;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        @media (max-width: 1050px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ── CONTAINER ── */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 60%, var(--brown-mid) 100%);
+            padding: 72px 2rem 64px; text-align: center;
+        }
+        .page-hero-eyebrow {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--teal); margin-bottom: 1rem;
+        }
+        .page-hero h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800;
+            color: var(--white); line-height: 1.15; margin-bottom: 1.25rem;
+        }
+        .page-hero h1 span { color: var(--teal); }
+        .page-hero p {
+            font-size: 1rem; color: rgba(255,255,255,0.65);
+            max-width: 600px; margin: 0 auto; line-height: 1.7;
+        }
+
+        /* ── DISCLAIMER CONTENT ── */
+        .disclaimer-section { padding: 72px 0 80px; }
+
+        .disclaimer-box {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            border-radius: 20px; padding: 2.5rem 3rem; margin-bottom: 2.5rem;
+            border-left: 6px solid var(--teal);
+        }
+        .disclaimer-box-label {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--teal-light); margin-bottom: 0.75rem;
+        }
+        .disclaimer-box p {
+            font-size: 1.05rem; color: var(--cream); line-height: 1.75; font-weight: 500;
+        }
+
+        .disclaimer-block { margin-bottom: 2.5rem; }
+        .disclaimer-block h2 {
+            font-size: 1.1rem; font-weight: 700; color: var(--text-dark);
+            margin-bottom: 0.75rem; padding-bottom: 0.6rem;
+            border-bottom: 2px solid var(--cream-dark);
+            display: flex; align-items: center; gap: 0.6rem;
+        }
+        .disclaimer-block h2::before {
+            content: ''; display: inline-block; width: 4px; height: 1.1rem;
+            background: var(--teal); border-radius: 2px; flex-shrink: 0;
+        }
+        .disclaimer-block p {
+            font-size: 0.92rem; color: var(--text-mid); line-height: 1.8; text-align: justify;
+        }
+        .disclaimer-block p + p { margin-top: 0.85rem; }
+
+        .effective-date {
+            background: var(--cream); border-radius: 10px; padding: 1rem 1.5rem;
+            font-size: 0.82rem; color: var(--text-mid); margin-bottom: 2.5rem;
+            border-left: 3px solid var(--teal);
+        }
+
+        /* ── FOOTER ── */
+        footer { background: var(--black); color: var(--brown-light); padding: 3rem 2rem; }
+        .footer-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+        }
+        .footer-brand h3 { font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 0.25rem; }
+        .footer-brand h3 span { color: var(--gold); }
+        .footer-brand .footer-tagline {
+            font-size: 0.78rem; color: var(--gold); text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 1rem;
+        }
+        .footer-brand p { font-size: 0.87rem; line-height: 1.75; max-width: 280px; }
+        .footer-col h4 {
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--gold); margin-bottom: 1rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.6rem; }
+        .footer-col ul li a { color: var(--brown-light); text-decoration: none; font-size: 0.87rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: var(--white); }
+        .footer-bottom {
+            max-width: 1280px; margin: 2rem auto 0; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.8rem; color: rgba(200,184,168,0.6);
+            flex-wrap: wrap; gap: 0.75rem;
+        }
+
+        @media (max-width: 1024px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .disclaimer-box { padding: 1.75rem 1.5rem; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+            .page-hero { padding: 56px 1.5rem 48px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#pipeline">Pipeline</a></li>
+            <li><a href="index.html#partners">Partners</a></li>
+            <li><a href="rd.html">R&amp;D</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#pipeline">Pipeline</a></li>
+        <li><a href="rd.html">R&amp;D</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="index.html#contact" class="mobile-cta">Contact Us</a></li>
+    </ul>
+</div>
+
+<!-- ── HERO ── -->
+<section class="page-hero">
+    <div class="page-hero-eyebrow">Legal Notice</div>
+    <h1>Website <span>Disclaimer</span></h1>
+    <p>Please read this disclaimer carefully before using this website or relying on any information presented herein.</p>
+</section>
+
+<!-- ── CONTENT ── -->
+<section class="disclaimer-section">
+    <div class="container">
+
+        <div class="effective-date">
+            <strong>Effective Date:</strong> January 1, 2026 &nbsp;·&nbsp; <strong>Last Updated:</strong> May 2026 &nbsp;·&nbsp; NEG+ Innovations, Inc. · Weston, Massachusetts
+        </div>
+
+        <!-- PRIMARY DISCLAIMER -->
+        <div class="disclaimer-box">
+            <div class="disclaimer-box-label">Primary Disclaimer</div>
+            <p>This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA.</p>
+        </div>
+
+        <div class="disclaimer-block">
+            <h2>Educational Purpose Only</h2>
+            <p>This website and all content, materials, and information published herein are provided solely for educational and informational purposes. The information presented on this website does not constitute medical advice, clinical guidance, regulatory guidance, investment advice, or legal advice of any kind.</p>
+            <p>NEG+ Innovations, Inc. makes no representations or warranties, express or implied, regarding the accuracy, completeness, currency, or reliability of any information presented on this website. All content is subject to change without notice.</p>
+        </div>
+
+        <div class="disclaimer-block">
+            <h2>Pre-Clinical Development Stage</h2>
+            <p>All medical devices described or depicted on this website — including the Belotte Colpotomizer™, POP-Q AutoSense™ (POP-Q Sensorized Device™), Pudendal Nerve Block Device™, and MUMS™ — are in the pre-clinical development stage. None of these devices have been manufactured as commercial products, submitted to the U.S. Food &amp; Drug Administration (FDA) for review, or received FDA clearance, De Novo classification, or Premarket Approval (PMA).</p>
+            <p>No NEG+ Innovations device is currently available for clinical use, sale, distribution, or commercial deployment. Device descriptions, specifications, illustrations, and performance claims presented on this website are based on engineering concept development and design intent, and may not reflect the final form, function, or capabilities of any device ultimately submitted for regulatory review.</p>
+        </div>
+
+        <div class="disclaimer-block">
+            <h2>No FDA Review or Approval</h2>
+            <p>No content, claim, illustration, or statement on this website has been reviewed, evaluated, cleared, or approved by the U.S. Food &amp; Drug Administration or any other regulatory authority. References to regulatory strategies, pathways (510(k), De Novo, IDE, PMA), or FDA submission plans describe intended future activities and do not represent completed regulatory submissions or outcomes.</p>
+            <p>This website does not make any claim that NEG+ Innovations devices are safe or effective for any clinical indication. Safety and efficacy determinations require completion of formal preclinical and clinical testing under an FDA-approved Investigational Device Exemption (IDE) and subsequent review by the FDA under applicable regulatory pathways.</p>
+        </div>
+
+        <div class="disclaimer-block">
+            <h2>Not an Offer to Sell Securities</h2>
+            <p>Nothing on this website constitutes, or shall be construed as, an offer to sell, a solicitation of an offer to buy, or a recommendation to purchase any securities of NEG+ Innovations, Inc. or any other entity. Any offering of securities by NEG+ Innovations, Inc. will be conducted only pursuant to a valid exemption from registration under the Securities Act of 1933, as amended, and applicable state securities laws.</p>
+            <p>References to investment opportunities, capital formation, funding rounds, or investor materials on this website are provided for general informational context only and are directed exclusively to accredited investors as defined under Rule 501 of Regulation D. Formal investment materials, including any private placement memorandum, will be provided only to verified accredited investors pursuant to applicable securities law requirements. Past performance and projections do not guarantee future results.</p>
+        </div>
+
+        <div class="disclaimer-block">
+            <h2>Forward-Looking Statements</h2>
+            <p>This website may contain forward-looking statements, including statements regarding planned clinical studies, regulatory submissions, funding timelines, partnership developments, product development milestones, and commercial projections. These statements are based on current expectations and assumptions and involve known and unknown risks, uncertainties, and other factors that could cause actual results to differ materially from those expressed or implied.</p>
+            <p>Forward-looking statements are not guarantees of future performance. NEG+ Innovations, Inc. undertakes no obligation to update or revise any forward-looking statement to reflect events or circumstances after the date of publication, except as required by applicable law.</p>
+        </div>
+
+        <div class="disclaimer-block">
+            <h2>No Doctor-Patient Relationship</h2>
+            <p>This website does not create a doctor-patient relationship, a clinician-patient relationship, or any other professional relationship between NEG+ Innovations, Inc., its founder, its officers, its advisors, or any affiliated individual, and any visitor to this website. Information presented on this website should not be used as a substitute for professional medical advice, diagnosis, or treatment. Individuals with medical concerns should consult a qualified and licensed healthcare professional.</p>
+        </div>
+
+        <div class="disclaimer-block">
+            <h2>Intellectual Property</h2>
+            <p>All device names, trademarks, trade names, logos, and content on this website, including but not limited to Belotte Colpotomizer™, POP-Q AutoSense™, Pudendal Nerve Block Device™, and MUMS™, are the property of NEG+ Innovations, Inc. or are used with permission. Patent applications are pending. Unauthorized reproduction, distribution, or use of any content on this website is prohibited.</p>
+        </div>
+
+        <div class="disclaimer-block">
+            <h2>Confidentiality</h2>
+            <p>Certain information presented on this website is proprietary and confidential. Access to this website does not constitute authorization to reproduce, distribute, or disclose any content herein to third parties without the express prior written consent of NEG+ Innovations, Inc. Certain materials are available only under the terms of a mutual non-disclosure agreement (MNDA).</p>
+        </div>
+
+        <div class="disclaimer-block">
+            <h2>Contact</h2>
+            <p>For questions regarding this disclaimer or any content on this website, please contact NEG+ Innovations, Inc. at <a href="mailto:info@negplusinnovations.com" style="color:var(--teal-dark);font-weight:600;">info@negplusinnovations.com</a> · Weston, Massachusetts.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <h3>NEG<span>+</span> Innovations</h3>
+            <div class="footer-tagline">New England Gynecology Plus</div>
+            <p>A physician-led medical device company advancing women's pelvic health through precision surgical and diagnostic innovation. Headquartered in Weston, Massachusetts.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
+                <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
+                <li><a href="rd.html#pnb">Pudendal Nerve Block Device™</a></li>
+                <li><a href="rd.html#mums">MUMS™</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="index.html#about">About NEG+</a></li>
+                <li><a href="index.html#advisory">Advisory Board</a></li>
+                <li><a href="rd.html">R&amp;D</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="news.html">News &amp; Updates</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+                <li><a href="mailto:info@negplusinnovations.com">info@negplusinnovations.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 NEG+ Innovations, Inc. All Rights Reserved. Weston, Massachusetts.</span>
+        <span>Patent Pending | Confidential | Reg D Rule 506(b) — Accredited Investors Only</span>
+    </div>
+</footer>
+
+<script>
+(function() {
+    var btn = document.getElementById('navHamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    if (!btn || !mobileNav) return;
+    btn.addEventListener('click', function() {
+        var isOpen = btn.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+        if (isOpen) { mobileNav.style.display = 'block'; }
+        else { mobileNav.style.display = 'none'; }
+    });
+})();
+</script>
+</body>
+</html>

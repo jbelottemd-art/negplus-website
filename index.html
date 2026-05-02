@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEG+ Innovations, Inc. | Advancing Women's Health Technology</title>
+    <style>
+        :root {
+            --black:      #1B263B;
+            --gold:       #41B3A3;
+            --gold-dark:  #2A9D8F;
+            --gold-light: #7DD3CB;
+            --brown-dark: #0E2A47;
+            --brown-mid:  #2D4A6B;
+            --brown-light:#778DA9;
+            --cream:      #E8EEF4;
+            --cream-dark: #D8E3EE;
+            --white:      #FFFFFF;
+            --text-dark:  #1B263B;
+            --text-mid:   #4A6580;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+        }
+
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo-mark {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--black);
+            line-height: 1;
+        }
+
+        .nav-logo-mark span { color: var(--gold); }
+
+        .nav-logo-img { display: block; height: 44px; width: auto; }
+        .nav-logo-sub {
+
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--brown-mid);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            line-height: 1.3;
+            border-left: 2px solid var(--gold);
+            padding-left: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 0 0.6rem;
+            height: 72px;
+            line-height: 72px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-mid);
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -3px;
+        }
+
+        .nav-links a:hover { color: var(--gold-dark); border-bottom-color: var(--gold); }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--black) !important;
+            border-radius: 50px;
+            padding: 0 1rem !important;
+            height: 40px !important;
+            line-height: 40px !important;
+            margin: auto 0;
+            font-size: 0.85rem !important;
+            transition: background 0.2s, transform 0.2s !important;
+            border-bottom: none !important;
+        }
+
+        .nav-cta:hover { background: var(--gold-dark) !important; transform: translateY(-1px); }
+
+        /* ── HERO ── */
+        .hero {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 55%, #0a1e35 100%);
+            color: var(--white);
+            padding: 110px 2rem 90px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h80v80H0z' fill='none'/%3E%3Cpath d='M0 40h80M40 0v80' stroke='rgba(65,179,163,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+        }
+
+        .hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+
+        .hero-eyebrow {
+            display: inline-block;
+            background: rgba(65,179,163,0.15);
+            border: 1px solid rgba(65,179,163,0.35);
+            color: var(--gold-light);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 20px;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 .gold { color: var(--gold); }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--brown-light);
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.75;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 16px 42px;
+            background: var(--gold);
+            color: var(--black);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 6px 24px rgba(65,179,163,0.35);
+            transition: all 0.25s;
+        }
+
+        .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(65,179,163,0.5); }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 15px 42px;
+            border: 2px solid rgba(65,179,163,0.6);
+            color: var(--gold-light);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.25s;
+        }
+
+        .btn-outline:hover { border-color: var(--gold); background: rgba(65,179,163,0.10); }
+
+        .hero-badges {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(65,179,163,0.2);
+        }
+
+        .hero-badge { text-align: center; }
+
+        .hero-badge-num {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .hero-badge-label {
+            font-size: 0.75rem;
+            color: var(--brown-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* ── COMMON ── */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+        section { padding: 90px 0; }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-title span { color: var(--gold-dark); }
+
+        .section-body {
+            font-size: 1.05rem;
+            color: var(--text-mid);
+            max-width: 760px;
+            line-height: 1.8;
+        }
+
+        .section-header { text-align: center; margin-bottom: 4rem; }
+
+        .section-header .section-body { margin: 0 auto; }
+
+        .divider {
+            width: 56px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .divider-center { margin: 1rem auto 1.5rem; }
+
+        /* ── ABOUT ── */
+        .about { background: var(--cream); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-visual {
+            background: linear-gradient(135deg, var(--black), var(--brown-dark));
+            border-radius: 24px;
+            padding: 3rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-visual::before {
+            content: 'NEG+';
+            position: absolute;
+            font-size: 9rem;
+            font-weight: 900;
+            color: rgba(65,179,163,0.06);
+            right: -1rem;
+            bottom: -2rem;
+            line-height: 1;
+        }
+
+        .about-visual h3 { color: var(--gold); font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; }
+
+        .about-visual p { color: var(--brown-light); line-height: 1.75; margin-bottom: 1.5rem; }
+
+        .about-pill {
+            display: inline-block;
+            background: rgba(65,179,163,0.15);
+            border: 1px solid rgba(65,179,163,0.3);
+            color: var(--gold-light);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 5px 14px;
+            border-radius: 50px;
+            margin: 3px 3px 3px 0;
+        }
+
+        .about-checklist { list-style: none; margin-top: 1.5rem; }
+
+        .about-checklist li {
+            padding: 0.55rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+            color: var(--text-mid);
+            font-size: 1rem;
+        }
+
+        .about-checklist li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ── PRODUCTS ── */
+        .products { background: var(--white); }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid #E8E0D4;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            border-color: var(--gold);
+        }
+
+        .product-card-header {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card-header-text {
+            padding: 1.6rem 2rem 1.4rem;
+        }
+
+        .device-illustration {
+            display: block;
+            width: 100%;
+            line-height: 0;
+            overflow: hidden;
+        }
+        .device-illustration svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .product-card-header h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .product-card-header .product-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .product-card-body { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
+
+        .product-card-body p {
+            color: var(--text-mid);
+            font-size: 0.95rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-specs { margin-top: auto; }
+
+        .product-spec {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-top: 1px solid #D8E3EE;
+            font-size: 0.85rem;
+        }
+
+        .product-spec-key { color: var(--brown-mid); font-weight: 500; }
+
+        .product-spec-val { color: var(--text-dark); font-weight: 700; text-align: right; }
+
+        .product-link {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 12px;
+            border: 2px solid var(--gold);
+            border-radius: 50px;
+            color: var(--gold-dark);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .product-link:hover { background: var(--gold); color: var(--black); }
+
+        /* ── PIPELINE ── */
+        .pipeline { background: var(--cream); }
+
+        .pipeline-stages {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .pipeline-stage {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            position: relative;
+            border-top: 4px solid var(--gold);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+
+        .stage-num {
+            width: 44px;
+            height: 44px;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 0 auto 1rem;
+        }
+
+        .pipeline-stage h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
+
+        .pipeline-stage p { font-size: 0.8rem; color: var(--brown-mid); line-height: 1.5; }
+
+        .pipeline-timeline {
+            margin-top: 3rem;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .pipeline-timeline h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+        }
+
+        .timeline-device { margin-bottom: 1.5rem; }
+
+        .timeline-device-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-bar { display: flex; gap: 4px; height: 36px; border-radius: 8px; overflow: hidden; }
+
+        .tbar-seg {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--white);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding: 0 6px;
+        }
+
+        .tbar-concept  { background: #8B6914; flex: 1.5; }
+        .tbar-proto    { background: #2A9D8F; flex: 2; }
+        .tbar-preclin  { background: #41B3A3; flex: 2; color: var(--black); }
+        .tbar-clinical { background: #2D4A6B; flex: 2.5; }
+        .tbar-fda      { background: #0E2A47; flex: 1.5; }
+        .tbar-launch   { background: #1B263B; flex: 1; }
+
+        .timeline-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--brown-mid); }
+
+        .legend-dot { width: 14px; height: 14px; border-radius: 3px; }
+
+        /* ── STATS ── */
+        .stats { background: var(--black); }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-box { padding: 2rem; }
+
+        .stat-num {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--brown-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* ── FUNDING ── */
+        .funding { background: var(--white); }
+
+        .funding-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .funding-card {
+            background: var(--cream);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border-left: 5px solid var(--gold);
+        }
+
+        .funding-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .funding-card p { color: var(--text-mid); font-size: 0.95rem; line-height: 1.75; }
+
+        .funding-items { list-style: none; margin-top: 1rem; }
+
+        .funding-items li {
+            padding: 0.6rem 0;
+            padding-left: 1.6rem;
+            position: relative;
+            color: var(--text-mid);
+            font-size: 0.92rem;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .funding-items li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--gold-dark);
+            font-size: 1rem;
+        }
+
+        /* ── ADVISORY ── */
+        .advisory { background: var(--cream-dark); }
+
+        .advisory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .advisor-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border-top: 3px solid var(--gold);
+            transition: all 0.25s;
+        }
+
+        .advisor-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.10); }
+
+        .advisor-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--black), var(--brown-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border: 2px solid var(--gold);
+        }
+
+        .advisor-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+
+        .advisor-card .advisor-role { font-size: 0.78rem; color: var(--gold-dark); font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.75rem; }
+
+        .advisor-card p { font-size: 0.83rem; color: var(--text-mid); line-height: 1.6; }
+
+        /* ── KOL TESTIMONIAL ── */
+        .kol-testimonial {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            border-radius: 20px;
+            padding: 2.75rem 3rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(65,179,163,0.25);
+        }
+        .kol-testimonial::before {
+            content: '\201C';
+            position: absolute;
+            top: -0.3rem;
+            left: 1.5rem;
+            font-size: 9rem;
+            line-height: 1;
+            color: var(--teal);
+            opacity: 0.18;
+            font-family: Georgia, serif;
+            pointer-events: none;
+        }
+        .kol-quote {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--cream);
+            font-style: italic;
+            margin: 0 0 1.75rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--teal);
+            text-align: left;
+        }
+        .kol-attribution {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+        .kol-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--white);
+            flex-shrink: 0;
+            border: 2px solid rgba(125,211,203,0.4);
+        }
+        .kol-meta { display: flex; flex-direction: column; gap: 0.15rem; }
+        .kol-name { font-size: 1rem; font-weight: 700; color: var(--white); }
+        .kol-title { font-size: 0.8rem; color: var(--teal-light); font-weight: 600; letter-spacing: 0.5px; }
+        .kol-institution { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+
+        /* ── MARKET ── */
+        .market { background: var(--white); }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .market-card {
+            padding: 2rem;
+            background: var(--cream);
+            border-radius: 16px;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .market-card .market-device {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .market-card h4 { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; }
+
+        .market-card .market-tam { font-size: 2rem; font-weight: 800; color: var(--text-dark); }
+
+        .market-card .market-tam-label { font-size: 0.78rem; color: var(--brown-mid); margin-bottom: 1rem; }
+
+        .market-card p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.7; }
+
+        /* ── IP ── */
+        .ip { background: var(--cream); }
+
+        .ip-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .ip-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .ip-card h4 { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
+
+        .ip-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--black) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 2rem;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--gold);
+            margin-bottom: 1.2rem;
+        }
+
+        .cta-section p {
+            font-size: 1.15rem;
+            color: var(--brown-light);
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--black);
+            color: var(--brown-light);
+            padding: 3rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .footer-brand h3 span { color: var(--gold); }
+
+        .footer-brand .footer-tagline {
+            font-size: 0.78rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p { font-size: 0.87rem; line-height: 1.75; max-width: 280px; }
+
+        .footer-col h4 {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul { list-style: none; }
+
+        .footer-col ul li { margin-bottom: 0.6rem; }
+
+        .footer-col ul li a {
+            color: var(--brown-light);
+            text-decoration: none;
+            font-size: 0.87rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover { color: var(--white); }
+
+        .footer-bottom {
+            max-width: 1280px;
+            margin: 2.5rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: rgba(200,184,168,0.6);
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .products-grid { grid-template-columns: 1fr 1fr; }
+            .advisory-grid { grid-template-columns: repeat(2, 1fr); }
+            .pipeline-stages { grid-template-columns: repeat(3, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 1050px) {
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 768px) {
+
+            .about-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
+            .market-grid, .ip-grid { grid-template-columns: 1fr; }
+            .funding-grid { grid-template-columns: 1fr; }
+            .advisory-grid { grid-template-columns: 1fr 1fr; }
+            .pipeline-stages { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+            .hero-badges { gap: 1.5rem; }
+            section { padding: 64px 0; }
+        }
+    
+
+        /* ── DISCLAIMER BANNER ── */
+        .disclaimer-banner {
+            background: linear-gradient(90deg, #1a3a5c 0%, #0E2A47 100%);
+            border-left: 5px solid var(--gold);
+            padding: 0.8rem 2rem;
+            text-align: center;
+        }
+        .disclaimer-banner p {
+            font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.5;
+            max-width: 960px; margin: 0 auto;
+        }
+        .disclaimer-banner strong { color: var(--gold-light); }
+        .disclaimer-banner a { color: var(--gold-light); text-decoration: underline; }
+
+        /* ── FOOTER DISCLAIMER ── */
+        .footer-disclaimer {
+            max-width: 1280px; margin: 2rem auto 0; padding: 1.25rem 1.5rem;
+            background: rgba(65,179,163,0.08); border-radius: 10px;
+            border-left: 4px solid var(--gold);
+        }
+        .footer-disclaimer p { font-size: 0.8rem; color: rgba(200,220,240,0.75); line-height: 1.6; }
+        .footer-disclaimer strong { color: var(--gold-light); }
+
+        /* ── TEXT JUSTIFY ── */
+        .section-body, .product-card-body p, .market-card p,
+        .funding-card p, .ip-card p, .advisor-card p,
+        .about-text p, .hero-sub, .about-visual p,
+        .page-hero p, .mission .section-body,
+        .device-body p, .cta-section p { text-align: justify; }
+
+        /* ── FUNDING HOOK BANNER ── */
+        .funding-hook {
+            margin-top: 2.5rem;
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            border-radius: 16px;
+            padding: 2.5rem 3rem;
+            text-align: center;
+            border: 1px solid rgba(65,179,163,0.2);
+        }
+        .funding-hook h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .funding-hook p {
+            color: var(--brown-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+            text-align: center !important;
+        }
+        .funding-grid-2 { grid-template-columns: 1fr 1fr !important; }
+        @media (max-width: 768px) { .funding-grid-2 { grid-template-columns: 1fr !important; } }
+
+
+        /* ── PARTNERS & COLLABORATORS ── */
+        .partners { background: var(--cream); }
+
+        .partners-intro {
+            max-width: 760px; margin: 0 auto 3.5rem; text-align: center;
+        }
+        .partners-intro .section-body { margin: 0 auto; text-align: justify; }
+
+        /* Academic anchor strip */
+        .academic-strip {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            border-radius: 20px;
+            padding: 2.5rem 2.5rem 2rem;
+            margin-bottom: 3rem;
+        }
+        .academic-strip-header {
+            display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem;
+        }
+        .academic-strip-label {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--gold-light);
+        }
+        .academic-strip-title {
+            font-size: 1.15rem; font-weight: 800; color: var(--white); line-height: 1.25;
+        }
+        .academic-strip-title span { color: var(--gold); }
+        .academic-rule { flex: 1; height: 1px; background: rgba(65,179,163,0.25); }
+        .academic-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+        }
+        .academic-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(65,179,163,0.25);
+            border-left: 4px solid var(--gold);
+            border-radius: 14px; padding: 1.5rem 1.6rem;
+            transition: background 0.2s;
+        }
+        .academic-card:hover { background: rgba(255,255,255,0.10); }
+        .academic-badge {
+            display: inline-block;
+            background: rgba(65,179,163,0.2);
+            border: 1px solid rgba(65,179,163,0.4);
+            color: var(--gold-light);
+            font-size: 0.64rem; font-weight: 700; letter-spacing: 1.5px;
+            text-transform: uppercase; padding: 3px 10px; border-radius: 50px;
+            margin-bottom: 0.65rem;
+        }
+        .academic-card h4 {
+            font-size: 1rem; font-weight: 800; color: var(--white); margin-bottom: 0.2rem;
+        }
+        .academic-card .academic-role {
+            font-size: 0.75rem; font-weight: 600; color: var(--gold); margin-bottom: 0.7rem;
+            letter-spacing: 0.3px;
+        }
+        .academic-card p {
+            font-size: 0.85rem; color: rgba(255,255,255,0.72); line-height: 1.65;
+            text-align: justify;
+        }
+
+        /* Partner category tiles */
+        .partner-categories {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+        }
+        .partner-tile {
+            background: var(--white); border-radius: 16px; padding: 1.6rem 1.5rem;
+            border: 1px solid rgba(65,179,163,0.12);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+        .partner-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.09);
+            border-color: rgba(65,179,163,0.35);
+        }
+        .partner-tile-icon { font-size: 1.5rem; margin-bottom: 0.65rem; }
+        .partner-tile-title {
+            font-size: 0.88rem; font-weight: 700; color: var(--text-dark);
+            margin-bottom: 0.4rem; line-height: 1.3;
+        }
+        .partner-tile-desc {
+            font-size: 0.78rem; color: var(--text-mid); line-height: 1.6;
+            margin-bottom: 0.85rem; text-align: justify;
+        }
+        .partner-list { list-style: none; padding: 0; }
+        .partner-list li {
+            font-size: 0.77rem; color: var(--text-mid);
+            padding: 0.25rem 0 0.25rem 1rem;
+            border-bottom: 1px solid rgba(65,179,163,0.1);
+            position: relative; line-height: 1.4;
+        }
+        .partner-list li:last-child { border-bottom: none; }
+        .partner-list li::before {
+            content: "→"; position: absolute; left: 0;
+            color: var(--gold); font-size: 0.68rem; top: 0.3rem;
+        }
+
+        @media (max-width: 1024px) { .partner-categories { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .academic-grid { grid-template-columns: 1fr; }
+            .partner-categories { grid-template-columns: 1fr; }
+        }
+
+        /* ── HAMBURGER / MOBILE NAV ── */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 19px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1100;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--black);
+            border-radius: 2px;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+            transform-origin: center;
+        }
+
+        /* animated X state */
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Mobile nav drawer */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 75px; /* just below the nav bar */
+            left: 0; right: 0;
+            background: var(--white);
+            border-top: 2px solid var(--gold);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            z-index: 1050;
+            padding: 1rem 0 1.5rem;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+        }
+
+        .mobile-nav.open {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav ul li a {
+            display: block;
+            padding: 0.75rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-mid);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-left: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .mobile-nav ul li a:hover,
+        .mobile-nav ul li a:focus {
+            color: var(--gold-dark);
+            border-left-color: var(--gold);
+            background: var(--cream);
+        }
+
+        .mobile-nav .mobile-cta {
+            display: block;
+            margin: 1rem 2rem 0;
+            text-align: center;
+            background: var(--gold);
+            color: var(--black) !important;
+            border-radius: 50px;
+            padding: 0.7rem 1.5rem !important;
+            font-size: 0.9rem !important;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-left: none !important;
+            transition: background 0.2s;
+        }
+
+        .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
+
+        @media (max-width: 1050px) {
+            .nav-hamburger { display: flex; }
+        }
+
+    </style>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="A physician-led Delaware C-Corp developing multiple medical devices targeting critical unmet needs in women's pelvic surgery, diagnostics, analgesia, and intrapartum monitoring.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NEG+ Innovations, Inc. — Women's Health Medical Device Platform">
+    <meta property="og:description" content="A physician-led Delaware C-Corp developing multiple medical devices targeting critical unmet needs in women's pelvic surgery, diagnostics, analgesia, and intrapartum monitoring.">
+    <meta property="og:url" content="https://negplusinnovations.com/">
+    <meta property="og:image" content="https://negplusinnovations.com/logo.svg">
+    <meta property="og:site_name" content="NEG+ Innovations, Inc.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="NEG+ Innovations, Inc. — Women's Health Medical Device Platform">
+    <meta name="twitter:description" content="A physician-led Delaware C-Corp developing multiple medical devices targeting critical unmet needs in women's pelvic surgery, diagnostics, analgesia, and intrapartum monitoring.">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#pipeline">Pipeline</a></li>
+            <li><a href="#partners">Partners</a></li>
+            <li><a href="rd.html">R&amp;D</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="rd.html">R&amp;D</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="#contact" class="mobile-cta">Contact Us</a></li>
+    </ul>
+</div>
+
+<!-- ── DISCLAIMER BANNER ── -->
+<div class="disclaimer-banner">
+    <p><strong>Educational Purposes Only:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. &nbsp;<a href="disclaimer.html">Full Disclaimer →</a></p>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-eyebrow">Physician-Led Medical Device Innovation</div>
+        <h1>Transforming <span class="gold">Women's Health</span><br>Through Precision Technology</h1>
+        <p class="hero-sub">NEG+ Innovations, Inc. is building a differentiated, physician-designed medical device portfolio targeting critical unmet needs in women's pelvic surgery, diagnostics, interventional analgesia, and intrapartum monitoring — positioned as the ERAS innovation engine for women's health.</p>
+        <div class="hero-actions">
+            <a href="#products" class="btn-primary">Explore Our Platform</a>
+            <a href="#pipeline" class="btn-outline">View Development Pipeline</a>
+        </div>
+        <div class="hero-badges">
+            <div class="hero-badge">
+                <div class="hero-badge-num">Portfolio</div>
+                <div class="hero-badge-label">Device Programs</div>
+            </div>
+            <div class="hero-badge">
+                <div class="hero-badge-num">$400M+</div>
+                <div class="hero-badge-label">Combined TAM (US)</div>
+            </div>
+            <div class="hero-badge">
+                <div class="hero-badge-num">1.5M+</div>
+                <div class="hero-badge-label">Annual Addressable Procedures</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── STATS ── -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-num">$400M+</div>
+                <div class="stat-label">Combined US Addressable Market</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">1.5M+</div>
+                <div class="stat-label">Annual Procedures Addressable</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">Multi</div>
+                <div class="stat-label">Independent FDA Pathways</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num">$500–800M</div>
+                <div class="stat-label">Portfolio Exit Target</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div>
+                <div class="section-label">About NEG+ Innovations</div>
+                <h2 class="section-title">Physician-Led.<br><span>Evidence-Driven.</span> Mission-Focused.</h2>
+                <div class="divider"></div>
+                <p class="section-body" style="margin-bottom:1.5rem;">NEG+ Innovations, Inc. is a physician-founded Delaware C-Corporation headquartered in Weston, Massachusetts, built around a singular mission: to develop transformative medical devices that address persistent, clinically documented gaps in women's pelvic health and surgical instrumentation.</p>
+                <p class="section-body" style="margin-bottom:1.5rem;">Founded by Dr. Jimmy Belotte (MD, PhD, MBA, FACOG) — an OB/GYN with deep expertise in translational medicine, medical device development, and healthcare strategy — NEG+ Innovations combines elite clinical insight with sophisticated engineering and financial rigor.</p>
+                <p class="section-body">The multi-device portfolio is designed to mitigate concentration risk through sequenced development tiers — each program maintains an independent FDA pathway, enabling staged de-risking, sequential revenue events, and a unified commercial channel targeting the OB/GYN and urogynecology call point.</p>
+                <ul class="about-checklist">
+                    <li>Delaware C-Corporation — QSBS &amp; SBIR/STTR eligible</li>
+                    <li>All device IP formally assigned to and vested in the C-Corp</li>
+                    <li>All device IP is formally assigned to and vested in the C-Corp</li>
+                    <li>Founder co-investing personally on identical terms alongside investors</li>
+                    <li>Non-dilutive NIH SBIR/STTR funding pursued in parallel with private capital</li>
+                </ul>
+            </div>
+            <div class="about-visual">
+                <h3>Our Mission</h3>
+                <p>To bring innovative solutions to unmet needs in women's pelvic health, leveraging clinical expertise, precision engineering, and data science to produce advanced, differentiated medical devices that improve outcomes for patients worldwide.</p>
+                <p>We integrate clinical care, translational research, regulatory science, and strategic capital to bring first-in-class devices from concept to commercialization.</p>
+                <div>
+                    <span class="about-pill">Women's Health</span>
+                    <span class="about-pill">Pelvic Floor</span>
+                    <span class="about-pill">Surgical Innovation</span>
+                    <span class="about-pill">Digital Diagnostics</span>
+                    <span class="about-pill">MedTech</span>
+                    <span class="about-pill">FDA 510(k) / De Novo</span>
+                    <span class="about-pill">NIH STTR</span>
+                    <span class="about-pill">SBIR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── PRODUCTS ── -->
+<section class="products" id="products">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Product Portfolio</div>
+            <h2 class="section-title">One Platform. <span>One Exit.</span> One Vision.</h2>
+            <div class="divider divider-center"></div>
+            <p class="section-body">Each program addresses a distinct, clinically documented unmet need in women's pelvic surgery, diagnostics, interventional analgesia, and intrapartum monitoring — with independent regulatory pathways and a unified ERAS clinical narrative delivered through a single OB/GYN and urogynecology commercial channel.</p>
+        </div>
+        <div class="products-grid">
+
+            <!-- COLPOTOMIZER -->
+            <div class="product-card">
+                <div class="product-card-header">
+                    <div class="device-illustration"><svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto;" aria-label="Belotte Colpotomizer schematic"><defs><linearGradient id="c1bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0E2A47"/><stop offset="100%" stop-color="#1B263B"/></linearGradient><filter id="c1glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="400" height="190" fill="url(#c1bg)"/><path d="M0 45h400M0 90h400M0 135h400M0 180h400M50 0v220M100 0v220M150 0v220M200 0v220M250 0v220M300 0v220M350 0v220" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/><!-- Badge --><rect x="20" y="14" width="182" height="20" rx="10" fill="rgba(65,179,163,0.12)" stroke="rgba(65,179,163,0.3)" stroke-width="1"/><text x="111" y="28" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#7DD3CB">ELECTROSURGICAL COLPOTOMY</text><!-- Handle --><rect x="28" y="64" width="68" height="98" rx="12" fill="#1B4A6B" stroke="#41B3A3" stroke-width="1.5"/><line x1="36" y1="84" x2="88" y2="84" stroke="#41B3A3" stroke-opacity="0.35" stroke-width="1.2"/><line x1="36" y1="96" x2="88" y2="96" stroke="#41B3A3" stroke-opacity="0.35" stroke-width="1.2"/><line x1="36" y1="108" x2="88" y2="108" stroke="#41B3A3" stroke-opacity="0.35" stroke-width="1.2"/><line x1="36" y1="120" x2="88" y2="120" stroke="#41B3A3" stroke-opacity="0.35" stroke-width="1.2"/><line x1="36" y1="132" x2="88" y2="132" stroke="#41B3A3" stroke-opacity="0.35" stroke-width="1.2"/><circle cx="62" cy="152" r="6" fill="#41B3A3" opacity="0.85" filter="url(#c1glow)"/><text x="62" y="155" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="6" font-weight="700" fill="#0E2A47">ON</text><rect x="52" y="53" width="20" height="13" rx="3" fill="#2A9D8F"/><!-- Shaft --><rect x="96" y="91" width="184" height="9" rx="4" fill="#1B4A6B" stroke="#41B3A3" stroke-width="1"/><line x1="102" y1="95.5" x2="274" y2="95.5" stroke="#7DD3CB" stroke-opacity="0.45" stroke-width="1" stroke-dasharray="7 4"/><!-- Crown --><circle cx="316" cy="95" r="52" fill="none" stroke="#41B3A3" stroke-width="2.5" filter="url(#c1glow)"/><circle cx="316" cy="95" r="36" fill="none" stroke="#2A9D8F" stroke-width="1.5" stroke-dasharray="5 4"/><circle cx="316" cy="95" r="7" fill="#41B3A3"/><line x1="316" y1="60" x2="316" y2="88" stroke="#41B3A3" stroke-opacity="0.5" stroke-width="1"/><line x1="316" y1="102" x2="316" y2="130" stroke="#41B3A3" stroke-opacity="0.5" stroke-width="1"/><line x1="281" y1="95" x2="309" y2="95" stroke="#41B3A3" stroke-opacity="0.5" stroke-width="1"/><line x1="323" y1="95" x2="351" y2="95" stroke="#41B3A3" stroke-opacity="0.5" stroke-width="1"/><!-- Rotation arrows --><path d="M348 68 A52 52 0 0 1 360 95" stroke="#7DD3CB" stroke-width="2.2" fill="none"/><polygon points="349,64 344,73 354,70" fill="#7DD3CB"/><path d="M284 122 A52 52 0 0 1 272 95" stroke="#7DD3CB" stroke-width="2.2" fill="none"/><polygon points="283,126 288,117 278,120" fill="#7DD3CB"/><!-- Energy arc --><path d="M296 95 Q301 86 306 95 Q311 104 316 95 Q321 86 326 95 Q331 104 336 95" stroke="#7DD3CB" stroke-width="1.5" fill="none" opacity="0.75"/><!-- Labels --><text x="62" y="178" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7.5" font-weight="600" letter-spacing="1" fill="#41B3A3" opacity="0.65">HANDLE</text><text x="188" y="115" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" font-weight="600" letter-spacing="1" fill="#41B3A3" opacity="0.55">LAPAROSCOPIC SHAFT</text><text x="316" y="164" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7.5" font-weight="600" letter-spacing="1" fill="#41B3A3" opacity="0.65">360° CROWN</text></svg></div>
+                    <div class="product-card-header-text">
+                        <div class="product-tag">Surgical Access · Device 1 · <strong>Tier 1 — Immediate Commitment</strong></div>
+                        <h3>Belotte Colpotomizer™</h3>
+                    </div>
+                </div>
+                <div class="product-card-body">
+                    <p>A reusable handle + single-use disposable crown system for laparoscopic and robotic-assisted hysterectomy. Integrates automated 360° electrosurgical colpotomy, pneumatic vaginal stenting, and microprocessor-regulated energy delivery — targeting a 60-second colpotomy time versus the 8–14 minute current standard of care.</p>
+                    <div class="product-specs">
+                        <div class="product-spec">
+                            <span class="product-spec-key">TAM (US)</span>
+                            <span class="product-spec-val">$290M+</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Annual Hysterectomies</span>
+                            <span class="product-spec-val">~450,000</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Regulatory Pathway</span>
+                            <span class="product-spec-val">FDA 510(k)</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">ASP (Disposable)</span>
+                            <span class="product-spec-val">$400–$600</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Exit Target (Individual)</span>
+                            <span class="product-spec-val">$250–$400M</span>
+                        </div>
+                    </div>
+                    <a href="rd.html#colpotomizer" class="product-link">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- POP-Q -->
+            <div class="product-card">
+                <div class="product-card-header">
+                    <div class="device-illustration"><svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto;" aria-label="POP-Q AutoSense schematic"><defs><linearGradient id="c2bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0E2A47"/><stop offset="100%" stop-color="#1B263B"/></linearGradient></defs><rect width="400" height="190" fill="url(#c2bg)"/><path d="M0 45h400M0 90h400M0 135h400M0 180h400M50 0v220M100 0v220M150 0v220M200 0v220M250 0v220M300 0v220M350 0v220" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/><!-- Badge --><rect x="20" y="14" width="158" height="20" rx="10" fill="rgba(65,179,163,0.12)" stroke="rgba(65,179,163,0.3)" stroke-width="1"/><text x="99" y="28" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#7DD3CB">DIGITAL STAGING SYSTEM</text><!-- Sleeve ring from above --><ellipse cx="158" cy="105" rx="100" ry="68" fill="rgba(65,179,163,0.06)" stroke="#41B3A3" stroke-width="2.5"/><ellipse cx="158" cy="105" rx="70" ry="47" fill="none" stroke="#2A9D8F" stroke-width="1.5" stroke-dasharray="5 4"/><!-- 9 POP-Q sensor points --><circle cx="114" cy="66" r="6" fill="#41B3A3" stroke="#0E2A47" stroke-width="1.5"/><text x="104" y="58" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8" font-weight="700" fill="#7DD3CB">Aa</text><circle cx="202" cy="66" r="6" fill="#41B3A3" stroke="#0E2A47" stroke-width="1.5"/><text x="212" y="58" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8" font-weight="700" fill="#7DD3CB">Ba</text><circle cx="158" cy="40" r="6" fill="#41B3A3" stroke="#0E2A47" stroke-width="1.5"/><text x="158" y="33" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8" font-weight="700" fill="#7DD3CB">C</text><circle cx="158" cy="170" r="6" fill="#2A9D8F" stroke="#0E2A47" stroke-width="1.5"/><text x="158" y="184" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8" font-weight="700" fill="#7DD3CB">D</text><circle cx="80" cy="128" r="6" fill="#41B3A3" stroke="#0E2A47" stroke-width="1.5"/><text x="66" y="135" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8" font-weight="700" fill="#7DD3CB">Ap</text><circle cx="236" cy="128" r="6" fill="#41B3A3" stroke="#0E2A47" stroke-width="1.5"/><text x="250" y="135" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8" font-weight="700" fill="#7DD3CB">Bp</text><circle cx="65" cy="105" r="5" fill="#2A9D8F" stroke="#0E2A47" stroke-width="1"/><text x="51" y="109" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7.5" font-weight="700" fill="#7DD3CB">gh</text><circle cx="251" cy="105" r="5" fill="#2A9D8F" stroke="#0E2A47" stroke-width="1"/><text x="265" y="109" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7.5" font-weight="700" fill="#7DD3CB">pb</text><circle cx="158" cy="105" r="8" fill="#1B263B" stroke="#41B3A3" stroke-width="2"/><text x="158" y="109" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" font-weight="700" fill="#41B3A3">tvl</text><!-- Connector lines --><line x1="262" y1="86" x2="290" y2="74" stroke="#41B3A3" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3 2"/><line x1="262" y1="105" x2="290" y2="100" stroke="#41B3A3" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3 2"/><line x1="262" y1="124" x2="290" y2="126" stroke="#41B3A3" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3 2"/><!-- Digital readout --><rect x="290" y="52" width="96" height="112" rx="10" fill="#112233" stroke="#41B3A3" stroke-width="1.5"/><rect x="290" y="52" width="96" height="22" rx="10" fill="rgba(65,179,163,0.25)"/><text x="338" y="67" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#7DD3CB">POP-Q</text><text x="338" y="100" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="30" font-weight="800" fill="#41B3A3">II</text><text x="298" y="118" font-family="Courier New,monospace" font-size="7" fill="#7DD3CB">Aa −1  Ba −2</text><text x="298" y="130" font-family="Courier New,monospace" font-size="7" fill="#7DD3CB">Ap −3  Bp −3</text><text x="298" y="142" font-family="Courier New,monospace" font-size="7" fill="#7DD3CB">C  −5   D −6</text><rect x="298" y="150" width="74" height="8" rx="4" fill="rgba(65,179,163,0.2)"/><text x="335" y="157" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="6.5" font-weight="700" fill="#41B3A3">HL7 FHIR EXPORT</text></svg></div>
+                    <div class="product-card-header-text">
+                        <div class="product-tag">Pelvic Diagnostics · Device 2 · <strong>Tier 2 — Active Development</strong></div>
+                        <h3>POP-Q AutoSense™</h3>
+                    </div>
+                </div>
+                <div class="product-card-body">
+                    <p>A sensorized conformable anatomical sleeve system with indexed ring electronics, providing real-time simultaneous measurement of all nine POP-Q reference points. Delivers a digital twin 3D visualization and HL7 FHIR-compliant EMR export — eliminating the 30% inter-observer variability that currently drives repeat surgeries and misclassification.</p>
+                    <div class="product-specs">
+                        <div class="product-spec">
+                            <span class="product-spec-key">TAM (US, 2025)</span>
+                            <span class="product-spec-val">$1.06B → $1.7B by 2030</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Annual POP Surgeries</span>
+                            <span class="product-spec-val">200,000–300,000</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Regulatory Pathway</span>
+                            <span class="product-spec-val">510(k) + De Novo (SaMD)</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Revenue Model</span>
+                            <span class="product-spec-val">Capital + Consumable + SaaS</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Device Kit ASP</span>
+                            <span class="product-spec-val">$8,500–$12,500</span>
+                        </div>
+                    </div>
+                    <a href="rd.html#popq" class="product-link">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- PNB -->
+            <div class="product-card">
+                <div class="product-card-header">
+                    <div class="device-illustration"><svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto;" aria-label="Pudendal Nerve Block Device schematic"><defs><linearGradient id="c3bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0E2A47"/><stop offset="100%" stop-color="#1B263B"/></linearGradient><filter id="c3glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="400" height="190" fill="url(#c3bg)"/><path d="M0 45h400M0 90h400M0 135h400M0 180h400M50 0v220M100 0v220M150 0v220M200 0v220M250 0v220M300 0v220M350 0v220" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/><!-- Badge --><rect x="20" y="14" width="164" height="20" rx="10" fill="rgba(65,179,163,0.12)" stroke="rgba(65,179,163,0.3)" stroke-width="1"/><text x="102" y="28" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#7DD3CB">SINGLE-OPERATOR SYSTEM</text><!-- Finger body --><path d="M38 80 L240 80 Q264 80 264 105 Q264 130 240 130 L38 130 Q22 130 22 105 Q22 80 38 80Z" fill="#1B4A6B" stroke="#2D4A6B" stroke-width="1.5"/><path d="M238 82 Q262 82 262 98 Q262 86 242 84Z" fill="#2D4A6B" stroke="#41B3A3" stroke-opacity="0.4" stroke-width="1"/><!-- Sensor Ring 1 PMUT --><rect x="130" y="74" width="24" height="56" rx="5" fill="#41B3A3" opacity="0.95"/><text x="142" y="70" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" font-weight="700" letter-spacing="0.5" fill="#7DD3CB">PMUT</text><text x="142" y="145" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="6.5" fill="#7DD3CB">Ultrasound</text><!-- Sensor Ring 2 NIR --><rect x="172" y="77" width="16" height="50" rx="5" fill="#2A9D8F" opacity="0.95"/><text x="180" y="73" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" font-weight="700" fill="#7DD3CB">NIR</text><text x="180" y="145" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="6.5" fill="#7DD3CB">Optical</text><!-- Needle --><line x1="264" y1="105" x2="308" y2="105" stroke="#778DA9" stroke-width="2" stroke-linecap="round"/><polygon points="306,101 314,105 306,109" fill="#778DA9"/><text x="311" y="100" font-family="-apple-system,sans-serif" font-size="7" fill="#778DA9">Cannula</text><!-- Ultrasound waves --><path d="M270 105 Q283 91 296 105" stroke="#7DD3CB" stroke-width="1.8" fill="none" opacity="0.85" filter="url(#c3glow)"/><path d="M275 105 Q295 85 315 105" stroke="#7DD3CB" stroke-width="1.5" fill="none" opacity="0.6"/><path d="M280 105 Q307 79 334 105" stroke="#7DD3CB" stroke-width="1.2" fill="none" opacity="0.35"/><!-- Nerve tree --><path d="M360 32 Q350 52 338 68 L322 92 Q314 108 308 118" stroke="#41B3A3" stroke-width="2" fill="none" opacity="0.8"/><path d="M338 68 Q346 84 352 100" stroke="#41B3A3" stroke-width="1.5" fill="none" opacity="0.65"/><path d="M322 92 Q330 105 335 118" stroke="#41B3A3" stroke-width="1.2" fill="none" opacity="0.55"/><path d="M322 92 Q310 110 314 128" stroke="#41B3A3" stroke-width="1.2" fill="none" opacity="0.45"/><!-- Nerve target --><circle cx="308" cy="118" r="9" fill="none" stroke="#41B3A3" stroke-width="1.5" filter="url(#c3glow)"/><circle cx="308" cy="118" r="3" fill="#41B3A3"/><text x="323" y="121" font-family="-apple-system,sans-serif" font-size="7" font-weight="600" fill="#7DD3CB">N. pudendus</text><!-- Legend --><rect x="22" y="158" width="56" height="14" rx="7" fill="rgba(65,179,163,0.15)" stroke="rgba(65,179,163,0.3)" stroke-width="1"/><text x="50" y="169" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" font-weight="600" fill="#7DD3CB">Ultrasound</text><rect x="86" y="158" width="52" height="14" rx="7" fill="rgba(42,157,143,0.15)" stroke="rgba(42,157,143,0.3)" stroke-width="1"/><text x="112" y="169" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" font-weight="600" fill="#7DD3CB">NIR Optical</text><rect x="146" y="158" width="70" height="14" rx="7" fill="rgba(119,141,169,0.15)" stroke="rgba(119,141,169,0.3)" stroke-width="1"/><text x="181" y="169" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" font-weight="600" fill="#778DA9">Drug Delivery</text></svg></div>
+                    <div class="product-card-header-text">
+                        <div class="product-tag">Interventional Analgesia · Device 3 · <strong>Tier 1 — Immediate Commitment</strong></div>
+                        <h3>Pudendal Nerve Block Device™</h3>
+                    </div>
+                </div>
+                <div class="product-card-body">
+                    <p>A novel finger-mounted modular system integrating a reusable sensing module with PMUT ultrasound ring array and near-infrared optical ring for real-time nerve localization and vascular avoidance — raising pudendal nerve block success rates from 50–70% (landmark-guided) to the 82–97% range achieved by image-guided techniques, in a single-operator workflow.</p>
+                    <div class="product-specs">
+                        <div class="product-spec">
+                            <span class="product-spec-key">Market Opportunity</span>
+                            <span class="product-spec-val">$60M+ (US)</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Current Success Rate</span>
+                            <span class="product-spec-val">50–70% (landmark)</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Device Success Rate</span>
+                            <span class="product-spec-val">82–97% (projected)</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Regulatory Pathway</span>
+                            <span class="product-spec-val">FDA 510(k)</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Specialties Served</span>
+                            <span class="product-spec-val">OB/GYN, MFM, Urogyn, Pain</span>
+                        </div>
+                    </div>
+                    <a href="rd.html#pnb" class="product-link">Learn More →</a>
+                </div>
+            </div>
+
+            <!-- MUMS -->
+            <div class="product-card">
+                <div class="product-card-header">
+                    <div class="device-illustration"><svg viewBox="0 0 400 190" xmlns="http://www.w3.org/2000/svg" style="display:block;width:100%;height:auto;" aria-label="MUMS fetal monitoring schematic"><defs><linearGradient id="c4bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0E2A47"/><stop offset="100%" stop-color="#1B263B"/></linearGradient><filter id="c4glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><rect width="400" height="190" fill="url(#c4bg)"/><path d="M0 45h400M0 90h400M0 135h400M0 180h400M50 0v220M100 0v220M150 0v220M200 0v220M250 0v220M300 0v220M350 0v220" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/><!-- Badge --><rect x="20" y="14" width="176" height="20" rx="10" fill="rgba(65,179,163,0.12)" stroke="rgba(65,179,163,0.3)" stroke-width="1"/><text x="108" y="28" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.5" fill="#7DD3CB">AI-ENABLED INTRAPARTUM MONITOR</text><!-- Monitor casing --><rect x="22" y="42" width="248" height="138" rx="12" fill="#112233" stroke="#41B3A3" stroke-width="1.8"/><rect x="30" y="50" width="232" height="122" rx="8" fill="#071525"/><!-- FHR header --><text x="38" y="68" font-family="Courier New,monospace" font-size="9.5" font-weight="700" fill="#41B3A3">FHR</text><text x="38" y="78" font-family="Courier New,monospace" font-size="7" fill="#41B3A3" opacity="0.6">bpm</text><text x="225" y="76" text-anchor="end" font-family="Courier New,monospace" font-size="22" font-weight="700" fill="#41B3A3" filter="url(#c4glow)">142</text><!-- FHR waveform --><polyline points="38,98 48,98 52,90 56,106 60,98 68,98 72,92 76,100 80,96 84,98 92,98 96,91 100,105 104,98 112,98 116,93 120,103 124,98 132,98 136,90 140,106 144,98 152,98 156,92 160,100 164,96 168,98 176,98 180,91 184,105 188,98 196,98 200,93 204,103 208,98 216,98 220,92 224,100 228,98 234,98 238,96 242,98 250,98 255,98" stroke="#41B3A3" stroke-width="1.8" fill="none" stroke-linejoin="round"/><!-- Divider --><line x1="34" y1="112" x2="258" y2="112" stroke="#41B3A3" stroke-opacity="0.2" stroke-width="1"/><!-- UC header --><text x="38" y="124" font-family="Courier New,monospace" font-size="9.5" font-weight="700" fill="#2A9D8F">UC</text><text x="38" y="134" font-family="Courier New,monospace" font-size="7" fill="#2A9D8F" opacity="0.6">mmHg</text><text x="225" y="132" text-anchor="end" font-family="Courier New,monospace" font-size="22" font-weight="700" fill="#2A9D8F">28</text><!-- UC waveform --><polyline points="38,162 65,162 80,160 95,154 105,142 112,136 118,140 125,152 132,160 150,163 170,163 185,161 200,156 210,148 218,143 224,147 230,155 238,161 255,163" stroke="#2A9D8F" stroke-width="1.8" fill="none" stroke-linejoin="round"/><!-- Sensor patches --><rect x="294" y="55" width="44" height="28" rx="8" fill="#1B4A6B" stroke="#41B3A3" stroke-width="1.2"/><text x="316" y="66" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7.5" font-weight="700" fill="#41B3A3">Sensor</text><text x="316" y="76" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" fill="#7DD3CB">FHR</text><rect x="294" y="98" width="44" height="28" rx="8" fill="#1B4A6B" stroke="#2A9D8F" stroke-width="1.2"/><text x="316" y="109" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7.5" font-weight="700" fill="#2A9D8F">Sensor</text><text x="316" y="119" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" fill="#7DD3CB">TOCO</text><rect x="294" y="141" width="44" height="28" rx="8" fill="#1B4A6B" stroke="#778DA9" stroke-width="1.2"/><text x="316" y="152" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7.5" font-weight="700" fill="#778DA9">AI Core</text><text x="316" y="162" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" fill="#7DD3CB">SpO₂&#xB7;ECG</text><!-- Lead lines --><path d="M272 64 Q283 64 294 69" stroke="#41B3A3" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3 2" fill="none"/><path d="M272 112 Q283 112 294 112" stroke="#2A9D8F" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3 2" fill="none"/><path d="M272 155 Q283 155 294 155" stroke="#778DA9" stroke-width="1" stroke-opacity="0.45" stroke-dasharray="3 2" fill="none"/><!-- Wireless --><path d="M356 42 Q360 36 364 42" stroke="#41B3A3" stroke-width="1.5" fill="none" opacity="0.8"/><path d="M352 38 Q360 29 368 38" stroke="#41B3A3" stroke-width="1.2" fill="none" opacity="0.55"/><path d="M348 34 Q360 22 372 34" stroke="#41B3A3" stroke-width="1" fill="none" opacity="0.3"/><circle cx="360" cy="44" r="2.5" fill="#41B3A3"/><text x="360" y="56" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="7" fill="#41B3A3" opacity="0.7">Wireless</text></svg></div>
+                    <div class="product-card-header-text">
+                        <div class="product-tag">Intrapartum Monitoring · Device 4 · <strong>Tier 3 — Milestone-Gated</strong></div>
+                        <h3>MUMS™</h3>
+                    </div>
+                </div>
+                <div class="product-card-body">
+                    <p>Multimodal Uterine Monitoring System — an autonomous, AI-enabled intrapartum platform addressing the $2.45B fetal monitoring market. MUMS integrates continuous multiparameter sensing with AI-assisted classification to support safer labor and delivery, directly aligned with federal maternal health policy mandates and ERAS opioid-reduction objectives.</p>
+                    <div class="product-specs">
+                        <div class="product-spec">
+                            <span class="product-spec-key">Market (Global)</span>
+                            <span class="product-spec-val">$2.45B · 6.7% CAGR</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Indication</span>
+                            <span class="product-spec-val">High-risk labor &amp; delivery monitoring</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Regulatory Pathway</span>
+                            <span class="product-spec-val">De Novo / PMA</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Policy Alignment</span>
+                            <span class="product-spec-val">White House Blueprint · HRSA Mandate</span>
+                        </div>
+                        <div class="product-spec">
+                            <span class="product-spec-key">Development Stage</span>
+                            <span class="product-spec-val">Concept &amp; IP · SBIR Phase I</span>
+                        </div>
+                    </div>
+                    <a href="rd.html#mums" class="product-link">Learn More →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ── PIPELINE ── -->
+<section class="pipeline" id="pipeline">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Development Pipeline</div>
+            <h2 class="section-title">Stage-Gated <span>Innovation Methodology</span></h2>
+            <div class="divider divider-center"></div>
+            <p class="section-body">Our development process follows a rigorous, evidence-driven stage gate framework — translating clinical insight into FDA-cleared products through defined milestones, non-dilutive NIH funding, and institutional collaboration.</p>
+        </div>
+
+        <div class="pipeline-stages">
+            <div class="pipeline-stage">
+                <div class="stage-num">1</div>
+                <h4>Concept &amp; IP</h4>
+                <p>Clinical needs assessment, provisional patent applications, voice-of-customer research, feasibility analysis</p>
+            </div>
+            <div class="pipeline-stage">
+                <div class="stage-num">2</div>
+                <h4>Prototype Engineering</h4>
+                <p>Design verification, bench testing, iterative CAD refinement, FDA design controls initiation</p>
+            </div>
+            <div class="pipeline-stage">
+                <div class="stage-num">3</div>
+                <h4>Preclinical Validation</h4>
+                <p>Mechanical, electrical, biocompatibility testing; ex vivo and cadaveric studies; Design History File</p>
+            </div>
+            <div class="pipeline-stage">
+                <div class="stage-num">4</div>
+                <h4>Clinical Studies</h4>
+                <p>Human factors validation, Early Feasibility Study, multicenter IDE trial, STTR-funded evidence generation</p>
+            </div>
+            <div class="pipeline-stage">
+                <div class="stage-num">5</div>
+                <h4>Regulatory Clearance</h4>
+                <p>510(k) / De Novo submission, FDA review, ISO 13485 quality management system compliance</p>
+            </div>
+            <div class="pipeline-stage">
+                <div class="stage-num">6</div>
+                <h4>Commercial Launch</h4>
+                <p>GPO contracts, KOL clinical champions, post-market surveillance, publication strategy execution</p>
+            </div>
+        </div>
+
+        <div class="pipeline-timeline">
+            <h3>Projected Development Timelines — All Four Programs</h3>
+            <div class="timeline-device">
+                <div class="timeline-device-name">Belotte Colpotomizer™ — Surgical Access (FDA clearance target: Q4 2027)</div>
+                <div class="timeline-bar">
+                    <div class="tbar-seg tbar-concept">Concept/IP</div>
+                    <div class="tbar-seg tbar-proto">Prototype (2026)</div>
+                    <div class="tbar-seg tbar-preclin">Preclinical (2026–27)</div>
+                    <div class="tbar-seg tbar-clinical">Clinical Validation (2027)</div>
+                    <div class="tbar-seg tbar-fda">FDA 510(k)</div>
+                    <div class="tbar-seg tbar-launch">Launch</div>
+                </div>
+            </div>
+            <div class="timeline-device">
+                <div class="timeline-device-name">POP-Q AutoSense™ — Pelvic Diagnostics (FDA clearance target: Q1 2028)</div>
+                <div class="timeline-bar">
+                    <div class="tbar-seg tbar-concept">Concept/IP</div>
+                    <div class="tbar-seg tbar-proto">Prototype (2026)</div>
+                    <div class="tbar-seg tbar-preclin">STTR-Funded Validation (2026–27)</div>
+                    <div class="tbar-seg tbar-clinical">Multi-Site Clinical (2027–28)</div>
+                    <div class="tbar-seg tbar-fda">FDA 510(k)+SaMD</div>
+                    <div class="tbar-seg tbar-launch">Launch</div>
+                </div>
+            </div>
+            <div class="timeline-device">
+                <div class="timeline-device-name">Pudendal Nerve Block Device™ — Interventional Analgesia (FDA clearance target: 2028–2029)</div>
+                <div class="timeline-bar">
+                    <div class="tbar-seg tbar-concept">Concept/IP</div>
+                    <div class="tbar-seg tbar-proto">Prototype Engineering (2026)</div>
+                    <div class="tbar-seg tbar-preclin">EFS &amp; Validation (2027)</div>
+                    <div class="tbar-seg tbar-clinical">IDE Clinical Trial (2027–28)</div>
+                    <div class="tbar-seg tbar-fda">FDA Review</div>
+                    <div class="tbar-seg tbar-launch">Launch</div>
+                </div>
+            </div>
+            <div class="timeline-device">
+                <div class="timeline-device-name">MUMS™ — Intrapartum Monitoring · Tier 3 Milestone-Gated (target: 2030–2031)</div>
+                <div class="timeline-bar">
+                    <div class="tbar-seg tbar-concept">Concept/IP · SBIR Ph I</div>
+                    <div class="tbar-seg tbar-proto">Sensor Validation (2027)</div>
+                    <div class="tbar-seg tbar-preclin">Phase I FIH (2028)</div>
+                    <div class="tbar-seg tbar-clinical">Phase II–III Clinical (2028–30)</div>
+                    <div class="tbar-seg tbar-fda">FDA De Novo / PMA</div>
+                    <div class="tbar-seg tbar-launch">Launch</div>
+                </div>
+            </div>
+            <div class="timeline-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:#8B6914"></div>Concept &amp; IP</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#2A9D8F"></div>Prototype Engineering</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#41B3A3"></div>Preclinical / STTR Validation</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#2D4A6B"></div>Clinical Studies</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#0E2A47"></div>FDA Regulatory</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#1B263B"></div>Commercial Launch</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── MARKET ── -->
+<section class="market" id="market">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Market Opportunity</div>
+            <h2 class="section-title">Large, Growing, <span>Clinically Validated</span> Markets</h2>
+            <div class="divider divider-center"></div>
+            <p class="section-body">Each device addresses a large US addressable market with documented clinical gaps, favorable reimbursement dynamics, and a clear pathway to acquisition by established surgical platform companies.</p>
+        </div>
+        <div class="market-grid">
+            <div class="market-card">
+                <div class="market-device">Device 1 · Surgical Access</div>
+                <h4>Belotte Colpotomizer™</h4>
+                <div class="market-tam">$290M+</div>
+                <div class="market-tam-label">US Addressable Disposable Market</div>
+                <p>~450,000 hysterectomies annually (55–60% laparoscopic/robotic). Quantifiable OR time savings per procedure create a hospital VAC economic argument without requiring a new CPT code — reimbursement absorbed within existing hysterectomy procedure fees. Strong strategic fit with established medtech platforms serving the gynecologic surgery market.</p>
+            </div>
+            <div class="market-card">
+                <div class="market-device">Device 2 · Pelvic Diagnostics</div>
+                <h4>POP-Q AutoSense™</h4>
+                <div class="market-tam">$1.06B → $1.7B</div>
+                <div class="market-tam-label">US Market by 2030 (6.6% CAGR)</div>
+                <p>200,000–300,000 POP surgeries annually; 37.7% surgical recurrence rate driven by staging variability. Three-stream revenue: device kit ($8,500–$12,500), single-use sleeve ($95–$145), SaaS license ($350–$750/month). FDA SaMD framework enables parallel hardware and software pathways.</p>
+            </div>
+            <div class="market-card">
+                <div class="market-device">Device 3 · Interventional</div>
+                <h4>Pudendal Nerve Block Device™</h4>
+                <div class="market-tam">$60M+</div>
+                <div class="market-tam-label">US Addressable Market (Initial)</div>
+                <p>Landmark-guided pudendal block success rates: 50–70%. Ultrasound-guided: 82–97% (Rofaeel 2008; Karaman 2019). No commercial device integrates guidance and delivery in a single-operator system. Applicable across OB/GYN, urogynecology, midwifery, and pelvic pain medicine — CPT 64430 reimbursement pathway.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── FUNDING ── -->
+<section class="funding" id="funding">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Funding Strategy</div>
+            <h2 class="section-title">Blended Capital. <span>De-Risked Development.</span></h2>
+            <div class="divider divider-center"></div>
+            <p class="section-body">NEG+ employs a staged blended capital strategy combining non-dilutive NIH STTR funding with private investor capital — preserving founder equity while building federal peer-review validation.</p>
+        </div>
+        <div class="funding-grid funding-grid-2">
+            <div class="funding-card">
+                <h3>Non-Dilutive Foundation</h3>
+                <p>NEG+ pursues NIH SBIR and STTR grants as the primary early-stage funding mechanism — providing peer-reviewed federal validation of core technology before institutional capital is required. This approach preserves equity while simultaneously strengthening investor diligence materials through independent scientific review.</p>
+                <ul class="funding-items">
+                    <li>NICHD &amp; NIBIB — aligned institutes for reproductive health and biomedical sensing</li>
+                    <li>NSF STTR parallel track — engineering and AI/ML component development</li>
+                    <li>Federal peer-review creates independent third-party technical validation</li>
+                    <li>SBIR/STTR eligibility maintained through C-Corp structure and academic partnerships</li>
+                </ul>
+            </div>
+            <div class="funding-card">
+                <h3>Private Capital Structure</h3>
+                <p>Private investment is structured to be milestone-linked, founder-aligned, and equity-efficient — with each round tied to defined regulatory and technical inflection points. The founder participates personally on identical terms alongside every investor, reflecting direct skin-in-the-game conviction.</p>
+                <ul class="funding-items">
+                    <li>SAFE instrument — Reg D Rule 506(b), accredited investors only</li>
+                    <li>Sequential seed and institutional rounds tied to FDA regulatory milestones</li>
+                    <li>QSBS eligible — Delaware C-Corp, qualifying small business under IRC §1202</li>
+                    <li>Clean cap table — individual founder, investor-ready governance from day one</li>
+                </ul>
+            </div>
+        </div>
+        <div class="funding-hook">
+            <div class="funding-hook-inner">
+                <h3>Investor Brief Available Upon Request</h3>
+                <p>Accredited investors and institutional partners may request our confidential investor brief — including the full capital deployment schedule, milestone roadmap, and detailed financial model. All inquiries held in strict confidence.</p>
+                <a href="#contact" class="btn-primary" style="margin-top:1.25rem;display:inline-block;">Request Investor Brief</a>
+                <p style="margin-top:0.75rem;font-size:0.78rem;opacity:0.65;text-align:center!important;">Offered under Regulation D, Rule 506(b) to verified accredited investors only.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ADVISORY ── -->
+<section class="advisory" id="advisory">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Strategic Advisory Board</div>
+            <h2 class="section-title">Expert Advisory Board. <span>Complete Commercialization Coverage.</span></h2>
+            <div class="divider divider-center"></div>
+            <p class="section-body">NEG+ has assembled a multi-disciplinary Advisory Board spanning FDA regulatory strategy, clinical validation, engineering execution, investor access, life sciences partnerships, health economics, and corporate finance — each member occupying a defined, non-redundant value lane built for full commercialization coverage.</p>
+        </div>
+        <div class="advisory-grid">
+            <div class="advisor-card">
+                <div class="advisor-icon">⚖️</div>
+                <h4>FDA Regulatory</h4>
+                <div class="advisor-role">Former FDA Principal Deputy Commissioner</div>
+                <p>Exceptional regulatory access and strategic pathway expertise — a resource most medtech startups at any stage do not have. Key lane: 510(k) / De Novo / IDE strategy.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">🏥</div>
+                <h4>Clinical Validation — Urogynecology</h4>
+                <div class="advisor-role">KOL · Wayne State University School of Medicine</div>
+                <p>Clinical champion for POP-Q AutoSense™ and Belotte Colpotomizer™. Reduces IDE activation friction; serves as STTR PI candidate at established NIH-funded institution.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">🔬</div>
+                <h4>Clinical Validation — MIGS</h4>
+                <div class="advisor-role">KOL · Albert Einstein College of Medicine / Montefiore</div>
+                <p>Minimally invasive gynecologic surgery expertise. Co-investigator for Belotte Colpotomizer™ clinical studies; institutional IDE enrollment pipeline.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">⚙️</div>
+                <h4>Engineering &amp; Quality Systems</h4>
+                <div class="advisor-role">Repligen / SelasBio</div>
+                <p>Mechanical engineering execution, FDA design controls (21 CFR Part 820), ISO 13485 QMS implementation, Design History File architecture.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">💰</div>
+                <h4>Capital Access — Angel &amp; Early VC</h4>
+                <div class="advisor-role">Boston Harbor Angels</div>
+                <p>Medtech angel and early-stage VC network access. Investor relations strategy, pitch positioning, and seed round pipeline for Series Seed target investors.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">🧬</div>
+                <h4>Life Sciences Partnerships</h4>
+                <div class="advisor-role">Biopharma CVC &amp; Growth-Stage</div>
+                <p>Corporate venture capital and biopharma strategic partnership lane. Growth-stage BD relationships and strategic acquirer relationship development.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">📊</div>
+                <h4>Health Economics &amp; Policy</h4>
+                <div class="advisor-role">Brandeis University / Harvard School of Public Health</div>
+                <p>Healthcare economics, reimbursement strategy, CPT code development pathway, and SBIR/STTR narrative framework for NIH Specific Aims alignment.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">🏛️</div>
+                <h4>Corporate Finance &amp; Legal</h4>
+                <div class="advisor-role">Katten Muchin Rosenman LLP</div>
+                <p>Investor governance, SAFE documentation, cap table management, IP agreement architecture, and Series Seed transaction readiness for institutional VCs.</p>
+            </div>
+        </div>
+
+        <!-- ── KOL TESTIMONIAL: DR. LEFEVRE ── -->
+        <div class="kol-testimonial">
+            <p class="kol-quote">"In more than two decades of urogynecologic practice, I have witnessed firsthand how subjective POP-Q examination leads to inconsistent staging — and, ultimately, inconsistent patient care. The POP-Q Sensorized Device™ represents a meaningful step toward the objective, reproducible pelvic floor assessment our field has long needed. I am committed to supporting its rigorous clinical validation at BIDMC and to advancing a platform that can meaningfully improve outcomes for women with pelvic organ prolapse."</p>
+            <div class="kol-attribution">
+                <div class="kol-avatar">RL</div>
+                <div class="kol-meta">
+                    <div class="kol-name">Roger Lefevre, MD, MBA</div>
+                    <div class="kol-title">Urogynecologist &nbsp;·&nbsp; Urogynecology &amp; Reconstructive Pelvic Surgery</div>
+                    <div class="kol-institution">Beth Israel Deaconess Medical Center &nbsp;·&nbsp; Beth Israel Lahey Health &nbsp;·&nbsp; Harvard Medical School</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── PARTNERS & COLLABORATORS ── -->
+<section class="partners" id="partners">
+    <div class="container">
+
+        <div class="section-header">
+            <div class="section-label">Partners &amp; Collaborators</div>
+            <h2 class="section-title">Built on Institutional Partnerships. <span>Designed for Scale.</span></h2>
+            <div class="divider divider-center"></div>
+            <p class="section-body">NEG+ Innovations operates within a strategically assembled ecosystem of academic, governmental, clinical, regulatory, and capital partners — each engaged to accelerate development, validate evidence, open commercial channels, and support a sustainable path from bench to market. Academic medical center partnerships are foundational to every layer of this strategy.</p>
+        </div>
+
+        <!-- ── ANCHOR: ACADEMIC MEDICAL CENTERS ── -->
+        <div class="academic-strip">
+            <div class="academic-strip-header">
+                <div>
+                    <div class="academic-strip-label">Foundational Partnership Tier</div>
+                    <div class="academic-strip-title">Academic Medical Centers — <span>Central to Our Mission</span></div>
+                </div>
+                <div class="academic-rule"></div>
+            </div>
+            <div class="academic-grid">
+
+                <div class="academic-card">
+                    <div class="academic-badge">STTR Academic Partner · IDE Clinical Site</div>
+                    <h4>Beth Israel Deaconess Medical Center · Harvard Medical School</h4>
+                    <div class="academic-role">Boston, Massachusetts · Harvard Medical School Teaching Hospital</div>
+                    <p>BIDMC/HMS anchors NEG+'s NIH STTR academic partnership strategy — providing co-investigator infrastructure, IRB pathway access, and OR-based enrollment capacity central to the clinical validation programs for Tier 1 devices. The institutional relationship supports STTR subaward structure, academic PI credentialing, and a research-grade evidence generation platform that satisfies FDA IDE and NIH peer-review standards simultaneously.</p>
+                </div>
+
+                <div class="academic-card">
+                    <div class="academic-badge">Clinical Validation · IDE Co-Investigator Site</div>
+                    <h4>Albert Einstein College of Medicine · Montefiore Medical Center</h4>
+                    <div class="academic-role">Bronx, New York · National Cancer Institute–Designated Center</div>
+                    <p>Albert Einstein / Montefiore provides minimally invasive gynecologic surgery clinical validation expertise, co-investigator access for Belotte Colpotomizer™ clinical studies, and direct connection to high-volume surgical enrollment pipelines. Dr. Belotte's academic appointment as Clinical Associate Professor at Einstein formalizes the institutional relationship and supports IDE site activation with minimal friction.</p>
+                </div>
+
+                <div class="academic-card">
+                    <div class="academic-badge">Urogynecology KOL · STTR PI Candidate</div>
+                    <h4>Wayne State University School of Medicine</h4>
+                    <div class="academic-role">Detroit, Michigan · NIH-Funded Academic Institution</div>
+                    <p>Wayne State serves as the clinical KOL anchor for POP-Q AutoSense™ and Belotte Colpotomizer™ urogynecology validation, with an advisory board member positioned as STTR academic PI candidate. The institution's NIH funding history and established IRB infrastructure reduce site activation timelines and strengthen the peer-review credibility of STTR Phase I Specific Aims submissions.</p>
+                </div>
+
+                <div class="academic-card">
+                    <div class="academic-badge">Health Economics · HEOR &amp; Policy Strategy</div>
+                    <h4>Harvard School of Public Health · Brandeis University</h4>
+                    <div class="academic-role">Boston &amp; Waltham, Massachusetts</div>
+                    <p>Health economics and policy expertise embedded directly in the Advisory Board — driving reimbursement pathway development, CPT code strategy, and SBIR/STTR Specific Aims narrative for NIH funding applications. The partnership informs HEOR models required for hospital value analysis committee (VAC) adoption and CMS coverage determination arguments across the device portfolio.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── OTHER PARTNER CATEGORIES ── -->
+        <div class="partner-categories">
+
+            <div class="partner-tile">
+                <div class="partner-tile-icon">🏛️</div>
+                <div class="partner-tile-title">Government Agencies</div>
+                <p class="partner-tile-desc">Federal and state agencies provide non-dilutive funding, regulatory guidance, and policy alignment across the portfolio — from NIH grant mechanisms to HRSA maternal health mandates.</p>
+                <ul class="partner-list">
+                    <li>NIH — NICHD, NIBIB, NCI (primary funding agencies)</li>
+                    <li>NSF — STTR engineering &amp; AI/ML track</li>
+                    <li>FDA — CDRH (regulatory engagement, Q-Sub program)</li>
+                    <li>HRSA — Maternal health policy alignment (MUMS™)</li>
+                    <li>HHS Office of Women's Health</li>
+                    <li>CMS — Coverage and reimbursement pathway (NTAP)</li>
+                    <li>Commonwealth of Massachusetts — MassVentures, EOED</li>
+                </ul>
+            </div>
+
+            <div class="partner-tile">
+                <div class="partner-tile-icon">🩺</div>
+                <div class="partner-tile-title">Healthcare Providers &amp; Patient Advocacy</div>
+                <p class="partner-tile-desc">Clinical adoption and patient-centered design require active engagement with the provider community and patient advocacy organizations throughout development — not after clearance.</p>
+                <ul class="partner-list">
+                    <li>ACOG — American College of Obstetricians &amp; Gynecologists</li>
+                    <li>AUGS — American Urogynecologic Society</li>
+                    <li>AWHONN — Women's Health, Obstetric &amp; Neonatal Nurses</li>
+                    <li>National Partnership for Women &amp; Families</li>
+                    <li>Black Mamas Matter Alliance</li>
+                    <li>Preeclampsia Foundation</li>
+                    <li>Pelvic Health &amp; Rehabilitation patient networks</li>
+                </ul>
+            </div>
+
+            <div class="partner-tile">
+                <div class="partner-tile-icon">📋</div>
+                <div class="partner-tile-title">Payers &amp; Regulators</div>
+                <p class="partner-tile-desc">Early engagement with regulatory bodies and commercial payers is embedded in development strategy — ensuring that clearance timelines and reimbursement pathways are validated before capital is committed to pivotal trials.</p>
+                <ul class="partner-list">
+                    <li>FDA CDRH — 510(k), De Novo, IDE, SaMD pathways</li>
+                    <li>CMS — Medicare NTAP and NCD coverage pathways</li>
+                    <li>Medicaid — State coverage alignment (MUMS™ intrapartum)</li>
+                    <li>BCBS, Aetna, UnitedHealth — commercial payer dialogue</li>
+                    <li>Hospital VAC/P&amp;T committees — institutional adoption pathway</li>
+                    <li>HEOR and real-world evidence partners</li>
+                </ul>
+            </div>
+
+            <div class="partner-tile">
+                <div class="partner-tile-icon">🤝</div>
+                <div class="partner-tile-title">Industry Partners</div>
+                <p class="partner-tile-desc">Strategic industry relationships support device manufacturing, clinical operations infrastructure, regulatory execution, and ultimately position NEG+ for partnership or acquisition by established medtech platform companies.</p>
+                <ul class="partner-list">
+                    <li>Contract Research Organizations — clinical trial execution</li>
+                    <li>Medical device contract manufacturers — prototyping &amp; scale</li>
+                    <li>Digital health platforms — SaMD and FHIR integration</li>
+                    <li>Robotic surgery platform ecosystem (integration pathway)</li>
+                    <li>ISO 13485 / QMS consulting partners</li>
+                    <li>Strategic acquirer relationship development (ongoing)</li>
+                </ul>
+            </div>
+
+            <div class="partner-tile">
+                <div class="partner-tile-icon">💼</div>
+                <div class="partner-tile-title">Investing Community</div>
+                <p class="partner-tile-desc">NEG+ is building relationships across the medtech capital ecosystem — from angel networks and seed-stage funds to institutional medtech VCs and healthcare-focused private equity — with a clear milestone-linked capital roadmap.</p>
+                <ul class="partner-list">
+                    <li>Boston Harbor Angels — medtech angel network</li>
+                    <li>MassMedic ecosystem — Massachusetts medtech investor network</li>
+                    <li>Institutional medtech venture capital funds</li>
+                    <li>Healthcare-focused family offices</li>
+                    <li>Strategic CVC — pharma and medtech corporate VC</li>
+                    <li>Private equity — growth-stage healthcare platforms</li>
+                </ul>
+            </div>
+
+            <div class="partner-tile">
+                <div class="partner-tile-icon">🌐</div>
+                <div class="partner-tile-title">Professional Organizations &amp; Consortia</div>
+                <p class="partner-tile-desc">Membership and active engagement in leading professional societies accelerates clinical adoption, creates publication and KOL access, and positions NEG+ devices within the evidence-based practice guidelines that drive hospital formulary decisions.</p>
+                <ul class="partner-list">
+                    <li>ACOG — practice guidelines &amp; clinical dissemination</li>
+                    <li>AUGS / IUGA — urogynecology international standard-setting</li>
+                    <li>SMFM — Society for Maternal-Fetal Medicine (MUMS™)</li>
+                    <li>ISGE — International Society for Gynecologic Endoscopy</li>
+                    <li>ASRM — Reproductive medicine ecosystem</li>
+                    <li>MassMedic — Massachusetts medical device industry association</li>
+                    <li>AdvaMed — national medtech policy &amp; advocacy</li>
+                </ul>
+            </div>
+
+            <div class="partner-tile">
+                <div class="partner-tile-icon">❤️</div>
+                <div class="partner-tile-title">Individual Philanthropy &amp; Foundations</div>
+                <p class="partner-tile-desc">Mission-aligned philanthropic capital and foundation grants complement the SBIR/STTR strategy — funding early discovery, community-based research, and health equity work that federal mechanisms do not fully cover.</p>
+                <ul class="partner-list">
+                    <li>March of Dimes — maternal and infant health focus</li>
+                    <li>Gates Foundation — global maternal health initiative</li>
+                    <li>ACOG Foundation — women's health innovation grants</li>
+                    <li>Doris Duke Charitable Foundation — clinical research</li>
+                    <li>Preeclampsia Foundation — intrapartum innovation alignment</li>
+                    <li>Mission-aligned individual donors and family foundations</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ── IP ── -->
+<section class="ip" id="ip">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Intellectual Property</div>
+            <h2 class="section-title">Robust IP Portfolio <span>Protecting Every Innovation</span></h2>
+            <div class="divider divider-center"></div>
+            <p class="section-body">NEG+ maintains a comprehensive intellectual property strategy across all multiple device programs. All IP is formally assigned to and vested in the C-Corp under executed assignment agreements.</p>
+        </div>
+        <div class="ip-grid">
+            <div class="ip-card">
+                <h4>Belotte Colpotomizer™</h4>
+                <p>Provisional patent application on file covering the integrated electrosurgical colpotomy system — a novel combination of automated rotation, energy delivery, and tissue management in a reusable handle / single-use disposable architecture for laparoscopic hysterectomy.</p>
+            </div>
+            <div class="ip-card">
+                <h4>POP-Q AutoSense™</h4>
+                <p>Provisional patent application on file covering the sensorized multi-point anatomical measurement platform, EMR-integrated digital staging architecture, and associated software classification system for automated pelvic organ prolapse quantification.</p>
+            </div>
+            <div class="ip-card">
+                <h4>Pudendal Nerve Block Device™</h4>
+                <p>Provisional patent applications on file covering the single-operator integrated nerve localization and anesthetic delivery system — a novel combination of multimodal sensing and controlled delivery in a finger-mounted form factor.</p>
+            </div>
+            <div class="ip-card">
+                <h4>MUMS™</h4>
+                <p>Provisional patent application on file covering the multimodal intrapartum sensing and AI-enabled classification platform for autonomous labor and delivery monitoring. IP strategy aligned with De Novo / PMA regulatory pathway and pre-competitive clinical evidence standards.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <h2>Partner With NEG+ Innovations</h2>
+        <p>We welcome collaboration with leading research institutions, clinical investigators, industry partners, and accredited investors who share our commitment to advancing women's health through precision medical technology.</p>
+        <div class="hero-actions">
+            <a href="mailto:info@negplusinnovations.com" class="btn-primary">Contact Us</a>
+            <a href="index.html#contact" class="btn-outline">Our Clinical Operations</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <h3>NEG<span>+</span> Innovations</h3>
+            <div class="footer-tagline">New England Gynecology Plus</div>
+            <p>A physician-led medical device company advancing women's pelvic health through precision surgical and diagnostic innovation. Headquartered in Weston, Massachusetts.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
+                <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
+                <li><a href="rd.html#pnb">Pudendal Nerve Block Device™</a></li>
+                <li><a href="rd.html#mums">MUMS™</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="#about">About NEG+</a></li>
+                <li><a href="#advisory">Advisory Board</a></li>
+                <li><a href="#funding">Investment</a></li>
+                <li><a href="rd.html">R&amp;D</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="resume.html">Executive Resume</a></li>
+                <li><a href="news.html">News &amp; Updates</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="mailto:info@negplusinnovations.com">info@negplusinnovations.com</a></li>
+                <li><a href="#contact">Schedule a Meeting</a></li>
+                <li><a href="#contact">Investor Relations</a></li>
+                <li><a href="#contact">Clinical Partnerships</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-disclaimer">
+        <p><strong>Disclaimer:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. Nothing on this website constitutes an offer to sell or solicitation to buy securities. Investment opportunities are available exclusively to accredited investors under Reg D Rule 506(b). <a href="disclaimer.html" style="color:var(--gold-light);">Read full disclaimer →</a></p>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 NEG+ Innovations, Inc. All Rights Reserved. Weston, Massachusetts.</span>
+        <span>Patent Pending | Confidential | Reg D Rule 506(b) — Accredited Investors Only</span>
+    </div>
+</footer>
+
+
+<script>
+(function() {
+    var btn = document.getElementById('navHamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    if (!btn || !mobileNav) return;
+
+    btn.addEventListener('click', function() {
+        var isOpen = btn.classList.toggle('open');
+        if (isOpen) {
+            mobileNav.style.display = 'block';
+            requestAnimationFrame(function() { mobileNav.classList.add('open'); });
+        } else {
+            mobileNav.classList.remove('open');
+            mobileNav.addEventListener('transitionend', function handler() {
+                mobileNav.style.display = 'none';
+                mobileNav.removeEventListener('transitionend', handler);
+            });
+        }
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close on link click
+    mobileNav.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !mobileNav.contains(e.target)) {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

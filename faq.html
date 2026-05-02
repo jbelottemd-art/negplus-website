@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | NEG+ Innovations, Inc.</title>
+    <meta name="description" content="Frequently asked questions about NEG+ Innovations — our mission, products, clinical development stage, partnerships, and investment opportunities.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="FAQ | NEG+ Innovations, Inc.">
+    <meta property="og:description" content="Answers to common questions about NEG+ Innovations, our device portfolio, clinical stage, and partnership opportunities.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <style>
+        :root {
+            --black:      #1B263B;
+            --gold:       #41B3A3;
+            --gold-dark:  #2A9D8F;
+            --gold-light: #7DD3CB;
+            --teal:       #41B3A3;
+            --teal-dark:  #2A9D8F;
+            --teal-light: #7DD3CB;
+            --brown-dark: #0E2A47;
+            --brown-mid:  #2D4A6B;
+            --brown-light:#778DA9;
+            --cream:      #E8EEF4;
+            --cream-dark: #D8E3EE;
+            --white:      #FFFFFF;
+            --text-dark:  #1B263B;
+            --text-mid:   #4A6580;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--white);
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+        }
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between; height: 72px;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-img { display: block; height: 44px; width: auto; }
+        .nav-links { display: flex; gap: 0; list-style: none; }
+        .nav-links a {
+            display: block; padding: 0 0.6rem; height: 72px; line-height: 72px;
+            font-size: 0.8rem; font-weight: 600; text-decoration: none;
+            color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.4px;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 3px solid transparent; margin-bottom: -3px;
+        }
+        .nav-links a:hover { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-links a.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-cta {
+            background: var(--gold); color: var(--black) !important;
+            border-radius: 50px; padding: 0 1rem !important;
+            height: 40px !important; line-height: 40px !important;
+            margin: auto 0; font-size: 0.85rem !important;
+            transition: background 0.2s, transform 0.2s !important;
+            border-bottom: none !important;
+        }
+        .nav-cta:hover { background: var(--gold-dark) !important; transform: scale(1.04); }
+
+        /* ── HAMBURGER ── */
+        .nav-hamburger {
+            display: none; flex-direction: column; justify-content: center;
+            align-items: center; gap: 5px; width: 42px; height: 42px;
+            background: none; border: none; cursor: pointer; padding: 6px;
+            border-radius: 8px; transition: background 0.2s;
+        }
+        .nav-hamburger:hover { background: var(--cream); }
+        .nav-hamburger span {
+            display: block; width: 22px; height: 2px;
+            background: var(--black); border-radius: 2px;
+            transition: transform 0.28s ease, opacity 0.2s ease;
+        }
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .mobile-nav {
+            display: none; position: fixed; top: 75px; left: 0; right: 0;
+            background: var(--white); border-bottom: 3px solid var(--gold);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999;
+            overflow: hidden;
+        }
+        .mobile-nav.open { display: block; }
+        .mobile-nav ul { list-style: none; padding: 1rem 0; }
+        .mobile-nav ul li a {
+            display: block; padding: 0.85rem 2rem;
+            font-size: 0.95rem; font-weight: 600; color: var(--text-dark);
+            text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .mobile-nav ul li a:hover { background: var(--cream); color: var(--gold-dark); }
+        .mobile-nav .mobile-cta {
+            margin: 0.75rem 2rem 1rem; display: block; text-align: center;
+            background: var(--gold); color: var(--black) !important; border-radius: 50px;
+            padding: 0.85rem 1.5rem !important; font-weight: 700 !important;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
+        @media (max-width: 1050px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ── CONTAINER ── */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 60%, var(--brown-mid) 100%);
+            padding: 72px 2rem 64px;
+            text-align: center;
+        }
+        .page-hero-eyebrow {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--teal); margin-bottom: 1rem;
+        }
+        .page-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+            color: var(--white); line-height: 1.15; margin-bottom: 1.25rem;
+        }
+        .page-hero h1 span { color: var(--teal); }
+        .page-hero p {
+            font-size: 1.1rem; color: rgba(255,255,255,0.72);
+            max-width: 640px; margin: 0 auto; line-height: 1.7;
+        }
+
+        /* ── DISCLAIMER BANNER ── */
+        .disclaimer-banner {
+            background: linear-gradient(90deg, #1a3a5c 0%, #0E2A47 100%);
+            border-left: 5px solid var(--teal);
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+        .disclaimer-banner p {
+            font-size: 0.83rem; color: rgba(255,255,255,0.82); line-height: 1.55;
+            max-width: 900px; margin: 0 auto;
+        }
+        .disclaimer-banner strong { color: var(--teal-light); }
+
+        /* ── FAQ ── */
+        .faq-section { padding: 80px 0; background: var(--white); }
+        .faq-section.alt { background: var(--cream); }
+
+        .section-label {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800;
+            color: var(--text-dark); line-height: 1.2; margin-bottom: 1rem;
+        }
+        .section-title span { color: var(--gold-dark); }
+        .divider { width: 48px; height: 4px; background: var(--gold); border-radius: 2px; margin: 1rem 0 2.5rem; }
+
+        .faq-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1.5rem; margin-top: 2.5rem;
+        }
+
+        .faq-item {
+            background: var(--white); border-radius: 16px;
+            padding: 0; overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border: 1px solid rgba(65,179,163,0.15);
+        }
+        .faq-section.alt .faq-item { background: var(--white); }
+
+        .faq-question {
+            width: 100%; text-align: left; background: none; border: none;
+            padding: 1.4rem 1.6rem; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: flex-start;
+            gap: 1rem;
+        }
+        .faq-question-text {
+            font-size: 0.97rem; font-weight: 700; color: var(--text-dark);
+            line-height: 1.4; text-align: left;
+        }
+        .faq-chevron {
+            width: 22px; height: 22px; flex-shrink: 0; margin-top: 1px;
+            border: 2px solid var(--gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.25s, background 0.2s;
+            color: var(--gold); font-size: 0.75rem; font-weight: 700;
+        }
+        .faq-item.open .faq-chevron { transform: rotate(180deg); background: var(--gold); color: var(--white); }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.25s ease;
+            padding: 0 1.6rem;
+        }
+        .faq-answer p {
+            font-size: 0.9rem; color: var(--text-mid); line-height: 1.7;
+            padding-bottom: 1.4rem; text-align: justify;
+        }
+        .faq-item.open .faq-answer { max-height: 600px; }
+        .faq-item.open .faq-question { border-bottom: 1px solid rgba(65,179,163,0.15); }
+
+        /* single-column variant */
+        .faq-grid-single { grid-template-columns: 1fr; max-width: 860px; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--black); color: var(--brown-light); padding: 3rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+        }
+        .footer-brand h3 { font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 0.25rem; }
+        .footer-brand h3 span { color: var(--gold); }
+        .footer-brand .footer-tagline {
+            font-size: 0.78rem; color: var(--gold); text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 1rem;
+        }
+        .footer-brand p { font-size: 0.87rem; line-height: 1.75; max-width: 280px; }
+        .footer-col h4 {
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--gold); margin-bottom: 1rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.6rem; }
+        .footer-col ul li a { color: var(--brown-light); text-decoration: none; font-size: 0.87rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: var(--white); }
+        .footer-disclaimer {
+            max-width: 1280px; margin: 2rem auto 0; padding: 1.25rem 1.5rem;
+            background: rgba(65,179,163,0.08); border-radius: 10px;
+            border-left: 4px solid var(--teal);
+        }
+        .footer-disclaimer p {
+            font-size: 0.8rem; color: rgba(200,220,240,0.75); line-height: 1.6;
+        }
+        .footer-disclaimer strong { color: var(--teal-light); }
+        .footer-bottom {
+            max-width: 1280px; margin: 1.5rem auto 0; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.8rem; color: rgba(200,184,168,0.6);
+            flex-wrap: wrap; gap: 0.75rem;
+        }
+
+        @media (max-width: 1024px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 768px) {
+            .faq-grid { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+            .page-hero { padding: 56px 1.5rem 48px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#pipeline">Pipeline</a></li>
+            <li><a href="index.html#partners">Partners</a></li>
+            <li><a href="rd.html">R&amp;D</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="faq.html" class="active">FAQ</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#pipeline">Pipeline</a></li>
+        <li><a href="rd.html">R&amp;D</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="index.html#contact" class="mobile-cta">Contact Us</a></li>
+    </ul>
+</div>
+
+<!-- ── HERO ── -->
+<section class="page-hero">
+    <div class="page-hero-eyebrow">Frequently Asked Questions</div>
+    <h1>Questions About <span>NEG+ Innovations</span></h1>
+    <p>Answers to common questions about our mission, device portfolio, clinical development stage, partnerships, and investment opportunities.</p>
+</section>
+
+<!-- ── DISCLAIMER BANNER ── -->
+<div class="disclaimer-banner">
+    <p><strong>Educational Purposes Only:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. For full details, see our <a href="disclaimer.html" style="color:var(--teal-light);text-decoration:underline;">Disclaimer</a>.</p>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-label">About the Company</div>
+        <h2 class="section-title">Who Is <span>NEG+ Innovations?</span></h2>
+        <div class="divider"></div>
+
+        <div class="faq-grid">
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What is NEG+ Innovations, Inc.?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations, Inc. is a physician-led, pre-revenue women's health medical device company incorporated as a Delaware C-Corporation and headquartered in Weston, Massachusetts. Founded by Jimmy Belotte, MD, PhD, MBA, FACOG — a dual-board-certified obstetrician-gynecologist and gynecologic oncologist with translational research and biopharma drug development experience — the company is developing a portfolio of precision surgical and diagnostic devices targeting unmet clinical needs in women's pelvic health.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What stage is the company in?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations is currently in the pre-clinical development stage. All device programs are in active concept, engineering, and pre-prototype development. No products have been submitted to or reviewed by the U.S. Food &amp; Drug Administration. The company is pursuing non-dilutive grant funding (NIH SBIR/STTR) and private capital formation to advance devices toward clinical feasibility studies and regulatory submissions.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Where is NEG+ Innovations headquartered?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations, Inc. is headquartered in Weston, Massachusetts, with active academic partnerships at Beth Israel Deaconess Medical Center (BIDMC) / Harvard Medical School in Boston, Albert Einstein College of Medicine / Montefiore Medical Center in Bronx, New York, and Wayne State University School of Medicine in Detroit, Michigan.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Who leads NEG+ Innovations?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations is founded and led by Jimmy Belotte, MD, PhD, MBA, FACOG — a dual-board-certified OB/GYN and gynecologic oncologist with a PhD in molecular biology and biochemistry, an MBA, and clinical and research experience spanning academic medicine, oncology drug development (GlaxoSmithKline), and medtech entrepreneurship. The company is supported by a multi-disciplinary advisory board covering FDA regulatory strategy, clinical validation, engineering, capital access, health economics, and corporate finance. See the <a href="team.html" style="color:var(--gold-dark);">Team page</a> for full leadership and advisory profiles.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What is the mission of NEG+ Innovations?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations exists to advance the standard of care for women with pelvic floor disorders and gynecologic conditions by engineering precision medical devices that close the gap between clinical need and technological capability. Our mission centers on objective diagnostics, procedural accuracy, and patient-reported outcome improvement — grounded in peer-reviewed evidence and designed for broad clinical adoption within academic and community healthcare settings.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">How is NEG+ Innovations structured legally?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations, Inc. is incorporated as a Delaware C-Corporation — the standard structure for venture-backed technology and medical device companies. This structure supports SAFE and preferred equity financing, institutional venture capital investment, NIH SBIR/STTR grant eligibility, and exit transactions including strategic acquisition and licensing. The company's equity incentive plan supports advisory board and future team equity grants.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── PRODUCTS ── -->
+<section class="faq-section alt">
+    <div class="container">
+        <div class="section-label">Products &amp; Technology</div>
+        <h2 class="section-title">The Device <span>Portfolio</span></h2>
+        <div class="divider"></div>
+
+        <div class="faq-grid">
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What devices is NEG+ Innovations developing?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations is developing a multi-device portfolio of women's pelvic health technologies: (1) the Belotte Colpotomizer™ — an energy-delivering precision vaginal surgery instrument; (2) the POP-Q AutoSense™ (POP-Q Sensorized Device™) — a digitally integrated platform for automated, objective pelvic organ prolapse staging; (3) the Pudendal Nerve Block Device™ — a sensorized, ultrasound-guided pudendal nerve localization system for analgesia and neuromodulation; and (4) MUMS™ — a multi-modal, non-invasive uterine monitoring system for labor surveillance. See the <a href="rd.html" style="color:var(--gold-dark);">R&amp;D page</a> for technical detail on each program.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Are any NEG+ products currently on the market?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No. NEG+ Innovations is a pre-revenue, pre-commercial company. All device programs are in the pre-clinical development stage — none have received FDA clearance, De Novo authorization, or Premarket Approval (PMA). No NEG+ products are currently available for clinical use, sale, or distribution. This website and all materials presented herein are for educational and informational purposes only.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What is the Belotte Colpotomizer™?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>The Belotte Colpotomizer™ is a next-generation vaginal delineation and surgical precision instrument designed for use in minimally invasive hysterectomy and pelvic reconstructive surgery. It integrates energy delivery and enhanced anatomical delineation into a single instrument, aiming to reduce intraoperative blood loss, improve specimen retrieval, and enhance the safety margin for bladder and ureteral injury prevention. It is currently in the engineering and pre-prototype development stage.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What is the POP-Q AutoSense™?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>The POP-Q AutoSense™ (also referred to as the POP-Q Sensorized Device™) is a digitally integrated pelvic examination platform designed to automate and standardize POP-Q (Pelvic Organ Prolapse Quantification) examination — the accepted clinical staging system for pelvic organ prolapse. The device incorporates sensorized measurement points, digital data capture, and HL7 FHIR-compatible output to eliminate subjective variability in staging, support telemedicine, and improve research-grade data collection. Clinical validation is planned at BIDMC/Harvard Medical School with Dr. Roger Lefevre, MD, MBA as a prospective STTR academic PI.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What is the Pudendal Nerve Block Device™?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>The Pudendal Nerve Block Device™ is a sensorized, image-guided pudendal nerve localization system that combines piezoelectric micromachined ultrasound transducer (PMUT) technology and near-infrared (NIR) sensing to precisely guide pudendal nerve block delivery in real time. It is designed to improve procedural success rates in obstetric analgesia, chronic pelvic pain management, and pelvic floor neuromodulation — conditions where current pudendal nerve block technique relies on tactile landmark identification with high failure rates.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What is MUMS™?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>MUMS™ (Multi-modal Uterine Monitoring System) is a non-invasive, wireless, AI-enhanced labor monitoring platform designed to replace or supplement traditional external cardiotocography (CTG). MUMS™ integrates multiple physiologic sensing modalities — fetal heart rate, uterine contraction pressure, and AI Core signal analysis — delivered via a wearable patch system that enables ambulation during labor, remote monitoring, and improved signal fidelity compared to standard external monitoring. It targets both labor &amp; delivery unit adoption and tele-obstetrics applications.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── CLINICAL & REGULATORY ── -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-label">Clinical Development &amp; Regulatory</div>
+        <h2 class="section-title">FDA, Clinical Trials <span>&amp; Development Stage</span></h2>
+        <div class="divider"></div>
+
+        <div class="faq-grid">
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Has the FDA reviewed or cleared any NEG+ products?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No. No NEG+ Innovations product has been submitted to, reviewed by, or cleared/approved by the U.S. Food &amp; Drug Administration. All devices are currently in the pre-clinical engineering and development phase. FDA regulatory strategy — including 510(k), De Novo, and IDE pathways — is being developed with the guidance of a former FDA Principal Deputy Commissioner serving on the NEG+ Advisory Board.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What does "pre-clinical development stage" mean?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Pre-clinical development means that device programs have not yet entered formal human clinical testing under an FDA Investigational Device Exemption (IDE) or comparable regulatory pathway. At this stage, work is focused on concept validation, engineering development, bench testing, and regulatory strategy planning. The pre-clinical stage precedes the filing of an IDE application, IRB protocol approval, and enrollment of human subjects in feasibility or pivotal clinical studies.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">When will clinical trials begin?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations is actively pursuing NIH SBIR/STTR funding to support clinical feasibility studies. The timeline for first-in-human studies depends on prototype maturity, engineering validation milestones, IRB protocol approval, and IDE submission timelines — all of which are contingent on capital formation and grant award. We are not able to provide specific clinical trial start dates at this time. Academic partner institutions — including BIDMC/Harvard and Wayne State — are engaged in pre-activation planning.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Where will clinical studies be conducted?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Planned clinical study sites include Beth Israel Deaconess Medical Center (BIDMC) / Harvard Medical School in Boston (primary site for POP-Q AutoSense™ and STTR academic partnerships), Wayne State University School of Medicine in Detroit (urogynecology KOL validation site), and Albert Einstein College of Medicine / Montefiore Medical Center in Bronx, New York (Belotte Colpotomizer™ MIGS co-investigation site). All site activations are subject to IDE approval, IRB authorization, subaward agreements, and institutional COI approvals.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">What regulatory pathways are being pursued?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations is evaluating 510(k) substantial equivalence, De Novo classification, and Premarket Approval (PMA) pathways depending on the device and its risk classification. Devices with established predicate instruments may qualify for 510(k) clearance. Novel digital health and AI-enhanced monitoring components may require De Novo classification or Software as a Medical Device (SaMD) regulatory submissions. FDA regulatory strategy is informed by a former FDA Principal Deputy Commissioner serving on the NEG+ Advisory Board.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Is NEG+ seeking NIH grant funding?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. NEG+ Innovations is actively pursuing NIH Small Business Innovation Research (SBIR) and Small Business Technology Transfer (STTR) funding to support device development, preclinical validation, and early-phase clinical feasibility studies. STTR applications require an academic research institution as co-applicant — a role for which BIDMC/Harvard Medical School and Wayne State University School of Medicine are positioned as primary academic partners and PI candidates.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── INVESTMENT ── -->
+<section class="faq-section alt">
+    <div class="container">
+        <div class="section-label">Investment &amp; Capital</div>
+        <h2 class="section-title">Investor <span>Information</span></h2>
+        <div class="divider"></div>
+
+        <div class="faq-grid faq-grid-single">
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Is NEG+ Innovations seeking investors?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations is pursuing private capital formation to complement non-dilutive grant funding. Capital is sought from accredited investors — including angel investors, family offices, and early-stage venture capital — under Regulation D, Rule 506(b). Any offering of securities by NEG+ Innovations will be conducted only in compliance with applicable federal and state securities laws, and will be made available exclusively to accredited investors as defined under the Securities Act of 1933. Nothing on this website constitutes an offer to sell or a solicitation of an offer to buy securities.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Who can invest in NEG+ Innovations?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Private investment opportunities are available exclusively to accredited investors as defined by Rule 501 of Regulation D under the Securities Act of 1933. An accredited investor is generally an individual with annual income exceeding $200,000 (or $300,000 jointly with a spouse) in each of the two most recent years, or a net worth exceeding $1,000,000 (excluding primary residence), or certain institutional entities meeting financial thresholds. NEG+ does not offer securities to the general public.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">How can accredited investors learn more?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Accredited investors interested in learning more about NEG+ Innovations may request an Investor Brief by contacting us directly at <a href="mailto:info@negplusinnovations.com" style="color:var(--gold-dark);">info@negplusinnovations.com</a>. An investment brief and supporting materials will be made available upon verification of accredited investor status. All discussions regarding investment opportunities are subject to a mutual non-disclosure agreement and applicable securities law requirements.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Does this website constitute an offer of securities?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No. Nothing on this website constitutes, or shall be construed as, an offer to sell or a solicitation of an offer to purchase any securities of NEG+ Innovations, Inc. Any offering of securities will be conducted pursuant to an exemption from registration under the Securities Act of 1933, as amended, and applicable state securities laws, and will be made only to qualified accredited investors in accordance with applicable law through the delivery of a formal private placement memorandum (PPM) and subscription documents.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── PARTNERSHIPS ── -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-label">Partnerships &amp; Collaboration</div>
+        <h2 class="section-title">Working With <span>NEG+</span></h2>
+        <div class="divider"></div>
+
+        <div class="faq-grid faq-grid-single">
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">How can researchers or clinicians collaborate with NEG+?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>NEG+ Innovations actively seeks collaboration with urogynecologists, gynecologic surgeons, maternal-fetal medicine specialists, biomedical engineers, and health economists with expertise relevant to its device portfolio. Collaboration may take the form of scientific advisory roles, co-investigator positions on STTR/SBIR grant applications, or IDE clinical site participation. Interested clinicians and researchers should contact us at <a href="mailto:info@negplusinnovations.com" style="color:var(--gold-dark);">info@negplusinnovations.com</a> with a brief description of their clinical or research background.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Does NEG+ partner with academic medical centers?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Academic medical center partnerships are central to NEG+'s development and commercialization strategy. BIDMC/Harvard Medical School serves as the primary STTR academic partner and planned IDE clinical site. Albert Einstein / Montefiore Medical Center provides MIGS co-investigation capacity. Wayne State University School of Medicine provides urogynecology clinical validation and STTR PI candidacy. Harvard School of Public Health and Brandeis University provide health economics and reimbursement strategy expertise embedded in the Advisory Board.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Can industry partners engage with NEG+ Innovations?</span>
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. NEG+ Innovations welcomes engagement with medtech OEM manufacturers, surgical robotics platforms, electronic medical record (EMR) and digital health vendors, hospital group purchasing organizations (GPOs), and strategic corporate venture capital partners. Industry partnerships may support manufacturing development, platform integration, distribution channel access, or co-development agreements. Contact us to explore partnership opportunities aligned with your organization's strategic interests.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <h3>NEG<span>+</span> Innovations</h3>
+            <div class="footer-tagline">New England Gynecology Plus</div>
+            <p>A physician-led medical device company advancing women's pelvic health through precision surgical and diagnostic innovation. Headquartered in Weston, Massachusetts.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
+                <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
+                <li><a href="rd.html#pnb">Pudendal Nerve Block Device™</a></li>
+                <li><a href="rd.html#mums">MUMS™</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="index.html#about">About NEG+</a></li>
+                <li><a href="index.html#advisory">Advisory Board</a></li>
+                <li><a href="index.html#funding">Investment</a></li>
+                <li><a href="rd.html">R&amp;D</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="news.html">News &amp; Updates</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="mailto:info@negplusinnovations.com">info@negplusinnovations.com</a></li>
+                <li><a href="index.html#contact">Schedule a Meeting</a></li>
+                <li><a href="index.html#contact">Investor Relations</a></li>
+                <li><a href="index.html#contact">Clinical Partnerships</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-disclaimer">
+        <p><strong>Disclaimer:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. Nothing on this website constitutes an offer to sell or solicitation to buy securities. All investment opportunities are available exclusively to accredited investors under Reg D Rule 506(b).</p>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 NEG+ Innovations, Inc. All Rights Reserved. Weston, Massachusetts.</span>
+        <span>Patent Pending | Confidential | Reg D Rule 506(b) — Accredited Investors Only</span>
+    </div>
+</footer>
+
+<script>
+(function() {
+    var btn = document.getElementById('navHamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    if (!btn || !mobileNav) return;
+    btn.addEventListener('click', function() {
+        var isOpen = btn.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+        if (isOpen) {
+            mobileNav.style.display = 'block';
+        } else {
+            mobileNav.style.display = 'none';
+        }
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var item = btn.closest('.faq-item');
+            var isOpen = item.classList.contains('open');
+            // close all
+            document.querySelectorAll('.faq-item.open').forEach(function(el) {
+                el.classList.remove('open');
+                el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+})();
+</script>
+</body>
+</html>

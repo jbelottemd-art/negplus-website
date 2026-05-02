@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume — Jimmy Belotte, MD, PhD, MBA, FACOG</title>
+    <style>
+        /* ── VARIABLES ── */
+        :root {
+            --black:     #1B263B;
+            --navy-dark: #0E2A47;
+            --gold:      #41B3A3;
+            --gold-dk:   #2A9D8F;
+            --gold-lt:   #7DD3CB;
+            --brown:     #4A6580;
+            --steel:     #778DA9;
+            --gray:      #2D3A4A;
+            --gray-mid:  #4A6580;
+            --gray-lt:   #778DA9;
+            --rule:      #C8D6E5;
+            --cream:     #F0F4F8;
+            --white:     #FFFFFF;
+            --sidebar:   #1B263B;
+        }
+
+        /* ── RESET ── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 14px; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #D4DCE8;
+            color: var(--gray);
+            line-height: 1.55;
+        }
+
+        /* ── CONTROLS ── */
+        .controls {
+            background: var(--black);
+            padding: 10px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .ctrl-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-lt);
+        }
+
+        .ctrl-btns { display: flex; gap: 10px; }
+
+        .ctrl-btn {
+            padding: 7px 18px;
+            border: none;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: opacity 0.15s;
+        }
+
+        .ctrl-btn:hover { opacity: 0.85; }
+
+        .ctrl-btn-primary { background: var(--gold); color: var(--white); }
+        .ctrl-btn-secondary { background: #2A2A2A; color: #AAA; border: 1px solid #444; }
+
+        /* ── PAPER ── */
+        .paper {
+            width: 816px; /* 8.5in at 96dpi */
+            min-height: 1056px; /* 11in at 96dpi */
+            margin: 24px auto;
+            background: var(--white);
+            box-shadow: 0 4px 40px rgba(0,0,0,0.18);
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            position: relative;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            background: var(--sidebar);
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-top {
+            background: var(--gold);
+            padding: 32px 22px 24px;
+        }
+
+        .sidebar-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.15;
+            letter-spacing: -0.3px;
+            margin-bottom: 6px;
+        }
+
+        .sidebar-creds {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.82);
+            text-transform: uppercase;
+        }
+
+        .sidebar-body { padding: 24px 22px; flex: 1; }
+
+        .sb-section { margin-bottom: 22px; }
+
+        .sb-section-title {
+            font-size: 0.6rem;
+            font-weight: 900;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold-lt);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid rgba(65,179,163,0.3);
+        }
+
+        .sb-item {
+            margin-bottom: 8px;
+        }
+
+        .sb-item-label {
+            font-size: 0.67rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 1px;
+        }
+
+        .sb-item-value {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.82);
+            line-height: 1.4;
+        }
+
+        .sb-item-value a { color: var(--gold-lt); text-decoration: none; }
+
+        .sb-skill {
+            margin-bottom: 5px;
+        }
+
+        .sb-skill-name {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.78);
+            margin-bottom: 3px;
+        }
+
+        .sb-skill-bar {
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .sb-skill-fill {
+            height: 100%;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .sb-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.65);
+            border: 1px solid rgba(65,179,163,0.25);
+            padding: 2px 7px;
+            border-radius: 2px;
+            margin: 2px 2px 2px 0;
+        }
+
+        /* ── MAIN ── */
+        .main { padding: 32px 32px 32px 30px; }
+
+        /* ── MAIN HEADER ── */
+        .main-header {
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .main-title {
+            font-size: 0.65rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 6px;
+        }
+
+        .main-summary {
+            font-size: 0.82rem;
+            color: var(--gray-mid);
+            line-height: 1.65;
+        }
+
+        /* ── SECTION ── */
+        .section { margin-bottom: 18px; }
+
+        .section-title {
+            font-size: 0.6rem;
+            font-weight: 900;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--black);
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--rule);
+            margin-bottom: 12px;
+        }
+
+        /* ── EXPERIENCE ENTRY ── */
+        .exp {
+            margin-bottom: 13px;
+            padding-left: 10px;
+            border-left: 2px solid var(--gold);
+        }
+
+        .exp:last-child { margin-bottom: 0; }
+
+        .exp-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 1px;
+        }
+
+        .exp-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--black);
+            line-height: 1.3;
+        }
+
+        .exp-date {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--gold);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .exp-org {
+            font-size: 0.75rem;
+            color: var(--brown);
+            font-style: italic;
+            margin-bottom: 3px;
+        }
+
+        .exp-body {
+            font-size: 0.76rem;
+            color: var(--gray-mid);
+            line-height: 1.55;
+        }
+
+        .exp-body ul {
+            margin-left: 12px;
+        }
+
+        .exp-body ul li {
+            margin-bottom: 2px;
+        }
+
+        /* ── EDU ENTRY ── */
+        .edu {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 6px;
+            margin-bottom: 9px;
+            align-items: baseline;
+        }
+
+        .edu:last-child { margin-bottom: 0; }
+
+        .edu-degree {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--black);
+        }
+
+        .edu-date {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-align: right;
+        }
+
+        .edu-school {
+            font-size: 0.74rem;
+            color: var(--brown);
+            font-style: italic;
+            grid-column: 1 / -1;
+            margin-top: -2px;
+        }
+
+        /* ── STATS ROW ── */
+        .metrics {
+            display: flex;
+            gap: 0;
+            background: var(--cream);
+            border: 1px solid var(--rule);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 14px;
+        }
+
+        .metric {
+            flex: 1;
+            padding: 10px 8px;
+            text-align: center;
+            border-right: 1px solid var(--rule);
+        }
+
+        .metric:last-child { border-right: none; }
+
+        .metric-n {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .metric-l {
+            font-size: 0.58rem;
+            font-weight: 700;
+            color: var(--gray-lt);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        /* ── PUB (compact) ── */
+        .pub-compact {
+            margin-bottom: 7px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.74rem;
+            color: var(--gray-mid);
+            line-height: 1.45;
+        }
+
+        .pub-compact::before {
+            content: attr(data-n);
+            position: absolute;
+            left: 0;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .pub-compact strong { color: var(--black); font-style: italic; }
+
+        /* ── TWO-COL ── */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        /* ── PRINT ── */
+        @media print {
+            body { background: white; font-size: 11.5px; }
+            .controls { display: none; }
+            .paper {
+                width: 100%;
+                margin: 0;
+                box-shadow: none;
+                min-height: auto;
+            }
+            .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .sidebar-top { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .exp { break-inside: avoid; }
+        }
+    
+        /* ── HAMBURGER / MOBILE NAV ── */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 19px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1100;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--black);
+            border-radius: 2px;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+            transform-origin: center;
+        }
+
+        /* animated X state */
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Mobile nav drawer */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 75px; /* just below the nav bar */
+            left: 0; right: 0;
+            background: var(--white);
+            border-top: 2px solid var(--gold);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            z-index: 1050;
+            padding: 1rem 0 1.5rem;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+        }
+
+        .mobile-nav.open {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav ul li a {
+            display: block;
+            padding: 0.75rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-mid);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-left: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .mobile-nav ul li a:hover,
+        .mobile-nav ul li a:focus {
+            color: var(--gold-dark);
+            border-left-color: var(--gold);
+            background: var(--cream);
+        }
+
+        .mobile-nav .mobile-cta {
+            display: block;
+            margin: 1rem 2rem 0;
+            text-align: center;
+            background: var(--gold);
+            color: var(--black) !important;
+            border-radius: 50px;
+            padding: 0.7rem 1.5rem !important;
+            font-size: 0.9rem !important;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-left: none !important;
+            transition: background 0.2s;
+        }
+
+        .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
+
+        @media (max-width: 1050px) {
+            .nav-hamburger { display: flex; }
+        }
+
+    
+        /* ── TEXT JUSTIFY ── */
+        .entry-body, .section-body, p { text-align: justify; }
+    </style>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="Professional resume of Jimmy Belotte, MD, PhD, MBA, FACOG — founder of NEG+ Innovations, Inc. and Medical Director at GlaxoSmithKline.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Resume — Jimmy Belotte, MD, PhD, MBA, FACOG">
+    <meta property="og:description" content="Professional resume of Jimmy Belotte, MD, PhD, MBA, FACOG — founder of NEG+ Innovations, Inc. and Medical Director at GlaxoSmithKline.">
+    <meta property="og:url" content="https://negplusinnovations.com/resume.html">
+    <meta property="og:image" content="https://negplusinnovations.com/logo.svg">
+    <meta property="og:site_name" content="NEG+ Innovations, Inc.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Resume — Jimmy Belotte, MD, PhD, MBA, FACOG">
+    <meta name="twitter:description" content="Professional resume of Jimmy Belotte, MD, PhD, MBA, FACOG — founder of NEG+ Innovations, Inc. and Medical Director at GlaxoSmithKline.">
+</head>
+<body>
+
+<!-- CONTROLS -->
+<div class="controls">
+    <div class="ctrl-label">Jimmy Belotte — Professional Resume</div>
+    <div class="ctrl-btns">
+        <button class="ctrl-btn ctrl-btn-secondary" onclick="window.location='cv.html'">Full Academic CV</button>
+        <button class="ctrl-btn ctrl-btn-primary" onclick="window.print()">Print / Save PDF</button>
+    </div>
+</div>
+
+<!-- PAPER -->
+<div class="paper">
+
+    <!-- ══ SIDEBAR ══ -->
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="sidebar-name">Jimmy<br>Belotte</div>
+            <div class="sidebar-creds">MD · PhD · MBA · FACOG</div>
+        </div>
+
+        <div class="sidebar-body">
+
+            <div class="sb-section">
+                <div class="sb-section-title">Contact</div>
+                <div class="sb-item">
+                    <div class="sb-item-label">Location</div>
+                    <div class="sb-item-value">Weston, Massachusetts</div>
+                </div>
+                <div class="sb-item">
+                    <div class="sb-item-label">Practice</div>
+                    <div class="sb-item-value"><a href="#">newenglandgyn.com</a></div>
+                </div>
+                <div class="sb-item">
+                    <div class="sb-item-label">Company</div>
+                    <div class="sb-item-value"><a href="#">negplusinnovations.com</a></div>
+                </div>
+            </div>
+
+            <div class="sb-section">
+                <div class="sb-section-title">Credentials</div>
+                <div class="sb-item">
+                    <div class="sb-item-value">Board Certified OB-GYN<br><span style="color:rgba(255,255,255,0.4);font-size:0.7rem;">FACOG · ABOG</span></div>
+                </div>
+                <div class="sb-item" style="margin-top:6px;">
+                    <div class="sb-item-value">NIH WRHR Scholar</div>
+                </div>
+                <div class="sb-item">
+                    <div class="sb-item-value">Felix Rutledge Fellow<br><span style="color:rgba(255,255,255,0.4);font-size:0.7rem;">MD Anderson Cancer Center</span></div>
+                </div>
+                <div class="sb-item">
+                    <div class="sb-item-value">America's Top OB-GYNs<br><span style="color:rgba(255,255,255,0.4);font-size:0.7rem;">Consumer's Research Council</span></div>
+                </div>
+            </div>
+
+            <div class="sb-section">
+                <div class="sb-section-title">Expertise</div>
+                <div class="sb-skill">
+                    <div class="sb-skill-name">Gynecologic Oncology</div>
+                    <div class="sb-skill-bar"><div class="sb-skill-fill" style="width:96%"></div></div>
+                </div>
+                <div class="sb-skill">
+                    <div class="sb-skill-name">Clinical Development (Ph 1–3)</div>
+                    <div class="sb-skill-bar"><div class="sb-skill-fill" style="width:94%"></div></div>
+                </div>
+                <div class="sb-skill">
+                    <div class="sb-skill-name">Medical Device Innovation</div>
+                    <div class="sb-skill-bar"><div class="sb-skill-fill" style="width:90%"></div></div>
+                </div>
+                <div class="sb-skill">
+                    <div class="sb-skill-name">FDA Regulatory Strategy</div>
+                    <div class="sb-skill-bar"><div class="sb-skill-fill" style="width:85%"></div></div>
+                </div>
+                <div class="sb-skill">
+                    <div class="sb-skill-name">Healthcare Finance & Strategy</div>
+                    <div class="sb-skill-bar"><div class="sb-skill-fill" style="width:88%"></div></div>
+                </div>
+                <div class="sb-skill">
+                    <div class="sb-skill-name">Translational Research</div>
+                    <div class="sb-skill-bar"><div class="sb-skill-fill" style="width:92%"></div></div>
+                </div>
+            </div>
+
+            <div class="sb-section">
+                <div class="sb-section-title">Key Areas</div>
+                <span class="sb-tag">Women's Health</span>
+                <span class="sb-tag">Pelvic Floor</span>
+                <span class="sb-tag">Ovarian Cancer</span>
+                <span class="sb-tag">PARP Inhibitors</span>
+                <span class="sb-tag">Minimally Invasive Surgery</span>
+                <span class="sb-tag">SBIR / STTR</span>
+                <span class="sb-tag">Venture / SAFE</span>
+                <span class="sb-tag">Digital Health</span>
+                <span class="sb-tag">SaMD / AI-ML</span>
+                <span class="sb-tag">Cancer Disparities</span>
+            </div>
+
+            <div class="sb-section">
+                <div class="sb-section-title">Societies</div>
+                <div class="sb-item-value" style="font-size:0.72rem;line-height:1.7;">
+                    ACOG (Fellow) &nbsp;·&nbsp; SGO<br>
+                    AUGS &nbsp;·&nbsp; AAGL &nbsp;·&nbsp; AACR<br>
+                    SRI &nbsp;·&nbsp; ASRM
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ══ MAIN ══ -->
+    <div class="main">
+
+        <!-- HEADER -->
+        <div class="main-header">
+            <div class="main-title">Physician · Scientist · Entrepreneur · Strategist</div>
+            <div class="main-summary">
+                Board-certified OB-GYN (FACOG) and physician-scientist with an MD, PhD in Reproductive Physiology, and an Executive MBA — one of fewer than 1% of US physicians holding all three degrees simultaneously. Medical Director at a top-10 global pharmaceutical company, NIH-funded clinical researcher, and founder of a pre-revenue medical device company raising institutional capital. Over 13 peer-reviewed publications, 20+ conference abstracts, and 31+ scientific presentations spanning gynecologic oncology, translational medicine, and women's health.
+            </div>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="section">
+            <div class="section-title">Professional Experience</div>
+
+            <div class="exp">
+                <div class="exp-row">
+                    <div class="exp-title">Founder &amp; CEO</div>
+                    <div class="exp-date">2026 – Present</div>
+                </div>
+                <div class="exp-org">NEG+ Innovations, Inc. — Delaware C-Corp · Weston, MA</div>
+                <div class="exp-body">
+                    <ul>
+                        <li>Developing 3-device women's health portfolio: Belotte Colpotomizer™, POP-Q AutoSense™, Pudendal Nerve Block Device™ — combined US TAM $400M+</li>
+                        <li>Raising seed capital via Post-Money SAFE; co-investing personally on identical terms; targeting institutional Series Seed from medtech-focused venture investors</li>
+                        <li>4 provisional patents filed; 8-member advisory board including former FDA Principal Deputy Commissioner</li>
+                        <li>Pursuing NIH STTR (NICHD/NIBIB) and NSF STTR non-dilutive funding parallel to private capital raise</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp">
+                <div class="exp-row">
+                    <div class="exp-title">Medical Director, Oncology Clinical Development</div>
+                    <div class="exp-date">Present</div>
+                </div>
+                <div class="exp-org">GlaxoSmithKline (GSK) · Boston–Waltham–Cambridge, MA</div>
+                <div class="exp-body">
+                    <ul>
+                        <li>Late-stage clinical programs in gynecologic oncology; named investigator on OPAL trial (niraparib neoadjuvant, <em>Trials</em> 2024) and OVARIO Phase II (<em>Gynecologic Oncology</em> 2022)</li>
+                        <li>Protocol strategy, safety review, regulatory submission, and scientific communication across Phase 1/2 oncology programs including POLQi (GSK4524101) — JCO abstract 2025</li>
+                        <li>Inclusion &amp; Diversity Champion, GSK Oncology — Boston–Waltham–Cambridge region</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="exp">
+                <div class="exp-row">
+                    <div class="exp-title">Founder &amp; Medical Director</div>
+                    <div class="exp-date">Sept 2023 – Present</div>
+                </div>
+                <div class="exp-org">New England Gynecology Plus PLLC (NEG+) · Weston, MA</div>
+                <div class="exp-body">
+                    Patient-centered women's health practice; evidence-based non-obstetrical gynecologic care including telehealth; clinical operations for device validation studies. Six pillars: clinical care, R&amp;D, education, consulting, community engagement, innovation.
+                </div>
+            </div>
+
+            <div class="exp">
+                <div class="exp-row">
+                    <div class="exp-title">Clinical Associate Professor, OB/GYN &amp; Women's Health</div>
+                    <div class="exp-date">Prior</div>
+                </div>
+                <div class="exp-org">Albert Einstein College of Medicine / Montefiore · Bronx, NY</div>
+                <div class="exp-body">
+                    Grand Rounds lecturer; mentorship of residents; invited research lecture on cisplatin resistance (Dept. OB/GYN, 2017). Dual affiliation with Karmanos Cancer Institute and Wayne State University School of Medicine.
+                </div>
+            </div>
+
+            <div class="exp">
+                <div class="exp-row">
+                    <div class="exp-title">NIH WRHR Scholar &amp; Laboratory Researcher</div>
+                    <div class="exp-date">During Residency/PhD</div>
+                </div>
+                <div class="exp-org">Wayne State University / Karmanos Cancer Institute · Detroit, MI</div>
+                <div class="exp-body">
+                    NIH T32 Women's Reproductive Health Research Scholar. PhD research: oxidative stress mechanisms in cisplatin chemoresistance — epithelial ovarian cancer. Produced 8 original research publications; 15+ refereed conference presentations at AACR, SGO, ASRM, AAGL.
+                </div>
+            </div>
+
+            <div class="exp">
+                <div class="exp-row">
+                    <div class="exp-title">Felix Rutledge Fellow in Gynecologic Oncology</div>
+                    <div class="exp-date">2010</div>
+                </div>
+                <div class="exp-org">MD Anderson Cancer Center · Houston, TX</div>
+                <div class="exp-body">
+                    Competitive fellowship at the world's leading cancer center. Invited lecture: "Management of Bowel Obstruction in the Setting of Ovarian Cancer."
+                </div>
+            </div>
+        </div>
+
+        <!-- SCHOLARSHIP METRICS -->
+        <div class="section">
+            <div class="section-title">Research &amp; Scholarship</div>
+            <div class="metrics">
+                <div class="metric"><div class="metric-n">13</div><div class="metric-l">Peer-Reviewed Publications</div></div>
+                <div class="metric"><div class="metric-n">20</div><div class="metric-l">Published Abstracts</div></div>
+                <div class="metric"><div class="metric-n">31+</div><div class="metric-l">Presentations &amp; Lectures</div></div>
+                <div class="metric"><div class="metric-n">3</div><div class="metric-l">Ad-Hoc Reviewer Journals</div></div>
+                <div class="metric"><div class="metric-n">4+</div><div class="metric-l">Patents Pending</div></div>
+            </div>
+
+            <div style="font-size:0.72rem;font-weight:700;color:var(--gray-lt);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Landmark Publications</div>
+
+            <div class="pub-compact" data-n="1.">
+                <strong>Belotte J</strong> et al. OPAL trial: niraparib vs. platinum-taxane neoadjuvant in HRD ovarian cancer. <em>Trials</em>. 2024;25(1):301. PMID: 38702828.
+            </div>
+            <div class="pub-compact" data-n="2.">
+                Hardesty MM, ... <strong>Belotte J</strong> et al. OVARIO Phase II — niraparib + bevacizumab maintenance in advanced ovarian cancer. <em>Gynecol Oncol</em>. 2022. PMID: 35690498. IF: 5.3.
+            </div>
+            <div class="pub-compact" data-n="3.">
+                <strong>Belotte J</strong> et al. Oxidative stress and cisplatin resistance in epithelial ovarian cancer. <em>Reproductive Sciences</em>. 2014;21(4):503–8. PMID: 24077440. Cited ×7.
+            </div>
+            <div class="pub-compact" data-n="4.">
+                <strong>Belotte J</strong> et al. Catalase SNP strongly associated with ovarian cancer survival. <em>PLOS ONE</em>. 2015;10(8):e0135739. PMID: 26301412.
+            </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+            <div class="section-title">Education &amp; Training</div>
+            <div class="two-col">
+                <div>
+                    <div class="edu">
+                        <div class="edu-degree">Executive MBA for Physicians</div>
+                        <div class="edu-date">Completed</div>
+                        <div class="edu-school">Heller School · Brandeis University, Waltham MA</div>
+                    </div>
+                    <div class="edu">
+                        <div class="edu-degree">PhD — Reproductive Physiology</div>
+                        <div class="edu-date">Completed</div>
+                        <div class="edu-school">Wayne State University, Detroit MI</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="edu">
+                        <div class="edu-degree">Residency — Obstetrics &amp; Gynecology</div>
+                        <div class="edu-date">Completed</div>
+                        <div class="edu-school">Wayne State Univ. / Detroit Medical Center</div>
+                    </div>
+                    <div class="edu">
+                        <div class="edu-degree">Doctor of Medicine (MD)</div>
+                        <div class="edu-date">Completed</div>
+                        <div class="edu-school">Université Notre Dame d'Haïti</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEADERSHIP -->
+        <div class="section">
+            <div class="section-title">Leadership &amp; Service</div>
+            <div class="two-col">
+                <div>
+                    <div class="exp" style="margin-bottom:9px;">
+                        <div class="exp-row">
+                            <div class="exp-title" style="font-size:0.77rem;">President-Elect · Rotary Club of Weston &amp; Wayland</div>
+                            <div class="exp-date">2025</div>
+                        </div>
+                        <div class="exp-org" style="font-size:0.7rem;">District 7910 Polio Plus Chair · Rotary International</div>
+                    </div>
+                    <div class="exp" style="margin-bottom:9px;">
+                        <div class="exp-row">
+                            <div class="exp-title" style="font-size:0.77rem;">Elected Board Member</div>
+                        </div>
+                        <div class="exp-org" style="font-size:0.7rem;">Wayne County Medical Society of Southeast Michigan</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="exp" style="margin-bottom:9px;">
+                        <div class="exp-row">
+                            <div class="exp-title" style="font-size:0.77rem;">I&amp;D Champion — Oncology Division</div>
+                        </div>
+                        <div class="exp-org" style="font-size:0.7rem;">GlaxoSmithKline · Boston–Waltham–Cambridge</div>
+                    </div>
+                    <div class="exp" style="margin-bottom:9px;">
+                        <div class="exp-row">
+                            <div class="exp-title" style="font-size:0.77rem;">International Keynote Speaker</div>
+                        </div>
+                        <div class="exp-org" style="font-size:0.7rem;">AMHE 45th Annual Convention · Cartagena, Colombia · 2018</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /main -->
+</div><!-- /paper -->
+
+
+<script>
+(function() {
+    var btn = document.getElementById('navHamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    if (!btn || !mobileNav) return;
+
+    btn.addEventListener('click', function() {
+        var isOpen = btn.classList.toggle('open');
+        if (isOpen) {
+            mobileNav.style.display = 'block';
+            requestAnimationFrame(function() { mobileNav.classList.add('open'); });
+        } else {
+            mobileNav.classList.remove('open');
+            mobileNav.addEventListener('transitionend', function handler() {
+                mobileNav.style.display = 'none';
+                mobileNav.removeEventListener('transitionend', handler);
+            });
+        }
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close on link click
+    mobileNav.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !mobileNav.contains(e.target)) {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

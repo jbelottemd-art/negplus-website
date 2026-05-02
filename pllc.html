@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Operations | NEG+ Innovations, Inc.</title>
+    <style>
+        :root {
+            --black:      #1B263B;
+            --gold:       #41B3A3;
+            --gold-dark:  #2A9D8F;
+            --gold-light: #7DD3CB;
+            --brown-dark: #0E2A47;
+            --brown-mid:  #2D4A6B;
+            --brown-light:#778DA9;
+            --cream:      #E8EEF4;
+            --cream-dark: #D8E3EE;
+            --white:      #FFFFFF;
+            --text-dark:  #1B263B;
+            --text-mid:   #4A6580;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--white);
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+        }
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 72px;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-mark { font-size: 1.9rem; font-weight: 800; letter-spacing: -1px; color: var(--black); }
+        .nav-logo-mark span { color: var(--gold); }
+        .nav-logo-img { display: block; height: 44px; width: auto; }
+        .nav-logo-sub {
+ font-size: 0.68rem; font-weight: 600; color: var(--brown-mid); text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.3; border-left: 2px solid var(--gold); padding-left: 12px; }
+        .nav-links { display: flex; list-style: none; }
+        .nav-links a { display: block; padding: 0 1.1rem; height: 72px; line-height: 72px; font-size: 0.9rem; font-weight: 600; text-decoration: none; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.8px; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: color 0.2s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-cta { background: var(--gold); color: var(--black) !important; border-radius: 50px; padding: 0 1.4rem !important; height: 40px !important; line-height: 40px !important; margin: auto 0; font-size: 0.85rem !important; border-bottom: none !important; }
+        .nav-cta:hover { background: var(--gold-dark) !important; transform: translateY(-1px); }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 60%, #0a1e35 100%);
+            padding: 90px 2rem 75px;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40h80M40 0v80' stroke='rgba(65,179,163,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+        }
+        .page-hero-content { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+        .page-hero-eyebrow { display: inline-block; background: rgba(65,179,163,0.15); border: 1px solid rgba(65,179,163,0.35); color: var(--gold-light); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 18px; border-radius: 50px; margin-bottom: 1.25rem; }
+        .page-hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+        .page-hero h1 span { color: var(--gold); }
+        .page-hero p { font-size: 1.1rem; color: var(--brown-light); max-width: 760px; line-height: 1.75; }
+
+        /* ── COMMON ── */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 80px 0; }
+        .section-label { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.75rem; }
+        .section-title { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800; color: var(--text-dark); line-height: 1.2; margin-bottom: 1rem; }
+        .section-title span { color: var(--gold-dark); }
+        .divider { width: 56px; height: 4px; background: var(--gold); border-radius: 2px; margin: 0.75rem 0 1.5rem; }
+        .section-body { font-size: 1rem; color: var(--text-mid); line-height: 1.8; }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+
+        /* ── ENTITY OVERVIEW ── */
+        .entity-overview { background: var(--cream); }
+        .entity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+
+        .entity-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+        }
+        .entity-card-header {
+            padding: 2rem 2rem 1.5rem;
+            border-bottom: 3px solid var(--gold);
+        }
+        .entity-card-header.dark {
+            background: var(--black);
+            border-bottom-color: var(--gold);
+        }
+        .entity-badge {
+            font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+            padding: 4px 12px; border-radius: 50px; margin-bottom: 1rem; display: inline-block;
+        }
+        .entity-badge.corp { background: rgba(65,179,163,0.15); color: var(--gold-dark); border: 1px solid rgba(65,179,163,0.3); }
+        .entity-badge.pllc { background: rgba(255,255,255,0.12); color: var(--gold-light); border: 1px solid rgba(65,179,163,0.35); }
+        .entity-card-header h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.4rem; }
+        .entity-card-header h3.dark-text { color: var(--white); }
+        .entity-card-header h3.light-text { color: var(--text-dark); }
+        .entity-card-header .entity-sub { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.5px; }
+        .entity-card-header .entity-sub.dark-text { color: var(--brown-light); }
+        .entity-card-header .entity-sub.light-text { color: var(--text-mid); }
+        .entity-card-body { padding: 1.75rem 2rem 2rem; }
+        .entity-attr { margin-bottom: 1.1rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--cream-dark); }
+        .entity-attr:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .entity-attr-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.3rem; }
+        .entity-attr-value { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
+        .entity-attr-value strong { color: var(--text-dark); }
+
+        /* ── RELATIONSHIP DIAGRAM ── */
+        .relationship { background: var(--white); }
+        .rel-diagram {
+            max-width: 900px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr auto 1fr; gap: 0; align-items: center;
+        }
+        .rel-box {
+            border-radius: 16px; padding: 2rem 1.75rem; text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .rel-box.corp { background: var(--black); border: 2px solid var(--gold); }
+        .rel-box.pllc { background: var(--cream); border: 2px solid var(--cream-dark); }
+        .rel-box-icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+        .rel-box-label { font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .rel-box.corp .rel-box-label { color: var(--gold-light); }
+        .rel-box.pllc .rel-box-label { color: var(--gold-dark); }
+        .rel-box-name { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.4rem; }
+        .rel-box.corp .rel-box-name { color: var(--white); }
+        .rel-box.pllc .rel-box-name { color: var(--text-dark); }
+        .rel-box-sub { font-size: 0.78rem; line-height: 1.5; }
+        .rel-box.corp .rel-box-sub { color: var(--brown-light); }
+        .rel-box.pllc .rel-box-sub { color: var(--text-mid); }
+        .rel-connector {
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            padding: 0 1.5rem;
+        }
+        .rel-arrow { font-size: 1.8rem; color: var(--gold); }
+        .rel-connector-label {
+            font-size: 0.65rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-mid); text-align: center; line-height: 1.4;
+            background: var(--cream); border: 1px solid var(--cream-dark);
+            padding: 6px 12px; border-radius: 8px; white-space: nowrap;
+        }
+
+        /* ── SIX PILLARS ── */
+        .pillars { background: var(--cream); }
+        .pillars-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .pillar-card {
+            background: var(--white); border-radius: 16px; padding: 1.75rem 1.5rem;
+            border-top: 3px solid var(--gold); box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+            transition: transform 0.2s;
+        }
+        .pillar-card:hover { transform: translateY(-4px); }
+        .pillar-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .pillar-card h3 { font-size: 1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .pillar-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; }
+        .pillar-card .pillar-tag {
+            display: inline-block; margin-top: 0.75rem;
+            font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+            color: var(--gold-dark); background: rgba(65,179,163,0.1); padding: 3px 10px; border-radius: 50px;
+        }
+
+        /* ── VALIDATION PLATFORM ── */
+        .validation { background: var(--white); }
+        .validation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .validation-visual {
+            background: linear-gradient(135deg, var(--black), var(--brown-dark));
+            border-radius: 20px; padding: 3rem 2.5rem;
+            border: 2px solid rgba(65,179,163,0.3);
+        }
+        .validation-stat { margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(65,179,163,0.15); }
+        .validation-stat:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .validation-stat .stat-n { font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+        .validation-stat .stat-l { font-size: 0.8rem; color: var(--brown-light); line-height: 1.4; }
+        .validation-points { list-style: none; }
+        .validation-points li {
+            padding: 0.75rem 0 0.75rem 1.75rem; position: relative;
+            color: var(--text-mid); font-size: 0.92rem; border-bottom: 1px solid var(--cream-dark);
+            line-height: 1.6;
+        }
+        .validation-points li:last-child { border-bottom: none; }
+        .validation-points li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+        .validation-points li strong { color: var(--text-dark); }
+
+        /* ── ERAS ── */
+        .eras-section {
+            background: var(--black);
+            padding: 72px 0;
+            text-align: center;
+        }
+        .eras-inner { max-width: 860px; margin: 0 auto; }
+        .eras-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+        .eras-title { font-size: clamp(1.8rem, 3.2vw, 2.8rem); font-weight: 800; color: var(--white); margin-bottom: 1.5rem; line-height: 1.2; }
+        .eras-title em { color: var(--gold); font-style: normal; }
+        .eras-body { font-size: 1.05rem; color: var(--brown-light); line-height: 1.8; margin-bottom: 2.5rem; }
+        .eras-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(65,179,163,0.2); border-radius: 12px; overflow: hidden; margin-top: 2.5rem; }
+        .eras-stat { background: rgba(14,42,71,0.7); padding: 1.5rem 1rem; text-align: center; }
+        .eras-stat .n { font-size: 1.8rem; font-weight: 800; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+        .eras-stat .l { font-size: 0.72rem; color: var(--brown-light); text-transform: uppercase; letter-spacing: 0.8px; line-height: 1.4; }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: linear-gradient(135deg, var(--brown-dark), var(--black));
+            padding: 80px 2rem; text-align: center;
+        }
+        .cta-section h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; color: var(--white); margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.05rem; color: var(--brown-light); max-width: 640px; margin: 0 auto 2.5rem; line-height: 1.75; }
+        .btn-primary { display: inline-block; padding: 16px 42px; background: var(--gold); color: var(--black); font-weight: 700; font-size: 1rem; text-decoration: none; border-radius: 50px; transition: all 0.25s; margin: 0 0.5rem; }
+        .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
+        .btn-outline { display: inline-block; padding: 15px 42px; border: 2px solid rgba(65,179,163,0.6); color: var(--gold-light); font-weight: 600; font-size: 1rem; text-decoration: none; border-radius: 50px; transition: all 0.25s; margin: 0 0.5rem; }
+        .btn-outline:hover { border-color: var(--gold); background: rgba(65,179,163,0.10); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--black); color: rgba(255,255,255,0.6);
+            padding: 48px 2rem 28px;
+        }
+        .footer-inner { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 2.5rem; }
+        .footer-brand h3 { font-size: 1.4rem; font-weight: 800; color: var(--white); margin-bottom: 0.4rem; }
+        .footer-brand h3 span { color: var(--gold); }
+        .footer-tagline { font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.75rem; }
+        .footer-brand p { font-size: 0.82rem; line-height: 1.7; }
+        .footer-col h4 { font-size: 0.72rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.5rem; }
+        .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-col a:hover { color: var(--gold); }
+        .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; }
+        .footer-bottom .legal { color: rgba(255,255,255,0.4); }
+
+        @media (max-width: 900px) {
+            .entity-grid, .validation-grid { grid-template-columns: 1fr; }
+            .rel-diagram { grid-template-columns: 1fr; }
+            .rel-connector { flex-direction: row; }
+            .pillars-grid { grid-template-columns: 1fr 1fr; }
+            .eras-stats { grid-template-columns: 1fr 1fr; }
+
+        }
+    
+        /* ── HAMBURGER / MOBILE NAV ── */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 19px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1100;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--black);
+            border-radius: 2px;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+            transform-origin: center;
+        }
+
+        /* animated X state */
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Mobile nav drawer */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 75px; /* just below the nav bar */
+            left: 0; right: 0;
+            background: var(--white);
+            border-top: 2px solid var(--gold);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            z-index: 1050;
+            padding: 1rem 0 1.5rem;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+        }
+
+        .mobile-nav.open {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav ul li a {
+            display: block;
+            padding: 0.75rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-mid);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-left: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .mobile-nav ul li a:hover,
+        .mobile-nav ul li a:focus {
+            color: var(--gold-dark);
+            border-left-color: var(--gold);
+            background: var(--cream);
+        }
+
+        .mobile-nav .mobile-cta {
+            display: block;
+            margin: 1rem 2rem 0;
+            text-align: center;
+            background: var(--gold);
+            color: var(--black) !important;
+            border-radius: 50px;
+            padding: 0.7rem 1.5rem !important;
+            font-size: 0.9rem !important;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-left: none !important;
+            transition: background 0.2s;
+        }
+
+        .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
+
+        @media (max-width: 1050px) {
+            .nav-hamburger { display: flex; }
+        }
+
+    </style>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="New England Gynecology Plus PLLC: the clinical operations partner supporting NEG+ Innovations' multi-device women's health portfolio.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Clinical Operations — NEG+ Innovations, Inc.">
+    <meta property="og:description" content="New England Gynecology Plus PLLC: the clinical operations partner supporting NEG+ Innovations' multi-device women's health portfolio.">
+    <meta property="og:url" content="https://negplusinnovations.com/index.html#contact">
+    <meta property="og:image" content="https://negplusinnovations.com/logo.svg">
+    <meta property="og:site_name" content="NEG+ Innovations, Inc.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Clinical Operations — NEG+ Innovations, Inc.">
+    <meta name="twitter:description" content="New England Gynecology Plus PLLC: the clinical operations partner supporting NEG+ Innovations' multi-device women's health portfolio.">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#pipeline">Pipeline</a></li>
+            <li><a href="index.html#contact" class="active">Clinical Operations</a></li>
+            <li><a href="rd.html">R&amp;D</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="rd.html">R&amp;D</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="index.html#contact" class="mobile-cta">Contact</a></li>
+    </ul>
+</div>
+
+<!-- ── HERO ── -->
+<section class="page-hero">
+    <div class="page-hero-content">
+        <div class="page-hero-eyebrow">Clinical Infrastructure</div>
+        <h1>The <span>Clinical Operations</span><br>Behind NEG+ Innovations</h1>
+        <p>New England Gynecology Plus PLLC is the dedicated clinical operating entity and managing partner that powers the device validation, evidence generation, and patient care infrastructure supporting NEG+ Innovations, Inc.'s medical device pipeline.</p>
+    </div>
+</section>
+
+<!-- ── ENTITY OVERVIEW ── -->
+<section class="entity-overview">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Two-Entity Architecture</div>
+            <h2 class="section-title">One Mission. <span>Two Distinct Entities.</span></h2>
+            <div class="divider" style="margin:0.75rem auto 1.5rem;"></div>
+            <p class="section-body" style="max-width:700px;margin:0 auto;">NEG+ operates through a deliberate two-entity structure designed to maintain clean corporate governance, protect intellectual property, and preserve SBIR/STTR eligibility — all while keeping clinical operations and device development under unified physician leadership.</p>
+        </div>
+
+        <div class="entity-grid">
+            <!-- C-Corp -->
+            <div class="entity-card">
+                <div class="entity-card-header dark">
+                    <div class="entity-badge corp">Delaware C-Corp</div>
+                    <h3 class="dark-text">NEG+ Innovations, Inc.</h3>
+                    <div class="entity-sub dark-text">Medical Device Company · IP Holding Entity</div>
+                </div>
+                <div class="entity-card-body">
+                    <div class="entity-attr">
+                        <div class="entity-attr-label">Purpose</div>
+                        <div class="entity-attr-value">Device research &amp; development, intellectual property ownership, regulatory strategy, and investor capital vehicle.</div>
+                    </div>
+                    <div class="entity-attr">
+                        <div class="entity-attr-label">IP &amp; Assets</div>
+                        <div class="entity-attr-value"><strong>All device IP, patent applications, and proprietary designs</strong> are formally assigned to and vested in the C-Corp under executed assignment agreements.</div>
+                    </div>
+                    <div class="entity-attr">
+                        <div class="entity-attr-label">Funding Eligibility</div>
+                        <div class="entity-attr-value">NIH SBIR/STTR grant eligibility, Reg D investor capital (SAFE, Series Seed), QSBS-eligible under IRC §1202.</div>
+                    </div>
+                    <div class="entity-attr">
+                        <div class="entity-attr-label">Governance</div>
+                        <div class="entity-attr-value">Independent board of directors. NEG+ PLLC holds <strong>no equity, no governance rights, and no board representation</strong> in the C-Corp.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLLC -->
+            <div class="entity-card">
+                <div class="entity-card-header">
+                    <div class="entity-badge pllc" style="background:rgba(65,179,163,0.1);color:var(--gold-dark);">Massachusetts PLLC</div>
+                    <h3 class="light-text">New England Gynecology Plus PLLC</h3>
+                    <div class="entity-sub light-text">Clinical Practice Entity · Managing Partner</div>
+                </div>
+                <div class="entity-card-body">
+                    <div class="entity-attr">
+                        <div class="entity-attr-label">Role</div>
+                        <div class="entity-attr-value">Clinical services vendor and <strong>managing partner</strong> to NEG+ Innovations, Inc. under a formal formal contractual arrangement. Provides the clinical infrastructure, patient care platform, and investigator-site infrastructure supporting device validation.</div>
+                    </div>
+                    <div class="entity-attr">
+                        <div class="entity-attr-label">Clinical Operations</div>
+                        <div class="entity-attr-value">Evidence-based, non-obstetrical gynecologic care including telehealth services. Six operational pillars spanning clinical care, R&amp;D support, education, community engagement, and medical innovation.</div>
+                    </div>
+                    <div class="entity-attr">
+                        <div class="entity-attr-label">Relationship to C-Corp</div>
+                        <div class="entity-attr-value">Services vendor under written contractual agreement. Operates as the <strong>designated clinical investigator site</strong> for NEG+ device feasibility studies and early clinical validation work.</div>
+                    </div>
+                    <div class="entity-attr">
+                        <div class="entity-attr-label">Founded</div>
+                        <div class="entity-attr-value">September 2023 · Weston, Massachusetts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── RELATIONSHIP DIAGRAM ── -->
+<section class="relationship">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Contractual Structure</div>
+            <h2 class="section-title">Managing Partner <span>Agreement</span></h2>
+            <div class="divider" style="margin:0.75rem auto 1.5rem;"></div>
+            <p class="section-body" style="max-width:660px;margin:0 auto;">The two entities interact exclusively through a formal formal contractual arrangement. This structure maintains clean corporate governance for investors while providing the C-Corp with a dedicated clinical operations for device validation.</p>
+        </div>
+
+        <div class="rel-diagram">
+            <div class="rel-box pllc">
+                <div class="rel-box-icon">🏥</div>
+                <div class="rel-box-label">Managing Partner</div>
+                <div class="rel-box-name">NEG+ PLLC</div>
+                <div class="rel-box-sub">Clinical practice · Patient care · Investigator site · Education &amp; community engagement</div>
+            </div>
+            <div class="rel-connector">
+                <div class="rel-arrow">⇄</div>
+                <div class="rel-connector-label">Arm's-Length<br>Services Agreement</div>
+            </div>
+            <div class="rel-box corp">
+                <div class="rel-box-icon">⚗️</div>
+                <div class="rel-box-label">C-Corp · IP Holder</div>
+                <div class="rel-box-name">NEG+ Innovations, Inc.</div>
+                <div class="rel-box-sub">Device R&amp;D · IP ownership · SBIR grants · Investor capital · Regulatory strategy</div>
+            </div>
+        </div>
+
+        <div style="max-width:860px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center;">
+            <div style="background:var(--cream);border-radius:14px;padding:1.5rem;">
+                <div style="font-size:1.6rem;margin-bottom:0.5rem;">🔒</div>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--text-dark);margin-bottom:0.4rem;">IP Firewall</div>
+                <div style="font-size:0.8rem;color:var(--text-mid);line-height:1.55;">All device intellectual property is assigned to and owned exclusively by the C-Corp. The PLLC has no IP rights.</div>
+            </div>
+            <div style="background:var(--cream);border-radius:14px;padding:1.5rem;">
+                <div style="font-size:1.6rem;margin-bottom:0.5rem;">📋</div>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--text-dark);margin-bottom:0.4rem;">Clean Cap Table</div>
+                <div style="font-size:0.8rem;color:var(--text-mid);line-height:1.55;">The PLLC holds no equity interest, governance rights, or board representation in NEG+ Innovations, Inc.</div>
+            </div>
+            <div style="background:var(--cream);border-radius:14px;padding:1.5rem;">
+                <div style="font-size:1.6rem;margin-bottom:0.5rem;">🧬</div>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--text-dark);margin-bottom:0.4rem;">SBIR Integrity</div>
+                <div style="font-size:0.8rem;color:var(--text-mid);line-height:1.55;">Structural separation ensures full NIH SBIR/STTR eligibility is preserved in the C-Corp as the small business applicant.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── SIX PILLARS ── -->
+<section class="pillars">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">NEG+ PLLC Operations</div>
+            <h2 class="section-title">Six Pillars of <span>Clinical Excellence</span></h2>
+            <div class="divider" style="margin:0.75rem auto 1.5rem;"></div>
+            <p class="section-body" style="max-width:640px;margin:0 auto;">New England Gynecology Plus PLLC operates across six integrated domains that collectively form the clinical foundation supporting the NEG+ Innovations device pipeline.</p>
+        </div>
+
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon">🩺</div>
+                <h3>Clinical Patient Care</h3>
+                <p>Evidence-based, patient-centered gynecologic care serving women in Weston and the greater Boston area, including telehealth. Comprehensive non-obstetrical GYN services delivered with subspecialty precision.</p>
+                <span class="pillar-tag">Core Operations</span>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">🔬</div>
+                <h3>Research &amp; Development Support</h3>
+                <p>Designated clinical investigator site for NEG+ Innovations feasibility and early validation studies. Provides real-world clinical context, patient population access, and IRB-ready infrastructure.</p>
+                <span class="pillar-tag">Device Validation</span>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">🎓</div>
+                <h3>Education &amp; Training</h3>
+                <p>Physician education initiatives in women's pelvic health, surgical technique, and evidence-based practice. Collaboration with academic medical centers to advance clinical training standards.</p>
+                <span class="pillar-tag">Academic Mission</span>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">🤝</div>
+                <h3>Community Engagement</h3>
+                <p>Active health equity programming and cancer prevention outreach. Partnership with Rotary International District 7910, community health fairs, and underserved population screening initiatives.</p>
+                <span class="pillar-tag">Health Equity</span>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">💡</div>
+                <h3>Medical Device Innovation</h3>
+                <p>Clinical needs identification, physician-inventor insight, and real-world procedural feedback that informs NEG+ Innovations' multi-device portfolio. The clinical practice is where device concepts originate.</p>
+                <span class="pillar-tag">Innovation Pipeline</span>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">🌐</div>
+                <h3>Strategic Partnerships</h3>
+                <p>Academic medical center collaborations, society relationships (ACOG, SGO, AAGL, AUGS), and clinical KOL engagement that support the evidence generation roadmap for all four NEG+ devices.</p>
+                <span class="pillar-tag">Network</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── VALIDATION PLATFORM ── -->
+<section class="validation">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Clinical Validation Infrastructure</div>
+            <h2 class="section-title">The PLLC as <span>Investigator Site</span></h2>
+            <div class="divider" style="margin:0.75rem auto 1.5rem;"></div>
+        </div>
+
+        <div class="validation-grid">
+            <div class="validation-visual">
+                <div class="validation-stat">
+                    <div class="stat-n">4</div>
+                    <div class="stat-l">Active device programs with clinical validation requirements across the NEG+ portfolio</div>
+                </div>
+                <div class="validation-stat">
+                    <div class="stat-n">1.5M+</div>
+                    <div class="stat-l">Annual US procedures targeted by the NEG+ device portfolio — the patient population the PLLC operates within</div>
+                </div>
+                <div class="validation-stat">
+                    <div class="stat-n">ERAS</div>
+                    <div class="stat-l">Clinical platform aligned to Enhanced Recovery After Surgery protocols — the unifying commercial narrative across all four NEG+ devices</div>
+                </div>
+                <div class="validation-stat">
+                    <div class="stat-n">Phase 0→II</div>
+                    <div class="stat-l">Closed-loop evidence system: feasibility → bench validation → early clinical use → pivotal study enrollment</div>
+                </div>
+            </div>
+            <div>
+                <div class="section-label">Validation Infrastructure</div>
+                <h3 style="font-size:1.4rem;font-weight:800;color:var(--text-dark);margin-bottom:1rem;">From Clinical Observation<br>to Commercial Evidence</h3>
+                <div class="divider"></div>
+                <p class="section-body" style="margin-bottom:1.75rem;">The PLLC functions as Phase 0 of the NEG+ Innovations evidence roadmap — providing the clinical environment in which device concepts are stress-tested against real procedural workflows before entering formal bench and clinical validation.</p>
+                <ul class="validation-points">
+                    <li><strong>Physician-inventor site:</strong> All four NEG+ device concepts originated from direct clinical observation within the PLLC's surgical and diagnostic practice.</li>
+                    <li><strong>IRB-ready infrastructure:</strong> The PLLC provides the institutional framework for IRB application, patient consent workflows, and early clinical data collection under the NEG+ Integrated Evidence Roadmap.</li>
+                    <li><strong>ERAS alignment:</strong> Every NEG+ device reduces an opioid, standardizes a technique, or prevents a surgical complication — a narrative anchored in the PLLC's patient care philosophy.</li>
+                    <li><strong>KOL network access:</strong> PLLC's academic society affiliations (SGO, AUGS, AAGL, ACOG) provide the KOL relationships that drive Phase II multi-site clinical enrollment.</li>
+                    <li><strong>Evidence publication:</strong> The PLLC's existing publication record (13 peer-reviewed papers, 20 abstracts) establishes the clinical credibility that anchors NIH SBIR grant applications.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── ERAS NARRATIVE ── -->
+<section class="eras-section">
+    <div class="container">
+        <div class="eras-inner">
+            <div class="eras-eyebrow">Unified Clinical Narrative</div>
+            <h2 class="eras-title">NEG+ Innovations is the <em>ERAS Company</em><br>for Women's Health</h2>
+            <p class="eras-body">Enhanced Recovery After Surgery protocols are transforming women's pelvic surgery — reducing opioid dependence, shortening hospital stays, and improving outcomes. Every device in the NEG+ portfolio directly supports an ERAS objective. The PLLC's clinical practice is the proof point that makes this narrative credible to hospital VAC committees, payers, and strategic acquirers.</p>
+            <div class="eras-stats">
+                <div class="eras-stat">
+                    <div class="n">↓ Opioid</div>
+                    <div class="l">Pudendal Nerve Block Device — preferred ERAS analgesic per 2024 Society guidelines</div>
+                </div>
+                <div class="eras-stat">
+                    <div class="n">↓ OR Time</div>
+                    <div class="l">Belotte Colpotomizer — 8–12 min savings per hysterectomy case</div>
+                </div>
+                <div class="eras-stat">
+                    <div class="n">↓ Reoperation</div>
+                    <div class="l">POP-Q AutoSense — objective staging reduces misdiagnosis-driven repeat surgery</div>
+                </div>
+                <div class="eras-stat">
+                    <div class="n">↓ Adverse Events</div>
+                    <div class="l">MUMS — autonomous intrapartum monitoring targeting adverse perinatal outcomes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Engage with the NEG+ Platform</h2>
+        <p>Research institutions, clinical investigators, and industry partners interested in the NEG+ Innovations device programs are invited to connect with our team.</p>
+        <div>
+            <a href="mailto:info@negplusinnovations.com" class="btn-primary">Contact NEG+ Innovations</a>
+            <a href="index.html#products" class="btn-outline">View the Device Portfolio</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <h3>NEG<span>+</span> Innovations</h3>
+            <div class="footer-tagline">New England Gynecology Plus</div>
+            <p>A physician-led medical device company advancing women's pelvic health through precision surgical and diagnostic innovation. Headquartered in Weston, Massachusetts.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="rd.html">Belotte Colpotomizer™</a></li>
+                <li><a href="rd.html">POP-Q AutoSense™</a></li>
+                <li><a href="rd.html">Pudendal Nerve Block Device™</a></li>
+                <li><a href="rd.html">MUMS™</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="index.html#about">About NEG+</a></li>
+                <li><a href="index.html#advisory">Advisory Board</a></li>
+                <li><a href="index.html#contact">Clinical Operations</a></li>
+                <li><a href="rd.html">R&amp;D Pipeline</a></li>
+                <li><a href="cv.html">CV</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="legal">© 2026 NEG+ Innovations, Inc. · Weston, Massachusetts · All rights reserved.</div>
+        <div class="legal">Delaware C-Corp · Reg D · Rule 506(b)</div>
+    </div>
+</footer>
+
+
+<script>
+(function() {
+    var btn = document.getElementById('navHamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    if (!btn || !mobileNav) return;
+
+    btn.addEventListener('click', function() {
+        var isOpen = btn.classList.toggle('open');
+        if (isOpen) {
+            mobileNav.style.display = 'block';
+            requestAnimationFrame(function() { mobileNav.classList.add('open'); });
+        } else {
+            mobileNav.classList.remove('open');
+            mobileNav.addEventListener('transitionend', function handler() {
+                mobileNav.style.display = 'none';
+                mobileNav.removeEventListener('transitionend', handler);
+            });
+        }
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close on link click
+    mobileNav.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !mobileNav.contains(e.target)) {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team — NEG+ Innovations, Inc.</title>
+    <style>
+        :root {
+            --black:      #1B263B;
+            --gold:       #41B3A3;
+            --gold-dark:  #2A9D8F;
+            --gold-light: #7DD3CB;
+            --brown-dark: #0E2A47;
+            --brown-mid:  #2D4A6B;
+            --brown-light:#778DA9;
+            --cream:      #E8EEF4;
+            --cream-dark: #D8E3EE;
+            --white:      #FFFFFF;
+            --text-dark:  #1B263B;
+            --text-mid:   #4A6580;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--white);
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+        }
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between; height: 72px;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-img { display: block; height: 44px; width: auto; }
+        .nav-links { display: flex; gap: 0; list-style: none; }
+        .nav-links a {
+            display: block; padding: 0 0.6rem; height: 72px; line-height: 72px;
+            font-size: 0.8rem; font-weight: 600; text-decoration: none;
+            color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.4px;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 3px solid transparent; margin-bottom: -3px;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-cta {
+            background: var(--gold); color: var(--black) !important;
+            border-radius: 50px; padding: 0 1rem !important;
+            height: 40px !important; line-height: 40px !important;
+            margin: auto 0; font-size: 0.85rem !important;
+            transition: background 0.2s, transform 0.2s !important; border-bottom: none !important;
+        }
+        .nav-cta:hover { background: var(--gold-dark) !important; transform: translateY(-1px); }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 55%, #0a1e35 100%);
+            padding: 80px 2rem 72px; text-align: center; position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40h80M40 0v80' stroke='rgba(65,179,163,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+        }
+        .page-hero-content { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+        .page-hero-eyebrow {
+            display: inline-block; background: rgba(65,179,163,0.15);
+            border: 1px solid rgba(65,179,163,0.35); color: var(--gold-light);
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; padding: 5px 18px; border-radius: 50px; margin-bottom: 1.5rem;
+        }
+        .page-hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 800;
+            color: var(--white); line-height: 1.2; margin-bottom: 1.1rem;
+        }
+        .page-hero h1 span { color: var(--gold); }
+        .page-hero p {
+            color: rgba(255,255,255,0.78); font-size: 1.05rem; max-width: 640px;
+            margin: 0 auto; text-align: justify;
+        }
+
+        /* ── CONTAINER ── */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 80px 0; }
+
+        /* ── SECTION LABELS ── */
+        .section-label {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800;
+            color: var(--text-dark); line-height: 1.2; margin-bottom: 1rem;
+        }
+        .section-title span { color: var(--gold); }
+        .section-body {
+            color: var(--text-mid); font-size: 1rem; max-width: 720px;
+            line-height: 1.75; text-align: justify;
+        }
+        .divider { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin: 1.2rem 0; }
+        .divider-center { margin: 1.2rem auto; }
+        .section-header { text-align: center; margin-bottom: 3.5rem; }
+        .section-header .section-body { margin: 0 auto; }
+
+        /* ── FOUNDER SECTION ── */
+        .founder-section { background: var(--cream); }
+        .founder-grid {
+            display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start;
+        }
+        .founder-card {
+            background: var(--white); border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            overflow: hidden; text-align: center;
+        }
+        .founder-avatar {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            height: 200px; display: flex; align-items: center; justify-content: center;
+        }
+        .founder-initials {
+            width: 100px; height: 100px; border-radius: 50%;
+            background: rgba(65,179,163,0.2); border: 3px solid var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; font-weight: 800; color: var(--gold); letter-spacing: -1px;
+        }
+        .founder-card-body { padding: 1.5rem; }
+        .founder-name { font-size: 1.25rem; font-weight: 800; color: var(--text-dark); }
+        .founder-creds { font-size: 0.82rem; font-weight: 600; color: var(--gold); letter-spacing: 0.5px; margin: 0.3rem 0 0.8rem; }
+        .founder-title { font-size: 0.85rem; color: var(--text-mid); line-height: 1.5; }
+        .founder-cta { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; padding: 0 0.5rem 0.5rem; }
+        .founder-cta a {
+            display: block; padding: 0.6rem 1rem;
+            background: var(--cream); border: 1.5px solid var(--gold);
+            border-radius: 50px; color: var(--black); font-size: 0.8rem;
+            font-weight: 700; text-decoration: none; letter-spacing: 0.5px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .founder-cta a:hover { background: var(--gold); color: var(--white); }
+
+        .founder-bio { }
+        .founder-bio .section-label { margin-bottom: 0.5rem; }
+        .founder-bio h2 { font-size: 2rem; font-weight: 800; color: var(--text-dark); line-height: 1.2; margin-bottom: 0.5rem; }
+        .founder-bio h2 span { color: var(--gold); }
+        .founder-bio p { color: var(--text-mid); font-size: 0.97rem; line-height: 1.75; margin-bottom: 1rem; text-align: justify; }
+        .credential-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.5rem;
+        }
+        .credential-item {
+            background: var(--white); border-radius: 10px; padding: 0.85rem 1rem;
+            border-left: 3px solid var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .credential-item strong { display: block; font-size: 0.82rem; font-weight: 700; color: var(--text-dark); }
+        .credential-item span { font-size: 0.78rem; color: var(--text-mid); }
+
+        /* ── BOARD OF DIRECTORS ── */
+        .bod-section { background: var(--white); }
+        .bod-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;
+        }
+        .bod-card {
+            background: var(--white);
+            border-radius: 20px;
+            border: 1px solid rgba(65,179,163,0.2);
+            border-top: 4px solid var(--gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .bod-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.12); }
+        .bod-card.placeholder {
+            border-top-color: var(--brown-light);
+            border-style: dashed;
+            background: var(--cream);
+            opacity: 0.75;
+        }
+        .bod-avatar-bar {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            padding: 1.75rem 1.5rem 1.5rem;
+            display: flex; align-items: center; gap: 1.25rem;
+        }
+        .bod-initials {
+            width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+            background: rgba(65,179,163,0.2); border: 2px solid var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; font-weight: 800; color: var(--gold); letter-spacing: -1px;
+        }
+        .bod-card.placeholder .bod-initials {
+            background: rgba(119,141,169,0.15); border-color: var(--brown-light);
+            color: var(--brown-light);
+        }
+        .bod-header-meta { }
+        .bod-name { font-size: 1.05rem; font-weight: 800; color: var(--white); line-height: 1.2; }
+        .bod-creds { font-size: 0.75rem; color: var(--gold-light); font-weight: 600; letter-spacing: 0.5px; margin-top: 0.2rem; }
+        .bod-board-role {
+            font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.5); margin-top: 0.35rem;
+        }
+        .bod-body { padding: 1.5rem; }
+        .bod-company {
+            font-size: 0.78rem; font-weight: 700; color: var(--gold-dark);
+            text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.75rem;
+        }
+        .bod-body p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.7; text-align: justify; }
+        .bod-link {
+            display: inline-block; margin-top: 1rem;
+            font-size: 0.78rem; font-weight: 700; color: var(--gold-dark);
+            text-decoration: none; letter-spacing: 0.5px;
+            border-bottom: 1px solid transparent; transition: border-color 0.2s;
+        }
+        .bod-link:hover { border-bottom-color: var(--gold-dark); }
+
+        /* ── ADVISORY SECTION ── */
+        .advisory-section { background: var(--cream-dark); }
+        .advisory-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+        }
+        .advisor-card {
+            background: var(--white); border-radius: 16px; padding: 1.75rem 1.5rem;
+            border: 1px solid rgba(65,179,163,0.15);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .advisor-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.10); }
+        .advisor-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
+        .advisor-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+        .advisor-role { font-size: 0.75rem; font-weight: 600; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 0.75rem; }
+        .advisor-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; text-align: justify; }
+
+        /* ── NAMED ADVISOR CARDS ── */
+        .advisor-card-named { padding: 0; overflow: hidden; }
+        .advisor-name-bar {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            padding: 1.1rem 1.4rem;
+            display: flex; align-items: center; gap: 0.9rem;
+        }
+        .advisor-initials {
+            width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+            background: rgba(65,179,163,0.18); border: 2px solid var(--gold);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.82rem; font-weight: 800; color: var(--gold); letter-spacing: -0.5px;
+        }
+        .advisor-full-name { font-size: 0.97rem; font-weight: 800; color: var(--white); line-height: 1.2; }
+        .advisor-creds-line { font-size: 0.71rem; color: var(--gold-light); font-weight: 600; margin-top: 0.18rem; letter-spacing: 0.3px; }
+        .advisor-card-named .advisor-body { padding: 1.25rem 1.4rem; }
+        .advisor-card-named h4 { font-size: 0.82rem; font-weight: 700; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.3rem; }
+        .advisor-card-named .advisor-role { font-size: 0.75rem; font-weight: 600; color: var(--text-mid); letter-spacing: 0; margin-bottom: 0.7rem; }
+        .advisor-card-named p { font-size: 0.84rem; color: var(--text-mid); line-height: 1.65; text-align: justify; }
+
+        /* ── KOL TESTIMONIAL ── */
+        .kol-testimonial {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            border-radius: 20px;
+            padding: 2.75rem 3rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(65,179,163,0.25);
+        }
+        .kol-testimonial::before {
+            content: '\201C';
+            position: absolute;
+            top: -0.3rem;
+            left: 1.5rem;
+            font-size: 9rem;
+            line-height: 1;
+            color: var(--teal);
+            opacity: 0.18;
+            font-family: Georgia, serif;
+            pointer-events: none;
+        }
+        .kol-quote {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            color: var(--cream);
+            font-style: italic;
+            margin: 0 0 1.75rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--teal);
+            text-align: left;
+        }
+        .kol-attribution { display: flex; align-items: center; gap: 1.25rem; }
+        .kol-avatar {
+            width: 56px; height: 56px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal-dark), var(--teal));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; font-weight: 800; color: var(--white); flex-shrink: 0;
+            border: 2px solid rgba(125,211,203,0.4);
+        }
+        .kol-meta { display: flex; flex-direction: column; gap: 0.15rem; }
+        .kol-name { font-size: 1rem; font-weight: 700; color: var(--white); }
+        .kol-title { font-size: 0.8rem; color: var(--teal-light); font-weight: 600; letter-spacing: 0.5px; }
+        .kol-institution { font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+
+        /* ── DISCLAIMER BANNER ── */
+        .disclaimer-banner {
+            background: linear-gradient(90deg, #1a3a5c 0%, #0E2A47 100%);
+            border-left: 5px solid var(--gold);
+            padding: 0.8rem 2rem; text-align: center;
+        }
+        .disclaimer-banner p {
+            font-size: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.5;
+            max-width: 960px; margin: 0 auto;
+        }
+        .disclaimer-banner strong { color: var(--gold-light); }
+        .disclaimer-banner a { color: var(--gold-light); text-decoration: underline; }
+
+        /* ── FOOTER DISCLAIMER ── */
+        .footer-disclaimer {
+            max-width: 1280px; margin: 2rem auto 0; padding: 1.25rem 1.5rem;
+            background: rgba(65,179,163,0.08); border-radius: 10px;
+            border-left: 4px solid var(--gold);
+        }
+        .footer-disclaimer p { font-size: 0.8rem; color: rgba(200,220,240,0.75); line-height: 1.6; }
+        .footer-disclaimer strong { color: var(--gold-light); }
+
+        /* ── CTA SECTION ── */
+        .cta-section {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            text-align: center; padding: 80px 2rem;
+        }
+        .cta-section h2 { font-size: 2rem; font-weight: 800; color: var(--white); margin-bottom: 1rem; }
+        .cta-section p { color: rgba(255,255,255,0.78); max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; text-align: justify; }
+        .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-block; padding: 0.9rem 2rem;
+            background: var(--gold); color: var(--black);
+            border-radius: 50px; font-weight: 700; text-decoration: none;
+            font-size: 0.95rem; transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
+        .btn-outline {
+            display: inline-block; padding: 0.9rem 2rem;
+            border: 2px solid rgba(65,179,163,0.6); color: var(--gold-light);
+            border-radius: 50px; font-weight: 700; text-decoration: none;
+            font-size: 0.95rem; transition: border-color 0.2s, color 0.2s;
+        }
+        .btn-outline:hover { border-color: var(--gold); color: var(--white); }
+
+        /* ── FOOTER ── */
+        footer { background: var(--black); color: rgba(255,255,255,0.7); padding: 3rem 2rem 1.5rem; }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding-bottom: 2rem;
+        }
+        .footer-brand h3 { color: var(--white); font-size: 1.3rem; font-weight: 800; }
+        .footer-brand h3 span { color: var(--gold); }
+        .footer-tagline { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin: 0.3rem 0 0.8rem; }
+        .footer-brand p { font-size: 0.85rem; line-height: 1.7; }
+        .footer-col h4 { color: var(--white); font-weight: 700; margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.5rem; }
+        .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: var(--gold); }
+        .footer-bottom {
+            max-width: 1200px; margin: 0 auto; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.78rem; flex-wrap: wrap; gap: 0.5rem;
+        }
+
+        /* ── HAMBURGER / MOBILE NAV ── */
+        .nav-hamburger {
+            display: none; flex-direction: column; justify-content: space-between;
+            width: 26px; height: 19px; background: none; border: none;
+            cursor: pointer; padding: 0; z-index: 1100;
+        }
+        .nav-hamburger span {
+            display: block; width: 100%; height: 3px; background: var(--black);
+            border-radius: 2px; transition: transform 0.28s ease, opacity 0.28s ease; transform-origin: center;
+        }
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .mobile-nav {
+            display: none; position: fixed; top: 75px; left: 0; right: 0;
+            background: var(--white); border-top: 2px solid var(--gold);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15); z-index: 1050; padding: 1rem 0 1.5rem;
+            transform: translateY(-10px); opacity: 0;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+        }
+        .mobile-nav.open { display: block; transform: translateY(0); opacity: 1; }
+        .mobile-nav ul { list-style: none; padding: 0; margin: 0; }
+        .mobile-nav ul li a {
+            display: block; padding: 0.75rem 2rem; font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; color: var(--text-mid); text-transform: uppercase;
+            letter-spacing: 0.8px; border-left: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .mobile-nav ul li a:hover { color: var(--gold-dark); border-left-color: var(--gold); background: var(--cream); }
+        .mobile-nav .mobile-cta {
+            display: block; margin: 1rem 2rem 0; text-align: center;
+            background: var(--gold); color: var(--black) !important;
+            border-radius: 50px; padding: 0.7rem 1.5rem !important; font-size: 0.9rem !important;
+            font-weight: 700; text-decoration: none; text-transform: uppercase;
+            letter-spacing: 0.8px; border-left: none !important; transition: background 0.2s;
+        }
+        .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
+
+        @media (max-width: 1050px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+        @media (max-width: 1024px) {
+            .bod-grid { grid-template-columns: 1fr 1fr; }
+            .advisory-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .founder-grid { grid-template-columns: 1fr; }
+            .credential-grid { grid-template-columns: 1fr; }
+            .bod-grid { grid-template-columns: 1fr; }
+            .advisory-grid { grid-template-columns: 1fr 1fr; }
+            .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+            section { padding: 56px 0; }
+        }
+        @media (max-width: 480px) {
+            .advisory-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="Meet the NEG+ Innovations leadership team — physician-scientists, engineers, and advisors driving the next generation of women's health medical devices.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Team — NEG+ Innovations, Inc.">
+    <meta property="og:description" content="Physician-led leadership and a multi-disciplinary advisory board driving women's health medical device innovation.">
+    <meta property="og:url" content="https://negplusinnovations.com/team.html">
+    <meta property="og:image" content="https://negplusinnovations.com/logo.svg">
+    <meta property="og:site_name" content="NEG+ Innovations, Inc.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Team — NEG+ Innovations, Inc.">
+    <meta name="twitter:description" content="Physician-led leadership and a multi-disciplinary advisory board driving women's health medical device innovation.">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#pipeline">Pipeline</a></li>
+            <li><a href="rd.html">R&amp;D</a></li>
+            <li><a href="team.html" class="active">Team</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#pipeline">Pipeline</a></li>
+        <li><a href="rd.html">R&amp;D</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="index.html#contact" class="mobile-cta">Contact Us</a></li>
+    </ul>
+</div>
+
+<!-- ── DISCLAIMER BANNER ── -->
+<div class="disclaimer-banner">
+    <p><strong>Educational Purposes Only:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. &nbsp;<a href="disclaimer.html">Full Disclaimer →</a></p>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+    <div class="page-hero-content">
+        <div class="page-hero-eyebrow">Leadership &amp; Advisory</div>
+        <h1>Clinician-Built. <span>Execution-Focused.</span> Board-Supported.</h1>
+        <p>NEG+ Innovations is led by a physician-scientist with deep translational medicine, oncology drug development, and medical device expertise — supported by an advisory board assembled for complete commercialization coverage across regulatory, clinical, engineering, and capital domains.</p>
+    </div>
+</div>
+
+<!-- ── FOUNDER SECTION ── -->
+<section class="founder-section" id="founder">
+    <div class="container">
+        <div class="founder-grid">
+            <!-- Card -->
+            <div>
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <div class="founder-initials">JB</div>
+                    </div>
+                    <div class="founder-card-body">
+                        <div class="founder-name">Jimmy Belotte</div>
+                        <div class="founder-creds">MD &nbsp;·&nbsp; PhD &nbsp;·&nbsp; MBA &nbsp;·&nbsp; FACOG</div>
+                        <div class="founder-title">
+                            Founder &amp; Chief Executive Officer<br>
+                            NEG+ Innovations, Inc.
+                        </div>
+                    </div>
+                    <div class="founder-cta">
+                        <a href="resume.html">Executive Resume</a>
+                        <a href="cv.html">Academic CV</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="founder-bio">
+                <div class="section-label">Founder, Inventor &amp; CEO</div>
+                <h2>Physician-Scientist.<br><span>Inventor &amp; Co-Investor.</span> Women's Health Executive.</h2>
+                <div class="divider"></div>
+                <p>Dr. Jimmy Belotte is a board-certified OB/GYN, physician-scientist, and inventor whose work sits at the intersection of women's health surgical innovation, translational medicine, and medical device entrepreneurship. As Medical Director, Oncology Clinical Development at GlaxoSmithKline, he leads regulatory strategy and protocol design across Phase I/II gynecologic oncology programs — directly informing NEG+'s clinical development and regulatory approach within the broader women's health landscape.</p>
+                <p>Dr. Belotte's academic foundation — including a PhD in Molecular Medicine and an MBA with concentrations in healthcare and finance — positions him at the intersection of clinical rigor, translational science, and venture-grade business execution. As both inventor and co-investor in NEG+ Innovations, he brings the rare combination of hands-on surgical insight and capital commitment that defines founder-led medtech. As Clinical Associate Professor at Albert Einstein College of Medicine, he maintains active academic clinical relationships that serve as the backbone of NEG+'s investigator network and NIH STTR academic partnership strategy.</p>
+                <p>NEG+ Innovations was built from a clinical problem-first perspective: each device in the portfolio emerged directly from documented deficiencies Dr. Belotte encountered in women's health surgical practice — then validated through voice-of-customer research, engineering feasibility, and market analysis before a single patent was filed. Every invention carries both his intellectual and financial conviction.</p>
+
+                <div class="credential-grid">
+                    <div class="credential-item">
+                        <strong>Medical Director, Oncology</strong>
+                        <span>GlaxoSmithKline · Phase I/II Gynecologic Oncology</span>
+                    </div>
+                    <div class="credential-item">
+                        <strong>Clinical Associate Professor</strong>
+                        <span>Albert Einstein College of Medicine / Montefiore</span>
+                    </div>
+                    <div class="credential-item">
+                        <strong>MD, PhD, MBA, FACOG</strong>
+                        <span>OB/GYN · Gynecologic Oncology · Molecular Medicine</span>
+                    </div>
+                    <div class="credential-item">
+                        <strong>Medical Device Entrepreneur</strong>
+                        <span>Founder · NEG+ Innovations, Inc. (Delaware C-Corp)</span>
+                    </div>
+                    <div class="credential-item">
+                        <strong>Regulatory &amp; Clinical Strategy</strong>
+                        <span>FDA 510(k) · De Novo · IDE · NIH STTR/SBIR</span>
+                    </div>
+                    <div class="credential-item">
+                        <strong>Capital Formation</strong>
+                        <span>SAFE · Series Seed · QSBS · Non-Dilutive NIH Funding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── BOARD OF DIRECTORS ── -->
+<section class="bod-section" id="board">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Governance</div>
+            <h2 class="section-title">Board of <span>Directors</span></h2>
+            <div class="divider divider-center"></div>
+            <p class="section-body">NEG+ Innovations is governed by a Board of Directors combining physician-scientist founding leadership with deep technology commercialization, precision engineering, and life science instrumentation expertise.</p>
+        </div>
+        <div class="bod-grid">
+
+            <!-- Jimmy Belotte -->
+            <div class="bod-card">
+                <div class="bod-avatar-bar">
+                    <div class="bod-initials">JB</div>
+                    <div class="bod-header-meta">
+                        <div class="bod-name">Jimmy Belotte</div>
+                        <div class="bod-creds">MD &nbsp;·&nbsp; PhD &nbsp;·&nbsp; MBA &nbsp;·&nbsp; FACOG</div>
+                        <div class="bod-board-role">Founder &amp; Board Chair · CEO</div>
+                    </div>
+                </div>
+                <div class="bod-body">
+                    <div class="bod-company">NEG+ Innovations, Inc. &nbsp;·&nbsp; GlaxoSmithKline</div>
+                    <p>Physician-scientist and serial medtech entrepreneur. Board-certified OB/GYN and gynecologic oncologist; Medical Director, Oncology Clinical Development at GlaxoSmithKline; Clinical Associate Professor, Albert Einstein College of Medicine / Montefiore. PhD in Molecular Medicine. MBA with concentrations in healthcare and finance. Founded NEG+ from documented clinical unmet needs across the women's pelvic health surgical and diagnostic landscape.</p>
+                    <a href="resume.html" class="bod-link">Executive Resume →</a>
+                </div>
+            </div>
+
+            <!-- Michael Chiu -->
+            <div class="bod-card">
+                <div class="bod-avatar-bar">
+                    <div class="bod-initials">MC</div>
+                    <div class="bod-header-meta">
+                        <div class="bod-name">Michael Chiu</div>
+                        <div class="bod-creds">PhD &nbsp;·&nbsp; MBA</div>
+                        <div class="bod-board-role">Director</div>
+                    </div>
+                </div>
+                <div class="bod-body">
+                    <div class="bod-company">CEO, Kytopen, Inc. &nbsp;·&nbsp; MIT Precision Engineering</div>
+                    <p>Serial life science technology CEO with a PhD and MS from MIT (Precision Engineering Research Group) and an MBA from MIT Sloan Fellows. Current CEO of Kytopen (cell engineering platform). Prior CEO of Erbi Biosystems, acquired by Merck KGaA / MilliporeSigma. Former CTO and executive at Automation Engineering Inc. (acquired by Mycronic AB) and Teradyne. Nine patents across precision engineering, medical devices, and cell therapy. R&amp;D 100 Award recipient.</p>
+                    <a href="https://www.linkedin.com/in/michaelachiu/" target="_blank" rel="noopener" class="bod-link">LinkedIn Profile →</a>
+                </div>
+            </div>
+
+            <!-- Placeholder -->
+            <div class="bod-card placeholder">
+                <div class="bod-avatar-bar" style="background:linear-gradient(135deg,#2D3A4A 0%,#1B263B 100%);">
+                    <div class="bod-initials">TBA</div>
+                    <div class="bod-header-meta">
+                        <div class="bod-name" style="color:rgba(255,255,255,0.55);">Independent Director</div>
+                        <div class="bod-creds" style="color:rgba(119,141,169,0.7);">To Be Announced</div>
+                        <div class="bod-board-role">Director</div>
+                    </div>
+                </div>
+                <div class="bod-body">
+                    <div class="bod-company" style="color:var(--brown-light);">Position Reserved</div>
+                    <p style="color:rgba(74,101,128,0.6);font-style:italic;">This board seat is reserved for an independent director whose expertise will complement the existing governance composition. Announcement forthcoming.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── ADVISORY BOARD ── -->
+<section class="advisory-section" id="advisory">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-label">Board of Advisors</div>
+            <h2 class="section-title">Expert Advisory Board. <span>Complete Commercialization Coverage.</span></h2>
+            <div class="divider divider-center"></div>
+            <p class="section-body">NEG+ has assembled a multi-disciplinary Advisory Board spanning FDA regulatory strategy, clinical validation, engineering execution, investor access, life sciences partnerships, health economics, and corporate finance — each member occupying a defined, non-redundant value lane built for full commercialization coverage.</p>
+        </div>
+        <div class="advisory-grid">
+            <div class="advisor-card">
+                <div class="advisor-icon">⚖️</div>
+                <h4>FDA Regulatory</h4>
+                <div class="advisor-role">Former FDA Principal Deputy Commissioner</div>
+                <p>Exceptional regulatory access and strategic pathway expertise — a resource most medtech startups at any stage do not have. Key lane: 510(k) / De Novo / IDE strategy.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">🏥</div>
+                <h4>Clinical Validation — Urogynecology</h4>
+                <div class="advisor-role">KOL · Wayne State University School of Medicine</div>
+                <p>Clinical champion for POP-Q AutoSense™ and Belotte Colpotomizer™. Reduces IDE activation friction; serves as STTR PI candidate at an established NIH-funded institution.</p>
+            </div>
+            <div class="advisor-card advisor-card-named">
+                <div class="advisor-name-bar">
+                    <div class="advisor-initials">RL</div>
+                    <div>
+                        <div class="advisor-full-name">Roger Lefevre, MD, MBA</div>
+                        <div class="advisor-creds-line">Urogynecology &amp; Reconstructive Pelvic Surgery</div>
+                    </div>
+                </div>
+                <div class="advisor-body">
+                    <h4>Clinical Validation — Urogynecology &amp; POP-Q</h4>
+                    <div class="advisor-role">BIDMC · Beth Israel Lahey Health · Harvard Medical School</div>
+                    <p>Urogynecologist and URPS specialist at Beth Israel Deaconess Medical Center, a Harvard Medical School–affiliated academic medical center. Scientific Advisor and prospective STTR academic PI for the POP-Q AutoSense™ program. 20+ years of practice with a peer-reviewed publication record directly encompassing POP-Q methodology, prolapse staging accuracy, voiding dysfunction, and surgical outcomes.</p>
+                </div>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">⚙️</div>
+                <h4>Engineering &amp; Quality Systems</h4>
+                <div class="advisor-role">Repligen / SelasBio</div>
+                <p>Mechanical engineering execution, FDA design controls (21 CFR Part 820), ISO 13485 QMS implementation, and Design History File architecture.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">💰</div>
+                <h4>Capital Access — Angel &amp; Early VC</h4>
+                <div class="advisor-role">Boston Harbor Angels</div>
+                <p>Medtech angel and early-stage VC network access. Investor relations strategy, pitch positioning, and seed round pipeline for Series Seed target investors.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">🧬</div>
+                <h4>Life Sciences Partnerships</h4>
+                <div class="advisor-role">Biopharma CVC &amp; Growth-Stage</div>
+                <p>Corporate venture capital and biopharma strategic partnership lane. Growth-stage business development relationships and strategic acquirer relationship development.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">📊</div>
+                <h4>Health Economics &amp; Policy</h4>
+                <div class="advisor-role">Brandeis University / Harvard School of Public Health</div>
+                <p>Healthcare economics, reimbursement strategy, CPT code development pathway, and SBIR/STTR narrative framework for NIH Specific Aims alignment.</p>
+            </div>
+            <div class="advisor-card">
+                <div class="advisor-icon">🏛️</div>
+                <h4>Corporate Finance &amp; Legal</h4>
+                <div class="advisor-role">Katten Muchin Rosenman LLP</div>
+                <p>Investor governance, SAFE documentation, cap table management, IP agreement architecture, and Series Seed transaction readiness for institutional venture investors.</p>
+            </div>
+            <div class="advisor-card advisor-card-named">
+                <div class="advisor-name-bar">
+                    <div class="advisor-initials">ML</div>
+                    <div>
+                        <div class="advisor-full-name">Mark D. Levie, MD</div>
+                        <div class="advisor-creds-line">Professor &amp; Associate Vice Chair, OB/GYN</div>
+                    </div>
+                </div>
+                <div class="advisor-body">
+                    <h4>Clinical Validation — Minimally Invasive Gynecologic Surgery</h4>
+                    <div class="advisor-role">Albert Einstein College of Medicine · Montefiore Medical Center</div>
+                    <p>Professor and Associate Vice Chair, Department of OB/GYN and Women's Health, Albert Einstein College of Medicine / Montefiore Medical Center. Director of Minimally Invasive Gynecologic Surgery; Co-Fellowship Program Director, MIGS. 37 years of clinical practice with an extensive peer-reviewed publication record in gynecologic surgery. Co-investigator candidate for Belotte Colpotomizer™ MIGS feasibility studies.</p>
+                </div>
+            </div>
+            <div class="advisor-card advisor-card-named">
+                <div class="advisor-name-bar">
+                    <div class="advisor-initials">BG</div>
+                    <div>
+                        <div class="advisor-full-name">Bethany Grant</div>
+                        <div class="advisor-creds-line">BS/SM · MIT Aeronautical &amp; Astronautical Engineering</div>
+                    </div>
+                </div>
+                <div class="advisor-body">
+                    <h4>Medical Device Engineering Leadership</h4>
+                    <div class="advisor-role">Chief Technology Officer · Kytopen, Inc.</div>
+                    <p>MIT-trained engineer with 25+ years developing medical devices across pharmaceutical, medtech, and life science instrumentation sectors. CTO at Kytopen; former VP Product Development. Brings precision engineering execution, R&amp;D team architecture, and product-to-market leadership directly applicable to NEG+'s device development programs.</p>
+                </div>
+            </div>
+            <div class="advisor-card advisor-card-named">
+                <div class="advisor-name-bar">
+                    <div class="advisor-initials">JBC</div>
+                    <div>
+                        <div class="advisor-full-name">John Bonham-Carter</div>
+                        <div class="advisor-creds-line">Bioprocessing &amp; Cell Therapy · European Biopharma</div>
+                    </div>
+                </div>
+                <div class="advisor-body">
+                    <h4>Bioprocess Engineering &amp; International BD</h4>
+                    <div class="advisor-role">Life Sciences · Continuous Bioprocessing &amp; Cell Therapy</div>
+                    <p>Deep expertise in continuous bioprocessing, bioreactor technology, and cell therapy engineering with an extensive European biotech and biopharma network. Fluent in French and Swedish. Supports NEG+'s bioprocess-adjacent partnerships and international business development strategy across European pharmaceutical and life science markets.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── KOL TESTIMONIAL: DR. LEFEVRE ── -->
+        <div class="kol-testimonial">
+            <p class="kol-quote">"In more than two decades of urogynecologic practice, I have witnessed firsthand how subjective POP-Q examination leads to inconsistent staging — and, ultimately, inconsistent patient care. The POP-Q Sensorized Device™ represents a meaningful step toward the objective, reproducible pelvic floor assessment our field has long needed. I am committed to supporting its rigorous clinical validation at BIDMC and to advancing a platform that can meaningfully improve outcomes for women with pelvic organ prolapse."</p>
+            <div class="kol-attribution">
+                <div class="kol-avatar">RL</div>
+                <div class="kol-meta">
+                    <div class="kol-name">Roger Lefevre, MD, MBA</div>
+                    <div class="kol-title">Urogynecologist &nbsp;·&nbsp; Urogynecology &amp; Reconstructive Pelvic Surgery</div>
+                    <div class="kol-institution">Beth Israel Deaconess Medical Center &nbsp;·&nbsp; Beth Israel Lahey Health &nbsp;·&nbsp; Harvard Medical School</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <h2>Partner With NEG+ Innovations</h2>
+        <p>We welcome collaboration with leading research institutions, clinical investigators, industry partners, and accredited investors who share our commitment to advancing women's health through precision medical technology.</p>
+        <div class="hero-actions">
+            <a href="mailto:info@negplusinnovations.com" class="btn-primary">Contact Us</a>
+            <a href="rd.html" class="btn-outline">Explore R&amp;D</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <h3>NEG<span>+</span> Innovations</h3>
+            <div class="footer-tagline">New England Gynecology Plus</div>
+            <p>A physician-led medical device company advancing women's pelvic health through precision surgical and diagnostic innovation. Headquartered in Weston, Massachusetts.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
+                <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
+                <li><a href="rd.html#pnb">Pudendal Nerve Block Device™</a></li>
+                <li><a href="rd.html#mums">MUMS™</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="index.html#about">About NEG+</a></li>
+                <li><a href="index.html#advisory">Advisory Board</a></li>
+                <li><a href="index.html#funding">Investment</a></li>
+                <li><a href="rd.html">R&amp;D</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="resume.html">Executive Resume</a></li>
+                <li><a href="news.html">News &amp; Updates</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-disclaimer">
+        <p><strong>Disclaimer:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. Nothing on this website constitutes an offer to sell or solicitation to buy securities. Investment opportunities are available exclusively to accredited investors under Reg D Rule 506(b). <a href="disclaimer.html" style="color:var(--gold-light);">Read full disclaimer →</a></p>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 NEG+ Innovations, Inc. All Rights Reserved. Weston, Massachusetts.</span>
+        <span>Patent Pending | Confidential | Reg D Rule 506(b) — Accredited Investors Only</span>
+    </div>
+</footer>
+
+<script>
+(function() {
+    var btn = document.getElementById('navHamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    if (!btn || !mobileNav) return;
+    btn.addEventListener('click', function() {
+        var isOpen = btn.classList.toggle('open');
+        if (isOpen) {
+            mobileNav.style.display = 'block';
+            requestAnimationFrame(function() { mobileNav.classList.add('open'); });
+        } else {
+            mobileNav.classList.remove('open');
+            mobileNav.addEventListener('transitionend', function handler() {
+                mobileNav.style.display = 'none';
+                mobileNav.removeEventListener('transitionend', handler);
+            });
+        }
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+    document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !mobileNav.contains(e.target)) {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+</body>
+</html>

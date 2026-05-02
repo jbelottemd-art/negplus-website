@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News &amp; Updates | NEG+ Innovations, Inc.</title>
+    <meta name="description" content="Latest news, milestones, and updates from NEG+ Innovations — a physician-led women's health medical device company.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="News &amp; Updates | NEG+ Innovations, Inc.">
+    <meta property="og:description" content="Company milestones, advisory appointments, partnership announcements, and development updates from NEG+ Innovations.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <style>
+        :root {
+            --black:      #1B263B;
+            --gold:       #41B3A3;
+            --gold-dark:  #2A9D8F;
+            --gold-light: #7DD3CB;
+            --teal:       #41B3A3;
+            --teal-dark:  #2A9D8F;
+            --teal-light: #7DD3CB;
+            --brown-dark: #0E2A47;
+            --brown-mid:  #2D4A6B;
+            --brown-light:#778DA9;
+            --cream:      #E8EEF4;
+            --cream-dark: #D8E3EE;
+            --white:      #FFFFFF;
+            --text-dark:  #1B263B;
+            --text-mid:   #4A6580;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.65; color: var(--text-dark); background: var(--white);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--white); border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+        }
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between; height: 72px;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-img { display: block; height: 44px; width: auto; }
+        .nav-links { display: flex; gap: 0; list-style: none; }
+        .nav-links a {
+            display: block; padding: 0 0.6rem; height: 72px; line-height: 72px;
+            font-size: 0.8rem; font-weight: 600; text-decoration: none;
+            color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.4px;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 3px solid transparent; margin-bottom: -3px;
+        }
+        .nav-links a:hover { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-links a.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-cta {
+            background: var(--gold); color: var(--black) !important;
+            border-radius: 50px; padding: 0 1rem !important;
+            height: 40px !important; line-height: 40px !important;
+            margin: auto 0; font-size: 0.85rem !important;
+            transition: background 0.2s, transform 0.2s !important;
+            border-bottom: none !important;
+        }
+        .nav-cta:hover { background: var(--gold-dark) !important; transform: scale(1.04); }
+
+        /* ── HAMBURGER ── */
+        .nav-hamburger {
+            display: none; flex-direction: column; justify-content: center;
+            align-items: center; gap: 5px; width: 42px; height: 42px;
+            background: none; border: none; cursor: pointer; padding: 6px;
+            border-radius: 8px; transition: background 0.2s;
+        }
+        .nav-hamburger:hover { background: var(--cream); }
+        .nav-hamburger span {
+            display: block; width: 22px; height: 2px;
+            background: var(--black); border-radius: 2px;
+            transition: transform 0.28s ease, opacity 0.2s ease;
+        }
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .mobile-nav {
+            display: none; position: fixed; top: 75px; left: 0; right: 0;
+            background: var(--white); border-bottom: 3px solid var(--gold);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12); z-index: 999; overflow: hidden;
+        }
+        .mobile-nav.open { display: block; }
+        .mobile-nav ul { list-style: none; padding: 1rem 0; }
+        .mobile-nav ul li a {
+            display: block; padding: 0.85rem 2rem;
+            font-size: 0.95rem; font-weight: 600; color: var(--text-dark);
+            text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .mobile-nav ul li a:hover { background: var(--cream); color: var(--gold-dark); }
+        .mobile-nav .mobile-cta {
+            margin: 0.75rem 2rem 1rem; display: block; text-align: center;
+            background: var(--gold); color: var(--black) !important; border-radius: 50px;
+            padding: 0.85rem 1.5rem !important; font-weight: 700 !important;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
+        @media (max-width: 1050px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ── CONTAINER ── */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 60%, var(--brown-mid) 100%);
+            padding: 72px 2rem 64px; text-align: center;
+        }
+        .page-hero-eyebrow {
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--teal); margin-bottom: 1rem;
+        }
+        .page-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem); font-weight: 800;
+            color: var(--white); line-height: 1.15; margin-bottom: 1.25rem;
+        }
+        .page-hero h1 span { color: var(--teal); }
+        .page-hero p {
+            font-size: 1.1rem; color: rgba(255,255,255,0.72);
+            max-width: 640px; margin: 0 auto; line-height: 1.7;
+        }
+
+        /* ── DISCLAIMER BANNER ── */
+        .disclaimer-banner {
+            background: linear-gradient(90deg, #1a3a5c 0%, #0E2A47 100%);
+            border-left: 5px solid var(--teal); padding: 1rem 2rem; text-align: center;
+        }
+        .disclaimer-banner p {
+            font-size: 0.83rem; color: rgba(255,255,255,0.82); line-height: 1.55;
+            max-width: 900px; margin: 0 auto;
+        }
+        .disclaimer-banner strong { color: var(--teal-light); }
+
+        /* ── NEWS LAYOUT ── */
+        .news-section { padding: 80px 0; background: var(--white); }
+        .section-label {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800;
+            color: var(--text-dark); line-height: 1.2; margin-bottom: 1rem;
+        }
+        .section-title span { color: var(--gold-dark); }
+        .divider { width: 48px; height: 4px; background: var(--gold); border-radius: 2px; margin: 1rem 0 3rem; }
+
+        /* ── NEWS TIMELINE ── */
+        .news-timeline { position: relative; }
+        .news-timeline::before {
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+            width: 3px; background: linear-gradient(to bottom, var(--teal) 0%, rgba(65,179,163,0.15) 100%);
+            border-radius: 2px;
+        }
+
+        .news-item {
+            position: relative; padding-left: 2.5rem; padding-bottom: 3rem;
+        }
+        .news-item:last-child { padding-bottom: 0; }
+        .news-dot {
+            position: absolute; left: -7px; top: 6px;
+            width: 17px; height: 17px; border-radius: 50%;
+            background: var(--teal); border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--teal);
+        }
+        .news-dot.milestone { background: var(--gold-dark); box-shadow: 0 0 0 2px var(--gold-dark); }
+        .news-dot.advisory  { background: var(--brown-mid); box-shadow: 0 0 0 2px var(--brown-mid); }
+        .news-dot.grant     { background: #e07b27; box-shadow: 0 0 0 2px #e07b27; }
+        .news-dot.partnership { background: var(--black); box-shadow: 0 0 0 2px var(--black); }
+        .news-dot.future    {
+            background: transparent; border-color: rgba(65,179,163,0.4);
+            box-shadow: 0 0 0 2px rgba(65,179,163,0.3);
+        }
+
+        .news-meta {
+            display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.6rem; flex-wrap: wrap;
+        }
+        .news-date {
+            font-size: 0.75rem; font-weight: 700; color: var(--teal-dark);
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .news-tag {
+            font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; padding: 0.2rem 0.65rem; border-radius: 20px;
+        }
+        .news-tag.milestone { background: rgba(42,157,143,0.12); color: var(--teal-dark); }
+        .news-tag.advisory  { background: rgba(45,74,107,0.12); color: var(--brown-mid); }
+        .news-tag.grant     { background: rgba(224,123,39,0.12); color: #b8621c; }
+        .news-tag.partnership { background: rgba(27,38,59,0.10); color: var(--black); }
+        .news-tag.product   { background: rgba(65,179,163,0.12); color: var(--teal-dark); }
+        .news-tag.upcoming  { background: rgba(119,141,169,0.12); color: var(--brown-light); }
+
+        .news-item h3 {
+            font-size: 1.1rem; font-weight: 700; color: var(--text-dark);
+            margin-bottom: 0.5rem; line-height: 1.35;
+        }
+        .news-item p {
+            font-size: 0.9rem; color: var(--text-mid); line-height: 1.7;
+            max-width: 780px; text-align: justify;
+        }
+        .news-item.future h3 { color: var(--brown-light); }
+        .news-item.future p  { color: rgba(74,101,128,0.6); font-style: italic; }
+
+        /* ── SIDEBAR LAYOUT ── */
+        .news-layout {
+            display: grid; grid-template-columns: 1fr 280px; gap: 4rem; align-items: start;
+        }
+        .news-sidebar { position: sticky; top: 100px; }
+        .sidebar-card {
+            background: var(--cream); border-radius: 16px; padding: 1.75rem;
+            margin-bottom: 1.5rem; border: 1px solid rgba(65,179,163,0.15);
+        }
+        .sidebar-card h4 {
+            font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--gold-dark); margin-bottom: 1rem;
+        }
+        .sidebar-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; }
+        .sidebar-card .sidebar-link {
+            display: inline-block; margin-top: 0.85rem; font-size: 0.85rem;
+            font-weight: 700; color: var(--teal-dark); text-decoration: none;
+        }
+        .sidebar-card .sidebar-link:hover { text-decoration: underline; }
+        .sidebar-stat {
+            font-size: 2rem; font-weight: 800; color: var(--text-dark);
+            line-height: 1; margin-bottom: 0.25rem;
+        }
+        .sidebar-stat span { color: var(--teal); }
+        .sidebar-stat-label { font-size: 0.78rem; color: var(--text-mid); margin-bottom: 1rem; }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            text-align: center; padding: 80px 2rem;
+        }
+        .cta-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--white); margin-bottom: 1rem; }
+        .cta-section p { font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto 2rem; }
+        .btn-primary {
+            display: inline-block; background: var(--gold); color: var(--black);
+            padding: 0.9rem 2rem; border-radius: 50px; font-weight: 700;
+            text-decoration: none; font-size: 0.95rem; transition: background 0.2s, transform 0.15s;
+        }
+        .btn-primary:hover { background: var(--gold-dark); transform: scale(1.04); }
+        .btn-outline {
+            display: inline-block; border: 2px solid rgba(255,255,255,0.35);
+            color: var(--white); padding: 0.9rem 2rem; border-radius: 50px;
+            font-weight: 600; text-decoration: none; font-size: 0.95rem;
+            transition: border-color 0.2s, background 0.2s; margin-left: 1rem;
+        }
+        .btn-outline:hover { border-color: var(--gold); background: rgba(65,179,163,0.1); }
+
+        /* ── FOOTER ── */
+        footer { background: var(--black); color: var(--brown-light); padding: 3rem 2rem; }
+        .footer-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+        }
+        .footer-brand h3 { font-size: 1.6rem; font-weight: 800; color: var(--white); margin-bottom: 0.25rem; }
+        .footer-brand h3 span { color: var(--gold); }
+        .footer-brand .footer-tagline {
+            font-size: 0.78rem; color: var(--gold); text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 1rem;
+        }
+        .footer-brand p { font-size: 0.87rem; line-height: 1.75; max-width: 280px; }
+        .footer-col h4 {
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--gold); margin-bottom: 1rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.6rem; }
+        .footer-col ul li a { color: var(--brown-light); text-decoration: none; font-size: 0.87rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: var(--white); }
+        .footer-disclaimer {
+            max-width: 1280px; margin: 2rem auto 0; padding: 1.25rem 1.5rem;
+            background: rgba(65,179,163,0.08); border-radius: 10px;
+            border-left: 4px solid var(--teal);
+        }
+        .footer-disclaimer p { font-size: 0.8rem; color: rgba(200,220,240,0.75); line-height: 1.6; }
+        .footer-disclaimer strong { color: var(--teal-light); }
+        .footer-bottom {
+            max-width: 1280px; margin: 1.5rem auto 0; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.8rem; color: rgba(200,184,168,0.6);
+            flex-wrap: wrap; gap: 0.75rem;
+        }
+
+        @media (max-width: 1024px) {
+            .news-layout { grid-template-columns: 1fr; }
+            .news-sidebar { position: static; }
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .footer-inner { grid-template-columns: 1fr 1fr; }
+            .page-hero { padding: 56px 1.5rem 48px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#pipeline">Pipeline</a></li>
+            <li><a href="index.html#partners">Partners</a></li>
+            <li><a href="rd.html">R&amp;D</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="news.html" class="active">News</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#pipeline">Pipeline</a></li>
+        <li><a href="rd.html">R&amp;D</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="index.html#contact" class="mobile-cta">Contact Us</a></li>
+    </ul>
+</div>
+
+<!-- ── HERO ── -->
+<section class="page-hero">
+    <div class="page-hero-eyebrow">Company Updates</div>
+    <h1>News &amp; <span>Milestones</span></h1>
+    <p>Tracking our progress from concept to clinic — corporate formation, advisory appointments, academic partnerships, and development milestones.</p>
+</section>
+
+<!-- ── DISCLAIMER BANNER ── -->
+<div class="disclaimer-banner">
+    <p><strong>Educational Purposes Only:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. For full details, see our <a href="disclaimer.html" style="color:var(--teal-light);text-decoration:underline;">Disclaimer</a>.</p>
+</div>
+
+<!-- ── NEWS ── -->
+<section class="news-section">
+    <div class="container">
+        <div class="news-layout">
+
+            <!-- ── MAIN FEED ── -->
+            <div>
+                <div class="section-label">Latest Updates</div>
+                <h2 class="section-title">Company <span>Milestones</span></h2>
+                <div class="divider"></div>
+
+                <div class="news-timeline">
+
+                    <div class="news-item">
+                        <div class="news-dot milestone"></div>
+                        <div class="news-meta">
+                            <span class="news-date">2026 · Q1</span>
+                            <span class="news-tag milestone">Corporate Milestone</span>
+                        </div>
+                        <h3>NEG+ Innovations Website Launched — Investor &amp; Partner Platform Live</h3>
+                        <p>NEG+ Innovations launched its official digital presence, providing academic partners, prospective investors, clinical collaborators, and government agencies with a comprehensive overview of the company's mission, multi-device portfolio, advisory board, and institutional partnership strategy. The platform reflects NEG+'s commitment to transparent, science-first communication with all stakeholders.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-dot advisory"></div>
+                        <div class="news-meta">
+                            <span class="news-date">2025 · Q4</span>
+                            <span class="news-tag advisory">Advisory Board</span>
+                        </div>
+                        <h3>BIDMC/Harvard Urogynecologist Engaged as STTR Academic PI Candidate for POP-Q AutoSense™</h3>
+                        <p>Roger Lefevre, MD, MBA — Urogynecologist, Urogynecology &amp; Reconstructive Pelvic Surgery, at Beth Israel Deaconess Medical Center (BIDMC) / Beth Israel Lahey Health, Harvard Medical School — entered a Scientific Advisory Board agreement with NEG+ Innovations in connection with the POP-Q Sensorized Device™. Dr. Lefevre's 20+ year peer-reviewed publication record in POP-Q examination methodology, prolapse staging accuracy, and surgical outcomes positions him as the primary STTR academic PI candidate for BIDMC-based clinical feasibility studies.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-dot advisory"></div>
+                        <div class="news-meta">
+                            <span class="news-date">2025 · Q3–Q4</span>
+                            <span class="news-tag advisory">Advisory Board</span>
+                        </div>
+                        <h3>Multi-Disciplinary Advisory Board Assembled — Eight Lanes, Full Commercialization Coverage</h3>
+                        <p>NEG+ Innovations completed assembly of an eight-member Scientific Advisory Board spanning FDA regulatory strategy (former FDA Principal Deputy Commissioner), clinical validation in urogynecology and MIGS (KOLs at Wayne State and Albert Einstein / Montefiore), engineering and quality systems (Repligen/SelasBio), capital access (Boston Harbor Angels), life sciences partnerships, health economics (Brandeis/Harvard School of Public Health), and corporate finance and legal strategy (Katten Muchin Rosenman LLP). Each advisor occupies a defined, non-redundant value lane built for full commercialization coverage.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-dot partnership"></div>
+                        <div class="news-meta">
+                            <span class="news-date">2025 · Q3</span>
+                            <span class="news-tag partnership">Academic Partnership</span>
+                        </div>
+                        <h3>Albert Einstein College of Medicine / Montefiore Medical Center Engaged as MIGS Co-Investigation Site</h3>
+                        <p>NEG+ Innovations formalized its academic partnership with Albert Einstein College of Medicine and Montefiore Medical Center, a National Cancer Institute–designated center in Bronx, New York. Dr. Belotte's appointment as Clinical Associate Professor at Einstein provides an institutional foundation for co-investigator enrollment in Belotte Colpotomizer™ clinical studies and direct access to high-volume surgical enrollment pipelines for IDE-phase feasibility studies.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-dot milestone"></div>
+                        <div class="news-meta">
+                            <span class="news-date">2025 · Q2</span>
+                            <span class="news-tag milestone">Corporate Milestone</span>
+                        </div>
+                        <h3>NEG+ Innovations, Inc. Incorporated as Delaware C-Corporation</h3>
+                        <p>NEG+ Innovations, Inc. was formally incorporated as a Delaware C-Corporation — the standard structure for venture-backed life sciences and medical device companies. The incorporation establishes the legal foundation for SBIR/STTR grant eligibility, SAFE and preferred equity financing, advisory board equity grant programs, and the full range of institutional investor and strategic acquirer transaction structures. Headquarters established in Weston, Massachusetts.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-dot product"></div>
+                        <div class="news-meta">
+                            <span class="news-date">2024–2025</span>
+                            <span class="news-tag product">Product Development</span>
+                        </div>
+                        <h3>Multi-Device Portfolio Concept Development Initiated — Four Programs Enter Engineering Phase</h3>
+                        <p>NEG+ Innovations initiated active engineering concept development across its full device portfolio: the Belotte Colpotomizer™, POP-Q AutoSense™, Pudendal Nerve Block Device™, and MUMS™. Each program addresses a distinct, documented unmet clinical need in women's pelvic health — from precision surgical delineation and objective prolapse staging to guided nerve localization and non-invasive fetal-maternal monitoring. Regulatory strategy development initiated in parallel with device concept work.</p>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-dot grant"></div>
+                        <div class="news-meta">
+                            <span class="news-date">In Progress</span>
+                            <span class="news-tag grant">Grant Strategy</span>
+                        </div>
+                        <h3>NIH SBIR/STTR Application Development Underway</h3>
+                        <p>NEG+ Innovations is actively developing NIH Small Business Innovation Research (SBIR) and Small Business Technology Transfer (STTR) funding applications targeting Phase I feasibility funding for the POP-Q AutoSense™ and Belotte Colpotomizer™ programs. STTR applications require an academic co-applicant institution — BIDMC/Harvard Medical School and Wayne State University School of Medicine are positioned as primary STTR academic partners. Advisory Board health economics expertise informs the Specific Aims narrative and significance framing for peer review.</p>
+                    </div>
+
+                    <!-- ── UPCOMING / FORWARD-LOOKING ── -->
+                    <div class="news-item future">
+                        <div class="news-dot future"></div>
+                        <div class="news-meta">
+                            <span class="news-date">2026 · Target</span>
+                            <span class="news-tag upcoming">Upcoming</span>
+                        </div>
+                        <h3>Seed Capital Round — Target Launch</h3>
+                        <p>NEG+ Innovations is targeting the launch of a formal Seed capital round to complement non-dilutive NIH grant funding. The round will support engineering prototype development, pre-clinical validation studies, regulatory strategy execution, and STTR application co-development. Investor Brief available to verified accredited investors upon request.</p>
+                    </div>
+
+                    <div class="news-item future">
+                        <div class="news-dot future"></div>
+                        <div class="news-meta">
+                            <span class="news-date">2026–2027 · Target</span>
+                            <span class="news-tag upcoming">Upcoming</span>
+                        </div>
+                        <h3>IDE Submission — POP-Q AutoSense™ Early Feasibility Study</h3>
+                        <p>Subject to NIH grant award, prototype validation, and IRB approval, NEG+ Innovations is targeting submission of an Investigational Device Exemption (IDE) application for the POP-Q AutoSense™ Early Feasibility Study at BIDMC/Harvard Medical School. Study design, patient population, and endpoints are being developed in coordination with Advisory Board clinical and regulatory members.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ── SIDEBAR ── -->
+            <aside class="news-sidebar">
+
+                <div class="sidebar-card">
+                    <h4>Company at a Glance</h4>
+                    <div class="sidebar-stat">4<span>+</span></div>
+                    <div class="sidebar-stat-label">Device Programs in Development</div>
+                    <div class="sidebar-stat">8</div>
+                    <div class="sidebar-stat-label">Advisory Board Members</div>
+                    <div class="sidebar-stat">4</div>
+                    <div class="sidebar-stat-label">Academic Partner Institutions</div>
+                    <p>Pre-clinical stage · Delaware C-Corp · Weston, Massachusetts</p>
+                </div>
+
+                <div class="sidebar-card">
+                    <h4>Investor Relations</h4>
+                    <p>Accredited investors may request an Investor Brief outlining our capital strategy, device pipeline, and partnership infrastructure.</p>
+                    <a href="mailto:info@negplusinnovations.com" class="sidebar-link">Request Investor Brief →</a>
+                </div>
+
+                <div class="sidebar-card">
+                    <h4>Media &amp; Press</h4>
+                    <p>For press inquiries, partnership announcements, or speaking opportunities, please contact our communications team directly.</p>
+                    <a href="mailto:info@negplusinnovations.com" class="sidebar-link">Contact Us →</a>
+                </div>
+
+                <div class="sidebar-card">
+                    <h4>Stay Updated</h4>
+                    <p>For the latest updates on NEG+ Innovations' development milestones and partnership announcements, visit this page regularly or reach out to be added to our stakeholder communications list.</p>
+                    <a href="mailto:info@negplusinnovations.com" class="sidebar-link">Subscribe to Updates →</a>
+                </div>
+
+            </aside>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Partner With NEG+ Innovations</h2>
+        <p>We welcome collaboration with leading research institutions, clinical investigators, industry partners, and accredited investors who share our commitment to advancing women's health.</p>
+        <a href="index.html#contact" class="btn-primary">Contact Us</a>
+        <a href="rd.html" class="btn-outline">Explore R&amp;D</a>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <h3>NEG<span>+</span> Innovations</h3>
+            <div class="footer-tagline">New England Gynecology Plus</div>
+            <p>A physician-led medical device company advancing women's pelvic health through precision surgical and diagnostic innovation. Headquartered in Weston, Massachusetts.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Products</h4>
+            <ul>
+                <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
+                <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
+                <li><a href="rd.html#pnb">Pudendal Nerve Block Device™</a></li>
+                <li><a href="rd.html#mums">MUMS™</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="index.html#about">About NEG+</a></li>
+                <li><a href="index.html#advisory">Advisory Board</a></li>
+                <li><a href="index.html#funding">Investment</a></li>
+                <li><a href="rd.html">R&amp;D</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="news.html">News &amp; Updates</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="mailto:info@negplusinnovations.com">info@negplusinnovations.com</a></li>
+                <li><a href="index.html#contact">Schedule a Meeting</a></li>
+                <li><a href="index.html#contact">Investor Relations</a></li>
+                <li><a href="index.html#contact">Clinical Partnerships</a></li>
+                <li><a href="disclaimer.html">Disclaimer</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-disclaimer">
+        <p><strong>Disclaimer:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. Nothing on this website constitutes an offer to sell or solicitation to buy securities. All investment opportunities are available exclusively to accredited investors under Reg D Rule 506(b).</p>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 NEG+ Innovations, Inc. All Rights Reserved. Weston, Massachusetts.</span>
+        <span>Patent Pending | Confidential | Reg D Rule 506(b) — Accredited Investors Only</span>
+    </div>
+</footer>
+
+<script>
+(function() {
+    var btn = document.getElementById('navHamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    if (!btn || !mobileNav) return;
+    btn.addEventListener('click', function() {
+        var isOpen = btn.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+        if (isOpen) {
+            mobileNav.style.display = 'block';
+        } else {
+            mobileNav.style.display = 'none';
+        }
+    });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R&D Pipeline | NEG+ Innovations, Inc.</title>
+    <style>
+        :root {
+            --black:      #1B263B;
+            --gold:       #41B3A3;
+            --gold-dark:  #2A9D8F;
+            --gold-light: #7DD3CB;
+            --brown-dark: #0E2A47;
+            --brown-mid:  #2D4A6B;
+            --brown-light:#778DA9;
+            --cream:      #E8EEF4;
+            --cream-dark: #D8E3EE;
+            --white:      #FFFFFF;
+            --text-dark:  #1B263B;
+            --text-mid:   #4A6580;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky; top: 0; z-index: 1000;
+            background: var(--white);
+            border-bottom: 3px solid var(--gold);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.10);
+        }
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 72px;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-mark { font-size: 1.9rem; font-weight: 800; letter-spacing: -1px; color: var(--black); }
+        .nav-logo-mark span { color: var(--gold); }
+        .nav-logo-img { display: block; height: 44px; width: auto; }
+        .nav-logo-sub {
+ font-size: 0.68rem; font-weight: 600; color: var(--brown-mid); text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.3; border-left: 2px solid var(--gold); padding-left: 12px; }
+        .nav-links { display: flex; gap: 0; list-style: none; }
+        .nav-links a { display: block; padding: 0 1.1rem; height: 72px; line-height: 72px; font-size: 0.9rem; font-weight: 600; text-decoration: none; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.8px; transition: color 0.2s; border-bottom: 3px solid transparent; margin-bottom: -3px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-cta { background: var(--gold); color: var(--black) !important; border-radius: 50px; padding: 0 1.4rem !important; height: 40px !important; line-height: 40px !important; margin: auto 0; font-size: 0.85rem !important; border-bottom: none !important; }
+        .nav-cta:hover { background: var(--gold-dark) !important; }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 60%, #0a1e35 100%);
+            padding: 80px 2rem 70px;
+            position: relative; overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40h80M40 0v80' stroke='rgba(65,179,163,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+        }
+        .page-hero-content { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+        .page-hero-eyebrow { display: inline-block; background: rgba(65,179,163,0.15); border: 1px solid rgba(65,179,163,0.35); color: var(--gold-light); font-size: 0.78rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 18px; border-radius: 50px; margin-bottom: 1.25rem; }
+        .page-hero h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; color: var(--white); line-height: 1.15; margin-bottom: 1rem; }
+        .page-hero h1 span { color: var(--gold); }
+        .page-hero p { font-size: 1.1rem; color: var(--brown-light); max-width: 720px; line-height: 1.75; }
+
+        /* ── COMMON ── */
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 80px 0; }
+        .section-label { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.75rem; }
+        .section-title { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800; color: var(--text-dark); line-height: 1.2; margin-bottom: 1rem; }
+        .section-title span { color: var(--gold-dark); }
+        .divider { width: 56px; height: 4px; background: var(--gold); border-radius: 2px; margin: 0.75rem 0 1.5rem; }
+        .section-body { font-size: 1rem; color: var(--text-mid); line-height: 1.8; }
+
+        /* ── MISSION ── */
+        .mission { background: var(--cream); }
+        .mission-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .mission-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .mission-stat { background: var(--white); border-radius: 16px; padding: 1.75rem; border-top: 4px solid var(--gold); text-align: center; }
+        .mission-stat .num { font-size: 2.2rem; font-weight: 800; color: var(--gold-dark); line-height: 1; margin-bottom: 0.5rem; }
+        .mission-stat .lbl { font-size: 0.82rem; color: var(--text-mid); font-weight: 500; line-height: 1.4; }
+
+        /* ── DEVICE SECTION ── */
+        .device-section { padding: 80px 0; }
+        .device-section:nth-child(even) { background: var(--cream); }
+
+        .device-header {
+            display: flex; align-items: flex-start; gap: 2rem; margin-bottom: 3rem;
+            padding-bottom: 2rem; border-bottom: 2px solid var(--cream-dark);
+        }
+        .device-icon {
+            width: 80px; height: 80px; min-width: 80px;
+            background: linear-gradient(135deg, var(--black), var(--brown-dark));
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; border: 3px solid var(--gold);
+        }
+        .device-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.5rem; }
+        .device-header h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .device-header p { font-size: 1rem; color: var(--text-mid); line-height: 1.75; max-width: 720px; }
+
+        .device-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        .device-col h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--gold); }
+        .device-list { list-style: none; }
+        .device-list li { padding: 0.6rem 0 0.6rem 1.6rem; position: relative; color: var(--text-mid); font-size: 0.92rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .device-list li::before { content: '▸'; position: absolute; left: 0; color: var(--gold-dark); }
+        .device-list li strong { color: var(--text-dark); }
+
+        .device-specs-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .device-specs-table th, .device-specs-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--cream-dark); }
+        .device-specs-table th { background: var(--black); color: var(--gold); font-weight: 700; font-size: 0.78rem; letter-spacing: 1px; text-transform: uppercase; }
+        .device-specs-table tr:hover td { background: rgba(65,179,163,0.04); }
+        .device-specs-table td:first-child { font-weight: 600; color: var(--text-dark); width: 40%; }
+        .device-specs-table td:last-child { color: var(--text-mid); }
+
+        /* milestone timeline */
+        .milestone-track { margin-top: 2rem; }
+        .milestone { display: flex; gap: 1.25rem; margin-bottom: 0; position: relative; }
+        .milestone::before { content: ''; position: absolute; left: 22px; top: 44px; bottom: -4px; width: 2px; background: linear-gradient(to bottom, var(--gold), transparent); z-index: 0; }
+        .milestone:last-child::before { display: none; }
+        .milestone-dot { width: 44px; height: 44px; min-width: 44px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; color: var(--black); z-index: 1; margin-top: 2px; }
+        .milestone-body { padding-bottom: 1.5rem; flex: 1; }
+        .milestone-body h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.25rem; }
+        .milestone-body p { font-size: 0.87rem; color: var(--text-mid); line-height: 1.6; }
+        .milestone-body .milestone-date { font-size: 0.75rem; font-weight: 700; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
+
+        /* ── CAPABILITIES ── */
+        .capabilities { background: var(--white); }
+        .cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .cap-card { background: var(--cream); border-radius: 16px; padding: 1.75rem; border-left: 4px solid var(--gold); transition: all 0.25s; }
+        .cap-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-left-width: 6px; }
+        .cap-card h4 { font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .cap-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.65; }
+
+        /* ── PRINCIPLES ── */
+        .principles { background: var(--cream); }
+        .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .principle { display: flex; gap: 1rem; align-items: flex-start; background: var(--white); border-radius: 16px; padding: 1.5rem; }
+        .principle-icon { width: 44px; height: 44px; min-width: 44px; background: linear-gradient(135deg, var(--black), var(--brown-dark)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; border: 2px solid var(--gold); }
+        .principle h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
+        .principle p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+
+        /* ── CTA ── */
+        .cta-section { background: linear-gradient(135deg, var(--brown-dark) 0%, var(--black) 100%); color: var(--white); text-align: center; padding: 90px 2rem; }
+        .cta-section h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; color: var(--gold); margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.1rem; color: var(--brown-light); max-width: 620px; margin: 0 auto 2rem; line-height: 1.8; }
+        .btn-primary { display: inline-block; padding: 15px 40px; background: var(--gold); color: var(--black); font-weight: 700; font-size: 0.95rem; text-decoration: none; border-radius: 50px; margin: 0 0.5rem; box-shadow: 0 4px 20px rgba(65,179,163,0.35); transition: all 0.25s; }
+        .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
+        .btn-outline { display: inline-block; padding: 14px 40px; border: 2px solid rgba(65,179,163,0.6); color: var(--gold-light); font-weight: 600; font-size: 0.95rem; text-decoration: none; border-radius: 50px; margin: 0 0.5rem; transition: all 0.25s; }
+        .btn-outline:hover { border-color: var(--gold); background: rgba(65,179,163,0.10); }
+
+        /* ── FOOTER ── */
+        footer { background: var(--black); color: var(--brown-light); padding: 2rem; text-align: center; font-size: 0.83rem; }
+        footer a { color: var(--gold); text-decoration: none; }
+        footer .footer-nav { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; }
+
+        @media (max-width: 1050px) {
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 768px) {
+
+            .mission-inner, .device-grid { grid-template-columns: 1fr; }
+            .cap-grid { grid-template-columns: 1fr 1fr; }
+            .principles-grid { grid-template-columns: 1fr; }
+            section { padding: 56px 0; }
+        }
+    
+
+        /* ── TEXT JUSTIFY ── */
+        .section-body, .device-body p, .mission .section-body,
+        .market-card p, .ip-card p, .advisor-card p { text-align: justify; }
+
+        /* ── HAMBURGER / MOBILE NAV ── */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 19px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1100;
+        }
+
+        .nav-hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: var(--black);
+            border-radius: 2px;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+            transform-origin: center;
+        }
+
+        /* animated X state */
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Mobile nav drawer */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 75px; /* just below the nav bar */
+            left: 0; right: 0;
+            background: var(--white);
+            border-top: 2px solid var(--gold);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            z-index: 1050;
+            padding: 1rem 0 1.5rem;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: transform 0.28s ease, opacity 0.28s ease;
+        }
+
+        .mobile-nav.open {
+            display: block;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav ul li a {
+            display: block;
+            padding: 0.75rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--text-mid);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-left: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .mobile-nav ul li a:hover,
+        .mobile-nav ul li a:focus {
+            color: var(--gold-dark);
+            border-left-color: var(--gold);
+            background: var(--cream);
+        }
+
+        .mobile-nav .mobile-cta {
+            display: block;
+            margin: 1rem 2rem 0;
+            text-align: center;
+            background: var(--gold);
+            color: var(--black) !important;
+            border-radius: 50px;
+            padding: 0.7rem 1.5rem !important;
+            font-size: 0.9rem !important;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-left: none !important;
+            transition: background 0.2s;
+        }
+
+        .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
+
+        @media (max-width: 1050px) {
+            .nav-hamburger { display: flex; }
+        }
+
+    </style>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="Stage-gated development pipeline for four women's health devices: Belotte Colpotomizer™, POP-Q AutoSense™, Pudendal Nerve Block Device™, and MUMS™.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="R&D Pipeline — NEG+ Innovations, Inc.">
+    <meta property="og:description" content="Stage-gated development pipeline for four women's health devices: Belotte Colpotomizer™, POP-Q AutoSense™, Pudendal Nerve Block Device™, and MUMS™.">
+    <meta property="og:url" content="https://negplusinnovations.com/rd.html">
+    <meta property="og:image" content="https://negplusinnovations.com/logo.svg">
+    <meta property="og:site_name" content="NEG+ Innovations, Inc.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="R&D Pipeline — NEG+ Innovations, Inc.">
+    <meta name="twitter:description" content="Stage-gated development pipeline for four women's health devices: Belotte Colpotomizer™, POP-Q AutoSense™, Pudendal Nerve Block Device™, and MUMS™.">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#pipeline">Pipeline</a></li>
+            <li><a href="rd.html" class="active">R&amp;D</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#pipeline">Pipeline</a></li>
+
+        <li><a href="team.html">Team</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="index.html#contact" class="mobile-cta">Contact</a></li>
+    </ul>
+</div>
+
+<!-- ── DISCLAIMER BANNER ── -->
+<div style="background:linear-gradient(90deg,#1a3a5c 0%,#0E2A47 100%);border-left:5px solid #41B3A3;padding:0.8rem 2rem;text-align:center;">
+    <p style="font-size:0.8rem;color:rgba(255,255,255,0.8);line-height:1.5;max-width:960px;margin:0 auto;">
+        <strong style="color:#7DD3CB;">Educational Purposes Only:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. &nbsp;<a href="disclaimer.html" style="color:#7DD3CB;text-decoration:underline;">Full Disclaimer →</a>
+    </p>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+    <div class="page-hero-content">
+        <div class="page-hero-eyebrow">Research &amp; Development</div>
+        <h1>Pioneering <span>Next-Generation</span> Surgical Solutions</h1>
+        <p>Rigorous, evidence-driven innovation across an expanding portfolio of independent women's health device programs — spanning surgical instrumentation, pelvic diagnostics, interventional analgesia, and intrapartum monitoring.</p>
+    </div>
+</div>
+
+<!-- ── MISSION ── -->
+<section class="mission">
+    <div class="container">
+        <div class="mission-inner">
+            <div>
+                <div class="section-label">Our R&amp;D Mission</div>
+                <h2 class="section-title">Transformative Devices for <span>Critical Unmet Needs</span></h2>
+                <div class="divider"></div>
+                <p class="section-body" style="margin-bottom:1rem;">NEG+ is committed to developing medical devices that address the persistent, clinically documented gaps in women's pelvic diagnostics and surgical instrumentation. Our R&D process integrates voice-of-customer research, engineering precision, and evidence-based clinical validation from day one.</p>
+                <p class="section-body" style="margin-bottom:1rem;">Each program is designed around a closed-loop evidence system — where user acceptance research informs engineering requirements, which drive a predefined publication strategy — creating the self-reinforcing evidence cycle that NIH reviewers and institutional investors recognize as fundable, adoption-ready innovation.</p>
+                <p class="section-body">Our development principles: clinical-driven design, evidence-based innovation, iterative refinement, patient safety primacy, and data-driven optimization.</p>
+            </div>
+            <div class="mission-stat-grid">
+                <div class="mission-stat">
+                    <div class="num">Multi</div>
+                    <div class="lbl">Independent Device Programs</div>
+                </div>
+                <div class="mission-stat">
+                    <div class="num">$400M+</div>
+                    <div class="lbl">Combined US TAM</div>
+                </div>
+                <div class="mission-stat">
+                    <div class="num">4+</div>
+                    <div class="lbl">Provisional Patents on File</div>
+                </div>
+                <div class="mission-stat">
+                    <div class="num">6</div>
+                    <div class="lbl">Stage-Gate Development Phases</div>
+                </div>
+                <div class="mission-stat">
+                    <div class="num">37.7%</div>
+                    <div class="lbl">POP Surgical Recurrence Rate Targeted</div>
+                </div>
+                <div class="mission-stat">
+                    <div class="num">30%</div>
+                    <div class="lbl">Reduction in POP-Q Variability Targeted</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── DEVICE 1 — COLPOTOMIZER ── -->
+<section class="device-section" id="colpotomizer">
+    <div class="container">
+        <div class="device-header">
+            <div class="device-icon">🔪</div>
+            <div>
+                <div class="device-tag">Device 1 · Surgical Access · FDA Class II · 510(k) Pathway</div>
+                <h2>Belotte Colpotomizer™</h2>
+                <p>Automated reusable handle + single-use disposable crown system for laparoscopic and robotic-assisted total hysterectomy. Integrates motor-assisted 360° circumferential electrosurgical colpotomy, pneumatic vaginal stenting (balloon insufflation), and microprocessor-regulated energy delivery — targeting a 60-second colpotomy time vs. the 8–14 minute current standard of care, with &lt;2mm thermal spread.</p>
+            </div>
+        </div>
+
+        <div class="device-grid">
+            <div class="device-col">
+                <h3>Clinical Problem &amp; Innovation</h3>
+                <ul class="device-list">
+                    <li><strong>450,000</strong> hysterectomies annually in the US (55–60% laparoscopic/robotic)</li>
+                    <li><strong>1–4% vaginal cuff dehiscence rate</strong> — leading reoperation cause after TLH</li>
+                    <li>Standard colpotomy: 8–14 minutes, surgeon-dependent quality, 3–6mm thermal spread</li>
+                    <li><strong>Asymmetric blade geometry</strong> — patent-pending curved electrode array conforming to vaginal fornix anatomy</li>
+                    <li><strong>Integrated balloon insufflation</strong> — pneumatic vaginal stent maintains pneumoperitoneum, eliminates gas loss</li>
+                    <li><strong>Motor-assisted 360° rotation</strong> — eliminates surgeon free-hand variability</li>
+                    <li><strong>60-second target colpotomy time</strong> — 6–12 minutes OR time savings per procedure</li>
+                    <li>Estimated OR cost savings: $300–$2,400 per procedure at $50–$200/min</li>
+                </ul>
+
+                <h3 style="margin-top:2rem;">Market &amp; Commercial</h3>
+                <table class="device-specs-table">
+                    <thead><tr><th>Parameter</th><th>Data</th></tr></thead>
+                    <tbody>
+                        <tr><td>TAM (US Disposable)</td><td>$290M+</td></tr>
+                        <tr><td>Primary Target Surgeons</td><td>~3,500 high-volume MIGS surgeons (&gt;100 TLH/year)</td></tr>
+                        <tr><td>WTP — Disposable Crown ASP</td><td>$400–$600</td></tr>
+                        <tr><td>Reimbursement</td><td>CPT 58571/58573 — absorbed in existing DRG (LOW risk)</td></tr>
+                        <tr><td>Regulatory Pathway</td><td>FDA 510(k) — mechanical + electrosurgical + balloon</td></tr>
+                        <tr><td>Predicate Strategy</td><td>RUMI II/VCare + Thunderbeat/LigaSure combo</td></tr>
+                        <tr><td>Regulatory Timeline</td><td>3–4 years to clearance</td></tr>
+                        <tr><td>Estimated Reg. Cost</td><td>$800K–$1.2M</td></tr>
+                        <tr><td>Individual Exit Range</td><td>$250–$400M</td></tr>
+                        <tr><td>Exit Profile</td><td>Strategic fit with established medtech platforms in gynecologic surgery</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="device-col">
+                <h3>Development Milestones</h3>
+                <div class="milestone-track">
+                    <div class="milestone">
+                        <div class="milestone-dot">1</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2026 Q1–Q2</div>
+                            <h4>Concept Lock &amp; Provisional Patent</h4>
+                            <p>Clinical needs assessment complete; asymmetric blade geometry and rotation mechanism patent application filed; voice-of-customer research with MIGS KOLs</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">2</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2026 Q2–Q3</div>
+                            <h4>Engineering Prototype</h4>
+                            <p>CAD finalization; prototype fabrication; bench testing of rotation mechanism, balloon insufflation, and energy delivery; design controls initiation per 21 CFR Part 820</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">3</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2026 Q3–Q4</div>
+                            <h4>Preclinical Validation</h4>
+                            <p>200-cycle mechanical endurance testing; ex vivo/cadaveric colpotomy validation; thermal spread thermocouple mapping; biocompatibility assessment</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">4</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2027 Q1–Q3</div>
+                            <h4>FDA Pre-Sub &amp; Clinical Study</h4>
+                            <p>Q-Sub meeting with FDA; IRB approval; multicenter human factors validation; primary endpoints: colpotomy time, thermal spread, cuff integrity rate</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">5</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">Q4 2027</div>
+                            <h4>FDA 510(k) Submission &amp; Clearance (Target)</h4>
+                            <p>510(k) submission; Design History File complete; Quality Management System in place per ISO 13485</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">6</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2028</div>
+                            <h4>Commercial Launch</h4>
+                            <p>GPO contracting; KOL-led clinical champion program; publications in JMIG and AJOG; robotic surgery program director targeted outreach</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── DEVICE 2 — POP-Q ── -->
+<section class="device-section" id="popq" style="background:var(--cream);">
+    <div class="container">
+        <div class="device-header">
+            <div class="device-icon">📡</div>
+            <div>
+                <div class="device-tag">Device 2 · Pelvic Diagnostics · FDA 510(k) + De Novo (SaMD) · NIH STTR Targeted</div>
+                <h2>POP-Q AutoSense™ — Digital POP-Q Platform</h2>
+                <p>Sensorized conformable anatomical vaginal sleeve system with indexed ring electronics, providing real-time simultaneous measurement of all nine POP-Q reference points. Outputs a digital twin 3D visualization and HL7 FHIR-compliant EMR export — eliminating the 30% inter-observer variability (ICC 0.45–0.75) inherent to manual POP-Q assessment that drives surgical misclassification and 37.7% recurrence rates.</p>
+            </div>
+        </div>
+
+        <div class="device-grid">
+            <div class="device-col">
+                <h3>Clinical Problem &amp; Innovation</h3>
+                <ul class="device-list">
+                    <li><strong>50%</strong> of parous women have anatomical prolapse; 2.9–8% symptomatic (200M+ women in US)</li>
+                    <li><strong>200,000–300,000</strong> POP surgeries annually; <strong>37.7% recurrence rate</strong> at 2 years</li>
+                    <li>Manual POP-Q ICC: <strong>0.45–0.75</strong> — 30% of surgical decisions based on examinations that would be re-staged by a second clinician</li>
+                    <li>Current exam: 8–12 minutes, no digital record, no EMR integration, no audit trail</li>
+                    <li>FDA mesh ban (2019) heightened need for precise pre-surgical staging for non-mesh repair planning</li>
+                    <li><strong>Sensorized sleeve</strong> — indexed ring electronics, simultaneous 9-point POP-Q measurement</li>
+                    <li><strong>Digital twin</strong> — Bayesian FEM solver + ML compartment classification, 3D visualization</li>
+                    <li><strong>SaaS platform</strong> — HL7 FHIR EMR export, longitudinal monitoring, RTM codes 98975–98978</li>
+                </ul>
+
+                <h3 style="margin-top:2rem;">Revenue Architecture</h3>
+                <table class="device-specs-table">
+                    <thead><tr><th>Stream</th><th>Price Point</th></tr></thead>
+                    <tbody>
+                        <tr><td>Device Kit (Capital)</td><td>$8,500–$12,500 initial</td></tr>
+                        <tr><td>Single-Use Sleeve (Consumable)</td><td>$95–$145 per exam</td></tr>
+                        <tr><td>SaaS Platform License</td><td>$350–$750/month per site</td></tr>
+                        <tr><td>Target Reimbursement</td><td>$125–$185/exam (professional component)</td></tr>
+                        <tr><td>CPT Strategy</td><td>CPT 59899 → Category III → Category I (3–5 yr)</td></tr>
+                        <tr><td>Market Size (2025)</td><td>$1.06B → $1.7B by 2030 (6.6% CAGR)</td></tr>
+                        <tr><td>FDA Clearance Target</td><td>Q1 2028</td></tr>
+                        <tr><td>Series A Target</td><td>$4–5M at Q3 2027</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="device-col">
+                <h3>Evidence Roadmap — Closed-Loop System</h3>
+                <div class="milestone-track">
+                    <div class="milestone">
+                        <div class="milestone-dot">0</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">Phase 0 · 2026 Q1</div>
+                            <h4>Baseline Perception Survey (REDCap)</h4>
+                            <p>Multi-specialty survey (urogynecologists, high-volume OB/GYNs): TAM framework — workflow pain points, technology adoption readiness, institutional &amp; reimbursement context. Target n=80–120. Establishes non-promotional baseline for NIH reviewers.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">1</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">Phase 0 → I · 2026 Q2</div>
+                            <h4>Design Requirements Lock + STTR Submission</h4>
+                            <p>Survey-driven FDA-compliant design inputs; sensor accuracy requirements, software architecture specifications; NIH STTR Phase I submission to NICHD/NIBIB. NSF STTR parallel track for algorithm and sensor engineering.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">2</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">Phase I · 2026 Q3–Q4</div>
+                            <h4>Prototype Validation</h4>
+                            <p>Sensor accuracy vs. gold-standard manual POP-Q; intra/inter-user reproducibility (ICC &gt;0.90 target); signal stability; software output validation. Cadaveric and simulated clinical cases.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">3</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">Phase I · 2027</div>
+                            <h4>Early Feasibility Study + Publication</h4>
+                            <p>IRB-approved EFS; physician experience study (prospective); primary manuscript: "Automated Sensorized POP-Q vs. Manual Gold Standard" → AJOG (IF 9.8). Secondary: IUGA Journal, JMIG.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">4</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2027–2028</div>
+                            <h4>Multi-Site Clinical Trial + FDA Submission</h4>
+                            <p>Multicenter prospective accuracy study; STTR subaward partner sites provide CRC, IRB, OR access. 510(k) + De Novo SaMD submission — FDA clearance target Q1 2028.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">5</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2028+</div>
+                            <h4>Commercial Launch + CPT Category III</h4>
+                            <p>AMA CPT Editorial Panel application for Category III tracking code (AUGS coding committee endorsement). Platform positions NEG+ for strategic partnership or acquisition by established medtech companies serving the urogynecology and pelvic floor market.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── DEVICE 3 — PNB ── -->
+<section class="device-section" id="pnb">
+    <div class="container">
+        <div class="device-header">
+            <div class="device-icon">🎯</div>
+            <div>
+                <div class="device-tag">Device 3 · Interventional · FDA 510(k) · Multi-Specialty Application</div>
+                <h2>NEG+ Pudendal Nerve Block Device™</h2>
+                <p>A novel finger-mounted modular system integrating: (a) a reusable sensing module (RSM) with PMUT ultrasound ring array and near-infrared optical ring for real-time nerve localization and vascular avoidance; (b) a sterile disposable delivery module (DSUM) with spring-loaded retractable needles and fluid distribution; and (c) the Pudendal Nerve Localization Instrument (PNLI) with bilateral ischial spine registration arms and a spherical focused acoustic transducer — all within a single-operator workflow.</p>
+            </div>
+        </div>
+
+        <div class="device-grid">
+            <div class="device-col">
+                <h3>Clinical Problem &amp; Innovation</h3>
+                <ul class="device-list">
+                    <li>Pudendal nerve block: critical technique for second-stage labor, perineal repair, chronic pelvic pain, and pudendal neuralgia</li>
+                    <li><strong>Landmark-guided success rate: 50–70%</strong> (Iowa Trumpet / freehand finger-guided)</li>
+                    <li>Primary failure modes: nerve miss, inadvertent intravascular injection (obturator/internal pudendal artery), inconsistent depth control</li>
+                    <li><strong>Ultrasound-guided success rate: 82–97%</strong> (Rofaeel et al. 2008; Karaman et al. 2019)</li>
+                    <li>Current US guidance requires separate probe + separate operator — incompatible with single-operator obstetric and outpatient settings</li>
+                    <li><strong>PMUT ultrasound ring array</strong> — real-time nerve localization in finger-mounted form factor</li>
+                    <li><strong>NIR optical ring</strong> — vascular avoidance for LAST prevention</li>
+                    <li><strong>CLEAR/CAUTION/ABORT alerts</strong> — AI-assisted nerve segmentation with optional needle deployment interlock</li>
+                    <li>Applicable across: OB/GYN, urogynecology, CNM/midwifery, pain medicine, regional anesthesia</li>
+                </ul>
+
+                <h3 style="margin-top:2rem;">Validation Study Design (Phase 0 → IDE)</h3>
+                <table class="device-specs-table">
+                    <thead><tr><th>Phase</th><th>Objective</th></tr></thead>
+                    <tbody>
+                        <tr><td>Phase 0 Survey</td><td>TAM instrument (n=80–120); specialties: OB/GYN, Urogyn, MFM, CNM, Pain, Anesthesia</td></tr>
+                        <tr><td>Bench Testing</td><td>PMUT array accuracy; NIR vascular detection threshold; needle deployment force</td></tr>
+                        <tr><td>Cadaveric EFS</td><td>Nerve localization accuracy vs. gold-standard; CLEAR/CAUTION threshold calibration</td></tr>
+                        <tr><td>Human Factors</td><td>Single-operator ergonomic assessment across 5 specialty groups; workflow integration</td></tr>
+                        <tr><td>IDE Clinical Trial</td><td>Multicenter prospective; primary endpoint: first-attempt success rate (target: ≥85%)</td></tr>
+                        <tr><td>Reimbursement</td><td>CPT 64430 existing code; new technology supplement code application</td></tr>
+                        <tr><td>FDA Pathway</td><td>510(k) — combination device (electronics + sensing + delivery)</td></tr>
+                        <tr><td>FDA Clearance Target</td><td>2028–2029</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="device-col">
+                <h3>Development Milestones</h3>
+                <div class="milestone-track">
+                    <div class="milestone">
+                        <div class="milestone-dot">1</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2026 Q1–Q2</div>
+                            <h4>Multi-Specialty Focus Group Survey</h4>
+                            <p>REDCap survey instrument across 5 specialty groups. TAM domains: perceived usefulness, ease of use, behavioral intention to adopt. Target n=80–120. Cost acceptance thresholds and CPT code confidence assessment.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">2</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2026 Q2–Q4</div>
+                            <h4>PMUT Array &amp; NIR Module Engineering</h4>
+                            <p>Reusable sensing module (RSM) engineering: PMUT ring array calibration, NIR optical ring sensitivity. Disposable delivery module (DSUM): needle deployment mechanism, fluid distribution system. Provisional patent prosecution.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">3</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2027 Q1</div>
+                            <h4>Cadaveric &amp; Bench Validation</h4>
+                            <p>Pelvis model validation of PNLI ischial spine registration; PMUT nerve localization accuracy; CLEAR/CAUTION/ABORT threshold definition; mechanical reliability 200-cycle endurance.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">4</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2027 Q2–Q4</div>
+                            <h4>Early Feasibility Study (IRB)</h4>
+                            <p>IRB-approved EFS with STTR academic partner. Human factors validation — attending vs. fellow vs. resident; obstetric and outpatient pelvic pain settings. Primary: nerve localization accuracy vs. anatomical landmark.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">5</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2027–2028</div>
+                            <h4>IDE Clinical Trial — Multicenter</h4>
+                            <p>Prospective, multicenter IDE trial. Primary endpoint: first-attempt success rate ≥85%. Secondary: LAST event rate, operator confidence score, workflow integration rating. Publication: AJOG, Obstetrics &amp; Gynecology.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">6</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2028–2029</div>
+                            <h4>FDA 510(k) Submission &amp; Commercial Launch</h4>
+                            <p>510(k) submission — combination device strategy. Commercial targeting: academic OB/GYN programs, urogynecology practices, labor &amp; delivery units, pain management centers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── DEVICE 4 — MUMS ── -->
+<section class="device-section" id="mums" style="background:var(--cream);">
+    <div class="container">
+        <div class="device-header">
+            <div class="device-icon">🤱</div>
+            <div>
+                <div class="device-tag">Device 4 · Intrapartum Monitoring · De Novo / PMA · Tier 3 — Milestone-Gated</div>
+                <h2>MUMS™ — Multimodal Uterine Monitoring System</h2>
+                <p>An autonomous, AI-enabled intrapartum platform targeting critical unmet needs in labor and delivery monitoring. MUMS addresses a $2.45B global market where the foundational clinical tool — continuous electronic fetal monitoring — has not experienced meaningful autonomous intelligence integration despite being the primary safety instrument in over 3.6 million US births annually. MUMS is developed under a milestone-gated capital strategy: SBIR Phase I funds sensor architecture validation before Series A capital is deployed.</p>
+            </div>
+        </div>
+
+        <div class="device-grid">
+            <div class="device-col">
+                <h3>Clinical Problem &amp; Innovation</h3>
+                <ul class="device-list">
+                    <li><strong>Adverse perinatal outcomes remain a persistent public health crisis:</strong> Hypoxic-ischemic encephalopathy (HIE) affects 1–3 per 1,000 live births in high-income countries; US maternal mortality rates are the highest among comparable nations.</li>
+                    <li>Current electronic fetal monitoring (EFM) relies on L&amp;D nurse continuous visual interpretation — a highly variable, fatigue-dependent process that has not been meaningfully augmented by autonomous decision support.</li>
+                    <li>Existing EFM platforms (wired and wireless external monitoring) do not provide AI-assisted classification, autonomous alerting, or integrated multiparameter sensing within a single platform.</li>
+                    <li><strong>MUMS integrates multimodal sensing with AI-enabled classification</strong> — providing autonomous pattern recognition and decision-support alerts to augment L&amp;D nursing and MFM clinical judgment.</li>
+                    <li>Directly aligned with <strong>ERAS opioid-reduction objectives</strong>: MUMS supports safer neuraxial and opioid-sparing analgesic management in monitored high-risk labor.</li>
+                    <li>Federal policy environment: <strong>White House Blueprint for Addressing the Maternal Health Crisis (2022)</strong>, $558M HRSA maternal safety mandate, and CDC maternal mortality action plan create a uniquely favorable regulatory and payer backdrop.</li>
+                </ul>
+
+                <h3 style="margin-top:2rem;">Regulatory &amp; Market Profile</h3>
+                <table class="device-specs-table">
+                    <thead><tr><th>Parameter</th><th>Profile</th></tr></thead>
+                    <tbody>
+                        <tr><td>Global Market</td><td>$2.45B intrapartum monitoring (6.7% CAGR)</td></tr>
+                        <tr><td>US Births / Year</td><td>~3.6M — 42% covered by Medicaid</td></tr>
+                        <tr><td>Primary Indication</td><td>High-risk labor and delivery monitoring</td></tr>
+                        <tr><td>Regulatory Pathway</td><td>De Novo / PMA (AI/ML-enabled device)</td></tr>
+                        <tr><td>Policy Alignment</td><td>White House Blueprint · HRSA Mandate · CDC Maternal Action Plan</td></tr>
+                        <tr><td>Reimbursement Strategy</td><td>NTAP → National Coverage Determination → Medicaid state coverage</td></tr>
+                        <tr><td>Non-Dilutive Funding</td><td>NIH SBIR Phase I — sensor architecture validation</td></tr>
+                        <tr><td>Capital Strategy</td><td>Milestone-gated: Series A contingent on Tier 1 device commercial milestones</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="device-col">
+                <h3>Development Milestones (Milestone-Gated)</h3>
+                <div class="milestone-track">
+                    <div class="milestone">
+                        <div class="milestone-dot">1</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2026 — Immediate</div>
+                            <h4>SBIR Phase I Commitment</h4>
+                            <p>NIH SBIR Phase I application to fund sensor architecture validation and preliminary bench testing. Non-dilutive funding secures early development without consuming Series A capital allocated to Tier 1 devices.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">2</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2026–2027</div>
+                            <h4>FDA Pre-Submission (Q-Sub)</h4>
+                            <p>Pre-Submission meeting with FDA to confirm De Novo vs. PMA pathway and AI/ML device classification. Q-Sub outcome is the primary gate for Phase I FIH go/no-go decision.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">3</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2027–2028</div>
+                            <h4>Phase I — First-in-Human Study</h4>
+                            <p>Milestone-gated: initiated only after Q-Sub confirmation and Colpotomizer FDA submission milestone. FIH study establishes sensor performance baseline and safety data.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">4</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2028–2029</div>
+                            <h4>Phase II — Clinical Concordance Study</h4>
+                            <p>AI classification concordance vs. gold-standard expert interpretation. Multi-site enrollment at academic L&amp;D centers. Supports SBIR Phase II application and Series A MUMS allocation.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">5</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2029–2030</div>
+                            <h4>Phase III — Pivotal RCT</h4>
+                            <p>Prospective randomized controlled trial. Co-primary endpoints target reduction in adverse perinatal outcomes vs. standard EFM. NTAP application filed at regulatory submission stage.</p>
+                        </div>
+                    </div>
+                    <div class="milestone">
+                        <div class="milestone-dot">6</div>
+                        <div class="milestone-body">
+                            <div class="milestone-date">2030–2031</div>
+                            <h4>FDA De Novo / PMA &amp; Commercial Launch</h4>
+                            <p>Regulatory submission and commercial launch. CMS NCD application, Medicaid state coverage pursuit, and WHO prequalification pathway for global maternal health markets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CORE CAPABILITIES ── -->
+<section class="capabilities">
+    <div class="container">
+        <div class="section-label">Core Technical Capabilities</div>
+        <h2 class="section-title">Multidisciplinary <span>Engineering &amp; Clinical Expertise</span></h2>
+        <div class="divider"></div>
+        <p class="section-body" style="margin-bottom:2.5rem;">Our team brings together engineering, clinical medicine, regulatory science, and commercial strategy — bridging the gap between clinical insight and FDA-cleared product.</p>
+        <div class="cap-grid">
+            <div class="cap-card">
+                <h4>Mechanical Engineering</h4>
+                <p>Advanced mechanism design, precision manufacturing, materials science for medical-grade applications, CAD optimization for ergonomic clinical use.</p>
+            </div>
+            <div class="cap-card">
+                <h4>Electrosurgical Systems</h4>
+                <p>Energy delivery platform integration, microprocessor-regulated thermal management, electrical safety testing, &lt;2mm thermal spread engineering.</p>
+            </div>
+            <div class="cap-card">
+                <h4>Sensor Technology</h4>
+                <p>PMUT ultrasound array design, NIR optical sensing, precision measurement calibration, signal processing algorithms for real-time clinical feedback.</p>
+            </div>
+            <div class="cap-card">
+                <h4>Software &amp; AI/ML (SaMD)</h4>
+                <p>Embedded systems, Bayesian FEM solver, ML compartment classification, HL7 FHIR EMR integration, FDA SaMD framework compliance, cloud analytics.</p>
+            </div>
+            <div class="cap-card">
+                <h4>Clinical Research</h4>
+                <p>Study design (EFS, IDE, multicenter RCT), biostatistics, human factors validation, IRB navigation, evidence generation strategy aligned with NIH STTR.</p>
+            </div>
+            <div class="cap-card">
+                <h4>Regulatory Affairs</h4>
+                <p>FDA 510(k) / De Novo / IDE submission strategy, Q-Sub meeting preparation, predicate analysis, combination device classification, ISO compliance.</p>
+            </div>
+            <div class="cap-card">
+                <h4>Quality Management</h4>
+                <p>Design History File (DHF), Risk Management File (RMF) per ISO 14971, 21 CFR Part 820 design controls, ISO 13485 QMS architecture.</p>
+            </div>
+            <div class="cap-card">
+                <h4>Manufacturing &amp; Supply Chain</h4>
+                <p>Contract manufacturing partnerships, process validation, disposable device supply chain management, reusable component lifecycle design.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── PRINCIPLES ── -->
+<section class="principles">
+    <div class="container">
+        <div class="section-label">Development Principles</div>
+        <h2 class="section-title">Six Principles That <span>Drive Every Decision</span></h2>
+        <div class="divider"></div>
+        <div class="principles-grid" style="margin-top:2.5rem;">
+            <div class="principle">
+                <div class="principle-icon">🎯</div>
+                <div>
+                    <h4>Clinical-Driven Design</h4>
+                    <p>Direct surgeon and clinician input guide every design decision — voice-of-customer research precedes every engineering specification.</p>
+                </div>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">🔬</div>
+                <div>
+                    <h4>Evidence-Based Innovation</h4>
+                    <p>Rigorous preclinical and clinical testing validates every safety and performance claim before regulatory submission.</p>
+                </div>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">⚡</div>
+                <div>
+                    <h4>Iterative Refinement</h4>
+                    <p>Continuous improvement through structured user feedback loops, post-market surveillance, and data-driven design updates.</p>
+                </div>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">🛡️</div>
+                <div>
+                    <h4>Patient Safety First</h4>
+                    <p>Comprehensive risk management per ISO 14971 and failure mode analysis applied throughout every development phase.</p>
+                </div>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">🌍</div>
+                <div>
+                    <h4>Accessibility Focus</h4>
+                    <p>Designing devices deployable across diverse settings — academic medical centers, community hospitals, ASCs, and resource-limited environments globally.</p>
+                </div>
+            </div>
+            <div class="principle">
+                <div class="principle-icon">📊</div>
+                <div>
+                    <h4>Closed-Loop Evidence</h4>
+                    <p>Publication strategy predefined before data collection — every clinical dataset collected with a specific peer-reviewed manuscript target in mind.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Collaborate on the Future of Women's Health</h2>
+        <p>We welcome partnerships with research institutions, clinical investigators, regulatory experts, and industry partners who share our commitment to precision women's health innovation.</p>
+        <a href="index.html#contact" class="btn-primary">Contact NEG+ Innovations</a>
+        <a href="index.html#contact" class="btn-outline">Our Clinical Operations</a>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="index.html#products">Products</a>
+        <a href="rd.html">R&amp;D</a>
+        <a href="team.html">Team</a>
+        <a href="news.html">News</a>
+        <a href="faq.html">FAQ</a>
+        <a href="index.html#advisory">Advisory Board</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="disclaimer.html">Disclaimer</a>
+    </div>
+    <p style="font-size:0.78rem;color:rgba(200,220,240,0.6);max-width:900px;margin:1.25rem auto 0;padding:1rem 1.5rem;background:rgba(65,179,163,0.07);border-radius:8px;border-left:3px solid #41B3A3;line-height:1.6;">
+        <strong style="color:#7DD3CB;">Disclaimer:</strong> This website is for educational purposes only. All products are in the pre-clinical development stage. No content contained herein has been reviewed by the FDA. Nothing herein constitutes an offer to sell or solicitation to buy securities.
+    </p>
+    <p>© 2026 NEG+ Innovations, Inc. · Weston, Massachusetts · Patent Pending · Confidential</p>
+</footer>
+
+
+<script>
+(function() {
+    var btn = document.getElementById('navHamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    if (!btn || !mobileNav) return;
+
+    btn.addEventListener('click', function() {
+        var isOpen = btn.classList.toggle('open');
+        if (isOpen) {
+            mobileNav.style.display = 'block';
+            requestAnimationFrame(function() { mobileNav.classList.add('open'); });
+        } else {
+            mobileNav.classList.remove('open');
+            mobileNav.addEventListener('transitionend', function handler() {
+                mobileNav.style.display = 'none';
+                mobileNav.removeEventListener('transitionend', handler);
+            });
+        }
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Close on link click
+    mobileNav.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !mobileNav.contains(e.target)) {
+            btn.classList.remove('open');
+            mobileNav.classList.remove('open');
+            mobileNav.style.display = 'none';
+            btn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
