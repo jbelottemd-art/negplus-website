@@ -149,6 +149,37 @@
         .cta-section p { color: rgba(255,255,255,0.78); max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; }
         .cta-reg { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 1rem; }
 
+        /* ── INVESTOR CONTACT ── */
+        .investor-contact { background: var(--cream); padding: 80px 2rem; }
+        .investor-contact .section-label { color: var(--gold-dark); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; }
+        .investor-contact .section-title { font-size: 2rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .investor-contact .section-sub { font-size: 1rem; color: var(--text-mid); margin-bottom: 3rem; max-width: 520px; }
+        .ic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+        .ic-left { }
+        .ic-contact-cards { display: flex; flex-direction: column; gap: 1.25rem; }
+        .ic-card { background: var(--white); border-radius: 16px; padding: 1.5rem 1.75rem; border: 1px solid rgba(65,179,163,0.18); display: flex; align-items: flex-start; gap: 1rem; transition: box-shadow 0.2s, transform 0.2s; }
+        .ic-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.09); transform: translateY(-2px); }
+        .ic-card-icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 0.1rem; }
+        .ic-card-body { }
+        .ic-card-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold-dark); margin-bottom: 0.25rem; }
+        .ic-card-value { font-size: 0.97rem; font-weight: 700; color: var(--text-dark); }
+        .ic-card-value a { color: var(--text-dark); text-decoration: none; transition: color 0.2s; }
+        .ic-card-value a:hover { color: var(--gold-dark); }
+        .ic-card-note { font-size: 0.78rem; color: var(--text-mid); margin-top: 0.2rem; }
+        .ic-right { background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%); border-radius: 24px; padding: 2.5rem; border: 1px solid rgba(65,179,163,0.2); }
+        .ic-right h3 { font-size: 1.25rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; }
+        .ic-right .ic-right-sub { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 2rem; line-height: 1.6; }
+        .ic-cta-stack { display: flex; flex-direction: column; gap: 1rem; }
+        .ic-btn-primary { display: block; text-align: center; background: var(--gold); color: var(--black) !important; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; padding: 0.95rem 1.5rem; border-radius: 50px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+        .ic-btn-primary:hover { background: var(--gold-dark); transform: translateY(-1px); }
+        .ic-btn-outline { display: block; text-align: center; background: transparent; color: var(--white) !important; font-weight: 700; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 1px; padding: 0.9rem 1.5rem; border-radius: 50px; text-decoration: none; border: 2px solid rgba(255,255,255,0.3); transition: border-color 0.2s, background 0.2s; }
+        .ic-btn-outline:hover { border-color: var(--gold); background: rgba(65,179,163,0.1); }
+        .ic-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 1.5rem 0; }
+        .ic-assurance { display: flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+        .ic-assurance span { font-size: 1rem; }
+        @media (max-width: 768px) { .ic-grid { grid-template-columns: 1fr; } .investor-contact .section-sub { max-width: 100%; } }
+        @media (max-width: 480px) { .investor-contact { padding: 50px 1rem; } .ic-right { padding: 1.75rem; } }
+
         /* ── FOOTER ── */
         footer { background: var(--black); color: rgba(255,255,255,0.7); padding: 3rem 2rem 1.5rem; }
         .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding-bottom: 2rem; }
@@ -208,7 +239,6 @@
         <ul class="nav-links">
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#products">Products</a></li>
-            <li><a href="index.html#pipeline">Pipeline</a></li>
             <li><a href="rd.html">R&amp;D</a></li>
             <li><a href="team.html">Team</a></li>
             <li><a href="investors.html" class="active">Investors</a></li>
@@ -552,15 +582,66 @@
 </section>
 
 <!-- ── CTA ── -->
-<section class="cta-section" id="contact">
+<!-- ── INVESTOR CONTACT ── -->
+<section class="investor-contact" id="contact">
     <div class="container">
-        <h2>Ready to Learn More?</h2>
-        <p>Accredited investors and institutional partners may request our confidential investor brief. All inquiries are held in strict confidence and responded to within 48 hours.</p>
-        <div class="hero-actions">
-            <a href="mailto:info@negplus.com?subject=Investor%20Brief%20Request%20%E2%80%94%20NEG%2B%20Innovations&body=I%20am%20a%20verified%20accredited%20investor%20and%20would%20like%20to%20request%20the%20NEG%2B%20Innovations%20investor%20brief." class="btn-primary">Request Investor Brief</a>
-            <a href="team.html" class="btn-outline">Meet the Team</a>
+        <div class="section-label">Get In Touch</div>
+        <h2 class="section-title">Connect With Our Team</h2>
+        <p class="section-sub">Accredited investors and institutional partners are encouraged to reach out directly. All inquiries are held in strict confidence.</p>
+
+        <div class="ic-grid">
+            <!-- Contact info cards -->
+            <div class="ic-left">
+                <div class="ic-contact-cards">
+                    <div class="ic-card">
+                        <div class="ic-card-icon">✉️</div>
+                        <div class="ic-card-body">
+                            <div class="ic-card-label">Investor Inquiries</div>
+                            <div class="ic-card-value"><a href="mailto:investors@negplus.com?subject=Investor%20Inquiry%20%E2%80%94%20NEG%2B%20Innovations">investors@negplus.com</a></div>
+                            <div class="ic-card-note">For accredited investor inquiries, term sheet requests, and investor brief access</div>
+                        </div>
+                    </div>
+                    <div class="ic-card">
+                        <div class="ic-card-icon">📧</div>
+                        <div class="ic-card-body">
+                            <div class="ic-card-label">General &amp; Partnership</div>
+                            <div class="ic-card-value"><a href="mailto:info@negplus.com?subject=Partnership%20Inquiry%20%E2%80%94%20NEG%2B%20Innovations">info@negplus.com</a></div>
+                            <div class="ic-card-note">Strategic partnerships, clinical collaborations, and general inquiries</div>
+                        </div>
+                    </div>
+                    <div class="ic-card">
+                        <div class="ic-card-icon">📍</div>
+                        <div class="ic-card-body">
+                            <div class="ic-card-label">Headquarters</div>
+                            <div class="ic-card-value">Weston, Massachusetts</div>
+                            <div class="ic-card-note">Delaware C-Corp · Greater Boston MedTech Corridor</div>
+                        </div>
+                    </div>
+                    <div class="ic-card">
+                        <div class="ic-card-icon">⏱️</div>
+                        <div class="ic-card-body">
+                            <div class="ic-card-label">Response Time</div>
+                            <div class="ic-card-value">Within 48 Business Hours</div>
+                            <div class="ic-card-note">All investor inquiries are reviewed by the founding team directly</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right CTA panel -->
+            <div class="ic-right">
+                <h3>Request Our Investor Brief</h3>
+                <p class="ic-right-sub">Our confidential investor brief includes full financial projections, cap table, device development roadmap, and regulatory strategy. Available to verified accredited investors only under Reg D Rule 506(b).</p>
+                <div class="ic-cta-stack">
+                    <a href="mailto:investors@negplus.com?subject=Investor%20Brief%20Request%20%E2%80%94%20NEG%2B%20Innovations&body=Hello%2C%0A%0AI%20am%20a%20verified%20accredited%20investor%20and%20would%20like%20to%20request%20access%20to%20the%20NEG%2B%20Innovations%20confidential%20investor%20brief.%0A%0AName%3A%20%0AOrganization%3A%20%0AInvestment%20Focus%3A%20%0A%0AThank%20you." class="ic-btn-primary">✉ Request Investor Brief →</a>
+                    <a href="mailto:investors@negplus.com?subject=Investor%20Call%20Request%20%E2%80%94%20NEG%2B%20Innovations&body=Hello%2C%0A%0AI%20would%20like%20to%20schedule%20a%20call%20with%20the%20NEG%2B%20Innovations%20founding%20team%20to%20discuss%20the%20investment%20opportunity.%0A%0AName%3A%20%0AOrganization%3A%20%0APreferred%20Times%3A%20%0A%0AThank%20you." class="ic-btn-outline">📞 Schedule an Investor Call</a>
+                </div>
+                <hr class="ic-divider">
+                <div class="ic-assurance"><span>🔒</span> All inquiries are strictly confidential. NEG+ Innovations does not share investor contact information with any third party.</div>
+            </div>
         </div>
-        <p class="cta-reg">This page is for informational purposes only and does not constitute an offer to sell or solicitation to buy securities. Offered under Regulation D, Rule 506(b) to verified accredited investors only.</p>
+
+        <p class="cta-reg" style="text-align:center; margin-top: 3rem;">This page is for informational purposes only and does not constitute an offer to sell or solicitation to buy securities. Offered under Regulation D, Rule 506(b) to verified accredited investors only.</p>
     </div>
 </section>
 
