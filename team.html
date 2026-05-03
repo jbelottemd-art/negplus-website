@@ -256,6 +256,12 @@
             display: flex; align-items: center; justify-content: center;
             font-size: 0.82rem; font-weight: 800; color: var(--gold); letter-spacing: -0.5px;
         }
+        .advisor-photo {
+            width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+            object-fit: cover; object-position: center top;
+            border: 2px solid var(--gold);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+        }
         .advisor-full-name { font-size: 0.97rem; font-weight: 800; color: var(--white); line-height: 1.2; }
         .advisor-creds-line { font-size: 0.71rem; color: var(--gold-light); font-weight: 600; margin-top: 0.18rem; letter-spacing: 0.3px; }
         .advisor-card-named .advisor-body { padding: 1.25rem 1.4rem; }
@@ -612,7 +618,7 @@
             <!-- Michael Chiu -->
             <div class="bod-card">
                 <div class="bod-avatar-bar">
-                    <div class="bod-initials">MC</div>
+                    <img src="advisor-mc.jpg" alt="Michael Chiu PhD" class="bod-photo">
                     <div class="bod-header-meta">
                         <div class="bod-name">Michael Chiu</div>
                         <div class="bod-creds">PhD &nbsp;·&nbsp; MBA</div>
@@ -670,7 +676,7 @@
             </div>
             <div class="advisor-card advisor-card-named">
                 <div class="advisor-name-bar">
-                    <div class="advisor-initials">RL</div>
+                    <img src="advisor-rl.jpg" alt="Roger Lefevre MD MBA" class="advisor-photo">
                     <div>
                         <div class="advisor-full-name">Roger Lefevre, MD, MBA</div>
                         <div class="advisor-creds-line">Urogynecology &amp; Reconstructive Pelvic Surgery</div>
@@ -714,7 +720,7 @@
             </div>
             <div class="advisor-card advisor-card-named">
                 <div class="advisor-name-bar">
-                    <div class="advisor-initials">ML</div>
+                    <img src="advisor-ml.jpg" alt="Mark D. Levie MD" class="advisor-photo">
                     <div>
                         <div class="advisor-full-name">Mark D. Levie, MD</div>
                         <div class="advisor-creds-line">Professor &amp; Associate Vice Chair, OB/GYN</div>
@@ -770,7 +776,7 @@
             </div>
             <div class="advisor-card advisor-card-named">
                 <div class="advisor-name-bar">
-                    <div class="advisor-initials">LA</div>
+                    <img src="advisor-la.jpg" alt="Ludwick Alexis" class="advisor-photo">
                     <div>
                         <div class="advisor-full-name">Ludwick Alexis</div>
                         <div class="advisor-creds-line">CPA · MBA Chicago Booth · Director, Walmart International Finance</div>
