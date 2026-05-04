@@ -143,6 +143,55 @@
         .proceeds-item-text strong { display: block; font-size: 0.88rem; font-weight: 700; color: var(--text-dark); }
         .proceeds-item-text span { font-size: 0.8rem; color: var(--text-mid); }
 
+        /* ── PROCEEDS TILES ── */
+        .proceeds-tiles {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .proceeds-tile {
+            background: var(--cream);
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            border-top: 4px solid var(--gold);
+        }
+        .proceeds-tile-pct {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--gold-dark);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+        .proceeds-tile-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.75rem;
+        }
+        .proceeds-tile-bar {
+            height: 6px;
+            background: var(--cream-dark);
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .proceeds-tile-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+            border-radius: 50px;
+        }
+        .proceeds-tile-desc {
+            font-size: 0.78rem;
+            color: var(--text-mid);
+            line-height: 1.55;
+        }
+        @media (max-width: 900px) {
+            .proceeds-tiles { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .proceeds-tiles { grid-template-columns: 1fr; }
+        }
+
         /* ── CTA ── */
         .cta-section { background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%); text-align: center; padding: 80px 2rem; }
         .cta-section h2 { font-size: 2rem; font-weight: 800; color: var(--white); margin-bottom: 1rem; }
@@ -506,76 +555,32 @@
             <div class="section-label">Capital Allocation</div>
             <h2 class="section-title">Use of <span>Proceeds</span></h2>
             <div class="divider divider-center"></div>
-            <p class="section-body">Seed capital is deployed across four priority areas — engineering, IP protection, NIH grant development, and clinical/regulatory preparation — optimized for maximum milestone velocity per dollar.</p>
+            <p class="section-body">Seed capital deployed across four priority areas — optimized for maximum milestone velocity and de-risking per dollar.</p>
         </div>
-        <div class="proceeds-grid">
-            <div class="proceeds-bars">
-                <div class="proceeds-bar-item">
-                    <div class="proceeds-bar-label">
-                        <span class="proceeds-bar-name">Engineering &amp; Prototype Development</span>
-                        <span class="proceeds-bar-pct">35%</span>
-                    </div>
-                    <div class="proceeds-bar-track"><div class="proceeds-bar-fill" style="width:35%"></div></div>
-                </div>
-                <div class="proceeds-bar-item">
-                    <div class="proceeds-bar-label">
-                        <span class="proceeds-bar-name">Intellectual Property (PCT &amp; US)</span>
-                        <span class="proceeds-bar-pct">20%</span>
-                    </div>
-                    <div class="proceeds-bar-track"><div class="proceeds-bar-fill" style="width:20%"></div></div>
-                </div>
-                <div class="proceeds-bar-item">
-                    <div class="proceeds-bar-label">
-                        <span class="proceeds-bar-name">NIH STTR Grant Development</span>
-                        <span class="proceeds-bar-pct">20%</span>
-                    </div>
-                    <div class="proceeds-bar-track"><div class="proceeds-bar-fill" style="width:20%"></div></div>
-                </div>
-                <div class="proceeds-bar-item">
-                    <div class="proceeds-bar-label">
-                        <span class="proceeds-bar-name">Clinical &amp; Regulatory Preparation</span>
-                        <span class="proceeds-bar-pct">15%</span>
-                    </div>
-                    <div class="proceeds-bar-track"><div class="proceeds-bar-fill" style="width:15%"></div></div>
-                </div>
-                <div class="proceeds-bar-item">
-                    <div class="proceeds-bar-label">
-                        <span class="proceeds-bar-name">Operations &amp; Reserve</span>
-                        <span class="proceeds-bar-pct">10%</span>
-                    </div>
-                    <div class="proceeds-bar-track"><div class="proceeds-bar-fill" style="width:10%"></div></div>
-                </div>
+        <div class="proceeds-tiles">
+            <div class="proceeds-tile">
+                <div class="proceeds-tile-pct">35%</div>
+                <div class="proceeds-tile-label">Engineering &amp; Prototyping</div>
+                <div class="proceeds-tile-bar"><div class="proceeds-tile-fill" style="width:35%"></div></div>
+                <p class="proceeds-tile-desc">Bench prototype validation for Colpotomizer™ and PNB Device™ · ISO 13485 QMS · Design History File</p>
             </div>
-            <div class="proceeds-summary">
-                <h3>Deployment Priority</h3>
-                <div class="proceeds-item">
-                    <div class="proceeds-icon">⚙️</div>
-                    <div class="proceeds-item-text">
-                        <strong>Engineering &amp; Prototyping</strong>
-                        <span>Bench prototype validation for Colpotomizer™ and PNB Device™; ISO 13485 QMS initiation; Design History File architecture</span>
-                    </div>
-                </div>
-                <div class="proceeds-item">
-                    <div class="proceeds-icon">🔒</div>
-                    <div class="proceeds-item-text">
-                        <strong>Intellectual Property</strong>
-                        <span>Provisional-to-PCT conversion across all four programs; freedom-to-operate analysis; IP assignment verification</span>
-                    </div>
-                </div>
-                <div class="proceeds-item">
-                    <div class="proceeds-icon">🏛️</div>
-                    <div class="proceeds-item-text">
-                        <strong>NIH Grant Development</strong>
-                        <span>STTR Phase I Specific Aims for POP-Q AutoSense™; SBIR Phase I for PNB Device™; grant writing support and academic partner engagement</span>
-                    </div>
-                </div>
-                <div class="proceeds-item">
-                    <div class="proceeds-icon">📋</div>
-                    <div class="proceeds-item-text">
-                        <strong>Clinical &amp; Regulatory</strong>
-                        <span>Pre-IDE meetings with FDA; clinical protocol design; IRB preparation; KOL engagement for IDE site activation</span>
-                    </div>
-                </div>
+            <div class="proceeds-tile">
+                <div class="proceeds-tile-pct">20%</div>
+                <div class="proceeds-tile-label">Intellectual Property</div>
+                <div class="proceeds-tile-bar"><div class="proceeds-tile-fill" style="width:20%"></div></div>
+                <p class="proceeds-tile-desc">Provisional-to-PCT conversion · Freedom-to-operate analysis · All four programs</p>
+            </div>
+            <div class="proceeds-tile">
+                <div class="proceeds-tile-pct">20%</div>
+                <div class="proceeds-tile-label">NIH Grant Development</div>
+                <div class="proceeds-tile-bar"><div class="proceeds-tile-fill" style="width:20%"></div></div>
+                <p class="proceeds-tile-desc">STTR Phase I Specific Aims (POP-Q AutoSense™) · SBIR Phase I (PNB Device™) · Academic PI engagement</p>
+            </div>
+            <div class="proceeds-tile">
+                <div class="proceeds-tile-pct">25%</div>
+                <div class="proceeds-tile-label">Clinical &amp; Operations</div>
+                <div class="proceeds-tile-bar"><div class="proceeds-tile-fill" style="width:25%"></div></div>
+                <p class="proceeds-tile-desc">Pre-IDE meetings · IRB preparation · KOL engagement · Working capital reserve</p>
             </div>
         </div>
     </div>

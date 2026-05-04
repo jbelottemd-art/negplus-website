@@ -528,7 +528,7 @@
 
         .pipeline-stages {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
             margin-top: 3rem;
         }
@@ -600,7 +600,7 @@
             padding: 0 6px;
         }
 
-        .tbar-concept  { background: #8B6914; flex: 1.5; }
+        .tbar-concept  { background: #5CC8E0; flex: 1.5; }
         .tbar-proto    { background: #2A9D8F; flex: 2; }
         .tbar-preclin  { background: #41B3A3; flex: 2; color: var(--black); }
         .tbar-clinical { background: #2D4A6B; flex: 2.5; }
@@ -712,16 +712,20 @@
         .advisor-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.10); }
 
         .advisor-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--black), var(--brown-dark));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
             margin-bottom: 1rem;
-            border: 2px solid var(--gold);
+            flex-shrink: 0;
+        }
+        .advisor-icon svg {
+            width: 20px; height: 20px;
+            stroke: rgba(255,255,255,0.95);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
         .advisor-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.3rem; }
@@ -974,7 +978,7 @@
         @media (max-width: 1024px) {
             .products-grid { grid-template-columns: 1fr 1fr; }
             .advisory-grid { grid-template-columns: repeat(2, 1fr); }
-            .pipeline-stages { grid-template-columns: repeat(3, 1fr); }
+            .pipeline-stages { grid-template-columns: repeat(2, 1fr); }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-inner { grid-template-columns: 1fr 1fr; }
         }
@@ -1127,7 +1131,22 @@
             box-shadow: 0 10px 28px rgba(0,0,0,0.09);
             border-color: rgba(65,179,163,0.35);
         }
-        .partner-tile-icon { font-size: 1.5rem; margin-bottom: 0.65rem; }
+        .partner-tile-icon {
+            width: 42px; height: 42px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 0.65rem;
+            flex-shrink: 0;
+        }
+        .partner-tile-icon svg {
+            width: 20px; height: 20px;
+            stroke: rgba(255,255,255,0.95);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
         .partner-tile-title {
             font-size: 0.88rem; font-weight: 700; color: var(--text-dark);
             margin-bottom: 0.4rem; line-height: 1.3;
@@ -1255,10 +1274,13 @@
             .nav-hamburger { display: flex; }
         }
 
+        @media (max-width: 600px) {
+            .pipeline-stages { grid-template-columns: 1fr; }
+        }
+
         @media (max-width: 480px) {
             .container { padding: 0 1rem; }
             .stats-grid { grid-template-columns: 1fr; }
-            .pipeline-stages { grid-template-columns: 1fr; }
             .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
             .footer-bottom { flex-direction: column; text-align: center; }
             .hero-badges { flex-direction: column; align-items: center; gap: 1rem; }
@@ -1299,7 +1321,7 @@
             <li><a href="rd.html">R&amp;D</a></li>
             <li><a href="team.html">Team</a></li>
             <li><a href="investors.html">Investors</a></li>
-            <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+            <li><a href="#contact">Contact Us</a></li>
         </ul>
         <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
             <span></span>
@@ -1399,43 +1421,6 @@
             <div class="stat-box">
                 <div class="stat-num">$500–800M</div>
                 <div class="stat-label">Portfolio Exit Target</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ── ABOUT ── -->
-<section class="about" id="about">
-    <div class="container">
-        <div class="about-grid">
-            <div>
-                <div class="section-label">About NEG+ Innovations</div>
-                <h2 class="section-title">Physician-Led.<br><span>Evidence-Driven.</span> Mission-Focused.</h2>
-                <div class="divider"></div>
-                <p class="section-body" style="margin-bottom:1.5rem;">NEG+ Innovations, Inc. is a physician-founded Delaware C-Corporation headquartered in Weston, Massachusetts, built around a singular mission: to develop transformative medical devices that address persistent, clinically documented gaps in women's pelvic health and surgical instrumentation.</p>
-                <p class="section-body" style="margin-bottom:1.5rem;">Founded by Dr. Jimmy Belotte (MD, PhD, MBA, FACOG) — an OB/GYN with deep expertise in translational medicine, medical device development, and healthcare strategy — NEG+ Innovations combines elite clinical insight with sophisticated engineering and financial rigor.</p>
-                <p class="section-body">The multi-device portfolio is designed to mitigate concentration risk through sequenced development tiers — each program maintains an independent FDA pathway, enabling staged de-risking, sequential revenue events, and a unified commercial channel targeting the OB/GYN and urogynecology call point.</p>
-                <ul class="about-checklist">
-                    <li>Delaware C-Corporation — QSBS &amp; SBIR/STTR eligible</li>
-                    <li>All device IP formally assigned to and vested in the C-Corp</li>
-                    <li>Founder co-investing personally on identical terms alongside investors</li>
-                    <li>Non-dilutive NIH SBIR/STTR funding pursued in parallel with private capital</li>
-                </ul>
-            </div>
-            <div class="about-visual">
-                <h3>Our Mission</h3>
-                <p>To bring innovative solutions to unmet needs in women's pelvic health, leveraging clinical expertise, precision engineering, and data science to produce advanced, differentiated medical devices that improve outcomes for patients worldwide.</p>
-                <p>We integrate clinical care, translational research, regulatory science, and strategic capital to bring first-in-class devices from concept to commercialization.</p>
-                <div>
-                    <span class="about-pill">Women's Health</span>
-                    <span class="about-pill">Pelvic Floor</span>
-                    <span class="about-pill">Surgical Innovation</span>
-                    <span class="about-pill">Digital Diagnostics</span>
-                    <span class="about-pill">MedTech</span>
-                    <span class="about-pill">FDA 510(k) / De Novo</span>
-                    <span class="about-pill">NIH STTR</span>
-                    <span class="about-pill">SBIR</span>
-                </div>
             </div>
         </div>
     </div>
@@ -1605,6 +1590,43 @@
 </section>
 
 
+<!-- ── ABOUT ── -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div>
+                <div class="section-label">About NEG+ Innovations</div>
+                <h2 class="section-title">Physician-Led.<br><span>Evidence-Driven.</span> Mission-Focused.</h2>
+                <div class="divider"></div>
+                <p class="section-body" style="margin-bottom:1.5rem;">NEG+ Innovations, Inc. is a physician-founded Delaware C-Corporation headquartered in Weston, Massachusetts, built around a singular mission: to develop transformative medical devices that address persistent, clinically documented gaps in women's pelvic health and surgical instrumentation.</p>
+                <p class="section-body" style="margin-bottom:1.5rem;">Founded by Dr. Jimmy Belotte (MD, PhD, MBA, FACOG) — OB/GYN, physician-scientist, and Medical Director at GlaxoSmithKline Oncology — NEG+ combines elite clinical insight with engineering rigor and financial discipline.</p>
+                <p class="section-body">Each device addresses an independent FDA pathway, enabling staged de-risking, sequential revenue events, and a unified commercial channel targeting OB/GYN and urogynecology.</p>
+                <ul class="about-checklist">
+                    <li>Delaware C-Corporation — QSBS &amp; SBIR/STTR eligible</li>
+                    <li>All device IP formally assigned to and vested in the C-Corp</li>
+                    <li>Founder co-investing personally on identical terms alongside investors</li>
+                    <li>Non-dilutive NIH SBIR/STTR funding pursued in parallel with private capital</li>
+                </ul>
+            </div>
+            <div class="about-visual">
+                <h3>Our Mission</h3>
+                <p>To bring innovative solutions to unmet needs in women's pelvic health, leveraging clinical expertise, precision engineering, and data science to produce advanced, differentiated medical devices that improve outcomes for patients worldwide.</p>
+                <p>We integrate clinical care, translational research, regulatory science, and strategic capital to bring first-in-class devices from concept to commercialization.</p>
+                <div>
+                    <span class="about-pill">Women's Health</span>
+                    <span class="about-pill">Pelvic Floor</span>
+                    <span class="about-pill">Surgical Innovation</span>
+                    <span class="about-pill">Digital Diagnostics</span>
+                    <span class="about-pill">MedTech</span>
+                    <span class="about-pill">FDA 510(k) / De Novo</span>
+                    <span class="about-pill">NIH STTR</span>
+                    <span class="about-pill">SBIR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ── PIPELINE ── -->
 <section class="pipeline" id="pipeline">
     <div class="container">
@@ -1618,33 +1640,23 @@
         <div class="pipeline-stages">
             <div class="pipeline-stage">
                 <div class="stage-num">1</div>
-                <h4>Concept &amp; IP</h4>
-                <p>Clinical needs assessment, provisional patent applications, voice-of-customer research, feasibility analysis</p>
+                <h4>Discovery &amp; IP</h4>
+                <p>Clinical needs assessment, provisional patent applications, voice-of-customer research, freedom-to-operate analysis</p>
             </div>
             <div class="pipeline-stage">
                 <div class="stage-num">2</div>
-                <h4>Prototype Engineering</h4>
-                <p>Design verification, bench testing, iterative CAD refinement, FDA design controls initiation</p>
+                <h4>Engineering &amp; Prototyping</h4>
+                <p>Design verification, bench testing, CAD refinement, FDA design controls, ISO 13485 QMS initiation</p>
             </div>
             <div class="pipeline-stage">
                 <div class="stage-num">3</div>
-                <h4>Preclinical Validation</h4>
-                <p>Mechanical, electrical, biocompatibility testing; ex vivo and cadaveric studies; Design History File</p>
+                <h4>Clinical Validation</h4>
+                <p>Preclinical testing, ex vivo cadaveric studies, human factors, Early Feasibility Study, IDE clinical trial</p>
             </div>
             <div class="pipeline-stage">
                 <div class="stage-num">4</div>
-                <h4>Clinical Studies</h4>
-                <p>Human factors validation, Early Feasibility Study, multicenter IDE trial, STTR-funded evidence generation</p>
-            </div>
-            <div class="pipeline-stage">
-                <div class="stage-num">5</div>
-                <h4>Regulatory Clearance</h4>
-                <p>510(k) / De Novo submission, FDA review, ISO 13485 quality management system compliance</p>
-            </div>
-            <div class="pipeline-stage">
-                <div class="stage-num">6</div>
-                <h4>Commercial Launch</h4>
-                <p>GPO contracts, KOL clinical champions, post-market surveillance, publication strategy execution</p>
+                <h4>Regulatory &amp; Launch</h4>
+                <p>510(k) / De Novo submission, FDA review, ISO 13485 compliance, GPO contracting, commercial launch</p>
             </div>
         </div>
 
@@ -1695,7 +1707,7 @@
                 </div>
             </div>
             <div class="timeline-legend">
-                <div class="legend-item"><div class="legend-dot" style="background:#8B6914"></div>Concept &amp; IP</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#5CC8E0"></div>Concept &amp; IP</div>
                 <div class="legend-item"><div class="legend-dot" style="background:#2A9D8F"></div>Prototype Engineering</div>
                 <div class="legend-item"><div class="legend-dot" style="background:#41B3A3"></div>Preclinical / STTR Validation</div>
                 <div class="legend-item"><div class="legend-dot" style="background:#2D4A6B"></div>Clinical Studies</div>
@@ -1790,53 +1802,53 @@
             <div class="section-label">Strategic Advisory Board</div>
             <h2 class="section-title">Expert Advisory Board. <span>Complete Commercialization Coverage.</span></h2>
             <div class="divider divider-center"></div>
-            <p class="section-body">NEG+ has assembled a multi-disciplinary Advisory Board spanning FDA regulatory strategy, clinical validation, engineering execution, investor access, life sciences partnerships, health economics, and corporate finance — each member occupying a defined, non-redundant value lane built for full commercialization coverage.</p>
+            <p class="section-body">A multi-disciplinary team spanning regulatory, clinical, engineering, capital, and commercial domains — each advisor in a defined, non-redundant value lane.</p>
         </div>
         <div class="advisory-grid">
             <div class="advisor-card">
-                <div class="advisor-icon">⚖️</div>
+                <div class="advisor-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                 <h4>FDA Regulatory</h4>
                 <div class="advisor-role">Former FDA Principal Deputy Commissioner</div>
                 <p>Exceptional regulatory access and strategic pathway expertise — a resource most medtech startups at any stage do not have. Key lane: 510(k) / De Novo / IDE strategy.</p>
             </div>
             <div class="advisor-card">
-                <div class="advisor-icon">🏥</div>
+                <div class="advisor-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
                 <h4>Clinical Validation — Urogynecology</h4>
                 <div class="advisor-role">KOL · Wayne State University School of Medicine</div>
                 <p>Clinical champion for POP-Q AutoSense™ and Belotte Colpotomizer™. Reduces IDE activation friction; serves as STTR PI candidate at established NIH-funded institution.</p>
             </div>
             <div class="advisor-card">
-                <div class="advisor-icon">🔬</div>
+                <div class="advisor-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="4"/><path d="M5 21h14M12 17v4M8 9l4-7 4 7"/></svg></div>
                 <h4>Clinical Validation — MIGS</h4>
                 <div class="advisor-role">KOL · Albert Einstein College of Medicine / Montefiore</div>
                 <p>Minimally invasive gynecologic surgery expertise. Co-investigator for Belotte Colpotomizer™ clinical studies; institutional IDE enrollment pipeline.</p>
             </div>
             <div class="advisor-card">
-                <div class="advisor-icon">⚙️</div>
+                <div class="advisor-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
                 <h4>Engineering &amp; Quality Systems</h4>
                 <div class="advisor-role">Repligen / SelasBio</div>
                 <p>Mechanical engineering execution, FDA design controls (21 CFR Part 820), ISO 13485 QMS implementation, Design History File architecture.</p>
             </div>
             <div class="advisor-card">
-                <div class="advisor-icon">💰</div>
+                <div class="advisor-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></div>
                 <h4>Capital Access — Angel &amp; Early VC</h4>
                 <div class="advisor-role">Boston Harbor Angels</div>
                 <p>Medtech angel and early-stage VC network access. Investor relations strategy, pitch positioning, and seed round pipeline for Series Seed target investors.</p>
             </div>
             <div class="advisor-card">
-                <div class="advisor-icon">🧬</div>
+                <div class="advisor-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><circle cx="12" cy="12" r="10"/></svg></div>
                 <h4>Life Sciences Partnerships</h4>
                 <div class="advisor-role">Biopharma CVC &amp; Growth-Stage</div>
                 <p>Corporate venture capital and biopharma strategic partnership lane. Growth-stage BD relationships and strategic acquirer relationship development.</p>
             </div>
             <div class="advisor-card">
-                <div class="advisor-icon">📊</div>
+                <div class="advisor-icon"><svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></div>
                 <h4>Health Economics &amp; Policy</h4>
                 <div class="advisor-role">Brandeis University / Harvard School of Public Health</div>
                 <p>Healthcare economics, reimbursement strategy, CPT code development pathway, and SBIR/STTR narrative framework for NIH Specific Aims alignment.</p>
             </div>
             <div class="advisor-card">
-                <div class="advisor-icon">🏛️</div>
+                <div class="advisor-icon"><svg viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></div>
                 <h4>Corporate Finance &amp; Legal</h4>
                 <div class="advisor-role">Katten Muchin Rosenman LLP</div>
                 <p>Investor governance, SAFE documentation, cap table management, IP agreement architecture, and Series Seed transaction readiness for institutional VCs.</p>
@@ -1916,7 +1928,7 @@
         <div class="partner-categories">
 
             <div class="partner-tile">
-                <div class="partner-tile-icon">🏛️</div>
+                <div class="partner-tile-icon"><svg viewBox="0 0 24 24"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></div>
                 <div class="partner-tile-title">Government Agencies</div>
                 <p class="partner-tile-desc">Federal and state agencies provide non-dilutive funding, regulatory guidance, and policy alignment across the portfolio — from NIH grant mechanisms to HRSA maternal health mandates.</p>
                 <ul class="partner-list">
@@ -1931,7 +1943,7 @@
             </div>
 
             <div class="partner-tile">
-                <div class="partner-tile-icon">🩺</div>
+                <div class="partner-tile-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
                 <div class="partner-tile-title">Healthcare Providers &amp; Patient Advocacy</div>
                 <p class="partner-tile-desc">Clinical adoption and patient-centered design require active engagement with the provider community and patient advocacy organizations throughout development — not after clearance.</p>
                 <ul class="partner-list">
@@ -1946,7 +1958,7 @@
             </div>
 
             <div class="partner-tile">
-                <div class="partner-tile-icon">📋</div>
+                <div class="partner-tile-icon"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
                 <div class="partner-tile-title">Payers &amp; Regulators</div>
                 <p class="partner-tile-desc">Early engagement with regulatory bodies and commercial payers is embedded in development strategy — ensuring that clearance timelines and reimbursement pathways are validated before capital is committed to pivotal trials.</p>
                 <ul class="partner-list">
@@ -1960,7 +1972,7 @@
             </div>
 
             <div class="partner-tile">
-                <div class="partner-tile-icon">🤝</div>
+                <div class="partner-tile-icon"><svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
                 <div class="partner-tile-title">Industry Partners</div>
                 <p class="partner-tile-desc">Strategic industry relationships support device manufacturing, clinical operations infrastructure, regulatory execution, and ultimately position NEG+ for partnership or acquisition by established medtech platform companies.</p>
                 <ul class="partner-list">

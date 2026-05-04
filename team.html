@@ -268,6 +268,18 @@
         .advisor-card-named h4 { font-size: 0.82rem; font-weight: 700; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.3rem; }
         .advisor-card-named .advisor-role { font-size: 0.75rem; font-weight: 600; color: var(--text-mid); letter-spacing: 0; margin-bottom: 0.7rem; }
         .advisor-card-named p { font-size: 0.84rem; color: var(--text-mid); line-height: 1.65; text-align: justify; }
+        .advisor-bullets { list-style: none; padding: 0; margin: 0.5rem 0 0; }
+        .advisor-bullets li { font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; padding: 0.3rem 0 0.3rem 1.1rem; position: relative; }
+        .advisor-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+        .advisor-card-named {
+            display: flex;
+            flex-direction: column;
+        }
+        .advisor-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
         /* ── KOL TESTIMONIAL ── */
         .kol-testimonial {
@@ -632,22 +644,6 @@
                 </div>
             </div>
 
-            <!-- Placeholder -->
-            <div class="bod-card placeholder">
-                <div class="bod-avatar-bar" style="background:linear-gradient(135deg,#2D3A4A 0%,#1B263B 100%);">
-                    <div class="bod-initials">TBA</div>
-                    <div class="bod-header-meta">
-                        <div class="bod-name" style="color:rgba(255,255,255,0.55);">Independent Director</div>
-                        <div class="bod-creds" style="color:rgba(119,141,169,0.7);">To Be Announced</div>
-                        <div class="bod-board-role">Director</div>
-                    </div>
-                </div>
-                <div class="bod-body">
-                    <div class="bod-company" style="color:var(--brown-light);">Position Reserved</div>
-                    <p style="color:rgba(74,101,128,0.6);font-style:italic;">This board seat is reserved for an independent director whose expertise will complement the existing governance composition. Announcement forthcoming.</p>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
@@ -685,7 +681,11 @@
                 <div class="advisor-body">
                     <h4>Clinical Validation — Urogynecology &amp; POP-Q</h4>
                     <div class="advisor-role">BIDMC · Beth Israel Lahey Health · Harvard Medical School</div>
-                    <p>Urogynecologist and URPS specialist at Beth Israel Deaconess Medical Center, a Harvard Medical School–affiliated academic medical center. Scientific Advisor and prospective STTR academic PI for the POP-Q AutoSense™ program. 20+ years of practice with a peer-reviewed publication record directly encompassing POP-Q methodology, prolapse staging accuracy, voiding dysfunction, and surgical outcomes.</p>
+                    <ul class="advisor-bullets">
+                        <li>Urogynecologist &amp; URPS specialist, BIDMC / Harvard Medical School · 20+ years practice</li>
+                        <li>Prospective STTR academic PI for POP-Q AutoSense™ clinical validation program</li>
+                        <li>Peer-reviewed publication record in POP-Q methodology, prolapse staging, and surgical outcomes</li>
+                    </ul>
                 </div>
             </div>
             <div class="advisor-card">
@@ -735,7 +735,11 @@
                 <div class="advisor-body">
                     <h4>Clinical Validation — Minimally Invasive Gynecologic Surgery</h4>
                     <div class="advisor-role">Albert Einstein College of Medicine · Montefiore Medical Center</div>
-                    <p>Professor and Associate Vice Chair, Department of OB/GYN and Women's Health, Albert Einstein College of Medicine / Montefiore Medical Center. Director of Minimally Invasive Gynecologic Surgery; Co-Fellowship Program Director, MIGS. 37 years of clinical practice with an extensive peer-reviewed publication record in gynecologic surgery. Co-investigator candidate for Belotte Colpotomizer™ MIGS feasibility studies.</p>
+                    <ul class="advisor-bullets">
+                        <li>Professor &amp; Associate Vice Chair, OB/GYN · Albert Einstein / Montefiore Medical Center</li>
+                        <li>Director, Minimally Invasive Gynecologic Surgery · 37 years clinical practice</li>
+                        <li>Co-investigator candidate for Belotte Colpotomizer™ MIGS feasibility studies</li>
+                    </ul>
                 </div>
             </div>
             <div class="advisor-card advisor-card-named">
@@ -749,7 +753,11 @@
                 <div class="advisor-body">
                     <h4>Engineering — Consultant</h4>
                     <div class="advisor-role">Product Engineering &amp; Development</div>
-                    <p>Engineering consultant supporting NEG+'s device development programs. Brings hands-on product engineering expertise to the design, prototyping, and iteration of NEG+'s medical device portfolio across mechanical systems, materials selection, and design-for-manufacturability.</p>
+                    <ul class="advisor-bullets">
+                        <li>Mechanical engineering and product development with Baja SAE design competition experience</li>
+                        <li>Supports device prototyping, CAD design iteration, and engineering documentation</li>
+                        <li>Northeastern University engineering graduate</li>
+                    </ul>
                 </div>
             </div>
             <div class="advisor-card advisor-card-named">
@@ -763,7 +771,11 @@
                 <div class="advisor-body">
                     <h4>Medical Device Engineering Leadership</h4>
                     <div class="advisor-role">Chief Technology Officer · Kytopen, Inc.</div>
-                    <p>MIT-trained engineer with 25+ years developing medical devices across pharmaceutical, medtech, and life science instrumentation sectors. CTO at Kytopen; former VP Product Development. Brings precision engineering execution, R&amp;D team architecture, and product-to-market leadership directly applicable to NEG+'s device development programs.</p>
+                    <ul class="advisor-bullets">
+                        <li>MIT-trained engineer · BS/SM Aeronautical &amp; Astronautical Engineering · 25+ years medtech</li>
+                        <li>CTO, Kytopen · Former VP Product Development · precision engineering &amp; R&amp;D leadership</li>
+                        <li>Applicable expertise across pharmaceutical, medtech, and life science instrumentation sectors</li>
+                    </ul>
                 </div>
             </div>
             <div class="advisor-card advisor-card-named">
@@ -778,7 +790,11 @@
                 <div class="advisor-body">
                     <h4>Bioprocess Engineering &amp; International BD</h4>
                     <div class="advisor-role">Life Sciences · Continuous Bioprocessing &amp; Cell Therapy</div>
-                    <p>Deep expertise in continuous bioprocessing, bioreactor technology, and cell therapy engineering with an extensive European biotech and biopharma network. Fluent in French and Swedish. Supports NEG+'s bioprocess-adjacent partnerships and international business development strategy across European pharmaceutical and life science markets.</p>
+                    <ul class="advisor-bullets">
+                        <li>Deep expertise in continuous bioprocessing, bioreactor technology, and cell therapy engineering</li>
+                        <li>Fluent in French and Swedish; extensive European biotech and biopharma network</li>
+                        <li>Supports NEG+'s international BD strategy and bioprocess-adjacent partnerships</li>
+                    </ul>
                 </div>
             </div>
             <div class="advisor-card advisor-card-named">
@@ -792,7 +808,11 @@
                 <div class="advisor-body">
                     <h4>Accounting &amp; Finance — Consultant</h4>
                     <div class="advisor-role">Director, International FP&amp;A · Walmart</div>
-                    <p>Director of International FP&amp;A at Walmart, with oversight of business performance management across global markets. Prior to Walmart, Ludwick spent over a decade at Deloitte &amp; Touche LLP, rising to Senior Manager in the Florida Audit &amp; Assurance practice — leading multi-team financial statement audits across healthcare, retail, broker-dealer, and TME sectors, with deep expertise in SOX 404, internal controls, and IT audit. Holds a BS and Master of Accounting from the University of Florida and an executive MBA from the University of Chicago Booth School of Business. CPA licensed in Florida; AICPA member. Fluent in English and French. Advises NEG+ Innovations on financial reporting, internal controls architecture, and fiscal governance.</p>
+                    <ul class="advisor-bullets">
+                        <li>Director, International FP&amp;A · Walmart · MBA, University of Chicago Booth</li>
+                        <li>CPA; 10+ years Deloitte Senior Manager, Audit &amp; Assurance (healthcare, retail, broker-dealer)</li>
+                        <li>Advises on financial reporting, internal controls architecture, and fiscal governance</li>
+                    </ul>
                 </div>
             </div>
             <div class="advisor-card advisor-card-named">
@@ -806,7 +826,11 @@
                 <div class="advisor-body">
                     <h4>Capital Markets — Consultant</h4>
                     <div class="advisor-role">Private Credit Associate · Katten Muchin Rosenman LLP</div>
-                    <p>Structured finance and capital markets attorney currently serving as Private Credit Associate at Katten Muchin Rosenman LLP. Previously a Structured Finance Associate at Dentons US LLP, where he represented financial institutions and private equity firms in CLO transactions, repurchase facilities, and complex debt financings — including advisory roles on matters totaling over $13 billion. Served as Assistant Professor at St. John's University School of Law, co-teaching Securitization, Structured Finance &amp; Capital Markets. Holds a J.D. from St. John's University School of Law and a B.S. in Finance from Providence College; admitted to the New York State Bar. Advises NEG+ Innovations on capital markets strategy, structured investment instruments, and Reg D transaction readiness.</p>
+                    <ul class="advisor-bullets">
+                        <li>Private Credit Associate, Katten Muchin Rosenman LLP · Former Structured Finance Associate, Dentons</li>
+                        <li>$13B+ in CLO, repurchase facility, and complex debt financing advisory experience</li>
+                        <li>J.D., St. John's University · NY Bar; Asst. Prof. teaching Securitization &amp; Capital Markets</li>
+                    </ul>
                 </div>
             </div>
             <div class="advisor-card advisor-card-named">
@@ -820,7 +844,11 @@
                 <div class="advisor-body">
                     <h4>Scientific Advisory Board — Consultant</h4>
                     <div class="advisor-role">Anesthesiology &amp; Interventional Pain Medicine · Cross County Medical Care</div>
-                    <p>Board-certified anesthesiologist and interventional pain management specialist with 35+ years of clinical experience. Completed residency in Anesthesia at NYU Medical Center and a fellowship in Interventional Pain Management at Mount Sinai Medical Center. Served as attending physician at Nassau University Medical Center for over 10 years, training anesthesiology residents. Dual board-certified by the American Board of Anesthesiology in Anesthesiology and Pain Medicine. Contributing author to <em>Rapid Review, Anesthesiology Oral Boards</em>. Currently practices at Cross County Medical Care, Bellerose, NY, with affiliations at NYC Health + Hospitals/Queens Jamaica. Fluent in English, French, and Haitian Creole. Advises NEG+ Innovations on perioperative analgesia strategy — directly relevant to the Pudendal Nerve Block Device™ clinical development program.</p>
+                    <ul class="advisor-bullets">
+                        <li>Dual board-certified: Anesthesiology &amp; Pain Medicine (ABA) · Residency NYU · Fellowship Mount Sinai</li>
+                        <li>35+ years clinical practice; 10+ years attending Nassau UMC training anesthesiology residents</li>
+                        <li>Co-author, <em>Rapid Review, Anesthesiology Oral Boards</em> · Advises PNB Device™ program</li>
+                    </ul>
                 </div>
             </div>
             <div class="advisor-card advisor-card-named">
@@ -834,7 +862,11 @@
                 <div class="advisor-body">
                     <h4>Volunteer Research Assistant — CEO</h4>
                     <div class="advisor-role">Research Planning · Scientific Writing · Protocol Design</div>
-                    <p>Physician-researcher with an M.D. from the University of Aleppo and a Master of Public Health from the Brandeis University Heller School of Social Policy and Management, where he also served as a Teaching Assistant. Background spans international humanitarian medicine with the Norwegian Refugee Council, Caritas International, and Medair. As Volunteer Research Assistant to the CEO, he contributes to literature review, study planning, protocol design, data analysis, and manuscript drafting — including FDA regulatory submissions (Pre-Submission, IDE, 510(k)) and NIH SBIR grant documents — supporting NEG+'s clinical evidence development pipeline.</p>
+                    <ul class="advisor-bullets">
+                        <li>MD, University of Aleppo · MPH, Brandeis Heller School; Teaching Assistant</li>
+                        <li>International humanitarian medicine: Norwegian Refugee Council, Caritas, Medair</li>
+                        <li>Supports literature review, protocol design, manuscript drafting, and regulatory document preparation</li>
+                    </ul>
                 </div>
             </div>
         </div>
