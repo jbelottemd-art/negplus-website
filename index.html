@@ -840,6 +840,34 @@
 
         .ip-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
 
+        .ip-counsel-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            background: var(--white);
+            border-radius: 10px;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            font-size: 0.85rem;
+        }
+        .ip-counsel-label {
+            font-weight: 700;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            font-size: 0.78rem;
+        }
+        .ip-counsel-firm {
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .ip-counsel-firm:hover { text-decoration: underline; }
+        .ip-counsel-desc { color: var(--text-mid); }
+
         /* ── CTA ── */
         .cta-section {
             background: linear-gradient(135deg, var(--brown-dark) 0%, var(--black) 100%);
@@ -2001,6 +2029,11 @@
             <h2 class="section-title">Robust IP Portfolio <span>Protecting Every Innovation</span></h2>
             <div class="divider divider-center"></div>
             <p class="section-body">NEG+ maintains a comprehensive intellectual property strategy across all multiple device programs. All IP is formally assigned to and vested in the C-Corp under executed assignment agreements.</p>
+        </div>
+        <div class="ip-counsel-bar">
+            <span class="ip-counsel-label">Patent &amp; IP Counsel</span>
+            <a href="https://wardpatent.com" target="_blank" rel="noopener" class="ip-counsel-firm">Ward Law Office LLC</a>
+            <span class="ip-counsel-desc">— Boutique patent &amp; trademark law firm · Mechanical, Chemical &amp; Electrical disciplines · International IP prosecution</span>
         </div>
         <div class="ip-grid">
             <div class="ip-card">
