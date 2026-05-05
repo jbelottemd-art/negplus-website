@@ -197,7 +197,8 @@
         .bod-avatar-bar {
             background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
             padding: 1.75rem 1.5rem 1.5rem;
-            display: flex; align-items: center; gap: 1.25rem;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; gap: 0.75rem;
         }
         .bod-initials {
             width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
@@ -248,14 +249,13 @@
         .advisor-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6;  }
 
         /* ── WARD LAW LOGO ── */
-        .ward-card { padding: 0; overflow: hidden; border-top: 3px solid var(--gold-dark); }
+        .ward-card { padding: 0; overflow: hidden; }
         .ward-logo-wrap {
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
-            padding: 1.1rem 1.4rem;
-            min-height: 80px;
+            padding: 1.25rem 1.4rem 1.1rem;
             text-decoration: none;
             transition: opacity 0.2s;
         }
@@ -278,9 +278,9 @@
         .advisor-card-named { padding: 0; overflow: hidden; }
         .advisor-name-bar {
             background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
-            padding: 1.1rem 1.4rem;
-            display: flex; align-items: center; gap: 0.9rem;
-            min-height: 80px;
+            padding: 1.25rem 1.4rem 1.1rem;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; gap: 0.55rem;
         }
         .advisor-initials {
             width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
@@ -295,7 +295,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.35);
         }
         .advisor-full-name { font-size: 0.97rem; font-weight: 800; color: var(--white); line-height: 1.2; }
-        .advisor-creds-line { font-size: 0.71rem; color: var(--gold-light); font-weight: 600; margin-top: 0.18rem; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+        .advisor-creds-line { font-size: 0.71rem; color: var(--gold-light); font-weight: 600; margin-top: 0.18rem; letter-spacing: 0.3px; }
         .advisor-card-named .advisor-body { padding: 1.25rem 1.4rem; }
         .advisor-card-named h4 { font-size: 0.82rem; font-weight: 700; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.3rem; }
         .advisor-card-named .advisor-role { font-size: 0.75rem; font-weight: 600; color: var(--text-mid); letter-spacing: 0; margin-bottom: 0.7rem; }
