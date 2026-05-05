@@ -885,30 +885,39 @@
         .ip-counsel-bar {
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 0.4rem;
+            flex-wrap: nowrap;
+            gap: 0.35rem;
             background: var(--white);
             border-radius: 10px;
-            padding: 0.75rem 1.25rem;
+            padding: 0.65rem 1.25rem;
             margin-bottom: 1.5rem;
             border-left: 4px solid var(--gold);
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            overflow: hidden;
         }
         .ip-counsel-label {
             font-weight: 700;
             color: var(--text-dark);
             text-transform: uppercase;
             letter-spacing: 0.04em;
-            font-size: 0.78rem;
+            font-size: 0.72rem;
+            flex-shrink: 0;
         }
         .ip-counsel-firm {
             font-weight: 700;
             color: var(--gold);
             text-decoration: none;
+            flex-shrink: 0;
         }
         .ip-counsel-firm:hover { text-decoration: underline; }
-        .ip-counsel-desc { color: var(--text-mid); }
+        .ip-counsel-desc {
+            color: var(--text-mid);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 0.78rem;
+        }
 
         /* ── CTA ── */
         .cta-section {
