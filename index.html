@@ -880,7 +880,7 @@
 
         .ip-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
         }
 
@@ -1052,7 +1052,8 @@
 
             .about-grid { grid-template-columns: 1fr; }
             .products-grid { grid-template-columns: 1fr; }
-            .market-grid, .ip-grid { grid-template-columns: 1fr; }
+            .market-grid { grid-template-columns: 1fr; }
+            .ip-grid { grid-template-columns: repeat(2, 1fr); }
             .funding-grid { grid-template-columns: 1fr; }
             .advisory-grid { grid-template-columns: 1fr 1fr; }
             .pipeline-stages { grid-template-columns: repeat(2, 1fr); }
