@@ -115,16 +115,17 @@
         /* ── FOUNDER SECTION ── */
         .founder-section { background: var(--cream); }
         .founder-grid {
-            display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start;
+            display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: stretch;
         }
         .founder-card {
             background: var(--white); border-radius: 20px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.08);
             overflow: hidden; text-align: center;
+            display: flex; flex-direction: column; height: 100%;
         }
         .founder-avatar {
             background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
-            height: 240px; overflow: hidden; position: relative;
+            flex: 1; min-height: 280px; overflow: hidden; position: relative;
         }
         .founder-photo {
             width: 100%; height: 100%; object-fit: cover; object-position: center top;
@@ -563,7 +564,7 @@
     <div class="container">
         <div class="founder-grid">
             <!-- Card -->
-            <div>
+            <div style="display:flex;flex-direction:column;">
                 <div class="founder-card">
                     <div class="founder-avatar">
                         <img src="headshot.jpg" alt="Jimmy Belotte, MD PhD MBA FACOG — Founder & CEO, NEG+ Innovations" class="founder-photo">
