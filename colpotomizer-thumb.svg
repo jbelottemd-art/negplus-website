@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B263B"/>
+      <stop offset="55%" style="stop-color:#0E2A47"/>
+      <stop offset="100%" style="stop-color:#0a1e35"/>
+    </linearGradient>
+    <!-- Teal glow -->
+    <radialGradient id="glow" cx="68%" cy="50%" r="40%">
+      <stop offset="0%" style="stop-color:#41B3A3;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#41B3A3;stop-opacity:0"/>
+    </radialGradient>
+    <!-- Grid pattern -->
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M0 40h80M40 0v80" stroke="rgba(65,179,163,0.06)" stroke-width="1"/>
+    </pattern>
+    <!-- Play button shadow -->
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="16" flood-color="rgba(0,0,0,0.55)"/>
+    </filter>
+    <!-- Text shadow -->
+    <filter id="textshadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.5)"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="720" fill="#41B3A3"/>
+
+  <!-- Bottom accent bar -->
+  <rect x="0" y="680" width="1280" height="6" fill="url(#bg2)"/>
+  <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" style="stop-color:#41B3A3"/>
+    <stop offset="100%" style="stop-color:#2A9D8F;stop-opacity:0"/>
+  </linearGradient>
+
+  <!-- Decorative circle rings (top-right) -->
+  <circle cx="1160" cy="120" r="220" stroke="rgba(65,179,163,0.07)" stroke-width="1" fill="none"/>
+  <circle cx="1160" cy="120" r="160" stroke="rgba(65,179,163,0.09)" stroke-width="1" fill="none"/>
+  <circle cx="1160" cy="120" r="100" stroke="rgba(65,179,163,0.12)" stroke-width="1" fill="none"/>
+
+  <!-- Decorative circle rings (bottom-left) -->
+  <circle cx="120" cy="620" r="160" stroke="rgba(65,179,163,0.05)" stroke-width="1" fill="none"/>
+  <circle cx="120" cy="620" r="100" stroke="rgba(65,179,163,0.07)" stroke-width="1" fill="none"/>
+
+  <!-- Surgical instrument silhouette (abstract laparoscope) -->
+  <g opacity="0.12">
+    <line x1="780" y1="80" x2="1050" y2="640" stroke="#41B3A3" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="780" cy="80" r="28" fill="#41B3A3"/>
+    <ellipse cx="1050" cy="640" rx="22" ry="10" fill="#41B3A3" transform="rotate(-30,1050,640)"/>
+    <!-- Second instrument -->
+    <line x1="860" y1="60" x2="960" y2="660" stroke="#7DD3CB" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="860" cy="60" r="18" fill="#7DD3CB"/>
+  </g>
+
+  <!-- Cross-hatch detail top-right -->
+  <g opacity="0.06">
+    <line x1="900" y1="0" x2="1280" y2="380" stroke="#41B3A3" stroke-width="1"/>
+    <line x1="960" y1="0" x2="1280" y2="320" stroke="#41B3A3" stroke-width="1"/>
+    <line x1="1020" y1="0" x2="1280" y2="260" stroke="#41B3A3" stroke-width="1"/>
+    <line x1="1080" y1="0" x2="1280" y2="200" stroke="#41B3A3" stroke-width="1"/>
+    <line x1="1140" y1="0" x2="1280" y2="140" stroke="#41B3A3" stroke-width="1"/>
+    <line x1="1200" y1="0" x2="1280" y2="80" stroke="#41B3A3" stroke-width="1"/>
+  </g>
+
+  <!-- ── LEFT CONTENT BLOCK ── -->
+
+  <!-- Eyebrow pill -->
+  <rect x="80" y="148" width="268" height="34" rx="17" fill="rgba(65,179,163,0.15)" stroke="rgba(65,179,163,0.35)" stroke-width="1"/>
+  <text x="214" y="171" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" font-weight="700" fill="#7DD3CB" letter-spacing="2.5" text-anchor="middle" text-transform="uppercase">SURGICAL DEMONSTRATION</text>
+
+  <!-- Main title -->
+  <text x="80" y="260" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="62" font-weight="800" fill="#FFFFFF" filter="url(#textshadow)">Belotte</text>
+  <text x="80" y="338" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="62" font-weight="800" fill="#41B3A3" filter="url(#textshadow)">Colpotomizer™</text>
+
+  <!-- Teal rule -->
+  <rect x="80" y="360" width="56" height="4" rx="2" fill="#41B3A3"/>
+
+  <!-- Subtitle -->
+  <text x="80" y="412" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.72)">Laparoscopic Hysterectomy</text>
+  <text x="80" y="444" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="22" font-weight="400" fill="rgba(255,255,255,0.72)">Colpotomy Technique</text>
+
+  <!-- Stat chips -->
+  <rect x="80" y="490" width="178" height="44" rx="10" fill="rgba(65,179,163,0.12)" stroke="rgba(65,179,163,0.25)" stroke-width="1"/>
+  <text x="169" y="509" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="700" fill="#7DD3CB" letter-spacing="1.2" text-anchor="middle">TAM (US)</text>
+  <text x="169" y="527" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">$290M+</text>
+
+  <rect x="272" y="490" width="198" height="44" rx="10" fill="rgba(65,179,163,0.12)" stroke="rgba(65,179,163,0.25)" stroke-width="1"/>
+  <text x="371" y="509" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="700" fill="#7DD3CB" letter-spacing="1.2" text-anchor="middle">ANNUAL PROCEDURES</text>
+  <text x="371" y="527" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">~450,000</text>
+
+  <rect x="484" y="490" width="178" height="44" rx="10" fill="rgba(65,179,163,0.12)" stroke="rgba(65,179,163,0.25)" stroke-width="1"/>
+  <text x="573" y="509" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="11" font-weight="700" fill="#7DD3CB" letter-spacing="1.2" text-anchor="middle">PATHWAY</text>
+  <text x="573" y="527" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" text-anchor="middle">FDA 510(k)</text>
+
+  <!-- NEG+ logo bottom-left -->
+  <text x="80" y="638" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="18" font-weight="800" fill="rgba(255,255,255,0.9)" letter-spacing="-0.5">NEG<tspan fill="#41B3A3">+</tspan> Innovations, Inc.</text>
+  <text x="80" y="662" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="12" font-weight="600" fill="rgba(255,255,255,0.38)" letter-spacing="2">NEW ENGLAND GYNECOLOGY PLUS</text>
+
+  <!-- ── PLAY BUTTON (centered right half) ── -->
+  <!-- Right half glow -->
+  <circle cx="980" cy="360" r="180" fill="rgba(65,179,163,0.06)"/>
+
+  <!-- Play button circle -->
+  <circle cx="980" cy="360" r="80" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.35)" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="980" cy="360" r="64" fill="rgba(255,255,255,0.92)"/>
+
+  <!-- Play triangle -->
+  <polygon points="968,336 1010,360 968,384" fill="#1B263B"/>
+
+  <!-- "Watch on YouTube" label -->
+  <rect x="880" y="462" width="200" height="36" rx="18" fill="rgba(65,179,163,0.18)" stroke="rgba(65,179,163,0.4)" stroke-width="1"/>
+  <text x="980" y="485" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif" font-size="13" font-weight="700" fill="#7DD3CB" letter-spacing="0.8" text-anchor="middle">Watch on YouTube →</text>
+
+  <!-- Vertical divider between left content and right play -->
+  <line x1="720" y1="120" x2="720" y2="600" stroke="rgba(65,179,163,0.15)" stroke-width="1" stroke-dasharray="6,6"/>
+</svg>
