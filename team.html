@@ -246,6 +246,27 @@
         .advisor-role { font-size: 0.75rem; font-weight: 600; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 0.75rem; }
         .advisor-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; text-align: justify; }
 
+        /* ── WARD LAW LOGO ── */
+        .ward-card { padding: 0; overflow: hidden; }
+        .ward-logo-wrap {
+            display: block;
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+            text-decoration: none;
+        }
+        .ward-logo {
+            display: block;
+            height: 36px;
+            width: auto;
+            margin: 0 auto;
+        }
+        .ward-card h4,
+        .ward-card .advisor-role,
+        .ward-card p { padding: 0 1.5rem; }
+        .ward-card h4 { padding-top: 1.25rem; }
+        .ward-card p { padding-bottom: 1.5rem; }
+
         /* ── NAMED ADVISOR CARDS ── */
         .advisor-card-named { padding: 0; overflow: hidden; }
         .advisor-name-bar {
@@ -720,8 +741,10 @@
                 <div class="advisor-role">Katten Muchin Rosenman LLP</div>
                 <p>Investor governance, SAFE documentation, cap table management, IP agreement architecture, and Series Seed transaction readiness for institutional venture investors.</p>
             </div>
-            <div class="advisor-card">
-                <div class="advisor-icon">📜</div>
+            <div class="advisor-card ward-card">
+                <a href="https://wardpatent.com" target="_blank" rel="noopener" class="ward-logo-wrap">
+                    <img src="ward-logo.png" alt="Ward Law Office LLC" class="ward-logo">
+                </a>
                 <h4>Intellectual Property &amp; Patent Counsel</h4>
                 <div class="advisor-role"><a href="https://wardpatent.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;font-weight:700;">Ward Law Office LLC</a></div>
                 <p>Boutique patent and trademark law firm managing prosecution and portfolio strategy across all NEG+ device programs. Extensive experience in mechanical, chemical, and electrical disciplines with international IP prosecution capabilities through global firm networks.</p>
