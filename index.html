@@ -1166,28 +1166,39 @@
 
         /* Partner category tiles */
         .partner-categories {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 0.75rem;
+            align-items: stretch;
         }
         .partner-tile {
-            background: var(--white); border-radius: 16px; padding: 1.6rem 1.5rem;
-            border: 1px solid rgba(65,179,163,0.12);
+            flex: 1;
+            min-width: 0;
+            background: var(--white);
+            border-radius: 14px;
+            padding: 1.1rem 0.75rem;
+            border: 1px solid rgba(65,179,163,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
             transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
         }
         .partner-tile:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 28px rgba(0,0,0,0.09);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.08);
             border-color: rgba(65,179,163,0.35);
         }
         .partner-tile-icon {
-            width: 42px; height: 42px;
+            width: 38px; height: 38px;
             background: linear-gradient(135deg, var(--gold-dark), var(--gold));
             border-radius: 10px;
             display: flex; align-items: center; justify-content: center;
-            margin-bottom: 0.65rem;
             flex-shrink: 0;
         }
         .partner-tile-icon svg {
-            width: 20px; height: 20px;
+            width: 18px; height: 18px;
             stroke: rgba(255,255,255,0.95);
             fill: none;
             stroke-width: 2;
@@ -1195,30 +1206,19 @@
             stroke-linejoin: round;
         }
         .partner-tile-title {
-            font-size: 0.88rem; font-weight: 700; color: var(--text-dark);
-            margin-bottom: 0.4rem; line-height: 1.3;
+            font-size: 0.72rem; font-weight: 700; color: var(--text-dark);
+            line-height: 1.3;
         }
-        .partner-tile-desc {
-            font-size: 0.78rem; color: var(--text-mid); line-height: 1.6;
-            margin-bottom: 0.85rem; text-align: justify;
-        }
-        .partner-list { list-style: none; padding: 0; }
-        .partner-list li {
-            font-size: 0.77rem; color: var(--text-mid);
-            padding: 0.25rem 0 0.25rem 1rem;
-            border-bottom: 1px solid rgba(65,179,163,0.1);
-            position: relative; line-height: 1.4;
-        }
-        .partner-list li:last-child { border-bottom: none; }
-        .partner-list li::before {
-            content: "→"; position: absolute; left: 0;
-            color: var(--gold); font-size: 0.68rem; top: 0.3rem;
-        }
+        .partner-tile-desc { display: none; }
+        .partner-list { display: none; }
 
-        @media (max-width: 1024px) { .partner-categories { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 1024px) {
+            .partner-categories { flex-wrap: wrap; }
+            .partner-tile { flex: 1 1 calc(25% - 0.75rem); }
+        }
         @media (max-width: 768px) {
             .academic-grid { grid-template-columns: 1fr; }
-            .partner-categories { grid-template-columns: 1fr; }
+            .partner-tile { flex: 1 1 calc(50% - 0.75rem); }
         }
 
         /* ── HAMBURGER / MOBILE NAV ── */
@@ -2042,7 +2042,7 @@
             </div>
 
             <div class="partner-tile">
-                <div class="partner-tile-icon">💼</div>
+                <div class="partner-tile-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12"/></svg></div>
                 <div class="partner-tile-title">Investing Community</div>
                 <p class="partner-tile-desc">NEG+ is building relationships across the medtech capital ecosystem — from angel networks and seed-stage funds to institutional medtech VCs and healthcare-focused private equity — with a clear milestone-linked capital roadmap.</p>
                 <ul class="partner-list">
@@ -2056,7 +2056,7 @@
             </div>
 
             <div class="partner-tile">
-                <div class="partner-tile-icon">🌐</div>
+                <div class="partner-tile-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
                 <div class="partner-tile-title">Professional Organizations &amp; Consortia</div>
                 <p class="partner-tile-desc">Membership and active engagement in leading professional societies accelerates clinical adoption, creates publication and KOL access, and positions NEG+ devices within the evidence-based practice guidelines that drive hospital formulary decisions.</p>
                 <ul class="partner-list">
@@ -2071,7 +2071,7 @@
             </div>
 
             <div class="partner-tile">
-                <div class="partner-tile-icon">❤️</div>
+                <div class="partner-tile-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                 <div class="partner-tile-title">Individual Philanthropy &amp; Foundations</div>
                 <p class="partner-tile-desc">Mission-aligned philanthropic capital and foundation grants complement the SBIR/STTR strategy — funding early discovery, community-based research, and health equity work that federal mechanisms do not fully cover.</p>
                 <ul class="partner-list">
