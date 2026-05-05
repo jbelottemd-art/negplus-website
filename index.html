@@ -427,6 +427,40 @@
             gap: 2rem;
         }
 
+        /* YouTube embed cell — spans 2 columns beside Colpotomizer */
+        .product-video-cell {
+            grid-column: span 2;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #E8E0D4;
+            background: var(--black);
+            position: relative;
+        }
+        .product-video-cell iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+        /* Label badge over video */
+        .product-video-badge {
+            position: absolute;
+            z-index: 2;
+            top: 14px; left: 18px;
+            background: rgba(14,42,71,0.82);
+            border: 1px solid rgba(65,179,163,0.4);
+            border-radius: 50px;
+            padding: 4px 13px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+        }
+        @media (max-width: 768px) {
+            .product-video-cell { grid-column: span 1; aspect-ratio: 16/9; }
+        }
+
         .product-card {
             background: var(--white);
             border: 1px solid #E8E0D4;
@@ -1531,46 +1565,47 @@
         </div>
         <div class="products-grid">
 
-            <!-- COLPOTOMIZER -->
+            <!-- MUMS — row 1, col 1 -->
             <div class="product-card">
                 <div class="product-card-header">
-                    <div class="device-illustration">
-                        <img src="Picture1.png" alt="Belotte Colpotomizer — rotating crown bearing diagram" class="product-photo" loading="lazy">
+                    <div class="device-illustration mums-photo-wrap">
+                        <img src="mums-vision.jpg" alt="MUMS — AI-enabled intrapartum monitoring suite concept" class="mums-vision-img" loading="lazy">
+                        <div class="mums-photo-badge">AI-ENABLED INTRAPARTUM MONITOR</div>
                     </div>
                     <div class="product-card-header-text">
-                        <div class="product-tag">Surgical Access · Device 1 · <strong>Tier 1 — Immediate Commitment</strong></div>
-                        <h3>Belotte Colpotomizer™</h3>
+                        <div class="product-tag">Intrapartum Monitoring · Device 4 · <strong>Tier 3 — Milestone-Gated</strong></div>
+                        <h3>MUMS™</h3>
                     </div>
                 </div>
                 <div class="product-card-body">
-                    <p>A reusable handle + single-use disposable crown system for laparoscopic and robotic-assisted hysterectomy. Integrates automated 360° electrosurgical colpotomy, pneumatic vaginal stenting, and microprocessor-regulated energy delivery — targeting a 60-second colpotomy time versus the 8–14 minute current standard of care.</p>
+                    <p>Every labor carries risk. MUMS™ transforms the delivery room — a sub-centimeter intravaginal AI platform that continuously monitors fetal heart rate, uterine contractions, cervical dynamics, and maternal vitals, giving care teams real-time intelligence at the most critical moment in human life. Targeting the $2.45B fetal monitoring market and directly aligned with the White House Maternal Health Blueprint.</p>
                     <div class="product-specs">
                         <div class="product-spec">
-                            <span class="product-spec-key">TAM (US)</span>
-                            <span class="product-spec-val">$290M+</span>
+                            <span class="product-spec-key">Market (Global)</span>
+                            <span class="product-spec-val">$2.45B · 6.7% CAGR</span>
                         </div>
                         <div class="product-spec">
-                            <span class="product-spec-key">Annual Hysterectomies</span>
-                            <span class="product-spec-val">~450,000</span>
+                            <span class="product-spec-key">Indication</span>
+                            <span class="product-spec-val">High-risk labor &amp; delivery monitoring</span>
                         </div>
                         <div class="product-spec">
                             <span class="product-spec-key">Regulatory Pathway</span>
-                            <span class="product-spec-val">FDA 510(k)</span>
+                            <span class="product-spec-val">De Novo / PMA</span>
                         </div>
                         <div class="product-spec">
-                            <span class="product-spec-key">ASP (Disposable)</span>
-                            <span class="product-spec-val">$400–$600</span>
+                            <span class="product-spec-key">Policy Alignment</span>
+                            <span class="product-spec-val">White House Blueprint · HRSA Mandate</span>
                         </div>
                         <div class="product-spec">
-                            <span class="product-spec-key">Exit Target (Individual)</span>
-                            <span class="product-spec-val">$250–$400M</span>
+                            <span class="product-spec-key">Development Stage</span>
+                            <span class="product-spec-val">Concept &amp; IP · SBIR Phase I</span>
                         </div>
                     </div>
-                    <a href="rd.html#colpotomizer" class="product-link">Learn More →</a>
+                    <a href="rd.html#mums" class="product-link">Learn More →</a>
                 </div>
             </div>
 
-            <!-- POP-Q -->
+            <!-- POP-Q — row 1, col 2 -->
             <div class="product-card">
                 <div class="product-card-header">
                     <div class="device-illustration">
@@ -1609,7 +1644,7 @@
                 </div>
             </div>
 
-            <!-- PNB -->
+            <!-- PNB — row 1, col 3 -->
             <div class="product-card">
                 <div class="product-card-header">
                     <div class="device-illustration">
@@ -1648,44 +1683,54 @@
                 </div>
             </div>
 
-            <!-- MUMS -->
+            <!-- COLPOTOMIZER — row 2, col 1 -->
             <div class="product-card">
                 <div class="product-card-header">
-                    <div class="device-illustration mums-photo-wrap">
-                        <img src="mums-vision.jpg" alt="MUMS — AI-enabled intrapartum monitoring suite concept" class="mums-vision-img" loading="lazy">
-                        <div class="mums-photo-badge">AI-ENABLED INTRAPARTUM MONITOR</div>
+                    <div class="device-illustration">
+                        <img src="Picture1.png" alt="Belotte Colpotomizer — rotating crown bearing diagram" class="product-photo" loading="lazy">
                     </div>
                     <div class="product-card-header-text">
-                        <div class="product-tag">Intrapartum Monitoring · Device 4 · <strong>Tier 3 — Milestone-Gated</strong></div>
-                        <h3>MUMS™</h3>
+                        <div class="product-tag">Surgical Access · Device 1 · <strong>Tier 1 — Immediate Commitment</strong></div>
+                        <h3>Belotte Colpotomizer™</h3>
                     </div>
                 </div>
                 <div class="product-card-body">
-                    <p>Every labor carries risk. MUMS™ transforms the delivery room — a sub-centimeter intravaginal AI platform that continuously monitors fetal heart rate, uterine contractions, cervical dynamics, and maternal vitals, giving care teams real-time intelligence at the most critical moment in human life. Targeting the $2.45B fetal monitoring market and directly aligned with the White House Maternal Health Blueprint.</p>
+                    <p>A reusable handle + single-use disposable crown system for laparoscopic and robotic-assisted hysterectomy. Integrates automated 360° electrosurgical colpotomy, pneumatic vaginal stenting, and microprocessor-regulated energy delivery — targeting a 60-second colpotomy time versus the 8–14 minute current standard of care.</p>
                     <div class="product-specs">
                         <div class="product-spec">
-                            <span class="product-spec-key">Market (Global)</span>
-                            <span class="product-spec-val">$2.45B · 6.7% CAGR</span>
+                            <span class="product-spec-key">TAM (US)</span>
+                            <span class="product-spec-val">$290M+</span>
                         </div>
                         <div class="product-spec">
-                            <span class="product-spec-key">Indication</span>
-                            <span class="product-spec-val">High-risk labor &amp; delivery monitoring</span>
+                            <span class="product-spec-key">Annual Hysterectomies</span>
+                            <span class="product-spec-val">~450,000</span>
                         </div>
                         <div class="product-spec">
                             <span class="product-spec-key">Regulatory Pathway</span>
-                            <span class="product-spec-val">De Novo / PMA</span>
+                            <span class="product-spec-val">FDA 510(k)</span>
                         </div>
                         <div class="product-spec">
-                            <span class="product-spec-key">Policy Alignment</span>
-                            <span class="product-spec-val">White House Blueprint · HRSA Mandate</span>
+                            <span class="product-spec-key">ASP (Disposable)</span>
+                            <span class="product-spec-val">$400–$600</span>
                         </div>
                         <div class="product-spec">
-                            <span class="product-spec-key">Development Stage</span>
-                            <span class="product-spec-val">Concept &amp; IP · SBIR Phase I</span>
+                            <span class="product-spec-key">Exit Target (Individual)</span>
+                            <span class="product-spec-val">$250–$400M</span>
                         </div>
                     </div>
-                    <a href="rd.html#mums" class="product-link">Learn More →</a>
+                    <a href="rd.html#colpotomizer" class="product-link">Learn More →</a>
                 </div>
+            </div>
+
+            <!-- VIDEO — row 2, cols 2–3 -->
+            <div class="product-video-cell">
+                <span class="product-video-badge">Surgical Demo · Laparoscopic Hysterectomy</span>
+                <iframe
+                    src="https://www.youtube.com/embed/R87SxOYbuEs?autoplay=1&mute=1&loop=1&playlist=R87SxOYbuEs&controls=0&modestbranding=1&rel=0&playsinline=1"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowfullscreen
+                    title="Laparoscopic hysterectomy surgical demonstration — Belotte Colpotomizer context">
+                </iframe>
             </div>
 
         </div>
