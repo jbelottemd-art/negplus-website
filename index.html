@@ -337,7 +337,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 5rem;
-            align-items: center;
+            align-items: start;
         }
 
         .about-visual {
@@ -360,9 +360,32 @@
             line-height: 1;
         }
 
-        .about-visual h3 { color: var(--gold); font-size: 1.5rem; margin-bottom: 1rem; font-weight: 700; }
-
-        .about-visual p { color: var(--brown-light); line-height: 1.75; margin-bottom: 1.5rem; }
+        /* Mission / Vision / Values blocks */
+        .mvv-block { margin-bottom: 1.75rem; }
+        .mvv-block:last-child { margin-bottom: 0; }
+        .mvv-label {
+            font-size: 0.68rem; font-weight: 800; letter-spacing: 2.5px;
+            text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem;
+        }
+        .mvv-rule {
+            width: 32px; height: 2px; background: var(--gold);
+            border-radius: 2px; margin-bottom: 0.75rem;
+        }
+        .mvv-text {
+            font-size: 0.88rem; color: rgba(255,255,255,0.82);
+            line-height: 1.75; margin: 0;
+        }
+        .mvv-values-list {
+            display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.1rem;
+        }
+        .mvv-value-tag {
+            display: inline-block;
+            background: rgba(65,179,163,0.12);
+            border: 1px solid rgba(65,179,163,0.28);
+            color: var(--gold-light);
+            font-size: 0.72rem; font-weight: 600; letter-spacing: 0.5px;
+            padding: 4px 11px; border-radius: 50px;
+        }
 
         .about-pill {
             display: inline-block;
@@ -1689,18 +1712,28 @@
                 </ul>
             </div>
             <div class="about-visual">
-                <h3>Our Mission</h3>
-                <p>To bring innovative solutions to unmet needs in women's pelvic health, leveraging clinical expertise, precision engineering, and data science to produce advanced, differentiated medical devices that improve outcomes for patients worldwide.</p>
-                <p>We integrate clinical care, translational research, regulatory science, and strategic capital to bring first-in-class devices from concept to commercialization.</p>
-                <div>
-                    <span class="about-pill">Women's Health</span>
-                    <span class="about-pill">Pelvic Floor</span>
-                    <span class="about-pill">Surgical Innovation</span>
-                    <span class="about-pill">Digital Diagnostics</span>
-                    <span class="about-pill">MedTech</span>
-                    <span class="about-pill">FDA 510(k) / De Novo</span>
-                    <span class="about-pill">NIH STTR</span>
-                    <span class="about-pill">SBIR</span>
+                <div class="mvv-block">
+                    <div class="mvv-label">Mission</div>
+                    <div class="mvv-rule"></div>
+                    <p class="mvv-text">To close the expression gap in women's health by designing, developing, and commercializing novel medical devices that improve clinical outcomes, enhance procedural safety, and give every woman — regardless of geography or socioeconomic status — access to the standard of care she deserves. We exist for the patient first.</p>
+                </div>
+                <div class="mvv-block">
+                    <div class="mvv-label">Vision</div>
+                    <div class="mvv-rule"></div>
+                    <p class="mvv-text">To become the defining physician-led women's health medical device company of the next decade — one where every innovation in our portfolio is grounded in evidence, protected by strong IP, built in partnership with academic medicine, and scaled through a commercial infrastructure designed for lasting patient impact.</p>
+                </div>
+                <div class="mvv-block">
+                    <div class="mvv-label">Values</div>
+                    <div class="mvv-rule"></div>
+                    <div class="mvv-values-list">
+                        <span class="mvv-value-tag">Patient First, Always</span>
+                        <span class="mvv-value-tag">Physician-Driven Design</span>
+                        <span class="mvv-value-tag">Evidence Before Everything</span>
+                        <span class="mvv-value-tag">Equity in Women's Health Access</span>
+                        <span class="mvv-value-tag">Rigorous Regulatory Stewardship</span>
+                        <span class="mvv-value-tag">Transparent Partnership</span>
+                        <span class="mvv-value-tag">Commercial Purpose in Service of Clinical Mission</span>
+                    </div>
                 </div>
             </div>
         </div>
