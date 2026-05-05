@@ -250,10 +250,11 @@
         /* ── WARD LAW LOGO ── */
         .ward-card { padding: 0; overflow: hidden; border-top: 3px solid var(--gold-dark); }
         .ward-logo-wrap {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
             padding: 1.1rem 1.4rem;
-            text-align: center;
             text-decoration: none;
             transition: opacity 0.2s;
         }
@@ -262,7 +263,8 @@
             display: block;
             height: 32px;
             width: auto;
-            margin: 0 auto;
+            max-width: 100%;
+            object-fit: contain;
         }
         .ward-card h4,
         .ward-card .advisor-role,
