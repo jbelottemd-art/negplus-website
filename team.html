@@ -255,6 +255,7 @@
             justify-content: center;
             background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
             padding: 1.1rem 1.4rem;
+            min-height: 80px;
             text-decoration: none;
             transition: opacity 0.2s;
         }
@@ -279,6 +280,7 @@
             background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 100%);
             padding: 1.1rem 1.4rem;
             display: flex; align-items: center; gap: 0.9rem;
+            min-height: 80px;
         }
         .advisor-initials {
             width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
@@ -293,7 +295,7 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.35);
         }
         .advisor-full-name { font-size: 0.97rem; font-weight: 800; color: var(--white); line-height: 1.2; }
-        .advisor-creds-line { font-size: 0.71rem; color: var(--gold-light); font-weight: 600; margin-top: 0.18rem; letter-spacing: 0.3px; }
+        .advisor-creds-line { font-size: 0.71rem; color: var(--gold-light); font-weight: 600; margin-top: 0.18rem; letter-spacing: 0.3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
         .advisor-card-named .advisor-body { padding: 1.25rem 1.4rem; }
         .advisor-card-named h4 { font-size: 0.82rem; font-weight: 700; color: var(--gold-dark); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.3rem; }
         .advisor-card-named .advisor-role { font-size: 0.75rem; font-weight: 600; color: var(--text-mid); letter-spacing: 0; margin-bottom: 0.7rem; }
