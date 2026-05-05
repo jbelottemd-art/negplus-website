@@ -337,7 +337,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 5rem;
-            align-items: start;
+            align-items: stretch;
         }
 
         .about-visual {
@@ -347,6 +347,9 @@
             color: var(--white);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .about-visual::before {
