@@ -72,10 +72,10 @@
         /* ── SHARED ── */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         section { padding: 80px 0; }
-        .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+        .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.75rem; }
         .section-title { font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 800; color: var(--text-dark); line-height: 1.2; margin-bottom: 1rem; }
         .section-title span { color: var(--gold); }
-        .section-body { color: var(--text-mid); font-size: 1rem; max-width: 720px; line-height: 1.75; text-align: justify; }
+        .section-body { color: var(--text-mid); font-size: 1rem; max-width: 720px; line-height: 1.75;  }
         .divider { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin: 1.2rem 0; }
         .divider-center { margin: 1.2rem auto; }
         .section-header { text-align: center; margin-bottom: 3.5rem; }
@@ -95,7 +95,7 @@
         .thesis-card { background: var(--white); border-radius: 16px; padding: 2rem; border: 1px solid rgba(65,179,163,0.15); border-top: 4px solid var(--gold); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .thesis-card-num { font-size: 0.65rem; font-weight: 800; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 0.6rem; }
         .thesis-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.75rem; line-height: 1.3; }
-        .thesis-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; text-align: justify; }
+        .thesis-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7;  }
 
         /* ── DEAL TERMS ── */
         .deal { background: var(--white); }
@@ -112,7 +112,8 @@
 
         /* ── MILESTONES ── */
         .milestones { background: var(--cream); }
-        .milestone-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; }
+        .milestone-table { width: 100%; border-collapse: collapse; margin-top: 2rem; min-width: 560px; }
         .milestone-table th { background: var(--black); color: var(--gold-light); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 1rem 1.25rem; text-align: left; }
         .milestone-table th:first-child { border-radius: 12px 0 0 0; }
         .milestone-table th:last-child { border-radius: 0 12px 0 0; }
@@ -479,6 +480,7 @@
             <div class="divider divider-center"></div>
             <p class="section-body">Each round of capital is tied to defined regulatory and technical inflection points — providing investors clear de-risking benchmarks and sequential value creation events.</p>
         </div>
+        <div class="table-scroll">
         <table class="milestone-table">
             <thead>
                 <tr>
@@ -545,6 +547,7 @@
                 </tr>
             </tbody>
         </table>
+        </div><!-- /.table-scroll -->
     </div>
 </section>
 
