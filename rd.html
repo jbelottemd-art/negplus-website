@@ -107,7 +107,18 @@
         .device-header p { font-size: 1rem; color: var(--text-mid); line-height: 1.75; max-width: 720px; }
 
         .device-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: stretch; }
-        .device-col { display: flex; flex-direction: column; }
+        .device-col {
+            display: flex;
+            flex-direction: column;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem 2.25rem;
+            border: 1px solid rgba(65,179,163,0.13);
+            box-shadow: 0 2px 14px rgba(0,0,0,0.05);
+        }
+        .device-section:nth-child(even) .device-col {
+            background: #FAFCFB;
+        }
         .device-col h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--gold); }
         .device-list { list-style: none; }
         .device-list li { padding: 0.6rem 0 0.6rem 1.6rem; position: relative; color: var(--text-mid); font-size: 0.92rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
