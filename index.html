@@ -122,6 +122,24 @@
 
         .nav-cta:hover { background: var(--gold-dark) !important; transform: translateY(-1px); }
 
+        .nav-portal {
+            background: transparent;
+            color: var(--text-mid) !important;
+            border: 1.5px solid var(--brown-light);
+            border-radius: 50px;
+            padding: 0 0.9rem !important;
+            height: 36px !important;
+            line-height: 34px !important;
+            margin: auto 0 auto 0.4rem;
+            font-size: 0.78rem !important;
+            font-weight: 600 !important;
+            transition: border-color 0.2s, color 0.2s !important;
+            border-bottom: 1.5px solid var(--brown-light) !important;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .nav-portal:hover { border-color: var(--gold-dark) !important; color: var(--gold-dark) !important; border-bottom-color: var(--gold-dark) !important; }
+
         /* ── HERO ── */
         .hero {
             background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 55%, #0a1e35 100%);
@@ -923,12 +941,12 @@
 
         .market-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
         }
 
         .market-card {
-            padding: 2rem;
+            padding: 1.5rem;
             background: var(--cream);
             border-radius: 16px;
             border-bottom: 4px solid var(--gold);
@@ -945,7 +963,7 @@
 
         .market-card h4 { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; }
 
-        .market-card .market-tam { font-size: 2rem; font-weight: 800; color: var(--text-dark); }
+        .market-card .market-tam { font-size: 1.6rem; font-weight: 800; color: var(--text-dark); }
 
         .market-card .market-tam-label { font-size: 0.78rem; color: var(--brown-mid); margin-bottom: 1rem; }
 
@@ -1128,7 +1146,7 @@
 
             .about-grid { grid-template-columns: 1fr; }
             .products-grid { grid-template-columns: 1fr; }
-            .market-grid { grid-template-columns: 1fr; }
+            .market-grid { grid-template-columns: repeat(2, 1fr); }
             .ip-grid { grid-template-columns: repeat(2, 1fr); }
             .funding-grid { grid-template-columns: 1fr; }
             .advisory-grid { grid-template-columns: 1fr 1fr; }
@@ -1471,6 +1489,7 @@
             <li><a href="investors.html">Investors</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
+        <a href="pllc.html" class="nav-portal">Employee Portal</a>
         <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
             <span></span>
             <span></span>
@@ -1491,6 +1510,7 @@
         <li><a href="resume.html">Resume</a></li>
         <li><a href="investors.html">Investors</a></li>
         <li><a href="#contact" class="mobile-cta">Contact Us</a></li>
+        <li><a href="pllc.html" style="display:block;padding:0.85rem 0;font-size:0.88rem;font-weight:600;color:var(--brown-light);text-decoration:none;border-top:1px solid var(--cream);">🔒 Employee Portal</a></li>
     </ul>
 </div>
 
