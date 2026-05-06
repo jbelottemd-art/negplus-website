@@ -161,7 +161,7 @@
             font-size: 0.65rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
             color: var(--text-mid); text-align: center; line-height: 1.4;
             background: var(--cream); border: 1px solid var(--cream-dark);
-            padding: 6px 12px; border-radius: 8px; white-space: nowrap;
+            padding: 6px 12px; border-radius: 8px;
         }
 
         /* ── SIX PILLARS ── */
@@ -253,13 +253,26 @@
         .footer-bottom { max-width: 1280px; margin: 0 auto; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; }
         .footer-bottom .legal { color: rgba(255,255,255,0.4); }
 
+        /* ── INFO 3-COLUMN GRID ── */
+        .info-3grid {
+            max-width: 860px; margin: 3rem auto 0;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem; text-align: center;
+        }
+        .info-3grid-item {
+            background: var(--cream); border-radius: 14px; padding: 1.5rem;
+        }
+        .info-3grid-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+        .info-3grid-title { font-size: 0.78rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.4rem; }
+        .info-3grid-body { font-size: 0.8rem; color: var(--text-mid); line-height: 1.55; }
+
         @media (max-width: 900px) {
             .entity-grid, .validation-grid { grid-template-columns: 1fr; }
             .rel-diagram { grid-template-columns: 1fr; }
             .rel-connector { flex-direction: row; }
             .pillars-grid { grid-template-columns: 1fr 1fr; }
             .eras-stats { grid-template-columns: 1fr 1fr; }
-
+            .info-3grid { grid-template-columns: 1fr 1fr; }
         }
     
         /* ── HAMBURGER / MOBILE NAV ── */
@@ -359,11 +372,8 @@
         .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
 
         @media (max-width: 1050px) {
+            .nav-links { display: none; }
             .nav-hamburger { display: flex; }
-        }
-
-        /* ── MOBILE RESPONSIVE ── */
-        @media (max-width: 1050px) {
             .nav-dropdown { display: none !important; }
         }
 
@@ -389,17 +399,21 @@
             .section-title { font-size: clamp(1.4rem, 5vw, 1.9rem); }
             .btn-primary, .btn-outline, .nav-cta { min-height: 44px; }
             .pillars-grid { grid-template-columns: 1fr; }
-            .eras-stats { grid-template-columns: 1fr; }
+            .eras-stats { grid-template-columns: 1fr 1fr; }
+            .eras-stat .n { font-size: 1.3rem; }
+            .eras-stat .l { font-size: 0.68rem; }
             .rel-diagram { grid-template-columns: 1fr; }
-            .rel-connector { flex-direction: row; }
+            .rel-connector { flex-direction: row; justify-content: center; }
+            .info-3grid { grid-template-columns: 1fr; }
             .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-            .footer-bottom { flex-direction: column; text-align: center; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 0.5rem; }
             html { overflow-x: hidden; }
             body { overflow-x: hidden; }
         }
 
         @media (max-width: 375px) {
             .container { padding: 0 0.75rem; }
+            .eras-stats { grid-template-columns: 1fr; }
         }
 
     </style>
@@ -619,21 +633,21 @@
             </div>
         </div>
 
-        <div style="max-width:860px;margin:3rem auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;text-align:center;">
-            <div style="background:var(--cream);border-radius:14px;padding:1.5rem;">
-                <div style="font-size:1.6rem;margin-bottom:0.5rem;">🔒</div>
-                <div style="font-size:0.78rem;font-weight:700;color:var(--text-dark);margin-bottom:0.4rem;">IP Firewall</div>
-                <div style="font-size:0.8rem;color:var(--text-mid);line-height:1.55;">All device intellectual property is assigned to and owned exclusively by the C-Corp. The PLLC has no IP rights.</div>
+        <div class="info-3grid">
+            <div class="info-3grid-item">
+                <div class="info-3grid-icon">🔒</div>
+                <div class="info-3grid-title">IP Firewall</div>
+                <div class="info-3grid-body">All device intellectual property is assigned to and owned exclusively by the C-Corp. The PLLC has no IP rights.</div>
             </div>
-            <div style="background:var(--cream);border-radius:14px;padding:1.5rem;">
-                <div style="font-size:1.6rem;margin-bottom:0.5rem;">📋</div>
-                <div style="font-size:0.78rem;font-weight:700;color:var(--text-dark);margin-bottom:0.4rem;">Clean Cap Table</div>
-                <div style="font-size:0.8rem;color:var(--text-mid);line-height:1.55;">The PLLC holds no equity interest, governance rights, or board representation in NEG+ Innovations, Inc.</div>
+            <div class="info-3grid-item">
+                <div class="info-3grid-icon">📋</div>
+                <div class="info-3grid-title">Clean Cap Table</div>
+                <div class="info-3grid-body">The PLLC holds no equity interest, governance rights, or board representation in NEG+ Innovations, Inc.</div>
             </div>
-            <div style="background:var(--cream);border-radius:14px;padding:1.5rem;">
-                <div style="font-size:1.6rem;margin-bottom:0.5rem;">🧬</div>
-                <div style="font-size:0.78rem;font-weight:700;color:var(--text-dark);margin-bottom:0.4rem;">SBIR Integrity</div>
-                <div style="font-size:0.8rem;color:var(--text-mid);line-height:1.55;">Structural separation ensures full NIH SBIR/STTR eligibility is preserved in the C-Corp as the small business applicant.</div>
+            <div class="info-3grid-item">
+                <div class="info-3grid-icon">🧬</div>
+                <div class="info-3grid-title">SBIR Integrity</div>
+                <div class="info-3grid-body">Structural separation ensures full NIH SBIR/STTR eligibility is preserved in the C-Corp as the small business applicant.</div>
             </div>
         </div>
     </div>
