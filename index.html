@@ -601,6 +601,51 @@
 
         .product-link:hover { background: var(--gold); color: var(--black); }
 
+        /* ── COMPETITIVE LANDSCAPE CARD ── */
+        .comp-landscape-card {
+            grid-column: span 2;
+            background: var(--white);
+            border: 1px solid #E8E0D4;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s;
+        }
+        .comp-landscape-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+            border-color: var(--gold);
+        }
+        .comp-landscape-label {
+            background: linear-gradient(135deg, var(--black), var(--brown-dark));
+            color: var(--gold-light);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 0.7rem 1.5rem;
+        }
+        .comp-landscape-heading {
+            padding: 1rem 1.5rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+        .comp-landscape-sub {
+            color: var(--gold);
+            font-style: italic;
+        }
+        .comp-landscape-img {
+            display: block;
+            width: 100%;
+            height: auto;
+            flex: 1;
+            object-fit: cover;
+        }
+        @media (max-width: 900px) { .comp-landscape-card { grid-column: span 1; } }
+
         /* ── PIPELINE ── */
         .pipeline { background: var(--cream); }
 
@@ -1656,7 +1701,7 @@
             </div>
 
             <!-- COLPOTOMIZER — row 2, col 1 -->
-            <div class="product-card">
+            <div class="product-card" style="grid-column: 1;">
                 <div class="product-card-header">
                     <div class="device-illustration">
                         <img src="Picture1.png" alt="Belotte Colpotomizer — rotating crown bearing diagram" class="product-photo" loading="lazy">
@@ -1694,6 +1739,15 @@
                 </div>
             </div>
 
+            <!-- COMPETITIVE LANDSCAPE — row 2, col 2–3 -->
+            <div class="comp-landscape-card">
+                <div class="comp-landscape-label">Competitive Landscape · The Moat</div>
+                <div class="comp-landscape-heading">
+                    The market has left the same quadrant open.<br>
+                    <span class="comp-landscape-sub">In both procedures.</span>
+                </div>
+                <img src="competitive-landscape.svg" alt="Competitive landscape quadrant chart showing white-space opportunity for both the Belotte Colpotomizer and Pudendal Nerve Block Device in the low-skill / low-cost quadrant" class="comp-landscape-img" loading="lazy">
+            </div>
 
         </div>
     </div>
@@ -1915,7 +1969,7 @@
         <div class="funding-hook">
             <div class="funding-hook-inner">
                 <h3>Investor Brief Available Upon Request</h3>
-                <p>Accredited investors and institutional partners may request our confidential investor brief — including the full capital deployment schedule, milestone roadmap, and detailed financial model. All inquiries held in strict confidence.</p>
+                <p>Accredited investors and institutional partners may request our investor brief — including the full capital deployment schedule, milestone roadmap, and detailed financial model.</p>
                 <a href="#contact" class="btn-primary" style="margin-top:1.25rem;display:inline-block;">Request Investor Brief</a>
                 <p style="margin-top:0.75rem;font-size:0.78rem;opacity:0.65;text-align:center!important;">Offered under Regulation D, Rule 506(b) to verified accredited investors only.</p>
             </div>
@@ -2253,7 +2307,7 @@
     </div>
     <div class="footer-bottom">
         <span>© 2026 NEG+ Innovations, Inc. All Rights Reserved. Weston, Massachusetts.</span>
-        <span>Patent Pending | Confidential | Reg D Rule 506(b) — Accredited Investors Only</span>
+        <span>Patent Pending | Reg D Rule 506(b) — Accredited Investors Only</span>
     </div>
 </footer>
 
