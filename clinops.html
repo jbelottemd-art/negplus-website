@@ -31,6 +31,15 @@
         .nav-links { display: flex; gap: 0; list-style: none; }
         .nav-links a { display: block; padding: 0 1rem; height: 72px; line-height: 72px; font-size: 0.88rem; font-weight: 600; text-decoration: none; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.8px; transition: color 0.2s; border-bottom: 3px solid transparent; margin-bottom: -3px; }
         .nav-links a:hover, .nav-links a.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-links > li { position: relative; }
+        .nav-links a { white-space: nowrap; }
+        .nav-links a:hover, .nav-links a.active, .nav-links > li:hover > a { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-dropdown { position: absolute; top: calc(100% + 3px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 210px; background: var(--white); border-top: 2px solid var(--gold); border-radius: 0 0 10px 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); list-style: none; padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; z-index: 2000; }
+        .nav-links > li:hover > .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .nav-dropdown li { margin: 0; }
+        .nav-dropdown a { height: auto; line-height: 1.4; padding: 0.6rem 1.2rem; font-size: 0.78rem; font-weight: 500; color: var(--text-dark); border-bottom: none !important; margin-bottom: 0; letter-spacing: 0.2px; text-transform: none; }
+        .nav-dropdown a:hover { background: var(--cream); color: var(--gold-dark); border-bottom: none !important; }
+        .nav-dropdown .dd-divider { height: 1px; background: var(--cream-dark); margin: 0.3rem 0; }
         .nav-cta { background: var(--gold); color: var(--black) !important; border-radius: 50px; padding: 0 1.4rem !important; height: 40px !important; line-height: 40px !important; margin: auto 0; font-size: 0.85rem !important; border-bottom: none !important; }
         .nav-cta:hover { background: var(--gold-dark) !important; }
         .nav-portal { background: transparent; color: var(--text-mid) !important; border: 1.5px solid var(--brown-light); border-radius: 50px; padding: 0 0.9rem !important; height: 36px !important; line-height: 34px !important; margin: auto 0 auto 0.4rem; font-size: 0.78rem !important; font-weight: 600 !important; transition: border-color 0.2s, color 0.2s !important; border-bottom: 1.5px solid var(--brown-light) !important; text-transform: uppercase; letter-spacing: 0.5px; }
@@ -192,13 +201,74 @@
         <a class="nav-logo" href="index.html">
             <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
         </a>
-        <ul class="nav-links">
-            <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#products">Products</a></li>
-            <li><a href="rd.html">R&amp;D</a></li>
-            <li><a href="clinops.html" class="active">ClinOps</a></li>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="investors.html">Investors</a></li>
+                <ul class="nav-links">
+            <li>
+                <a href="index.html#products">Products</a>
+                <ul class="nav-dropdown">
+                    <li><a href="rd.html#mums">MUMS™ — Intrapartum Monitor</a></li>
+                    <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
+                    <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
+                    <li><a href="rd.html#pnb">Pudendal Nerve Block Device™</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="rd.html">R&amp;D</a>
+                <ul class="nav-dropdown">
+                    <li><a href="rd.html">R&amp;D Overview</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="rd.html#mums">MUMS™</a></li>
+                    <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
+                    <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
+                    <li><a href="rd.html#pnb">PNB Device™</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="clinops.html" class="active">ClinOps</a>
+                <ul class="nav-dropdown">
+                    <li><a href="clinops.html">ClinOps Overview</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="clinops.html#mandate">The ClinOps Mandate</a></li>
+                    <li><a href="clinops.html#pillars">Execution Pillars</a></li>
+                    <li><a href="clinops.html#kpis">KPI Framework</a></li>
+                    <li><a href="clinops.html#programs">Device Programs</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="team.html">Team</a>
+                <ul class="nav-dropdown">
+                    <li><a href="team.html">Team Overview</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="team.html#founder">Founder &amp; CEO</a></li>
+                    <li><a href="team.html#board">Board of Directors</a></li>
+                    <li><a href="team.html#advisory">Advisors</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="investors.html">Investors</a>
+                <ul class="nav-dropdown">
+                    <li><a href="investors.html">Investor Overview</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="investors.html#thesis">Investment Thesis</a></li>
+                    <li><a href="investors.html#terms">Deal Terms</a></li>
+                    <li><a href="investors.html#milestones">Milestones</a></li>
+                    <li><a href="investors.html#proceeds">Use of Proceeds</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="investors.html#contact">Investor Contact</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.html#about">About</a>
+                <ul class="nav-dropdown">
+                    <li><a href="index.html#about">Company Overview</a></li>
+                    <li><a href="index.html#pipeline">Development Pipeline</a></li>
+                    <li><a href="index.html#market">Market Opportunity</a></li>
+                    <li><a href="index.html#funding">Funding Strategy</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="index.html#advisory">Advisory Network</a></li>
+                    <li><a href="index.html#partners">Partners &amp; Institutions</a></li>
+                    <li><a href="index.html#ip">IP Portfolio</a></li>
+                </ul>
+            </li>
             <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
         </ul>
         <a href="pllc.html" class="nav-portal">Employee Portal</a>
