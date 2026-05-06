@@ -11,6 +11,12 @@
     <filter id="glow">
       <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="rgba(65,179,163,0.8)"/>
     </filter>
+    <clipPath id="clip-left">
+      <rect x="0" y="0" width="262" height="256"/>
+    </clipPath>
+    <clipPath id="clip-right">
+      <rect x="278" y="0" width="262" height="256"/>
+    </clipPath>
   </defs>
 
   <!-- Background -->
@@ -18,133 +24,135 @@
 
   <!-- ══════════════════════════════════════
        LEFT CHART — Pudendal Nerve Block
-       x: 0–262, y: 0–256
   ══════════════════════════════════════ -->
-  <rect x="0" y="0" width="262" height="256" fill="#fff" stroke="#D8E2EC" stroke-width="0.8"/>
+  <g clip-path="url(#clip-left)">
+    <rect x="0" y="0" width="262" height="256" fill="#fff" stroke="#D8E2EC" stroke-width="0.8"/>
 
-  <!-- Navy header -->
-  <rect x="0" y="0" width="262" height="38" fill="url(#hdr)"/>
-  <text x="10" y="14" font-family="'Segoe UI',Arial,sans-serif" font-size="7.5" font-weight="700" fill="#7DD3CB" letter-spacing="1.5">PUDENDAL NERVE BLOCK</text>
-  <text x="10" y="28" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="800" fill="#fff">Alternatives</text>
+    <!-- Navy header -->
+    <rect x="0" y="0" width="262" height="38" fill="url(#hdr)"/>
+    <text x="10" y="14" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#7DD3CB" letter-spacing="1.5">PUDENDAL NERVE BLOCK</text>
+    <text x="10" y="29" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="800" fill="#fff">Alternatives</text>
 
-  <!-- Axis lines -->
-  <line x1="30" y1="38" x2="30" y2="248" stroke="#B0BEC5" stroke-width="0.7"/>
-  <line x1="30" y1="248" x2="255" y2="248" stroke="#B0BEC5" stroke-width="0.7"/>
+    <!-- Axes -->
+    <line x1="30" y1="38" x2="30" y2="248" stroke="#B0BEC5" stroke-width="0.7"/>
+    <line x1="30" y1="248" x2="256" y2="248" stroke="#B0BEC5" stroke-width="0.7"/>
 
-  <!-- Axis labels -->
-  <text x="18" y="145" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="600" fill="#7A8FA6" text-anchor="middle" transform="rotate(-90,18,145)">↑ COST PER CASE</text>
-  <text x="142" y="258" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="600" fill="#7A8FA6" text-anchor="middle">SKILL REQUIRED →</text>
+    <!-- Axis labels -->
+    <text x="18" y="145" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" font-weight="600" fill="#7A8FA6"
+          text-anchor="middle" transform="rotate(-90,18,145)">↑ COST PER CASE</text>
+    <text x="143" y="258" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" font-weight="600" fill="#7A8FA6" text-anchor="middle">SKILL REQUIRED →</text>
 
-  <!-- Quadrant dividers -->
-  <line x1="30" y1="143" x2="255" y2="143" stroke="#B0BEC5" stroke-width="0.7" stroke-dasharray="3,2"/>
-  <line x1="142" y1="38" x2="142" y2="248" stroke="#B0BEC5" stroke-width="0.7" stroke-dasharray="3,2"/>
+    <!-- Quadrant dividers -->
+    <line x1="30" y1="143" x2="256" y2="143" stroke="#B0BEC5" stroke-width="0.7" stroke-dasharray="3,2"/>
+    <line x1="143" y1="38"  x2="143" y2="248" stroke="#B0BEC5" stroke-width="0.7" stroke-dasharray="3,2"/>
 
-  <!-- White space fill (bottom-left) -->
-  <rect x="30" y="143" width="112" height="105" fill="#DDF2EF"/>
-  <text x="37" y="157" font-family="'Segoe UI',Arial,sans-serif" font-size="7.5" font-weight="700" fill="#2A9D8F" font-style="italic" letter-spacing="1">WHITE SPACE</text>
+    <!-- WHITE SPACE fill (low-skill / low-cost) -->
+    <rect x="30" y="143" width="113" height="105" fill="#DDF2EF"/>
+    <text x="37" y="158" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#2A9D8F" font-style="italic" letter-spacing="1">WHITE SPACE</text>
 
-  <!-- hi/lo -->
-  <text x="252" y="50" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" fill="#9EADB8" text-anchor="end" font-style="italic">high</text>
-  <text x="34" y="247" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" fill="#9EADB8" font-style="italic">low</text>
+    <!-- hi / low labels -->
+    <text x="253" y="50"  font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" fill="#9EADB8" text-anchor="end" font-style="italic">high</text>
+    <text x="34"  y="246" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" fill="#9EADB8" font-style="italic">low</text>
 
-  <!-- Competitors -->
-  <!-- Local infiltration: top-left (low skill, high cost) -->
-  <circle cx="78" cy="82" r="9" fill="#8796A5"/>
-  <text x="91" y="78" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748">Local</text>
-  <text x="91" y="89" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748">infiltration</text>
+    <!-- Local infiltration — TOP-LEFT: dot right → text right -->
+    <circle cx="78" cy="84" r="9" fill="#8796A5"/>
+    <text x="91" y="80" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748">Local</text>
+    <text x="91" y="91" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748">infiltration</text>
 
-  <!-- Neuraxial/epidural: top-right (high skill, very high cost) -->
-  <circle cx="230" cy="58" r="11" fill="#4A5568"/>
-  <text x="215" y="52" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">Neuraxial /</text>
-  <text x="215" y="63" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">epidural</text>
+    <!-- Neuraxial/epidural — TOP-RIGHT: text LEFT of dot -->
+    <circle cx="218" cy="62" r="11" fill="#4A5568"/>
+    <text x="204" y="56" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">Neuraxial /</text>
+    <text x="204" y="68" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">epidural</text>
 
-  <!-- Ultrasound-guided PNB: right, mid-high cost -->
-  <circle cx="210" cy="110" r="9" fill="#4A5568"/>
-  <text x="197" y="103" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">Ultrasound</text>
-  <text x="197" y="114" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">PNB</text>
+    <!-- Ultrasound PNB — TOP-RIGHT: text LEFT of dot -->
+    <circle cx="205" cy="108" r="9" fill="#4A5568"/>
+    <text x="192" y="102" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">Ultrasound-</text>
+    <text x="192" y="114" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">guided PNB</text>
 
-  <!-- Iowa trumpet: bottom-right (high skill, low cost) -->
-  <circle cx="200" cy="198" r="8" fill="#8796A5"/>
-  <text x="188" y="215" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">Iowa trumpet</text>
-  <text x="188" y="226" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">(landmark)</text>
+    <!-- Iowa trumpet — BOTTOM-RIGHT: text LEFT of dot -->
+    <circle cx="205" cy="200" r="8" fill="#8796A5"/>
+    <text x="193" y="194" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">Iowa trumpet</text>
+    <text x="193" y="206" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">(landmark)</text>
 
-  <!-- NEG+ PNB Device: bottom-left WHITE SPACE -->
-  <circle cx="74" cy="200" r="11" fill="#41B3A3" filter="url(#glow)"/>
-  <circle cx="74" cy="200" r="5" fill="#fff"/>
-  <text x="90" y="196" font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#0E2A47">PNB Device™</text>
-
+    <!-- PNB Device™ — BOTTOM-LEFT (WHITE SPACE): text right -->
+    <circle cx="70" cy="198" r="11" fill="#41B3A3" filter="url(#glow)"/>
+    <circle cx="70" cy="198" r="5"  fill="#fff"/>
+    <text x="86" y="193" font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#0E2A47">PNB</text>
+    <text x="86" y="205" font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#0E2A47">Device™</text>
+  </g>
 
   <!-- ══════════════════════════════════════
        RIGHT CHART — Colpotomy
-       x: 278–540, y: 0–256
   ══════════════════════════════════════ -->
-  <rect x="278" y="0" width="262" height="256" fill="#fff" stroke="#D8E2EC" stroke-width="0.8"/>
+  <g clip-path="url(#clip-right)">
+    <rect x="278" y="0" width="262" height="256" fill="#fff" stroke="#D8E2EC" stroke-width="0.8"/>
 
-  <!-- Navy header -->
-  <rect x="278" y="0" width="262" height="38" fill="url(#hdr)"/>
-  <text x="288" y="14" font-family="'Segoe UI',Arial,sans-serif" font-size="7.5" font-weight="700" fill="#7DD3CB" letter-spacing="1.5">COLPOTOMY</text>
-  <text x="288" y="28" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="800" fill="#fff">Alternatives</text>
+    <!-- Navy header -->
+    <rect x="278" y="0" width="262" height="38" fill="url(#hdr)"/>
+    <text x="288" y="14" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#7DD3CB" letter-spacing="1.5">COLPOTOMY</text>
+    <text x="288" y="29" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="800" fill="#fff">Alternatives</text>
 
-  <!-- Axis lines -->
-  <line x1="308" y1="38" x2="308" y2="248" stroke="#B0BEC5" stroke-width="0.7"/>
-  <line x1="308" y1="248" x2="533" y2="248" stroke="#B0BEC5" stroke-width="0.7"/>
+    <!-- Axes -->
+    <line x1="308" y1="38"  x2="308" y2="248" stroke="#B0BEC5" stroke-width="0.7"/>
+    <line x1="308" y1="248" x2="534" y2="248" stroke="#B0BEC5" stroke-width="0.7"/>
 
-  <!-- Axis labels -->
-  <text x="296" y="145" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="600" fill="#7A8FA6" text-anchor="middle" transform="rotate(-90,296,145)">↑ COST PER CASE</text>
-  <text x="420" y="258" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="600" fill="#7A8FA6" text-anchor="middle">SKILL REQUIRED →</text>
+    <!-- Axis labels -->
+    <text x="296" y="145" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" font-weight="600" fill="#7A8FA6"
+          text-anchor="middle" transform="rotate(-90,296,145)">↑ COST PER CASE</text>
+    <text x="421" y="258" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" font-weight="600" fill="#7A8FA6" text-anchor="middle">SKILL REQUIRED →</text>
 
-  <!-- Quadrant dividers -->
-  <line x1="308" y1="143" x2="533" y2="143" stroke="#B0BEC5" stroke-width="0.7" stroke-dasharray="3,2"/>
-  <line x1="420" y1="38" x2="420" y2="248" stroke="#B0BEC5" stroke-width="0.7" stroke-dasharray="3,2"/>
+    <!-- Quadrant dividers -->
+    <line x1="308" y1="143" x2="534" y2="143" stroke="#B0BEC5" stroke-width="0.7" stroke-dasharray="3,2"/>
+    <line x1="421" y1="38"  x2="421" y2="248" stroke="#B0BEC5" stroke-width="0.7" stroke-dasharray="3,2"/>
 
-  <!-- White space fill (bottom-left) -->
-  <rect x="308" y="143" width="112" height="105" fill="#DDF2EF"/>
-  <text x="315" y="157" font-family="'Segoe UI',Arial,sans-serif" font-size="7.5" font-weight="700" fill="#2A9D8F" font-style="italic" letter-spacing="1">WHITE SPACE</text>
+    <!-- WHITE SPACE fill -->
+    <rect x="308" y="143" width="113" height="105" fill="#DDF2EF"/>
+    <text x="315" y="158" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#2A9D8F" font-style="italic" letter-spacing="1">WHITE SPACE</text>
 
-  <!-- hi/lo -->
-  <text x="530" y="50" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" fill="#9EADB8" text-anchor="end" font-style="italic">high</text>
-  <text x="312" y="247" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" fill="#9EADB8" font-style="italic">low</text>
+    <!-- hi / low -->
+    <text x="531" y="50"  font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" fill="#9EADB8" text-anchor="end" font-style="italic">high</text>
+    <text x="312" y="246" font-family="'Segoe UI',Arial,sans-serif" font-size="6.5" fill="#9EADB8" font-style="italic">low</text>
 
-  <!-- Competitors -->
-  <!-- Robotic Da Vinci: top-right, very high cost -->
-  <circle cx="510" cy="55" r="11" fill="#4A5568"/>
-  <text x="495" y="48" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">Robotic</text>
-  <text x="495" y="59" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">(Da Vinci)</text>
+    <!-- Robotic (Da Vinci) — TOP-RIGHT: text LEFT of dot -->
+    <circle cx="508" cy="60" r="11" fill="#4A5568"/>
+    <text x="493" y="54" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">Robotic platform</text>
+    <text x="493" y="66" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">(Da Vinci)</text>
 
-  <!-- Open colpotomy TAH: right, high cost -->
-  <circle cx="476" cy="100" r="9" fill="#8796A5"/>
-  <text x="461" y="93" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">Open</text>
-  <text x="461" y="104" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">colpotomy</text>
+    <!-- Open colpotomy (TAH) — TOP-RIGHT: text LEFT of dot -->
+    <circle cx="475" cy="100" r="9" fill="#8796A5"/>
+    <text x="462" y="94" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">Open colpotomy</text>
+    <text x="462" y="106" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">(TAH default)</text>
 
-  <!-- Electrosurgical TLH: bottom-right -->
-  <circle cx="490" cy="180" r="8.5" fill="#8796A5"/>
-  <text x="503" y="174" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748">Electrosurgical</text>
-  <text x="503" y="185" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748">TLH</text>
+    <!-- Electrosurgical TLH — BOTTOM-RIGHT: text LEFT of dot -->
+    <circle cx="490" cy="178" r="8.5" fill="#8796A5"/>
+    <text x="477" y="172" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">Electrosurgical</text>
+    <text x="477" y="184" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">colpotomy (TLH)</text>
 
-  <!-- RUMI / V-Care: bottom-right lower -->
-  <circle cx="465" cy="215" r="8" fill="#8796A5"/>
-  <text x="478" y="210" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748">Manual cup</text>
-  <text x="478" y="221" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748">(RUMI/V-Care)</text>
+    <!-- RUMI / V-Care — BOTTOM-RIGHT: text LEFT of dot -->
+    <circle cx="470" cy="214" r="8" fill="#8796A5"/>
+    <text x="457" y="208" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">Manual cup</text>
+    <text x="457" y="220" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">(RUMI / V-Care)</text>
 
-  <!-- Belotte Colpotomizer: bottom-left WHITE SPACE -->
-  <circle cx="352" cy="200" r="11" fill="#41B3A3" filter="url(#glow)"/>
-  <circle cx="352" cy="200" r="5" fill="#fff"/>
-  <text x="368" y="195" font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#0E2A47">Belotte</text>
-  <text x="368" y="207" font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#0E2A47">Colpotomizer™</text>
+    <!-- Belotte Colpotomizer™ — BOTTOM-LEFT (WHITE SPACE): text right -->
+    <circle cx="348" cy="200" r="11" fill="#41B3A3" filter="url(#glow)"/>
+    <circle cx="348" cy="200" r="5"  fill="#fff"/>
+    <text x="364" y="194" font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#0E2A47">Belotte</text>
+    <text x="364" y="207" font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="700" fill="#0E2A47">Colpotomizer™</text>
+  </g>
 
   <!-- ══════════════════════════════════════
-       FOOTER BAR
+       FOOTER
   ══════════════════════════════════════ -->
   <rect x="0" y="264" width="540" height="46" fill="url(#hdr)"/>
 
   <!-- Legend -->
-  <circle cx="14" cy="283" r="6" fill="#41B3A3" filter="url(#glow)"/>
-  <circle cx="14" cy="283" r="3" fill="#fff"/>
-  <text x="24" y="287" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.85)" font-weight="600">NEG+ device</text>
-  <circle cx="100" cy="283" r="6" fill="#8796A5"/>
-  <text x="110" y="287" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.72)">Existing alternatives</text>
+  <circle cx="14" cy="282" r="6" fill="#41B3A3" filter="url(#glow)"/>
+  <circle cx="14" cy="282" r="3" fill="#fff"/>
+  <text x="24" y="286" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.88)" font-weight="600">NEG+ device</text>
+  <circle cx="108" cy="282" r="6" fill="#8796A5"/>
+  <text x="118" y="286" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.72)">Existing alternatives</text>
 
-  <!-- Moat text -->
+  <!-- Moat line -->
   <text x="14" y="302" font-family="'Segoe UI',Arial,sans-serif" font-size="8" font-weight="700" fill="#41B3A3" font-style="italic">The moat: </text>
-  <text x="68" y="302" font-family="'Segoe UI',Arial,sans-serif" font-size="8" fill="rgba(255,255,255,0.82)">two purpose-built devices in two empty quadrants — protected by IP, regulatory pathway &amp; workflow simplicity.</text>
+  <text x="68" y="302" font-family="'Segoe UI',Arial,sans-serif" font-size="8" fill="rgba(255,255,255,0.82)">two purpose-built devices in two empty quadrants — IP, regulatory pathway &amp; workflow simplicity.</text>
 </svg>
