@@ -190,6 +190,36 @@
             .nav-links { display: none; }
             .nav-hamburger { display: flex; }
         }
+
+        /* ── MOBILE RESPONSIVE ── */
+        @media (max-width: 1050px) {
+            .nav-dropdown { display: none !important; }
+        }
+
+        @media (max-width: 768px) {
+            .mandate-grid { grid-template-columns: 1fr; }
+            .pillar-grid, .pillar-grid.reverse { grid-template-columns: 1fr; }
+            .diff-grid { grid-template-columns: 1fr; }
+            .app-grid { grid-template-columns: 1fr 1fr; }
+            section { padding: 56px 0; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1rem; }
+            section { padding: 48px 0; }
+            .page-hero { padding: 56px 1rem 44px; }
+            .section-title { font-size: clamp(1.4rem, 5vw, 1.9rem); }
+            .btn-primary, .btn-outline, .nav-cta { min-height: 44px; }
+            .app-grid { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            html { overflow-x: hidden; }
+            body { overflow-x: hidden; padding-top: 72px; }
+        }
+
+        @media (max-width: 375px) {
+            .container { padding: 0 0.75rem; }
+        }
     </style>
     <meta name="description" content="Clinical Operations at NEG+ Innovations — the engine room translating scientific strategy into human data across four women's health device programs.">
 </head>

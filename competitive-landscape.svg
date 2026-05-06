@@ -129,9 +129,9 @@
     <text x="477" y="184" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">colpotomy (TLH)</text>
 
     <!-- RUMI / V-Care — BOTTOM-RIGHT: text LEFT of dot -->
-    <circle cx="470" cy="214" r="8" fill="#8796A5"/>
-    <text x="457" y="208" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">Manual cup</text>
-    <text x="457" y="220" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">(RUMI / V-Care)</text>
+    <circle cx="470" cy="233" r="8" fill="#8796A5"/>
+    <text x="457" y="227" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">Manual cup</text>
+    <text x="457" y="239" font-family="'Segoe UI',Arial,sans-serif" font-size="9" fill="#2D3748" text-anchor="end">(RUMI / V-Care)</text>
 
     <!-- Belotte Colpotomizer™ — BOTTOM-LEFT (WHITE SPACE): text right -->
     <circle cx="348" cy="200" r="11" fill="#41B3A3" filter="url(#glow)"/>

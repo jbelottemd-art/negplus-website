@@ -1518,6 +1518,45 @@
         html { overflow-x: hidden; }
         body { overflow-x: hidden; }
 
+        /* ── MOBILE RESPONSIVE ── */
+        @media (max-width: 1050px) {
+            .nav-dropdown { display: none !important; }
+        }
+
+        @media (max-width: 768px) {
+            .market-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-split { grid-template-columns: 1fr; }
+            .hero-text { text-align: center; }
+            .hero-actions { justify-content: center; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1rem; }
+            section { padding: 48px 0; }
+            .page-hero { padding: 56px 1rem 44px; }
+            .section-title { font-size: clamp(1.4rem, 5vw, 1.9rem); }
+            .btn-primary, .btn-outline, .nav-cta { min-height: 44px; }
+            .btn-primary, .btn-outline { width: 100%; max-width: 320px; text-align: center; }
+            .hero-actions { flex-direction: column; align-items: center; gap: 0.75rem; }
+            .hero-badges { flex-direction: column; align-items: center; gap: 0.75rem; }
+            .hero-badge-num { font-size: 1.6rem; }
+            .market-grid { grid-template-columns: 1fr; }
+            .products-grid { grid-template-columns: 1fr; }
+            .advisory-grid { grid-template-columns: 1fr; }
+            .ip-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .funding-hook { padding: 1.5rem 1rem; }
+            .comp-landscape-img { max-width: 100%; height: auto; }
+            .tbar-seg { font-size: 0.58rem; }
+            .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .nav-links li.nav-portal-inline { display: none; }
+        }
+
+        @media (max-width: 375px) {
+            .container { padding: 0 0.75rem; }
+        }
+
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
     <meta name="description" content="A physician-led Delaware C-Corp developing multiple medical devices targeting critical unmet needs in women's pelvic surgery, diagnostics, analgesia, and intrapartum monitoring.">

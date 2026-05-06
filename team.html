@@ -508,6 +508,34 @@
 
         html { overflow-x: hidden; }
         body { overflow-x: hidden; padding-top: 72px; }
+
+        /* ── MOBILE RESPONSIVE ── */
+        @media (max-width: 1050px) {
+            .nav-dropdown { display: none !important; }
+        }
+
+        @media (max-width: 768px) {
+            .founder-grid { grid-template-columns: 1fr; }
+            .bod-grid { grid-template-columns: 1fr; }
+            .credential-grid { grid-template-columns: 1fr; }
+            .advisory-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1rem; }
+            section { padding: 48px 0; }
+            .page-hero { padding: 56px 1rem 44px; }
+            .section-title { font-size: clamp(1.4rem, 5vw, 1.9rem); }
+            .btn-primary, .btn-outline, .nav-cta { min-height: 44px; }
+            .advisory-grid { grid-template-columns: 1fr; }
+            .founder-grid { gap: 2rem; }
+            .footer-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 375px) {
+            .container { padding: 0 0.75rem; }
+        }
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
     <meta name="description" content="Meet the NEG+ Innovations leadership team — physician-scientists, engineers, and advisors driving the next generation of women's health medical devices.">
