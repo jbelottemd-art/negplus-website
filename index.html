@@ -337,7 +337,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: start;
+            align-items: stretch;
         }
 
         .about-visual {
@@ -347,6 +347,8 @@
             color: var(--white);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .about-visual::before {
@@ -661,7 +663,8 @@
             margin-bottom: 0.5rem;
         }
 
-        .timeline-bar { display: flex; gap: 4px; height: 36px; border-radius: 8px; overflow: hidden; }
+        .timeline-bar-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; }
+        .timeline-bar { display: flex; gap: 4px; height: 36px; border-radius: 8px; overflow: hidden; min-width: 560px; }
 
         .tbar-seg {
             display: flex;
@@ -737,6 +740,8 @@
             border-radius: 20px;
             padding: 2.5rem;
             border-left: 5px solid var(--gold);
+            display: flex;
+            flex-direction: column;
         }
 
         .funding-card h3 {
@@ -1779,6 +1784,7 @@
             <h3>Projected Development Timelines — All Four Programs</h3>
             <div class="timeline-device">
                 <div class="timeline-device-name">Belotte Colpotomizer™ — Surgical Access (FDA clearance target: Q4 2027)</div>
+                <div class="timeline-bar-wrap">
                 <div class="timeline-bar">
                     <div class="tbar-seg tbar-concept">Concept/IP</div>
                     <div class="tbar-seg tbar-proto">Prototype (2026)</div>
@@ -1787,9 +1793,11 @@
                     <div class="tbar-seg tbar-fda">FDA 510(k)</div>
                     <div class="tbar-seg tbar-launch">Launch</div>
                 </div>
+                </div>
             </div>
             <div class="timeline-device">
                 <div class="timeline-device-name">POP-Q AutoSense™ — Pelvic Diagnostics (FDA clearance target: Q1 2028)</div>
+                <div class="timeline-bar-wrap">
                 <div class="timeline-bar">
                     <div class="tbar-seg tbar-concept">Concept/IP</div>
                     <div class="tbar-seg tbar-proto">Prototype (2026)</div>
@@ -1798,9 +1806,11 @@
                     <div class="tbar-seg tbar-fda">FDA 510(k)+SaMD</div>
                     <div class="tbar-seg tbar-launch">Launch</div>
                 </div>
+                </div>
             </div>
             <div class="timeline-device">
                 <div class="timeline-device-name">Pudendal Nerve Block Device™ — Interventional Analgesia (FDA clearance target: 2028–2029)</div>
+                <div class="timeline-bar-wrap">
                 <div class="timeline-bar">
                     <div class="tbar-seg tbar-concept">Concept/IP</div>
                     <div class="tbar-seg tbar-proto">Prototype Engineering (2026)</div>
@@ -1809,9 +1819,11 @@
                     <div class="tbar-seg tbar-fda">FDA Review</div>
                     <div class="tbar-seg tbar-launch">Launch</div>
                 </div>
+                </div>
             </div>
             <div class="timeline-device">
                 <div class="timeline-device-name">MUMS™ — Intrapartum Monitoring · Tier 3 Milestone-Gated (target: 2030–2031)</div>
+                <div class="timeline-bar-wrap">
                 <div class="timeline-bar">
                     <div class="tbar-seg tbar-concept">Concept/IP · SBIR Ph I</div>
                     <div class="tbar-seg tbar-proto">Sensor Validation (2027)</div>
@@ -1819,6 +1831,7 @@
                     <div class="tbar-seg tbar-clinical">Phase II–III Clinical (2028–30)</div>
                     <div class="tbar-seg tbar-fda">FDA De Novo / PMA</div>
                     <div class="tbar-seg tbar-launch">Launch</div>
+                </div>
                 </div>
             </div>
             <div class="timeline-legend">
