@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Portal — NEG+ Innovations, Inc.</title>
+    <style>
+        :root {
+            --black:      #1B263B;
+            --gold:       #41B3A3;
+            --gold-dark:  #2A9D8F;
+            --gold-light: #7DD3CB;
+            --brown-dark: #0E2A47;
+            --brown-mid:  #2D4A6B;
+            --brown-light:#778DA9;
+            --cream:      #E8EEF4;
+            --cream-dark: #D8E3EE;
+            --white:      #FFFFFF;
+            --text-dark:  #1B263B;
+            --text-mid:   #4A6580;
+            --ms-blue:    #0078D4;
+            --ms-blue-dark:#005A9E;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.65; color: var(--text-dark); background: var(--white); overflow-x: hidden; padding-top: 72px; }
+
+        /* ── NAV ── */
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 3px solid var(--gold); box-shadow: 0 2px 20px rgba(0,0,0,0.10); }
+        .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-img { display: block; height: 44px; width: auto; }
+        .nav-links { display: flex; gap: 0; list-style: none; }
+        .nav-links a { display: block; padding: 0 0.6rem; height: 72px; line-height: 72px; font-size: 0.8rem; font-weight: 600; text-decoration: none; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.4px; transition: color 0.2s, border-bottom 0.2s; border-bottom: 3px solid transparent; margin-bottom: -3px; }
+        .nav-links a:hover, .nav-links a.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-links > li { position: relative; display: flex; align-items: center; }
+        .nav-links a { white-space: nowrap; }
+        .nav-links > li:hover > a { color: var(--gold-dark); border-bottom-color: var(--gold); }
+        .nav-dropdown { position: absolute; top: calc(100% + 3px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 210px; background: var(--white); border-top: 2px solid var(--gold); border-radius: 0 0 10px 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); list-style: none; padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; z-index: 2000; }
+        .nav-links > li:hover > .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .nav-dropdown li { margin: 0; }
+        .nav-dropdown a { height: auto; line-height: 1.4; padding: 0.6rem 1.2rem; font-size: 0.78rem; font-weight: 500; color: var(--text-dark); border-bottom: none !important; margin-bottom: 0; letter-spacing: 0.2px; text-transform: none; }
+        .nav-dropdown a:hover { background: var(--cream); color: var(--gold-dark); border-bottom: none !important; }
+        .nav-dropdown .dd-divider { height: 1px; background: var(--cream-dark); margin: 0.3rem 0; }
+        .nav-cta { background: var(--gold); color: var(--black) !important; border-radius: 50px; padding: 0 1rem !important; height: 40px !important; line-height: 40px !important; margin-bottom: 0 !important; font-size: 0.85rem !important; transition: background 0.2s, transform 0.2s !important; border-bottom: none !important; }
+        .nav-cta:hover { background: var(--gold-dark) !important; transform: translateY(-1px); }
+        .nav-portal { background: transparent; color: var(--gold-dark) !important; border: 1.5px solid var(--gold-dark) !important; border-radius: 50px; padding: 0 0.9rem !important; height: 36px !important; line-height: 34px !important; margin: auto 0 auto 0.4rem; font-size: 0.78rem !important; font-weight: 600 !important; transition: border-color 0.2s, color 0.2s !important; border-bottom: 1.5px solid var(--gold-dark) !important; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-portal:hover { background: var(--gold-dark) !important; color: var(--white) !important; border-color: var(--gold-dark) !important; }
+
+        /* ── HAMBURGER / MOBILE NAV ── */
+        .nav-hamburger { display: none; flex-direction: column; justify-content: space-between; width: 26px; height: 19px; background: none; border: none; cursor: pointer; padding: 0; z-index: 1100; }
+        .nav-hamburger span { display: block; width: 100%; height: 3px; background: var(--black); border-radius: 2px; transition: transform 0.28s ease, opacity 0.28s ease; transform-origin: center; }
+        .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+        .mobile-nav { display: none; position: fixed; top: 75px; left: 0; right: 0; background: var(--white); border-top: 2px solid var(--gold); box-shadow: 0 8px 30px rgba(0,0,0,0.15); z-index: 1050; padding: 1rem 0 1.5rem; transform: translateY(-10px); opacity: 0; transition: transform 0.28s ease, opacity 0.28s ease; }
+        .mobile-nav.open { display: block; transform: translateY(0); opacity: 1; }
+        .mobile-nav ul { list-style: none; padding: 0; margin: 0; }
+        .mobile-nav ul li a { display: block; padding: 0.75rem 2rem; font-size: 0.95rem; font-weight: 600; text-decoration: none; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.8px; border-left: 3px solid transparent; transition: color 0.2s, border-color 0.2s, background 0.2s; }
+        .mobile-nav ul li a:hover { color: var(--gold-dark); border-left-color: var(--gold); background: var(--cream); }
+        .mobile-nav .mobile-cta { display: block; margin: 1rem 2rem 0; text-align: center; background: var(--gold); color: var(--black) !important; border-radius: 50px; padding: 0.7rem 1.5rem !important; font-size: 0.9rem !important; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.8px; border-left: none !important; transition: background 0.2s; }
+        .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
+        @media (max-width: 1050px) { .nav-links { display: none; } .nav-hamburger { display: flex; } .nav-dropdown { display: none !important; } }
+
+        /* ── PORTAL HERO ── */
+        .portal-hero {
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 50%, #0a1e35 100%);
+            padding: 72px 2rem 64px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .portal-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40h80M40 0v80' stroke='rgba(65,179,163,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+        }
+        .portal-hero-content { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+        .portal-eyebrow { display: inline-block; background: rgba(65,179,163,0.15); border: 1px solid rgba(65,179,163,0.35); color: var(--gold-light); font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 18px; border-radius: 50px; margin-bottom: 1.25rem; }
+        .portal-hero h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 0.9rem; }
+        .portal-hero h1 span { color: var(--gold); }
+        .portal-hero p { color: rgba(255,255,255,0.65); font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.7; }
+        .btn-ms-signin {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: var(--ms-blue); color: #fff !important;
+            padding: 0.85rem 2rem; border-radius: 8px;
+            font-size: 0.97rem; font-weight: 700; text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+            box-shadow: 0 4px 20px rgba(0,120,212,0.35);
+        }
+        .btn-ms-signin:hover { background: var(--ms-blue-dark); transform: translateY(-2px); }
+        .btn-ms-signin svg { flex-shrink: 0; }
+        .portal-note { margin-top: 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+        /* ── APP LAUNCHER ── */
+        .app-launcher { background: var(--cream); padding: 64px 0; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.6rem; }
+        .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .section-title span { color: var(--gold); }
+        .divider { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin: 0.75rem 0 2.5rem; }
+
+        .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+        .app-tile {
+            background: var(--white); border-radius: 18px; padding: 1.75rem 1.25rem;
+            text-align: center; text-decoration: none;
+            border: 1px solid rgba(65,179,163,0.12);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+        }
+        .app-tile:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.10); }
+        .app-tile-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
+        .app-tile-name { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); }
+        .app-tile-desc { font-size: 0.72rem; color: var(--text-mid); line-height: 1.4; }
+
+        /* App icon colors */
+        .icon-outlook  { background: #0078D4; }
+        .icon-teams    { background: #6264A7; }
+        .icon-sharepoint { background: #038387; }
+        .icon-onedrive { background: #0364B8; }
+        .icon-word     { background: #185ABD; }
+        .icon-excel    { background: #107C41; }
+        .icon-ppt      { background: #C43E1C; }
+        .icon-forms    { background: #007959; }
+        .icon-planner  { background: #31752F; }
+        .icon-admin    { background: #1B263B; }
+
+        /* ── QUICK LINKS ── */
+        .quick-links { background: var(--white); padding: 56px 0; }
+        .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .quick-card {
+            border-radius: 16px; padding: 1.75rem;
+            border: 1px solid rgba(65,179,163,0.15);
+            border-top: 4px solid var(--gold);
+            background: var(--cream);
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+        }
+        .quick-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .quick-card-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .quick-card h3 { font-size: 0.97rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.4rem; }
+        .quick-card p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.55; }
+        .quick-card-tag { display: inline-block; margin-top: 0.75rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-dark); background: rgba(65,179,163,0.1); padding: 3px 10px; border-radius: 50px; }
+
+        /* ── SECURITY BANNER ── */
+        .security-banner {
+            background: linear-gradient(135deg, var(--black), var(--brown-dark));
+            padding: 40px 2rem; text-align: center;
+        }
+        .security-banner p { font-size: 0.82rem; color: rgba(255,255,255,0.55); max-width: 680px; margin: 0 auto; line-height: 1.7; }
+        .security-banner p strong { color: var(--gold-light); }
+        .security-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(65,179,163,0.12); border: 1px solid rgba(65,179,163,0.3); border-radius: 50px; padding: 6px 16px; font-size: 0.72rem; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
+
+        /* ── FOOTER ── */
+        footer { background: var(--black); color: rgba(255,255,255,0.5); padding: 2rem; text-align: center; }
+        footer p { font-size: 0.78rem; }
+        footer a { color: var(--gold-light); text-decoration: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) { .app-grid { grid-template-columns: repeat(3, 1fr); } .quick-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 600px) { .app-grid { grid-template-columns: repeat(2, 1fr); } .quick-grid { grid-template-columns: 1fr; } .portal-hero { padding: 56px 1rem 48px; } .container { padding: 0 1rem; } }
+        @media (max-width: 375px) { .app-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; } }
+    </style>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="NEG+ Innovations Employee Portal — secure access to Microsoft 365 workplace tools.">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+    <div class="nav-inner">
+        <a class="nav-logo" href="index.html">
+            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
+        </a>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html#products">Products</a>
+                <ul class="nav-dropdown">
+                    <li><a href="rd.html#mums">MUMS™ — Intrapartum Monitor</a></li>
+                    <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
+                    <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
+                    <li><a href="rd.html#pnb">Pudendal Nerve Block Device™</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="rd.html">R&amp;D</a>
+                <ul class="nav-dropdown">
+                    <li><a href="rd.html">R&amp;D Overview</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="rd.html#mums">MUMS™</a></li>
+                    <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
+                    <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
+                    <li><a href="rd.html#pnb">PNB Device™</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="clinops.html">ClinOps</a>
+                <ul class="nav-dropdown">
+                    <li><a href="clinops.html">ClinOps Overview</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="clinops.html#mandate">The ClinOps Mandate</a></li>
+                    <li><a href="clinops.html#pillars">Execution Pillars</a></li>
+                    <li><a href="clinops.html#kpis">KPI Framework</a></li>
+                    <li><a href="clinops.html#programs">Device Programs</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="team.html">Team</a>
+                <ul class="nav-dropdown">
+                    <li><a href="team.html">Team Overview</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="team.html#founder">Founder &amp; CEO</a></li>
+                    <li><a href="team.html#board">Board of Directors</a></li>
+                    <li><a href="team.html#advisory">Advisors</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="investors.html">Investors</a>
+                <ul class="nav-dropdown">
+                    <li><a href="investors.html">Investor Overview</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="investors.html#thesis">Investment Thesis</a></li>
+                    <li><a href="investors.html#terms">Deal Terms</a></li>
+                    <li><a href="investors.html#milestones">Milestones</a></li>
+                    <li><a href="investors.html#proceeds">Use of Proceeds</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="investors.html#contact">Investor Contact</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="index.html#about">About</a>
+                <ul class="nav-dropdown">
+                    <li><a href="index.html#about">Company Overview</a></li>
+                    <li><a href="index.html#pipeline">Development Pipeline</a></li>
+                    <li><a href="index.html#market">Market Opportunity</a></li>
+                    <li><a href="index.html#funding">Funding Strategy</a></li>
+                    <li class="dd-divider"></li>
+                    <li><a href="index.html#advisory">Advisory Network</a></li>
+                    <li><a href="index.html#partners">Partners &amp; Institutions</a></li>
+                    <li><a href="index.html#ip">IP Portfolio</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+        <a href="portal.html" class="nav-portal">Employee Portal</a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+<div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <ul>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="rd.html">R&amp;D</a></li>
+        <li><a href="clinops.html">ClinOps</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="index.html#contact" class="mobile-cta">Contact Us</a></li>
+    </ul>
+</div>
+
+<!-- ── PORTAL HERO ── -->
+<section class="portal-hero">
+    <div class="portal-hero-content">
+        <div class="portal-eyebrow">🔒 Secure · Internal Access Only</div>
+        <h1>NEG<span>+</span> Employee Portal</h1>
+        <p>Sign in with your NEG+ Innovations Microsoft 365 account to access your workspace — email, files, collaboration tools, and the full Office suite, all in your browser.</p>
+        <a href="https://login.microsoftonline.com/negplus.com" target="_blank" rel="noopener" class="btn-ms-signin">
+            <!-- Microsoft logo -->
+            <svg width="20" height="20" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="9" height="9" fill="#F25022"/>
+                <rect x="11" y="1" width="9" height="9" fill="#7FBA00"/>
+                <rect x="1" y="11" width="9" height="9" fill="#00A4EF"/>
+                <rect x="11" y="11" width="9" height="9" fill="#FFB900"/>
+            </svg>
+            Sign in with Microsoft 365
+        </a>
+        <p class="portal-note">Use your @negplus.com account · Browser-based · No downloads required</p>
+    </div>
+</section>
+
+<!-- ── APP LAUNCHER ── -->
+<section class="app-launcher">
+    <div class="container">
+        <div class="section-label">Microsoft 365 Suite</div>
+        <h2 class="section-title">Your <span>Workplace Apps</span></h2>
+        <div class="divider"></div>
+        <div class="app-grid">
+
+            <a href="https://outlook.office.com" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-outlook">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" fill="#fff" fill-opacity="0.15"/><path d="M2 8l10 6 10-6" stroke="#fff" stroke-width="1.8" fill="none"/><rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.5"/></svg>
+                </div>
+                <div class="app-tile-name">Outlook</div>
+                <div class="app-tile-desc">Email &amp; Calendar</div>
+            </a>
+
+            <a href="https://teams.microsoft.com" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-teams">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="15.5" cy="7.5" r="3" fill="#fff" fill-opacity="0.9"/><path d="M18 14c0-1.1-.9-2-2-2h-3a2 2 0 00-2 2v3h7v-3z" fill="#fff" fill-opacity="0.9"/><circle cx="8" cy="9" r="3.5" fill="#fff"/><path d="M3 17c0-1.38 1.12-2.5 2.5-2.5h5A2.5 2.5 0 0113 17v2H3v-2z" fill="#fff"/></svg>
+                </div>
+                <div class="app-tile-name">Teams</div>
+                <div class="app-tile-desc">Chat &amp; Meetings</div>
+            </a>
+
+            <a href="https://www.office.com/launch/sharepoint" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-sharepoint">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#fff" stroke-width="1.8"/><path d="M4.5 9h15M4.5 15h15M12 4v16" stroke="#fff" stroke-width="1.5"/></svg>
+                </div>
+                <div class="app-tile-name">SharePoint</div>
+                <div class="app-tile-desc">Intranet &amp; Sites</div>
+            </a>
+
+            <a href="https://www.office.com/launch/onedrive" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-onedrive">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 16a4 4 0 010-8 4.5 4.5 0 018.5-1.5A3.5 3.5 0 0120 10a3.5 3.5 0 010 7H4z" fill="#fff" fill-opacity="0.9"/></svg>
+                </div>
+                <div class="app-tile-name">OneDrive</div>
+                <div class="app-tile-desc">Files &amp; Storage</div>
+            </a>
+
+            <a href="https://www.office.com/launch/word" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-word">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-width="1.5"/><text x="6" y="17" font-family="Arial" font-size="11" font-weight="900" fill="#fff">W</text></svg>
+                </div>
+                <div class="app-tile-name">Word</div>
+                <div class="app-tile-desc">Documents</div>
+            </a>
+
+            <a href="https://www.office.com/launch/excel" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-excel">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-width="1.5"/><text x="6" y="17" font-family="Arial" font-size="11" font-weight="900" fill="#fff">X</text></svg>
+                </div>
+                <div class="app-tile-name">Excel</div>
+                <div class="app-tile-desc">Spreadsheets</div>
+            </a>
+
+            <a href="https://www.office.com/launch/powerpoint" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-ppt">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-width="1.5"/><text x="6" y="17" font-family="Arial" font-size="11" font-weight="900" fill="#fff">P</text></svg>
+                </div>
+                <div class="app-tile-name">PowerPoint</div>
+                <div class="app-tile-desc">Presentations</div>
+            </a>
+
+            <a href="https://forms.office.com" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-forms">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#fff" stroke-width="1.5"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <div class="app-tile-name">Forms</div>
+                <div class="app-tile-desc">Surveys &amp; Quizzes</div>
+            </a>
+
+            <a href="https://tasks.office.com" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-planner">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#fff" stroke-width="1.5"/><path d="M7 12l3 3 7-7" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div class="app-tile-name">Planner</div>
+                <div class="app-tile-desc">Tasks &amp; Projects</div>
+            </a>
+
+            <a href="https://admin.microsoft.com" target="_blank" rel="noopener" class="app-tile">
+                <div class="app-tile-icon icon-admin">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#41B3A3" stroke-width="1.8"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="#41B3A3" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </div>
+                <div class="app-tile-name">Admin Center</div>
+                <div class="app-tile-desc">Admin only</div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── QUICK LINKS ── -->
+<section class="quick-links">
+    <div class="container">
+        <div class="section-label">Internal Resources</div>
+        <h2 class="section-title">Quick <span>Access</span></h2>
+        <div class="divider"></div>
+        <div class="quick-grid">
+            <a href="https://www.office.com/launch/sharepoint" target="_blank" rel="noopener" class="quick-card">
+                <div class="quick-card-icon">🏢</div>
+                <h3>NEG+ Intranet</h3>
+                <p>Company news, shared documents, policies, and team resources — your central hub.</p>
+                <span class="quick-card-tag">SharePoint</span>
+            </a>
+            <a href="https://teams.microsoft.com" target="_blank" rel="noopener" class="quick-card">
+                <div class="quick-card-icon">💬</div>
+                <h3>Team Chat &amp; Calls</h3>
+                <p>Instant messaging, video meetings, and channel collaboration — all in browser.</p>
+                <span class="quick-card-tag">Teams</span>
+            </a>
+            <a href="https://outlook.office.com/calendar" target="_blank" rel="noopener" class="quick-card">
+                <div class="quick-card-icon">📅</div>
+                <h3>Shared Calendar</h3>
+                <p>Schedule meetings, view team availability, and manage your work calendar.</p>
+                <span class="quick-card-tag">Outlook</span>
+            </a>
+            <a href="https://www.office.com/launch/onedrive" target="_blank" rel="noopener" class="quick-card">
+                <div class="quick-card-icon">📁</div>
+                <h3>Shared Files</h3>
+                <p>Access, upload, and collaborate on documents stored in OneDrive and SharePoint.</p>
+                <span class="quick-card-tag">OneDrive</span>
+            </a>
+            <a href="https://tasks.office.com" target="_blank" rel="noopener" class="quick-card">
+                <div class="quick-card-icon">✅</div>
+                <h3>Tasks &amp; Projects</h3>
+                <p>Track work items, assign tasks, and monitor project progress across the team.</p>
+                <span class="quick-card-tag">Planner</span>
+            </a>
+            <a href="https://admin.microsoft.com" target="_blank" rel="noopener" class="quick-card">
+                <div class="quick-card-icon">⚙️</div>
+                <h3>IT &amp; Admin</h3>
+                <p>Manage users, licenses, security settings, and Microsoft 365 configuration.</p>
+                <span class="quick-card-tag">Admin · Restricted</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ── SECURITY BANNER ── -->
+<div class="security-banner">
+    <div class="security-badge">🔒 Secured by Microsoft 365</div>
+    <p><strong>Access Policy:</strong> This portal is for authorized NEG+ Innovations team members only. All sessions are protected by <strong>Multi-Factor Authentication (MFA)</strong> and enforced browser-based access. Do not share credentials. Report security concerns to <a href="mailto:admin@negplus.com" style="color:var(--gold-light);">admin@negplus.com</a>.</p>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+    <p>© 2026 NEG+ Innovations, Inc. · <a href="index.html">Return to Website</a> · <a href="disclaimer.html">Disclaimer</a></p>
+</footer>
+
+<script>
+(function() {
+    var btn = document.getElementById('navHamburger');
+    var mobileNav = document.getElementById('mobileNav');
+    if (!btn || !mobileNav) return;
+    btn.addEventListener('click', function() {
+        var isOpen = btn.classList.toggle('open');
+        if (isOpen) { mobileNav.style.display = 'block'; requestAnimationFrame(function() { mobileNav.classList.add('open'); }); }
+        else { mobileNav.classList.remove('open'); mobileNav.addEventListener('transitionend', function handler() { mobileNav.style.display = 'none'; mobileNav.removeEventListener('transitionend', handler); }); }
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { btn.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.style.display = 'none'; btn.setAttribute('aria-expanded', 'false'); });
+    });
+    document.addEventListener('click', function(e) {
+        if (!btn.contains(e.target) && !mobileNav.contains(e.target)) { btn.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.style.display = 'none'; btn.setAttribute('aria-expanded', 'false'); }
+    });
+})();
+</script>
+</body>
+</html>
