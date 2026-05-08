@@ -110,21 +110,8 @@
             display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
         }
         .app-tile:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.10); }
-        .app-tile-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; flex-shrink: 0; }
         .app-tile-name { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); }
         .app-tile-desc { font-size: 0.72rem; color: var(--text-mid); line-height: 1.4; }
-
-        /* App icon colors */
-        .icon-outlook  { background: #0078D4; }
-        .icon-teams    { background: #6264A7; }
-        .icon-sharepoint { background: #038387; }
-        .icon-onedrive { background: #0364B8; }
-        .icon-word     { background: #185ABD; }
-        .icon-excel    { background: #107C41; }
-        .icon-ppt      { background: #C43E1C; }
-        .icon-forms    { background: #007959; }
-        .icon-planner  { background: #31752F; }
-        .icon-admin    { background: #1B263B; }
 
         /* ── QUICK LINKS ── */
         .quick-links { background: var(--white); padding: 56px 0; }
@@ -294,81 +281,51 @@
         <div class="app-grid">
 
             <a href="https://outlook.office.com" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-outlook">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" fill="#fff" fill-opacity="0.15"/><path d="M2 8l10 6 10-6" stroke="#fff" stroke-width="1.8" fill="none"/><rect x="2" y="4" width="20" height="16" rx="2" stroke="#fff" stroke-width="1.5"/></svg>
-                </div>
                 <div class="app-tile-name">Outlook</div>
                 <div class="app-tile-desc">Email &amp; Calendar</div>
             </a>
 
             <a href="https://teams.microsoft.com" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-teams">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="15.5" cy="7.5" r="3" fill="#fff" fill-opacity="0.9"/><path d="M18 14c0-1.1-.9-2-2-2h-3a2 2 0 00-2 2v3h7v-3z" fill="#fff" fill-opacity="0.9"/><circle cx="8" cy="9" r="3.5" fill="#fff"/><path d="M3 17c0-1.38 1.12-2.5 2.5-2.5h5A2.5 2.5 0 0113 17v2H3v-2z" fill="#fff"/></svg>
-                </div>
                 <div class="app-tile-name">Teams</div>
                 <div class="app-tile-desc">Chat &amp; Meetings</div>
             </a>
 
             <a href="https://negplusinnovationsinc.sharepoint.com" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-sharepoint">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#fff" stroke-width="1.8"/><path d="M4.5 9h15M4.5 15h15M12 4v16" stroke="#fff" stroke-width="1.5"/></svg>
-                </div>
                 <div class="app-tile-name">SharePoint</div>
                 <div class="app-tile-desc">Intranet &amp; Sites</div>
             </a>
 
             <a href="https://negplusinnovationsinc-my.sharepoint.com" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-onedrive">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 16a4 4 0 010-8 4.5 4.5 0 018.5-1.5A3.5 3.5 0 0120 10a3.5 3.5 0 010 7H4z" fill="#fff" fill-opacity="0.9"/></svg>
-                </div>
                 <div class="app-tile-name">OneDrive</div>
                 <div class="app-tile-desc">Files &amp; Storage</div>
             </a>
 
             <a href="https://www.office.com/launch/word" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-word">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-width="1.5"/><text x="6" y="17" font-family="Arial" font-size="11" font-weight="900" fill="#fff">W</text></svg>
-                </div>
                 <div class="app-tile-name">Word</div>
                 <div class="app-tile-desc">Documents</div>
             </a>
 
             <a href="https://www.office.com/launch/excel" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-excel">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-width="1.5"/><text x="6" y="17" font-family="Arial" font-size="11" font-weight="900" fill="#fff">X</text></svg>
-                </div>
                 <div class="app-tile-name">Excel</div>
                 <div class="app-tile-desc">Spreadsheets</div>
             </a>
 
             <a href="https://www.office.com/launch/powerpoint" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-ppt">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" fill="#fff" fill-opacity="0.1" stroke="#fff" stroke-width="1.5"/><text x="6" y="17" font-family="Arial" font-size="11" font-weight="900" fill="#fff">P</text></svg>
-                </div>
                 <div class="app-tile-name">PowerPoint</div>
                 <div class="app-tile-desc">Presentations</div>
             </a>
 
             <a href="https://forms.office.com" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-forms">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="2" stroke="#fff" stroke-width="1.5"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
-                </div>
                 <div class="app-tile-name">Forms</div>
                 <div class="app-tile-desc">Surveys &amp; Quizzes</div>
             </a>
 
             <a href="https://tasks.office.com" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-planner">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#fff" stroke-width="1.5"/><path d="M7 12l3 3 7-7" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
                 <div class="app-tile-name">Planner</div>
                 <div class="app-tile-desc">Tasks &amp; Projects</div>
             </a>
 
             <a href="https://admin.microsoft.com" target="_blank" rel="noopener" class="app-tile">
-                <div class="app-tile-icon icon-admin">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#41B3A3" stroke-width="1.8"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="#41B3A3" stroke-width="1.8" stroke-linecap="round"/></svg>
-                </div>
                 <div class="app-tile-name">Admin Center</div>
                 <div class="app-tile-desc">Admin only</div>
             </a>
