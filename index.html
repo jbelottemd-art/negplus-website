@@ -1087,27 +1087,146 @@
         }
 
         /* ── CTA ── */
-        .cta-section {
-            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--black) 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 100px 2rem;
+        /* ── CONTACT SECTION ── */
+        .contact-section {
+            background: linear-gradient(135deg, var(--brown-dark) 0%, var(--black) 60%, #0a1e35 100%);
+            padding: 90px 2rem;
+            position: relative;
+            overflow: hidden;
         }
+        .contact-section::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40h80M40 0v80' stroke='rgba(65,179,163,0.05)' stroke-width='1'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        .contact-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1.45fr; gap: 4rem;
+            align-items: start; position: relative; z-index: 1;
+        }
+        /* Left panel */
+        .contact-info { color: var(--white); }
+        .contact-eyebrow {
+            display: inline-block; background: rgba(65,179,163,0.15);
+            border: 1px solid rgba(65,179,163,0.35); color: #7DD3CB;
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; padding: 4px 16px; border-radius: 50px;
+            margin-bottom: 1.25rem;
+        }
+        .contact-info h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800;
+            color: var(--white); line-height: 1.2; margin-bottom: 1rem;
+        }
+        .contact-info h2 span { color: var(--gold); }
+        .contact-info > p {
+            font-size: 0.92rem; color: rgba(255,255,255,0.55);
+            line-height: 1.75; margin-bottom: 2.5rem; max-width: 380px;
+        }
+        .contact-details { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+        .contact-detail-item {
+            display: flex; align-items: center; gap: 0.9rem;
+        }
+        .contact-detail-icon {
+            width: 40px; height: 40px; flex-shrink: 0;
+            border-radius: 10px; background: rgba(65,179,163,0.12);
+            border: 1px solid rgba(65,179,163,0.25);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+        }
+        .contact-detail-text { font-size: 0.85rem; }
+        .contact-detail-text strong { display: block; color: var(--white); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.15rem; }
+        .contact-detail-text a, .contact-detail-text span { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+        .contact-detail-text a:hover { color: var(--gold); }
+        .contact-guarantee {
+            background: rgba(65,179,163,0.08); border: 1px solid rgba(65,179,163,0.2);
+            border-radius: 14px; padding: 1.1rem 1.25rem;
+            font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.6;
+        }
+        .contact-guarantee strong { color: #7DD3CB; display: block; margin-bottom: 0.3rem; font-size: 0.8rem; }
 
-        .cta-section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            color: var(--gold);
-            margin-bottom: 1.2rem;
+        /* Right panel — form card */
+        .contact-card {
+            background: var(--white); border-radius: 24px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+            overflow: hidden;
         }
+        /* Tab switcher */
+        .form-tabs {
+            display: grid; grid-template-columns: 1fr 1fr;
+            border-bottom: 1px solid var(--cream-dark);
+        }
+        .form-tab-btn {
+            padding: 1.1rem 1rem; background: var(--cream);
+            border: none; cursor: pointer; font-size: 0.82rem;
+            font-weight: 700; color: var(--text-mid);
+            text-transform: uppercase; letter-spacing: 0.8px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .form-tab-btn:first-child { border-right: 1px solid var(--cream-dark); }
+        .form-tab-btn.active {
+            background: var(--white); color: var(--gold-dark);
+            border-bottom: 3px solid var(--gold); margin-bottom: -1px;
+        }
+        .form-tab-btn:hover:not(.active) { background: var(--cream-dark); }
+        /* Form panels */
+        .form-panels { padding: 2rem 2rem 2.5rem; }
+        .form-panel { display: none; }
+        .form-panel.active { display: block; }
+        .form-panel h3 { font-size: 1.1rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.3rem; }
+        .form-panel .form-sub { font-size: 0.78rem; color: var(--text-mid); margin-bottom: 1.5rem; line-height: 1.5; }
+        /* Field rows */
+        .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+        .field-group { margin-bottom: 0.85rem; display: flex; flex-direction: column; }
+        .field-group label {
+            font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--text-mid); margin-bottom: 0.35rem;
+        }
+        .field-group input,
+        .field-group select,
+        .field-group textarea {
+            padding: 0.72rem 0.9rem; border: 1.5px solid var(--cream-dark);
+            border-radius: 10px; font-size: 0.875rem; color: var(--text-dark);
+            background: var(--white); transition: border-color 0.2s, box-shadow 0.2s;
+            font-family: inherit; outline: none; width: 100%;
+        }
+        .field-group input:focus,
+        .field-group select:focus,
+        .field-group textarea:focus {
+            border-color: var(--gold); box-shadow: 0 0 0 3px rgba(65,179,163,0.12);
+        }
+        .field-group input::placeholder,
+        .field-group textarea::placeholder { color: #b0bec9; }
+        .field-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23778DA9' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; padding-right: 2.2rem; }
+        .field-group textarea { resize: vertical; min-height: 100px; line-height: 1.55; }
+        .field-group input[type="date"] { color: var(--text-dark); }
+        /* Required star */
+        .field-group label .req { color: var(--gold-dark); margin-left: 2px; }
+        /* Submit btn */
+        .btn-submit {
+            width: 100%; padding: 0.95rem 1rem; margin-top: 1rem;
+            background: var(--gold); color: var(--black); border: none;
+            border-radius: 50px; font-size: 0.95rem; font-weight: 700;
+            cursor: pointer; transition: background 0.2s, transform 0.15s;
+            font-family: inherit; letter-spacing: 0.3px;
+        }
+        .btn-submit:hover { background: var(--gold-dark); transform: translateY(-1px); }
+        .btn-submit:active { transform: translateY(0); }
+        .form-consent {
+            font-size: 0.67rem; color: var(--text-mid); margin-top: 0.75rem;
+            line-height: 1.55; text-align: center;
+        }
+        /* Success state */
+        .form-success {
+            display: none; text-align: center; padding: 2rem 1rem;
+        }
+        .form-success .success-icon { font-size: 2.8rem; margin-bottom: 0.75rem; }
+        .form-success h4 { font-size: 1.1rem; font-weight: 800; color: var(--gold-dark); margin-bottom: 0.5rem; }
+        .form-success p { font-size: 0.85rem; color: var(--text-mid); }
 
-        .cta-section p {
-            font-size: 1.15rem;
-            color: var(--brown-light);
-            max-width: 680px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-        }
+        /* Responsive */
+        @media (max-width: 900px) { .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; } .contact-info > p { max-width: 100%; } }
+        @media (max-width: 600px) { .contact-section { padding: 64px 1rem; } .form-panels { padding: 1.5rem 1.25rem 2rem; } .field-row { grid-template-columns: 1fr; } }
 
         /* ── FOOTER ── */
         footer {
@@ -2439,16 +2558,195 @@
     </div>
 </section>
 
-<!-- ── CTA ── -->
-<section class="cta-section" id="contact">
-    <div class="container">
-        <h2>Partner With NEG+ Innovations</h2>
-        <p>We welcome collaboration with leading research institutions, clinical investigators, industry partners, and accredited investors who share our commitment to advancing women's health through precision medical technology.</p>
-        <div class="hero-actions">
-            <a href="mailto:info@negplus.com" class="btn-primary">Contact Us</a>
-            <a href="clinops.html" class="btn-outline">Our Clinical Operations</a>
+<!-- ── CONTACT ── -->
+<section class="contact-section" id="contact">
+    <div class="contact-inner">
+
+        <!-- Left: info panel -->
+        <div class="contact-info">
+            <div class="contact-eyebrow">Get In Touch</div>
+            <h2>Partner With<br><span>NEG+ Innovations</span></h2>
+            <p>We welcome collaboration with research institutions, clinical investigators, industry partners, and accredited investors committed to advancing women's health.</p>
+
+            <div class="contact-details">
+                <div class="contact-detail-item">
+                    <div class="contact-detail-icon">✉️</div>
+                    <div class="contact-detail-text">
+                        <strong>Email</strong>
+                        <a href="mailto:info@negplus.com">info@negplus.com</a>
+                    </div>
+                </div>
+                <div class="contact-detail-item">
+                    <div class="contact-detail-icon">📍</div>
+                    <div class="contact-detail-text">
+                        <strong>Headquarters</strong>
+                        <span>Weston, Massachusetts</span>
+                    </div>
+                </div>
+                <div class="contact-detail-item">
+                    <div class="contact-detail-icon">⏱️</div>
+                    <div class="contact-detail-text">
+                        <strong>Response Time</strong>
+                        <span>Within 2 business days</span>
+                    </div>
+                </div>
+                <div class="contact-detail-item">
+                    <div class="contact-detail-icon">📋</div>
+                    <div class="contact-detail-text">
+                        <strong>Investment</strong>
+                        <span>Reg D Rule 506(b) · Accredited Investors Only</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-guarantee">
+                <strong>🔒 Confidentiality Assured</strong>
+                All inquiries are treated with strict confidentiality. Investor communications are governed by applicable securities laws. NDAs available upon request for clinical partnership discussions.
+            </div>
         </div>
-    </div>
+
+        <!-- Right: tabbed form card -->
+        <div class="contact-card">
+            <div class="form-tabs">
+                <button class="form-tab-btn active" data-tab="contact" onclick="switchTab('contact')">✉ Contact Us</button>
+                <button class="form-tab-btn" data-tab="meeting" onclick="switchTab('meeting')">📅 Schedule a Meeting</button>
+            </div>
+
+            <div class="form-panels">
+
+                <!-- ── Contact Us form ── -->
+                <div class="form-panel active" id="tab-contact">
+                    <h3>Send Us a Message</h3>
+                    <p class="form-sub">Fill out the form below and our team will respond within 2 business days.</p>
+                    <form id="contactForm" novalidate>
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label>First Name <span class="req">*</span></label>
+                                <input type="text" name="first_name" placeholder="Jane" required>
+                            </div>
+                            <div class="field-group">
+                                <label>Last Name <span class="req">*</span></label>
+                                <input type="text" name="last_name" placeholder="Smith" required>
+                            </div>
+                        </div>
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label>Email Address <span class="req">*</span></label>
+                                <input type="email" name="email" placeholder="jane@institution.org" required>
+                            </div>
+                            <div class="field-group">
+                                <label>Phone (optional)</label>
+                                <input type="tel" name="phone" placeholder="+1 (617) 000-0000">
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label>Organization / Institution <span class="req">*</span></label>
+                            <input type="text" name="organization" placeholder="Harvard Medical School, General Hospital…" required>
+                        </div>
+                        <div class="field-group">
+                            <label>Inquiry Type <span class="req">*</span></label>
+                            <select name="inquiry_type" required>
+                                <option value="" disabled selected>Select a category…</option>
+                                <option>Investor Relations</option>
+                                <option>Clinical Partnership</option>
+                                <option>Research Collaboration</option>
+                                <option>Regulatory / FDA</option>
+                                <option>Media &amp; Press</option>
+                                <option>General Inquiry</option>
+                            </select>
+                        </div>
+                        <div class="field-group">
+                            <label>Message <span class="req">*</span></label>
+                            <textarea name="message" placeholder="Please describe your interest or question in detail…" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message →</button>
+                        <p class="form-consent">By submitting this form, you agree to be contacted by NEG+ Innovations, Inc. regarding your inquiry. We do not share your information with third parties.</p>
+                    </form>
+                    <div class="form-success" id="contactSuccess">
+                        <div class="success-icon">✅</div>
+                        <h4>Message Sent!</h4>
+                        <p>Thank you for reaching out. Our team will respond to <span id="contactEmailConfirm"></span> within 2 business days.</p>
+                    </div>
+                </div>
+
+                <!-- ── Schedule a Meeting form ── -->
+                <div class="form-panel" id="tab-meeting">
+                    <h3>Book a Meeting</h3>
+                    <p class="form-sub">Select your preferred date and time and we'll confirm availability within 1 business day.</p>
+                    <form id="meetingForm" novalidate>
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label>First Name <span class="req">*</span></label>
+                                <input type="text" name="meet_first" placeholder="Jane" required>
+                            </div>
+                            <div class="field-group">
+                                <label>Last Name <span class="req">*</span></label>
+                                <input type="text" name="meet_last" placeholder="Smith" required>
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label>Email Address <span class="req">*</span></label>
+                            <input type="email" name="meet_email" placeholder="jane@institution.org" required>
+                        </div>
+                        <div class="field-group">
+                            <label>Organization / Institution</label>
+                            <input type="text" name="meet_org" placeholder="Harvard Medical School, VC Firm…">
+                        </div>
+                        <div class="field-group">
+                            <label>Meeting Type <span class="req">*</span></label>
+                            <select name="meet_type" required>
+                                <option value="" disabled selected>Select meeting purpose…</option>
+                                <option>Investor Intro Call (30 min)</option>
+                                <option>Clinical Partnership Discussion (45 min)</option>
+                                <option>Research Collaboration (30 min)</option>
+                                <option>Due Diligence / Data Room Access (60 min)</option>
+                                <option>General Introduction (20 min)</option>
+                            </select>
+                        </div>
+                        <div class="field-row">
+                            <div class="field-group">
+                                <label>Preferred Date <span class="req">*</span></label>
+                                <input type="date" name="meet_date" id="meetDate" required>
+                            </div>
+                            <div class="field-group">
+                                <label>Preferred Time (ET) <span class="req">*</span></label>
+                                <select name="meet_time" required>
+                                    <option value="" disabled selected>Select a time…</option>
+                                    <option>8:00 AM</option>
+                                    <option>9:00 AM</option>
+                                    <option>10:00 AM</option>
+                                    <option>11:00 AM</option>
+                                    <option>12:00 PM</option>
+                                    <option>1:00 PM</option>
+                                    <option>2:00 PM</option>
+                                    <option>3:00 PM</option>
+                                    <option>4:00 PM</option>
+                                    <option>5:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label>Alternate Date (optional)</label>
+                            <input type="date" name="meet_alt_date" id="meetAltDate">
+                        </div>
+                        <div class="field-group">
+                            <label>Brief Agenda / Notes</label>
+                            <textarea name="meet_notes" placeholder="What would you like to discuss? Any specific questions or topics you'd like covered…" style="min-height:80px;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Request Meeting →</button>
+                        <p class="form-consent">Meeting requests are not automatically confirmed. We will reply to your email to confirm availability and send a calendar invite.</p>
+                    </form>
+                    <div class="form-success" id="meetingSuccess">
+                        <div class="success-icon">📅</div>
+                        <h4>Meeting Requested!</h4>
+                        <p>We'll confirm your preferred time and send a calendar invite to <span id="meetEmailConfirm"></span> within 1 business day.</p>
+                    </div>
+                </div>
+
+            </div><!-- /form-panels -->
+        </div><!-- /contact-card -->
+
+    </div><!-- /contact-inner -->
 </section>
 
 <!-- ── FOOTER ── -->
@@ -2485,9 +2783,9 @@
             <h4>Contact</h4>
             <ul>
                 <li><a href="mailto:info@negplus.com">info@negplus.com</a></li>
-                <li><a href="#contact">Schedule a Meeting</a></li>
-                <li><a href="#contact">Investor Relations</a></li>
-                <li><a href="#contact">Clinical Partnerships</a></li>
+                <li><a href="#contact" onclick="setTimeout(function(){switchTab('meeting')},120)">Schedule a Meeting</a></li>
+                <li><a href="#contact" onclick="setTimeout(function(){switchTab('contact')},120)">Investor Relations</a></li>
+                <li><a href="#contact" onclick="setTimeout(function(){switchTab('contact')},120)">Clinical Partnerships</a></li>
                 <li><a href="disclaimer.html">Disclaimer</a></li>
             </ul>
         </div>
@@ -2503,6 +2801,90 @@
 
 
 <script>
+/* ── TAB SWITCHING ── */
+function switchTab(tab) {
+    document.querySelectorAll('.form-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelectorAll('.form-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
+    document.getElementById('tab-' + tab).classList.add('active');
+}
+
+/* ── DATE MIN = TODAY ── */
+(function() {
+    var today = new Date().toISOString().split('T')[0];
+    ['meetDate', 'meetAltDate'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.min = today;
+    });
+})();
+
+/* ── CONTACT FORM → MAILTO ── */
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var f = this;
+    var required = f.querySelectorAll('[required]');
+    var valid = true;
+    required.forEach(function(el) { if (!el.value.trim()) { el.style.borderColor = '#e74c3c'; valid = false; } else { el.style.borderColor = ''; } });
+    if (!valid) return;
+    var fn = f.first_name.value.trim();
+    var ln = f.last_name.value.trim();
+    var em = f.email.value.trim();
+    var ph = f.phone.value.trim();
+    var org = f.organization.value.trim();
+    var inq = f.inquiry_type.value;
+    var msg = f.message.value.trim();
+    var subject = encodeURIComponent('[NEG+ Website] ' + inq + ' — ' + fn + ' ' + ln);
+    var body = encodeURIComponent(
+        'Name: ' + fn + ' ' + ln + '\n' +
+        'Email: ' + em + '\n' +
+        (ph ? 'Phone: ' + ph + '\n' : '') +
+        'Organization: ' + org + '\n' +
+        'Inquiry Type: ' + inq + '\n\n' +
+        'Message:\n' + msg + '\n\n' +
+        '---\nSent via negplus.com contact form'
+    );
+    window.location.href = 'mailto:info@negplus.com?subject=' + subject + '&body=' + body;
+    document.getElementById('contactEmailConfirm').textContent = em;
+    f.style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
+});
+
+/* ── MEETING FORM → MAILTO ── */
+document.getElementById('meetingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var f = this;
+    var required = f.querySelectorAll('[required]');
+    var valid = true;
+    required.forEach(function(el) { if (!el.value.trim()) { el.style.borderColor = '#e74c3c'; valid = false; } else { el.style.borderColor = ''; } });
+    if (!valid) return;
+    var fn = f.meet_first.value.trim();
+    var ln = f.meet_last.value.trim();
+    var em = f.meet_email.value.trim();
+    var org = f.meet_org.value.trim();
+    var mtype = f.meet_type.value;
+    var mdate = f.meet_date.value;
+    var mtime = f.meet_time.value;
+    var altdate = f.meet_alt_date.value;
+    var notes = f.meet_notes.value.trim();
+    var subject = encodeURIComponent('[NEG+ Meeting Request] ' + mtype + ' — ' + fn + ' ' + ln);
+    var body = encodeURIComponent(
+        'Meeting Request from: ' + fn + ' ' + ln + '\n' +
+        'Email: ' + em + '\n' +
+        (org ? 'Organization: ' + org + '\n' : '') +
+        '\nMeeting Type: ' + mtype +
+        '\nPreferred Date: ' + mdate +
+        '\nPreferred Time (ET): ' + mtime +
+        (altdate ? '\nAlternate Date: ' + altdate : '') +
+        (notes ? '\n\nAgenda / Notes:\n' + notes : '') +
+        '\n\n---\nSent via negplus.com meeting scheduler'
+    );
+    window.location.href = 'mailto:info@negplus.com?subject=' + subject + '&body=' + body;
+    document.getElementById('meetEmailConfirm').textContent = em;
+    f.style.display = 'none';
+    document.getElementById('meetingSuccess').style.display = 'block';
+});
+
+/* ── NAV HAMBURGER ── */
 (function() {
     var btn = document.getElementById('navHamburger');
     var mobileNav = document.getElementById('mobileNav');
