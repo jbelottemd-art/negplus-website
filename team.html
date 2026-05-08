@@ -46,7 +46,7 @@
         .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
         .nav-logo-img { display: block; height: 44px; width: auto; }
         .nav-links { display: flex; gap: 0; list-style: none; }
-        .nav-links > li { position: relative; }
+        .nav-links > li { position: relative; display: flex; align-items: center; }
         .nav-links a { display: block; padding: 0 0.75rem; height: 72px; line-height: 72px; font-size: 0.82rem; font-weight: 600; text-decoration: none; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.5px; transition: color 0.2s, border-bottom 0.2s; border-bottom: 3px solid transparent; margin-bottom: -3px; white-space: nowrap; }
         .nav-links a:hover, .nav-links a.active, .nav-links > li:hover > a { color: var(--gold-dark); border-bottom-color: var(--gold); }
         .nav-dropdown { position: absolute; top: calc(100% + 3px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 210px; background: var(--white); border-top: 2px solid var(--gold); border-radius: 0 0 10px 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); list-style: none; padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; z-index: 2000; }
