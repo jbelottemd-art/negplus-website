@@ -360,6 +360,17 @@
             .deal-val { text-align: left; font-size: 0.82rem; }
             .deal-card { padding: 1.5rem 1.25rem; }
         }
+
+        /* ── PHOTO IMAGES ── */
+        .page-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: 0.14; pointer-events: none; }
+        .photo-break { position: relative; height: 280px; overflow: hidden; }
+        .photo-break img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+        .photo-break-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(14,42,71,0.85) 0%, rgba(27,38,59,0.78) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+        .photo-break-content { max-width: 720px; }
+        .photo-break-label { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(65,179,163,0.35); border-radius: 50px; padding: 4px 14px; margin-bottom: 1rem; }
+        .photo-break-title { font-size: clamp(1.2rem, 3vw, 1.9rem); font-weight: 800; color: var(--white); line-height: 1.3; margin-bottom: 0.6rem; }
+        .photo-break-title span { color: var(--gold); }
+        .photo-break-sub { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
     <meta name="description" content="NEG+ Innovations investor information — investment thesis, deal terms, capital deployment milestones, and investor brief request for accredited investors.">
@@ -474,6 +485,7 @@
 
 <!-- ── HERO ── -->
 <div class="page-hero">
+    <img src="pexels-kampus-8636589.jpg" class="page-hero-bg" alt="" aria-hidden="true" loading="eager">
     <div class="page-hero-content">
         <div class="page-hero-eyebrow">Reg D · Rule 506(b) · Accredited Investors Only</div>
         <h1>Invest in the Future of <span>Women's Health</span></h1>
@@ -716,6 +728,18 @@
         </div><!-- /.table-scroll -->
     </div>
 </section>
+
+<!-- ── PHOTO BREAK: INVESTOR ── -->
+<div class="photo-break">
+    <img src="pexels-yankrukov-7693740.jpg" alt="Investment team reviewing financial projections and milestone data" loading="lazy">
+    <div class="photo-break-overlay">
+        <div class="photo-break-content">
+            <div class="photo-break-label">Capital Deployment</div>
+            <div class="photo-break-title">Milestone-Linked. <span>Founder-Aligned.</span></div>
+            <p class="photo-break-sub">Every dollar raised is tied to a defined regulatory or technical inflection point — with the founder co-investing on identical terms alongside every investor.</p>
+        </div>
+    </div>
+</div>
 
 <!-- ── USE OF PROCEEDS ── -->
 <section class="proceeds" id="proceeds">

@@ -354,6 +354,41 @@
             .container { padding: 0 0.75rem; }
         }
 
+        /* ── PHOTO IMAGES ── */
+        .page-hero-bg {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center 30%;
+            opacity: 0.18; pointer-events: none;
+        }
+        .photo-break {
+            position: relative; height: 300px; overflow: hidden;
+        }
+        .photo-break img {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center 40%;
+        }
+        .photo-break-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(14,42,71,0.82) 0%, rgba(27,38,59,0.72) 100%);
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 2rem;
+        }
+        .photo-break-content { max-width: 720px; }
+        .photo-break-label {
+            display: inline-block; font-size: 0.68rem; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+            border: 1px solid rgba(65,179,163,0.35); border-radius: 50px;
+            padding: 4px 14px; margin-bottom: 1rem;
+        }
+        .photo-break-title {
+            font-size: clamp(1.2rem, 3vw, 1.9rem); font-weight: 800;
+            color: var(--white); line-height: 1.3; margin-bottom: 0.6rem;
+        }
+        .photo-break-title span { color: var(--gold); }
+        .photo-break-sub {
+            font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65;
+        }
+
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
     <meta name="description" content="Stage-gated development pipeline for four women's health devices: Belotte Colpotomizer™, POP-Q AutoSense™, Pudendal Nerve Block Device™, and MUMS™.">
@@ -474,6 +509,7 @@
 
 <!-- ── PAGE HERO ── -->
 <div class="page-hero">
+    <img src="pexels-carloscruz-artegrafia-172084181-11198240.jpg" class="page-hero-bg" alt="" aria-hidden="true" loading="eager">
     <div class="page-hero-content">
         <div class="page-hero-eyebrow">Research &amp; Development</div>
         <h1>Pioneering <span>Next-Generation</span> Surgical Solutions</h1>
@@ -640,6 +676,18 @@
     </div>
 </section>
 
+<!-- ── PHOTO BREAK: GYNECOLOGY SUITE ── -->
+<div class="photo-break">
+    <img src="pexels-pavel-danilyuk-7108404.jpg" alt="Gynecological examination suite with colposcope — clinical environment" loading="lazy">
+    <div class="photo-break-overlay">
+        <div class="photo-break-content">
+            <div class="photo-break-label">Device 03 · Pelvic Diagnostics</div>
+            <div class="photo-break-title">POP-Q <span>AutoSense™</span></div>
+            <p class="photo-break-sub">Sensor-equipped intravaginal staging probe with integrated AI — standardizing POP-Q assessment to eliminate the 37.7% surgical recurrence rate driven by manual staging variability.</p>
+        </div>
+    </div>
+</div>
+
 <!-- ── DEVICE 2 — POP-Q ── -->
 <section class="device-section" id="popq" style="background:var(--cream);">
     <div class="container">
@@ -754,6 +802,18 @@
         </div>
     </div>
 </section>
+
+<!-- ── PHOTO BREAK: PNB ── -->
+<div class="photo-break">
+    <img src="pexels-arthur-uzoagba-3061628-33288974.jpg" alt="Surgical team performing a procedure — interventional analgesia" loading="lazy">
+    <div class="photo-break-overlay">
+        <div class="photo-break-content">
+            <div class="photo-break-label">Device 04 · Interventional Analgesia</div>
+            <div class="photo-break-title">Pudendal Nerve <span>Block Device™</span></div>
+            <p class="photo-break-sub">Landmark-guided block success: 50–70%. Ultrasound-guided: 82–97%. The NEG+ PNB device integrates both into a single-operator, finger-mounted system — closing the gap in obstetric and outpatient analgesia.</p>
+        </div>
+    </div>
+</div>
 
 <!-- ── DEVICE 3 — PNB ── -->
 <section class="device-section" id="pnb">
@@ -870,6 +930,18 @@
         </div>
     </div>
 </section>
+
+<!-- ── PHOTO BREAK: MUMS ── -->
+<div class="photo-break">
+    <img src="pexels-cottonbro-6471424.jpg" alt="Physician and patient reviewing female reproductive anatomy — women's health education" loading="lazy">
+    <div class="photo-break-overlay">
+        <div class="photo-break-content">
+            <div class="photo-break-label">Device 01 · Intrapartum Monitoring</div>
+            <div class="photo-break-title">MUMS™ — <span>Maternal &amp; Uterine Monitoring System</span></div>
+            <p class="photo-break-sub">4 million US births annually. MUMS™ bridges the intrapartum monitoring gap with an autonomous intravaginal SaMD platform — no direct competitor exists at equivalent modality.</p>
+        </div>
+    </div>
+</div>
 
 <!-- ── DEVICE 4 — MUMS ── -->
 <section class="device-section" id="mums" style="background:var(--cream);">

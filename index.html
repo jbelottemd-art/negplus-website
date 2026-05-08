@@ -1086,6 +1086,89 @@
             font-size: 0.78rem;
         }
 
+        /* ── PHOTO IMAGES ── */
+        /* About section photo */
+        .about-photo-wrap {
+            position: relative; border-radius: 16px; overflow: hidden;
+            margin-bottom: 1.75rem; flex-shrink: 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+        }
+        .about-photo-wrap img {
+            display: block; width: 100%; height: 200px;
+            object-fit: cover; object-position: center 30%;
+        }
+        .about-photo-caption {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(14,42,71,0.92));
+            padding: 1.25rem 1rem 0.75rem;
+            font-size: 0.7rem; color: rgba(255,255,255,0.7); font-style: italic;
+        }
+
+        /* Full-width photo break */
+        .photo-break {
+            position: relative; height: 340px; overflow: hidden;
+            background-attachment: fixed;
+        }
+        .photo-break img {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center 35%;
+        }
+        .photo-break-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(14,42,71,0.82) 0%, rgba(27,38,59,0.72) 100%);
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            padding: 2rem;
+        }
+        .photo-break-content { max-width: 760px; }
+        .photo-break-quote {
+            font-size: clamp(1.05rem, 2.2vw, 1.4rem); font-style: italic;
+            color: var(--white); line-height: 1.65; margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .photo-break-quote::before { content: '\201C'; color: var(--gold); font-size: 1.6em; line-height: 0; vertical-align: -0.35em; margin-right: 0.1em; }
+        .photo-break-quote::after  { content: '\201D'; color: var(--gold); font-size: 1.6em; line-height: 0; vertical-align: -0.35em; margin-left:  0.1em; }
+        .photo-break-attr { font-size: 0.78rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+
+        /* Funding hook with image */
+        .funding-hook-split {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden;
+        }
+        .funding-hook-img {
+            position: relative; min-height: 260px;
+        }
+        .funding-hook-img img {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center top;
+        }
+        .funding-hook-img::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(90deg, transparent 60%, var(--black) 100%);
+        }
+        .funding-hook-text { padding: 2.25rem 2.5rem; }
+        @media (max-width: 700px) {
+            .funding-hook-split { grid-template-columns: 1fr; }
+            .funding-hook-img { min-height: 180px; }
+            .funding-hook-img::after { background: linear-gradient(transparent 50%, var(--black) 100%); }
+            .funding-hook-text { padding: 1.75rem 1.5rem; }
+        }
+
+        /* Contact panel photo */
+        .contact-panel-photo {
+            margin-top: 2rem; border-radius: 14px; overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+            position: relative;
+        }
+        .contact-panel-photo img {
+            display: block; width: 100%; height: 180px;
+            object-fit: cover; object-position: center 20%;
+        }
+        .contact-panel-photo-caption {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(14,42,71,0.9));
+            padding: 1.5rem 1rem 0.7rem;
+            font-size: 0.68rem; color: rgba(255,255,255,0.6); font-style: italic; text-align: center;
+        }
+
         /* ── CTA ── */
         /* ── CONTACT SECTION ── */
         .contact-section {
@@ -2075,6 +2158,10 @@
                 </ul>
             </div>
             <div class="about-visual">
+                <div class="about-photo-wrap">
+                    <img src="pexels-mart-production-7089401.jpg" alt="Physician consulting with a patient — personalized women's health care">
+                    <div class="about-photo-caption">Patient-centered care is the foundation of every NEG+ device decision.</div>
+                </div>
                 <div class="mvv-block">
                     <div class="mvv-label">Mission</div>
                     <div class="mvv-rule"></div>
@@ -2202,6 +2289,17 @@
     </div>
 </section>
 
+<!-- ── PHOTO BREAK ── -->
+<div class="photo-break">
+    <img src="pexels-turan-kaymaz-98046252-17317655.jpg" alt="NEG+ surgical team in the operating room" loading="lazy">
+    <div class="photo-break-overlay">
+        <div class="photo-break-content">
+            <p class="photo-break-quote">Precision surgical innovation built around the patient — designed by the surgeon who understands exactly what the field is missing.</p>
+            <div class="photo-break-attr">Dr. Jimmy Belotte, MD, PhD, MBA, FACOG &nbsp;·&nbsp; Founder &amp; CEO, NEG+ Innovations</div>
+        </div>
+    </div>
+</div>
+
 <!-- ── MARKET ── -->
 <section class="market" id="market">
     <div class="container">
@@ -2276,11 +2374,16 @@
             </div>
         </div>
         <div class="funding-hook">
-            <div class="funding-hook-inner">
-                <h3>Investor Brief Available Upon Request</h3>
-                <p>Accredited investors and institutional partners may request our investor brief — including the full capital deployment schedule, milestone roadmap, and detailed financial model.</p>
-                <a href="#contact" class="btn-primary" style="margin-top:1.25rem;display:inline-block;">Request Investor Brief</a>
-                <p style="margin-top:0.75rem;font-size:0.78rem;opacity:0.65;text-align:center!important;">Offered under Regulation D, Rule 506(b) to verified accredited investors only.</p>
+            <div class="funding-hook-split">
+                <div class="funding-hook-img">
+                    <img src="pexels-yankrukov-7693740.jpg" alt="Investment team reviewing financial charts and projections" loading="lazy">
+                </div>
+                <div class="funding-hook-text funding-hook-inner">
+                    <h3>Investor Brief Available Upon Request</h3>
+                    <p>Accredited investors and institutional partners may request our investor brief — including the full capital deployment schedule, milestone roadmap, and detailed financial model.</p>
+                    <a href="#contact" class="btn-primary" style="margin-top:1.25rem;display:inline-block;">Request Investor Brief</a>
+                    <p style="margin-top:0.75rem;font-size:0.78rem;opacity:0.65;text-align:center!important;">Offered under Regulation D, Rule 506(b) to verified accredited investors only.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -2602,6 +2705,11 @@
             <div class="contact-guarantee">
                 <strong>🔒 Confidentiality Assured</strong>
                 All inquiries are treated with strict confidentiality. Investor communications are governed by applicable securities laws. NDAs available upon request for clinical partnership discussions.
+            </div>
+
+            <div class="contact-panel-photo">
+                <img src="pexels-pavel-danilyuk-7653087.jpg" alt="Women's health physician consulting with patient and family" loading="lazy">
+                <div class="contact-panel-photo-caption">Advancing care for women and families — across every stage of life.</div>
             </div>
         </div>
 
