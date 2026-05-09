@@ -6,180 +6,213 @@
     <title>Employee Portal — NEG+ Innovations, Inc.</title>
     <style>
         :root {
-            --black:      #1B263B;
-            --gold:       #41B3A3;
-            --gold-dark:  #2A9D8F;
-            --gold-light: #7DD3CB;
-            --brown-dark: #0E2A47;
-            --brown-mid:  #2D4A6B;
-            --brown-light:#778DA9;
-            --cream:      #E8EEF4;
-            --cream-dark: #D8E3EE;
-            --white:      #FFFFFF;
-            --text-dark:  #1B263B;
-            --text-mid:   #4A6580;
-            --ms-blue:    #0078D4;
+            --black:       #1B263B;
+            --gold:        #41B3A3;
+            --gold-dark:   #2A9D8F;
+            --gold-light:  #7DD3CB;
+            --brown-dark:  #0E2A47;
+            --brown-light: #778DA9;
+            --cream:       #E8EEF4;
+            --cream-dark:  #D8E3EE;
+            --white:       #FFFFFF;
+            --text-dark:   #1B263B;
+            --text-mid:    #4A6580;
+            --ms-blue:     #0078D4;
             --ms-blue-dark:#005A9E;
+            --input-bg:    rgba(255,255,255,0.06);
+            --input-border:rgba(65,179,163,0.25);
+            --input-focus: rgba(65,179,163,0.55);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; overflow-x: hidden; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; line-height: 1.65; color: var(--text-dark); background: var(--white); overflow-x: hidden; padding-top: 72px; }
+        html { overflow-x: hidden; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 60%, #0a1e35 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
 
         /* ── NAV ── */
-        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--white); border-bottom: 3px solid var(--gold); box-shadow: 0 2px 20px rgba(0,0,0,0.10); }
-        .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 72px; }
-        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .nav-logo-img { display: block; height: 44px; width: auto; }
-        .nav-links { display: flex; gap: 0; list-style: none; }
-        .nav-links a { display: block; padding: 0 0.6rem; height: 72px; line-height: 72px; font-size: 0.8rem; font-weight: 600; text-decoration: none; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.4px; transition: color 0.2s, border-bottom 0.2s; border-bottom: 3px solid transparent; margin-bottom: -3px; }
-        .nav-links a:hover, .nav-links a.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
-        .nav-links > li { position: relative; display: flex; align-items: center; }
-        .nav-links a { white-space: nowrap; }
-        .nav-links > li:hover > a { color: var(--gold-dark); border-bottom-color: var(--gold); }
-        .nav-dropdown { position: absolute; top: calc(100% + 3px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 210px; background: var(--white); border-top: 2px solid var(--gold); border-radius: 0 0 10px 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); list-style: none; padding: 0.5rem 0; opacity: 0; visibility: hidden; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s; z-index: 2000; }
-        .nav-links > li:hover > .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .nav-dropdown li { margin: 0; }
-        .nav-dropdown a { height: auto; line-height: 1.4; padding: 0.6rem 1.2rem; font-size: 0.78rem; font-weight: 500; color: var(--text-dark); border-bottom: none !important; margin-bottom: 0; letter-spacing: 0.2px; text-transform: none; }
-        .nav-dropdown a:hover { background: var(--cream); color: var(--gold-dark); border-bottom: none !important; }
-        .nav-dropdown .dd-divider { height: 1px; background: var(--cream-dark); margin: 0.3rem 0; }
-        .nav-cta { background: var(--gold); color: var(--black) !important; border-radius: 50px; padding: 0 1rem !important; height: 40px !important; line-height: 40px !important; margin-bottom: 0 !important; font-size: 0.85rem !important; transition: background 0.2s, transform 0.2s !important; border-bottom: none !important; }
-        .nav-cta:hover { background: var(--gold-dark) !important; transform: translateY(-1px); }
-        .nav-portal { background: transparent; color: var(--gold-dark) !important; border: 1.5px solid var(--gold-dark) !important; border-radius: 50px; padding: 0 0.9rem !important; height: 36px !important; line-height: 34px !important; margin: auto 0 auto 0.4rem; font-size: 0.78rem !important; font-weight: 600 !important; transition: border-color 0.2s, color 0.2s !important; border-bottom: 1.5px solid var(--gold-dark) !important; text-transform: uppercase; letter-spacing: 0.5px; }
-        .nav-portal:hover { background: var(--gold-dark) !important; color: var(--white) !important; border-color: var(--gold-dark) !important; }
-
-        /* ── HAMBURGER / MOBILE NAV ── */
-        .nav-hamburger { display: none; flex-direction: column; justify-content: space-between; width: 26px; height: 19px; background: none; border: none; cursor: pointer; padding: 0; z-index: 1100; }
-        .nav-hamburger span { display: block; width: 100%; height: 3px; background: var(--black); border-radius: 2px; transition: transform 0.28s ease, opacity 0.28s ease; transform-origin: center; }
-        .nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-        .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-        .mobile-nav { display: none; position: fixed; top: 75px; left: 0; right: 0; background: var(--white); border-top: 2px solid var(--gold); box-shadow: 0 8px 30px rgba(0,0,0,0.15); z-index: 1050; padding: 1rem 0 1.5rem; transform: translateY(-10px); opacity: 0; transition: transform 0.28s ease, opacity 0.28s ease; }
-        .mobile-nav.open { display: block; transform: translateY(0); opacity: 1; }
-        .mobile-nav ul { list-style: none; padding: 0; margin: 0; }
-        .mobile-nav ul li a { display: block; padding: 0.75rem 2rem; font-size: 0.95rem; font-weight: 600; text-decoration: none; color: var(--text-mid); text-transform: uppercase; letter-spacing: 0.8px; border-left: 3px solid transparent; transition: color 0.2s, border-color 0.2s, background 0.2s; }
-        .mobile-nav ul li a:hover { color: var(--gold-dark); border-left-color: var(--gold); background: var(--cream); }
-        .mobile-nav .mobile-cta { display: block; margin: 1rem 2rem 0; text-align: center; background: var(--gold); color: var(--black) !important; border-radius: 50px; padding: 0.7rem 1.5rem !important; font-size: 0.9rem !important; font-weight: 700; text-decoration: none; text-transform: uppercase; letter-spacing: 0.8px; border-left: none !important; transition: background 0.2s; }
-        .mobile-nav .mobile-cta:hover { background: var(--gold-dark) !important; }
-        @media (max-width: 1050px) { .nav-links { display: none; } .nav-hamburger { display: flex; } .nav-dropdown { display: none !important; } }
-
-        /* ── PORTAL HERO ── */
-        .portal-hero {
-            background: linear-gradient(135deg, var(--black) 0%, var(--brown-dark) 50%, #0a1e35 100%);
-            padding: 72px 2rem 64px;
-            text-align: center;
+        nav {
+            background: rgba(27,38,59,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(65,179,163,0.25);
             position: relative;
-            overflow: hidden;
+            z-index: 10;
         }
-        .portal-hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40h80M40 0v80' stroke='rgba(65,179,163,0.06)' stroke-width='1'/%3E%3C/svg%3E");
-        }
-        .portal-hero-content { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
-        .portal-eyebrow { display: inline-block; background: rgba(65,179,163,0.15); border: 1px solid rgba(65,179,163,0.35); color: var(--gold-light); font-size: 0.72rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 18px; border-radius: 50px; margin-bottom: 1.25rem; }
-        .portal-hero h1 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 0.9rem; }
-        .portal-hero h1 span { color: var(--gold); }
-        .portal-hero p { color: rgba(255,255,255,0.65); font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.7; }
-        .btn-ms-signin {
-            display: inline-flex; align-items: center; gap: 12px;
-            background: var(--ms-blue); color: #fff !important;
-            padding: 0.85rem 2rem; border-radius: 8px;
-            font-size: 0.97rem; font-weight: 700; text-decoration: none;
-            transition: background 0.2s, transform 0.15s;
-            box-shadow: 0 4px 20px rgba(0,120,212,0.35);
-        }
-        .btn-ms-signin:hover { background: var(--ms-blue-dark); transform: translateY(-2px); }
-        .btn-ms-signin svg { flex-shrink: 0; }
-        .portal-note { margin-top: 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.35); }
-
-        /* ── APP LAUNCHER ── */
-        .app-launcher { background: var(--cream); padding: 40px 0; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-        .section-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 0.6rem; }
-        .section-title { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; }
-        .section-title span { color: var(--gold); }
-        .divider { width: 48px; height: 3px; background: var(--gold); border-radius: 2px; margin: 0.75rem 0 0; }
-
-        /* ── ACCORDION TOGGLE ── */
-        .accordion-header {
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto; padding: 0 2rem;
             display: flex; align-items: center; justify-content: space-between;
-            cursor: pointer; user-select: none;
-            padding-bottom: 0.25rem;
+            height: 68px;
         }
-        .accordion-header:hover .section-title { color: var(--gold-dark); }
-        .accordion-chevron {
-            flex-shrink: 0; width: 32px; height: 32px;
-            border-radius: 50%; background: rgba(65,179,163,0.12);
+        .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .nav-logo-img { display: block; height: 40px; width: auto; }
+        .nav-back {
+            font-size: 0.8rem; font-weight: 600; color: var(--gold-light);
+            text-decoration: none; text-transform: uppercase; letter-spacing: 0.6px;
+            display: flex; align-items: center; gap: 6px;
+            transition: color 0.2s;
+        }
+        .nav-back:hover { color: var(--white); }
+        .nav-back svg { flex-shrink: 0; }
+
+        /* ── LOGIN WRAPPER ── */
+        .login-wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+        }
+
+        /* ── CARD ── */
+        .login-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(65,179,163,0.2);
+            border-radius: 20px;
+            padding: 3rem 2.5rem 2.5rem;
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.45);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .login-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(65,179,163,0.12);
+            border: 1px solid rgba(65,179,163,0.3);
+            border-radius: 50px;
+            padding: 5px 16px;
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 1.8px;
+            text-transform: uppercase; color: var(--gold-light);
+            margin-bottom: 1.5rem;
+        }
+        .login-badge svg { flex-shrink: 0; }
+
+        .login-card h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+        .login-card h1 span { color: var(--gold); }
+
+        .login-card .subtitle {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.65;
+            margin-bottom: 2.25rem;
+        }
+
+        .divider-line {
+            width: 40px; height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+            margin: 0 auto 2.25rem;
+        }
+
+        /* ── FORM ── */
+        .login-form { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
+
+        .field-group { display: flex; flex-direction: column; gap: 0.4rem; }
+        .field-label {
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.8px;
+            text-transform: uppercase; color: rgba(255,255,255,0.45);
+        }
+        .field-wrap { position: relative; }
+        .field-input {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 10px;
+            padding: 0.82rem 1rem;
+            font-size: 0.95rem;
+            color: var(--white);
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+            -webkit-appearance: none;
+        }
+        .field-input::placeholder { color: rgba(255,255,255,0.2); }
+        .field-input:focus {
+            border-color: var(--input-focus);
+            background: rgba(255,255,255,0.09);
+            box-shadow: 0 0 0 3px rgba(65,179,163,0.12);
+        }
+        .field-suffix {
+            position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+            font-size: 0.8rem; color: rgba(255,255,255,0.25); pointer-events: none;
+        }
+        .toggle-pw {
+            position: absolute; right: 0.85rem; top: 50%; transform: translateY(-50%);
+            background: none; border: none; cursor: pointer; padding: 4px;
+            color: rgba(255,255,255,0.3); transition: color 0.2s; line-height: 0;
+        }
+        .toggle-pw:hover { color: var(--gold-light); }
+
+        .btn-signin {
             display: flex; align-items: center; justify-content: center;
-            transition: transform 0.3s ease, background 0.2s;
-            margin-left: 1rem;
+            width: 100%; margin-top: 0.5rem;
+            background: var(--gold);
+            color: var(--black) !important;
+            border: none; border-radius: 10px; cursor: pointer;
+            padding: 0.95rem 1.5rem;
+            font-size: 0.97rem; font-weight: 800; font-family: inherit;
+            letter-spacing: 0.3px;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(65,179,163,0.3);
         }
-        .accordion-chevron svg { display: block; transition: transform 0.3s ease; }
-        .accordion-header:hover .accordion-chevron { background: rgba(65,179,163,0.22); }
-        .accordion-body {
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.45s ease, padding 0.3s ease;
+        .btn-signin:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(65,179,163,0.35);
         }
-        .accordion-body.open { max-height: 2000px; }
-        .accordion-body-inner { padding-top: 2rem; }
-        /* rotate chevron when open */
-        .accordion-header[aria-expanded="true"] .accordion-chevron { background: var(--gold); }
-        .accordion-header[aria-expanded="true"] .accordion-chevron svg { transform: rotate(180deg); }
-        .accordion-header[aria-expanded="true"] .accordion-chevron path { stroke: var(--white); }
+        .btn-signin:active { transform: translateY(0); }
 
-        .app-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-        .app-tile {
-            background: var(--white); border-radius: 18px; padding: 1.75rem 1.25rem;
-            text-align: center; text-decoration: none;
-            border: 1px solid rgba(65,179,163,0.12);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+        .login-note {
+            margin-top: 1.25rem;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.3);
+            line-height: 1.6;
         }
-        .app-tile:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.10); }
-        .app-tile-name { font-size: 0.88rem; font-weight: 700; color: var(--text-dark); }
-        .app-tile-desc { font-size: 0.72rem; color: var(--text-mid); line-height: 1.4; }
-
-        /* ── QUICK LINKS ── */
-        .quick-links { background: var(--white); padding: 40px 0; }
-        .quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-        .quick-card {
-            border-radius: 16px; padding: 1.75rem;
-            border: 1px solid rgba(65,179,163,0.15);
-            border-top: 4px solid var(--gold);
-            background: var(--cream);
+        .login-note a {
+            color: var(--gold-light);
             text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            display: block;
         }
-        .quick-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-        .quick-card-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
-        .quick-card h3 { font-size: 0.97rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.4rem; }
-        .quick-card p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.55; }
-        .quick-card-tag { display: inline-block; margin-top: 0.75rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold-dark); background: rgba(65,179,163,0.1); padding: 3px 10px; border-radius: 50px; }
+        .login-note a:hover { text-decoration: underline; }
 
-        /* ── SECURITY BANNER ── */
-        .security-banner {
-            background: linear-gradient(135deg, var(--black), var(--brown-dark));
-            padding: 40px 2rem; text-align: center;
+        .login-security {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(65,179,163,0.12);
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.22);
+            display: flex; align-items: center; justify-content: center; gap: 6px;
         }
-        .security-banner p { font-size: 0.82rem; color: rgba(255,255,255,0.55); max-width: 680px; margin: 0 auto; line-height: 1.7; }
-        .security-banner p strong { color: var(--gold-light); }
-        .security-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(65,179,163,0.12); border: 1px solid rgba(65,179,163,0.3); border-radius: 50px; padding: 6px 16px; font-size: 0.72rem; font-weight: 700; color: var(--gold-light); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
 
         /* ── FOOTER ── */
-        footer { background: var(--black); color: rgba(255,255,255,0.5); padding: 2rem; text-align: center; }
-        footer p { font-size: 0.78rem; }
-        footer a { color: var(--gold-light); text-decoration: none; }
+        footer {
+            text-align: center;
+            padding: 1.5rem 2rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.2);
+        }
+        footer a { color: rgba(65,179,163,0.6); text-decoration: none; }
+        footer a:hover { color: var(--gold-light); }
 
         /* ── RESPONSIVE ── */
-        @media (max-width: 900px) { .app-grid { grid-template-columns: repeat(3, 1fr); } .quick-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 600px) { .app-grid { grid-template-columns: repeat(2, 1fr); } .quick-grid { grid-template-columns: 1fr; } .portal-hero { padding: 56px 1rem 48px; } .container { padding: 0 1rem; } .section-title { font-size: 1.25rem; } }
-        @media (max-width: 375px) { .app-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; } }
+        @media (max-width: 480px) {
+            .login-card { padding: 2.25rem 1.5rem 2rem; border-radius: 16px; }
+            .login-wrap { padding: 2rem 1rem; }
+        }
     </style>
     <link rel="icon" href="favicon.png" type="image/png">
-    <meta name="description" content="NEG+ Innovations Employee Portal — secure access to Microsoft 365 workplace tools.">
     <meta name="robots" content="noindex, nofollow">
 </head>
 <body>
@@ -188,301 +221,100 @@
 <nav>
     <div class="nav-inner">
         <a class="nav-logo" href="index.html">
-            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="44">
+            <img src="logo.svg" alt="NEG+ Innovations, Inc." class="nav-logo-img" height="40">
         </a>
-        <ul class="nav-links">
-            <li>
-                <a href="index.html#products">Products</a>
-                <ul class="nav-dropdown">
-                    <li><a href="rd.html#mums">MUMS™ — Intrapartum Monitor</a></li>
-                    <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
-                    <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
-                    <li><a href="rd.html#pnb">Pudendal Nerve Block Device™</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="rd.html">R&amp;D</a>
-                <ul class="nav-dropdown">
-                    <li><a href="rd.html">R&amp;D Overview</a></li>
-                    <li class="dd-divider"></li>
-                    <li><a href="rd.html#mums">MUMS™</a></li>
-                    <li><a href="rd.html#colpotomizer">Belotte Colpotomizer™</a></li>
-                    <li><a href="rd.html#popq">POP-Q AutoSense™</a></li>
-                    <li><a href="rd.html#pnb">PNB Device™</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="clinops.html">ClinOps</a>
-                <ul class="nav-dropdown">
-                    <li><a href="clinops.html">ClinOps Overview</a></li>
-                    <li class="dd-divider"></li>
-                    <li><a href="clinops.html#mandate">The ClinOps Mandate</a></li>
-                    <li><a href="clinops.html#pillars">Execution Pillars</a></li>
-                    <li><a href="clinops.html#kpis">KPI Framework</a></li>
-                    <li><a href="clinops.html#programs">Device Programs</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="team.html">Team</a>
-                <ul class="nav-dropdown">
-                    <li><a href="team.html">Team Overview</a></li>
-                    <li class="dd-divider"></li>
-                    <li><a href="team.html#founder">Founder &amp; CEO</a></li>
-                    <li><a href="team.html#board">Board of Directors</a></li>
-                    <li><a href="team.html#advisory">Advisors</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="investors.html">Investors</a>
-                <ul class="nav-dropdown">
-                    <li><a href="investors.html">Investor Overview</a></li>
-                    <li class="dd-divider"></li>
-                    <li><a href="investors.html#thesis">Investment Thesis</a></li>
-                    <li><a href="investors.html#terms">Deal Terms</a></li>
-                    <li><a href="investors.html#milestones">Milestones</a></li>
-                    <li><a href="investors.html#proceeds">Use of Proceeds</a></li>
-                    <li class="dd-divider"></li>
-                    <li><a href="investors.html#contact">Investor Contact</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="index.html#about">About</a>
-                <ul class="nav-dropdown">
-                    <li><a href="index.html#about">Company Overview</a></li>
-                    <li><a href="index.html#pipeline">Development Pipeline</a></li>
-                    <li><a href="index.html#market">Market Opportunity</a></li>
-                    <li><a href="index.html#funding">Funding Strategy</a></li>
-                    <li class="dd-divider"></li>
-                    <li><a href="index.html#advisory">Advisory Network</a></li>
-                    <li><a href="index.html#partners">Partners &amp; Institutions</a></li>
-                    <li><a href="index.html#ip">IP Portfolio</a></li>
-                </ul>
-            </li>
-            <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
-        </ul>
-        <a href="portal.html" class="nav-portal">Employee Portal</a>
-        <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobileNav">
-            <span></span><span></span><span></span>
-        </button>
+        <a href="index.html" class="nav-back">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 11L5 7l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Back to site
+        </a>
     </div>
 </nav>
-<div class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-    <ul>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#products">Products</a></li>
-        <li><a href="rd.html">R&amp;D</a></li>
-        <li><a href="clinops.html">ClinOps</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="investors.html">Investors</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="index.html#contact" class="mobile-cta">Contact Us</a></li>
-    </ul>
-</div>
 
-<!-- ── PORTAL HERO ── -->
-<section class="portal-hero">
-    <img src="pexels-ofspace-16323586.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.12;pointer-events:none;" alt="" aria-hidden="true" loading="eager">
-    <div class="portal-hero-content">
-        <div class="portal-eyebrow">🔒 Secure · Internal Access Only</div>
-        <h1>NEG<span>+</span> Employee Portal</h1>
-        <p>Sign in with your NEG+ Innovations Microsoft 365 account to access your workspace — email, files, collaboration tools, and the full Office suite, all in your browser.</p>
-        <a href="https://www.office.com" target="_blank" rel="noopener" class="btn-ms-signin">
-            <!-- Microsoft logo -->
-            <svg width="20" height="20" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1" y="1" width="9" height="9" fill="#F25022"/>
-                <rect x="11" y="1" width="9" height="9" fill="#7FBA00"/>
-                <rect x="1" y="11" width="9" height="9" fill="#00A4EF"/>
-                <rect x="11" y="11" width="9" height="9" fill="#FFB900"/>
+<!-- ── LOGIN ── -->
+<div class="login-wrap">
+    <div class="login-card">
+
+        <div class="login-badge">
+            <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="5" width="8" height="6.5" rx="1.5" stroke="#7DD3CB" stroke-width="1.3"/>
+                <path d="M3 5V3.5a2 2 0 0 1 4 0V5" stroke="#7DD3CB" stroke-width="1.3" stroke-linecap="round"/>
             </svg>
-            Sign in with Microsoft 365
-        </a>
-        <p class="portal-note">Use your @negplus.com account · Browser-based · No downloads required</p>
-    </div>
-</section>
-
-<!-- ── APP LAUNCHER ── -->
-<section class="app-launcher">
-    <div class="container">
-        <div class="section-label">Microsoft 365 Suite</div>
-        <div class="accordion-header" id="appsToggle" role="button" tabindex="0" aria-expanded="false" aria-controls="appsBody">
-            <div>
-                <h2 class="section-title">Your <span>Workplace Apps</span></h2>
-                <div class="divider"></div>
-            </div>
-            <div class="accordion-chevron" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 6l5 5 5-5" stroke="#41B3A3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
+            Internal Access Only
         </div>
-        <div class="accordion-body" id="appsBody" role="region" aria-labelledby="appsToggle">
-            <div class="accordion-body-inner">
-                <div class="app-grid">
 
-                    <a href="https://outlook.office.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">Outlook</div>
-                        <div class="app-tile-desc">Email &amp; Calendar</div>
-                    </a>
+        <h1>NEG<span>+</span> Employee Portal</h1>
+        <p class="subtitle">Sign in with your @negplus.com account.</p>
+        <div class="divider-line"></div>
 
-                    <a href="https://teams.microsoft.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">Teams</div>
-                        <div class="app-tile-desc">Chat &amp; Meetings</div>
-                    </a>
-
-                    <a href="https://negplusinnovationsinc.sharepoint.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">SharePoint</div>
-                        <div class="app-tile-desc">Intranet &amp; Sites</div>
-                    </a>
-
-                    <a href="https://negplusinnovationsinc-my.sharepoint.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">OneDrive</div>
-                        <div class="app-tile-desc">Files &amp; Storage</div>
-                    </a>
-
-                    <a href="https://word.office.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">Word</div>
-                        <div class="app-tile-desc">Documents</div>
-                    </a>
-
-                    <a href="https://excel.office.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">Excel</div>
-                        <div class="app-tile-desc">Spreadsheets</div>
-                    </a>
-
-                    <a href="https://powerpoint.office.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">PowerPoint</div>
-                        <div class="app-tile-desc">Presentations</div>
-                    </a>
-
-                    <a href="https://forms.office.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">Forms</div>
-                        <div class="app-tile-desc">Surveys &amp; Quizzes</div>
-                    </a>
-
-                    <a href="https://tasks.office.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">Planner</div>
-                        <div class="app-tile-desc">Tasks &amp; Projects</div>
-                    </a>
-
-                    <a href="https://admin.microsoft.com" target="_blank" rel="noopener" class="app-tile">
-                        <div class="app-tile-name">Admin Center</div>
-                        <div class="app-tile-desc">Admin only</div>
-                    </a>
-
+        <form class="login-form" onsubmit="handleLogin(event)">
+            <div class="field-group">
+                <label class="field-label" for="username">Username</label>
+                <div class="field-wrap">
+                    <input class="field-input" id="username" type="text"
+                           placeholder="name" autocomplete="username"
+                           autocapitalize="none" spellcheck="false" required>
+                    <span class="field-suffix">@negplus.com</span>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- ── QUICK LINKS ── -->
-<section class="quick-links">
-    <div class="container">
-        <div class="section-label">Internal Resources</div>
-        <div class="accordion-header" id="quickToggle" role="button" tabindex="0" aria-expanded="false" aria-controls="quickBody">
-            <div>
-                <h2 class="section-title">Quick <span>Access</span></h2>
-                <div class="divider"></div>
-            </div>
-            <div class="accordion-chevron" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 6l5 5 5-5" stroke="#41B3A3" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-        </div>
-        <div class="accordion-body" id="quickBody" role="region" aria-labelledby="quickToggle">
-            <div class="accordion-body-inner">
-                <div class="quick-grid">
-                    <a href="https://negplusinnovationsinc.sharepoint.com" target="_blank" rel="noopener" class="quick-card">
-                        <div class="quick-card-icon">🏢</div>
-                        <h3>NEG+ Intranet</h3>
-                        <p>Company news, shared documents, policies, and team resources — your central hub.</p>
-                        <span class="quick-card-tag">SharePoint</span>
-                    </a>
-                    <a href="https://teams.microsoft.com" target="_blank" rel="noopener" class="quick-card">
-                        <div class="quick-card-icon">💬</div>
-                        <h3>Team Chat &amp; Calls</h3>
-                        <p>Instant messaging, video meetings, and channel collaboration — all in browser.</p>
-                        <span class="quick-card-tag">Teams</span>
-                    </a>
-                    <a href="https://outlook.office.com/calendar" target="_blank" rel="noopener" class="quick-card">
-                        <div class="quick-card-icon">📅</div>
-                        <h3>Shared Calendar</h3>
-                        <p>Schedule meetings, view team availability, and manage your work calendar.</p>
-                        <span class="quick-card-tag">Outlook</span>
-                    </a>
-                    <a href="https://negplusinnovationsinc-my.sharepoint.com" target="_blank" rel="noopener" class="quick-card">
-                        <div class="quick-card-icon">📁</div>
-                        <h3>Shared Files</h3>
-                        <p>Access, upload, and collaborate on documents stored in OneDrive and SharePoint.</p>
-                        <span class="quick-card-tag">OneDrive</span>
-                    </a>
-                    <a href="https://tasks.office.com" target="_blank" rel="noopener" class="quick-card">
-                        <div class="quick-card-icon">✅</div>
-                        <h3>Tasks &amp; Projects</h3>
-                        <p>Track work items, assign tasks, and monitor project progress across the team.</p>
-                        <span class="quick-card-tag">Planner</span>
-                    </a>
-                    <a href="https://admin.microsoft.com" target="_blank" rel="noopener" class="quick-card">
-                        <div class="quick-card-icon">⚙️</div>
-                        <h3>IT &amp; Admin</h3>
-                        <p>Manage users, licenses, security settings, and Microsoft 365 configuration.</p>
-                        <span class="quick-card-tag">Admin · Restricted</span>
-                    </a>
+            <div class="field-group">
+                <label class="field-label" for="password">Password</label>
+                <div class="field-wrap">
+                    <input class="field-input" id="password" type="password"
+                           placeholder="••••••••" autocomplete="current-password" required
+                           style="padding-right:2.75rem;">
+                    <button type="button" class="toggle-pw" id="togglePw" aria-label="Show password">
+                        <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+            <button type="submit" class="btn-signin">Sign In</button>
+        </form>
 
-<!-- ── SECURITY BANNER ── -->
-<div class="security-banner">
-    <div class="security-badge">🔒 Secured by Microsoft 365</div>
-    <p><strong>Access Policy:</strong> This portal is for authorized NEG+ Innovations team members only. All sessions are protected by <strong>Multi-Factor Authentication (MFA)</strong> and enforced browser-based access. Do not share credentials. Report security concerns to <a href="mailto:admin@negplus.com" style="color:var(--gold-light);">admin@negplus.com</a>.</p>
+        <p class="login-note" style="margin-top:1.25rem;">
+            Forgot your password? <a href="mailto:admin@negplus.com">Contact IT</a>
+        </p>
+
+        <div class="login-security">
+            <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5.5 1L1 3v3.5C1 9.3 3 11.6 5.5 12.5 8 11.6 10 9.3 10 6.5V3L5.5 1Z" stroke="rgba(255,255,255,0.25)" stroke-width="1.2" stroke-linejoin="round"/>
+            </svg>
+            Secured · Internal access only
+        </div>
+
+    </div>
 </div>
 
 <!-- ── FOOTER ── -->
 <footer>
-    <p>© 2026 NEG+ Innovations, Inc. · <a href="index.html">Return to Website</a> · <a href="disclaimer.html">Disclaimer</a></p>
+    <p>© 2026 NEG+ Innovations, Inc. &nbsp;·&nbsp; <a href="index.html">Return to website</a> &nbsp;·&nbsp; <a href="disclaimer.html">Disclaimer</a></p>
 </footer>
 
 <script>
 (function() {
-    var btn = document.getElementById('navHamburger');
-    var mobileNav = document.getElementById('mobileNav');
-    if (!btn || !mobileNav) return;
+    var pw    = document.getElementById('password');
+    var btn   = document.getElementById('togglePw');
+    var icon  = document.getElementById('eyeIcon');
+    var eyeOn  = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+    var eyeOff = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/>';
     btn.addEventListener('click', function() {
-        var isOpen = btn.classList.toggle('open');
-        if (isOpen) { mobileNav.style.display = 'block'; requestAnimationFrame(function() { mobileNav.classList.add('open'); }); }
-        else { mobileNav.classList.remove('open'); mobileNav.addEventListener('transitionend', function handler() { mobileNav.style.display = 'none'; mobileNav.removeEventListener('transitionend', handler); }); }
-        btn.setAttribute('aria-expanded', isOpen);
-    });
-    mobileNav.querySelectorAll('a').forEach(function(a) {
-        a.addEventListener('click', function() { btn.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.style.display = 'none'; btn.setAttribute('aria-expanded', 'false'); });
-    });
-    document.addEventListener('click', function(e) {
-        if (!btn.contains(e.target) && !mobileNav.contains(e.target)) { btn.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.style.display = 'none'; btn.setAttribute('aria-expanded', 'false'); }
+        var show = pw.type === 'password';
+        pw.type = show ? 'text' : 'password';
+        icon.innerHTML = show ? eyeOff : eyeOn;
+        btn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
     });
 })();
 
-/* ── ACCORDION ── */
-(function() {
-    function initAccordion(toggleId, bodyId) {
-        var toggle = document.getElementById(toggleId);
-        var body   = document.getElementById(bodyId);
-        if (!toggle || !body) return;
-        toggle.addEventListener('click', function() {
-            var isOpen = body.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', isOpen);
-        });
-        toggle.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
-        });
-    }
-    initAccordion('appsToggle',  'appsBody');
-    initAccordion('quickToggle', 'quickBody');
-})();
+function handleLogin(e) {
+    e.preventDefault();
+    var user = document.getElementById('username').value.trim();
+    var hint = encodeURIComponent(user + '@negplus.com');
+    window.open('https://login.microsoftonline.com/negplus.com?login_hint=' + hint, '_blank', 'noopener');
+}
 </script>
 </body>
 </html>
