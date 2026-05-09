@@ -32,10 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
     <!-- Microsoft Authentication Library (MSAL.js) -->
-    <script src="https://alcdn.msauth.net/browser/2.38.3/js/msal-browser.min.js"
-            integrity="sha384-YwJ5MD+/RRnDWkYLaQJBpRqYhkOFQ0xQOe5iqGiWFjpPYA4JrYpjQOr8SBv9W5u"
-            crossorigin="anonymous"
-            onerror="this.removeAttribute('integrity');"></script>
+    <script src="https://alcdn.msauth.net/browser/2.38.3/js/msal-browser.min.js"></script>
 
     <style>
         :root {
@@ -707,58 +704,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 
     /* ── SIGN IN ───────────────────────────────────── */
-    btnLogin.addEventListener('click', async () => {
+    btnLogin.addEventListener('click', () => {
         btnLogin.disabled = true;
-        btnLogin.textContent = 'Signing in…';
+        btnLogin.textContent = 'Redirecting to Microsoft…';
         loginError.classList.remove('visible');
-
-        /* Guard: if IDs not yet configured, show helpful message */
-        if (CLIENT_ID === 'YOUR_CLIENT_ID_HERE' || TENANT_ID === 'YOUR_TENANT_ID_HERE') {
-            showError('Azure App Registration not yet configured. Please provide Client ID and Tenant ID.');
-            btnLogin.innerHTML = `<svg width="20" height="20" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#F25022"/><rect x="11" y="1" width="9" height="9" fill="#7FBA00"/><rect x="1" y="11" width="9" height="9" fill="#00A4EF"/><rect x="11" y="11" width="9" height="9" fill="#FFB900"/></svg> Sign in with Microsoft 365`;
-            return;
-        }
-
-        try {
-            const response = await msalInstance.loginPopup(loginRequest);
-            const account  = response.account;
-
-            /* Restrict to @negplus.com */
-            if (ALLOWED_DOMAIN && !account.username.toLowerCase().endsWith('@' + ALLOWED_DOMAIN)) {
-                await msalInstance.logoutPopup({ account });
-                showError('Access restricted to @' + ALLOWED_DOMAIN + ' accounts. Please use your NEG+ company email.');
-                btnLogin.innerHTML = `<svg width="20" height="20" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#F25022"/><rect x="11" y="1" width="9" height="9" fill="#7FBA00"/><rect x="1" y="11" width="9" height="9" fill="#00A4EF"/><rect x="11" y="11" width="9" height="9" fill="#FFB900"/></svg> Sign in with Microsoft 365`;
-                return;
-            }
-
-            showPortal(account);
-
-        } catch(e) {
-            if (e.errorCode !== 'user_cancelled') {
-                showError('Sign-in failed: ' + (e.errorMessage || e.message || 'Unknown error'));
-            }
-            btnLogin.disabled = false;
-            btnLogin.innerHTML = `<svg width="20" height="20" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="1" width="9" height="9" fill="#F25022"/><rect x="11" y="1" width="9" height="9" fill="#7FBA00"/><rect x="1" y="11" width="9" height="9" fill="#00A4EF"/><rect x="11" y="11" width="9" height="9" fill="#FFB900"/></svg> Sign in with Microsoft 365`;
-        }
+        msalInstance.loginRedirect(loginRequest);
     });
 
     /* ── SIGN OUT ──────────────────────────────────── */
-    btnSignout.addEventListener('click', async () => {
+    btnSignout.addEventListener('click', () => {
         const accounts = msalInstance.getAllAccounts();
-        try {
-            await msalInstance.logoutPopup({ account: accounts[0] || null });
-        } catch(e) { /* ignore */ }
-        sessionStorage.clear();
-        location.reload();
+        msalInstance.logoutRedirect({ account: accounts[0] || null });
     });
 
-    /* ── AUTO-RESUME SESSION ───────────────────────── */
+    /* ── HANDLE REDIRECT RESPONSE ──────────────────── */
     msalInstance.handleRedirectPromise().then(resp => {
+        if (resp && resp.account) {
+            const account = resp.account;
+            /* Restrict to @negplus.com */
+            if (ALLOWED_DOMAIN && !account.username.toLowerCase().endsWith('@' + ALLOWED_DOMAIN)) {
+                msalInstance.logoutRedirect({ account });
+                return;
+            }
+            showPortal(account);
+            return;
+        }
+        /* Auto-resume existing session */
         const accounts = msalInstance.getAllAccounts();
         if (accounts.length > 0) {
             showPortal(accounts[0]);
         }
-    }).catch(() => {});
+    }).catch(e => {
+        showError('Sign-in error: ' + (e.errorMessage || e.message || 'Unknown error. Please try again.'));
+    });
 
 })();
 </script>
