@@ -1277,5 +1277,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
+<!-- ── R&D PIPELINE TRACKING ── -->
+<script>
+(function () {
+    window.dataLayer = window.dataLayer || [];
+    function track(event, params) {
+        window.dataLayer.push(Object.assign({ event: event }, params));
+        if (typeof gtag === 'function') gtag('event', event, params);
+    }
+
+    /* Pipeline section view — fires once when each device section scrolls into view */
+    var sections = [
+        { id: 'colpotomizer', name: 'Belotte Colpotomizer' },
+        { id: 'popq',         name: 'POP-Q AutoSense' },
+        { id: 'pnb',          name: 'Pudendal Nerve Block Device' },
+        { id: 'mums',         name: 'MUMS Intrapartum Monitor' }
+    ];
+
+    if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var name = entry.target.dataset.trackName;
+                    track('pipeline_section_viewed', { device_name: name, page: 'rd' });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(function (s) {
+            var el = document.getElementById(s.id);
+            if (el) { el.dataset.trackName = s.name; observer.observe(el); }
+        });
+    }
+
+    /* Scroll depth */
+    var milestones = { 25: false, 50: false, 75: false, 90: false };
+    window.addEventListener('scroll', function () {
+        var scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+        Object.keys(milestones).forEach(function (pct) {
+            if (!milestones[pct] && scrolled >= pct) {
+                milestones[pct] = true;
+                track('scroll_depth', { page: 'rd_pipeline', depth_pct: parseInt(pct) });
+            }
+        });
+    }, { passive: true });
+})();
+</script>
+
 </body>
 </html>

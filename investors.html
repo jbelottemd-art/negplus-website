@@ -931,5 +931,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
 })();
 </script>
+
+<!-- ── INVESTOR PAGE TRACKING ── -->
+<script>
+(function () {
+    window.dataLayer = window.dataLayer || [];
+    function track(event, params) {
+        window.dataLayer.push(Object.assign({ event: event }, params));
+        if (typeof gtag === 'function') gtag('event', event, params);
+    }
+
+    /* Investor Brief request clicks */
+    document.querySelectorAll('a[href*="investors@negplus.com"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+            track('investor_brief_request', { link_text: el.textContent.trim().slice(0, 50) });
+        });
+    });
+
+    /* General investor email clicks */
+    document.querySelectorAll('a[href*="mailto:"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+            var href = el.getAttribute('href') || '';
+            var recipient = href.replace('mailto:', '').split('?')[0];
+            track('investor_email_click', { recipient: recipient, link_text: el.textContent.trim().slice(0, 50) });
+        });
+    });
+
+    /* Scroll depth — fire once per milestone */
+    var milestones = { 25: false, 50: false, 75: false, 90: false };
+    window.addEventListener('scroll', function () {
+        var scrolled = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+        Object.keys(milestones).forEach(function (pct) {
+            if (!milestones[pct] && scrolled >= pct) {
+                milestones[pct] = true;
+                track('scroll_depth', { page: 'investors', depth_pct: parseInt(pct) });
+            }
+        });
+    }, { passive: true });
+})();
+</script>
 </body>
 </html>
