@@ -32,7 +32,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
     <!-- Microsoft Authentication Library (MSAL.js) -->
-    <script src="https://alcdn.msauth.net/browser/2.38.3/js/msal-browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.38.3/lib/msal-browser.min.js"></script>
 
     <style>
         :root {
@@ -600,9 +600,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     /* ── MSAL INSTANCE ─────────────────────────────── */
     let msalInstance;
     try {
+        if (typeof msal === 'undefined') throw new Error('MSAL library did not load.');
         msalInstance = new msal.PublicClientApplication(msalConfig);
     } catch(e) {
-        showError('Microsoft Authentication could not be initialised. Ensure the Client ID and Tenant ID are configured correctly.');
+        showError('Sign-in error: ' + (e.message || 'MSAL failed to initialise.'));
         return;
     }
 
