@@ -313,7 +313,7 @@ function handleLogin(e) {
     e.preventDefault();
     var user = document.getElementById('username').value.trim();
     var hint = encodeURIComponent(user + '@negplus.com');
-    window.location.href = 'https://login.microsoftonline.com/negplus.com?login_hint=' + hint;
+    window.location.href = 'https://login.microsoftonline.com?login_hint=' + hint;
 }
 </script>
 </body>
