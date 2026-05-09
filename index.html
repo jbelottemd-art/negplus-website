@@ -2949,6 +2949,10 @@ function switchTab(tab) {
     document.querySelectorAll('.form-panel').forEach(function(p) { p.classList.remove('active'); });
     document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
     document.getElementById('tab-' + tab).classList.add('active');
+    /* ── TRACK: tab switch ── */
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'contact_tab_switch', tab_name: tab });
+    if (typeof gtag === 'function') gtag('event', 'contact_tab_switch', { tab_name: tab });
 }
 
 /* ── DATE MIN = TODAY ── */
@@ -2985,6 +2989,10 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         'Message:\n' + msg + '\n\n' +
         '---\nSent via negplus.com contact form'
     );
+    /* ── TRACK: contact form submit ── */
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'contact_form_submit', inquiry_type: inq, organization: org });
+    if (typeof gtag === 'function') gtag('event', 'contact_form_submit', { inquiry_type: inq, organization: org });
     window.location.href = 'mailto:info@negplus.com?subject=' + subject + '&body=' + body;
     document.getElementById('contactEmailConfirm').textContent = em;
     f.style.display = 'none';
@@ -3020,6 +3028,10 @@ document.getElementById('meetingForm').addEventListener('submit', function(e) {
         (notes ? '\n\nAgenda / Notes:\n' + notes : '') +
         '\n\n---\nSent via negplus.com meeting scheduler'
     );
+    /* ── TRACK: meeting form submit ── */
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'meeting_form_submit', meeting_type: mtype, preferred_date: mdate });
+    if (typeof gtag === 'function') gtag('event', 'meeting_form_submit', { meeting_type: mtype, preferred_date: mdate });
     window.location.href = 'mailto:info@negplus.com?subject=' + subject + '&body=' + body;
     document.getElementById('meetEmailConfirm').textContent = em;
     f.style.display = 'none';

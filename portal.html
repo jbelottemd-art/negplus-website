@@ -641,6 +641,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         document.getElementById('acct-name').textContent  = name;
         document.getElementById('acct-email').textContent = email;
 
+        /* ── TRACK: portal login ── */
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'portal_login', user_domain: email.split('@')[1] || 'unknown' });
+        if (typeof gtag === 'function') gtag('event', 'portal_login', { user_domain: email.split('@')[1] || 'unknown' });
+
         /* switch views */
         viewLogin.style.display  = 'none';
         viewPortal.classList.add('visible');
