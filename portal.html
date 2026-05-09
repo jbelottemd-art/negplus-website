@@ -574,11 +574,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         auth: {
             clientId:   CLIENT_ID,
             authority:  'https://login.microsoftonline.com/' + TENANT_ID,
-            redirectUri: window.location.href.split('?')[0].split('#')[0]
+            redirectUri: 'https://jbelottemd-art.github.io/negplus-website/portal.html',
+            navigateToLoginRequestUrl: true
         },
         cache: {
             cacheLocation:       'sessionStorage',
-            storeAuthStateInCookie: false
+            storeAuthStateInCookie: true
         }
     };
 
