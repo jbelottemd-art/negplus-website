@@ -938,10 +938,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         auth: {
             clientId:   CLIENT_ID,
             authority:  'https://login.microsoftonline.com/' + TENANT_ID,
-            redirectUri: 'https://negplus.com/dataroom.html',
-            navigateToLoginRequestUrl: true
+            redirectUri: 'https://negplus.com/dataroom.html'
         },
-        cache: { cacheLocation: 'sessionStorage', storeAuthStateInCookie: true }
+        cache: { cacheLocation: 'sessionStorage', storeAuthStateInCookie: false }
     };
 
     const loginRequest = { scopes: ['openid', 'profile', 'User.Read'] };
@@ -1073,7 +1072,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     btnLogin.addEventListener('click', () => {
         btnLogin.disabled = true;
         btnLogin.textContent = 'Redirecting to Microsoft…';
-        msalInstance.loginRedirect(loginRequest);
+        msalInstance.loginRedirect(loginRequest).catch(e => {
+            btnLogin.disabled = false;
+            btnLogin.textContent = 'Sign in with Microsoft';
+            loginError.textContent = 'Sign-in error: ' + (e.errorMessage || e.message || 'Unknown error. Please try again.');
+            loginError.classList.add('visible');
+        });
     });
 
     /* ── SIGN OUT ── */
