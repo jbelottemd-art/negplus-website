@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wole12bhpn");
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KSMSF21ZDT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KSMSF21ZDT');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KL3X97DZ');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Investor Overview — NEG+ Innovations, Inc.</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        :root {
+            --black:     #1B263B;
+            --navy:      #0E2A47;
+            --teal:      #41B3A3;
+            --teal-dark: #2A9D8F;
+            --teal-light:#7DD3CB;
+            --slate:     #778DA9;
+            --cream:     #F4F7FA;
+            --white:     #FFFFFF;
+            --text:      #1B263B;
+            --text-mid:  #4A6580;
+            --border:    #DDE5EE;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 15px; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.65;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        /* ── COVER / HEADER ── */
+        .cover {
+            background: linear-gradient(135deg, var(--navy) 0%, #0a1e35 100%);
+            color: var(--white);
+            padding: 3rem 3rem 2.5rem;
+            margin: 0 -1.5rem 0;
+            border-bottom: 4px solid var(--teal);
+        }
+        .cover-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .cover-brand { display: flex; flex-direction: column; gap: 4px; }
+        .cover-logo {
+            font-size: 1.9rem;
+            font-weight: 900;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+        .cover-logo span { color: var(--teal); }
+        .cover-sub {
+            font-size: 0.78rem;
+            color: var(--teal-light);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        .cover-badge {
+            background: rgba(65,179,163,0.15);
+            border: 1px solid rgba(65,179,163,0.4);
+            color: var(--teal-light);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 5px 14px;
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+        .cover-meta {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem 2rem;
+        }
+        .cover-meta-row { display: flex; flex-direction: column; gap: 2px; }
+        .cover-meta-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cover-meta-val {
+            font-size: 0.88rem;
+            color: var(--white);
+            font-weight: 500;
+        }
+        .cover-highlights {
+            margin-top: 2rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .cover-highlights h3 {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--teal-light);
+            margin-bottom: 0.9rem;
+        }
+        .cover-highlights ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .cover-highlights li {
+            font-size: 0.87rem;
+            color: rgba(255,255,255,0.82);
+            display: flex;
+            gap: 0.65rem;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+        .cover-highlights li::before {
+            content: '▸';
+            color: var(--teal);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ── CONFIDENTIAL BANNER ── */
+        .confidential-bar {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 6px;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #856404;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        /* ── SECTIONS ── */
+        .doc-section {
+            margin: 2.5rem 0;
+            border-top: 2px solid var(--border);
+            padding-top: 2rem;
+        }
+        .doc-section:first-of-type { border-top: none; }
+
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--teal-dark);
+            margin-bottom: 0.3rem;
+        }
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 1rem;
+            letter-spacing: -0.3px;
+        }
+        h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--black);
+            margin: 1.25rem 0 0.5rem;
+        }
+        p { margin-bottom: 0.85rem; font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+        p:last-child { margin-bottom: 0; }
+
+        /* ── SNAPSHOT BOX ── */
+        .snapshot-box {
+            background: var(--cream);
+            border-left: 4px solid var(--teal);
+            border-radius: 0 10px 10px 0;
+            padding: 1.5rem 1.75rem;
+            margin: 1.25rem 0;
+        }
+        .snapshot-box p { font-size: 0.92rem; color: var(--text); margin: 0; }
+
+        /* ── TWO-COLUMN GRID ── */
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.25rem 0; }
+        @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+
+        /* ── INFO CARDS ── */
+        .info-card {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+        .info-card h4 {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--teal-dark);
+            margin-bottom: 0.6rem;
+        }
+        .info-card p { font-size: 0.85rem; margin: 0; }
+
+        /* ── PRODUCT TABLE ── */
+        .product-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.85rem; }
+        .product-table th {
+            background: var(--navy);
+            color: var(--teal-light);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 0.8rem 1rem;
+            text-align: left;
+        }
+        .product-table td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            color: var(--text-mid);
+        }
+        .product-table tr:last-child td { border-bottom: none; }
+        .product-table tr:nth-child(even) td { background: var(--cream); }
+        .product-table td:first-child { font-weight: 700; color: var(--text); }
+
+        /* ── MILESTONE TABLE ── */
+        .milestone-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.83rem; }
+        .milestone-table th {
+            background: var(--navy);
+            color: var(--teal-light);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+        .milestone-table td {
+            padding: 0.72rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-mid);
+            vertical-align: top;
+        }
+        .milestone-table tr:last-child td { border-bottom: none; }
+        .milestone-table tr:nth-child(even) td { background: var(--cream); }
+
+        /* ── ROUND BADGE ── */
+        .badge {
+            display: inline-block;
+            padding: 2px 9px;
+            border-radius: 50px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+        .badge-seed { background: rgba(65,179,163,0.15); color: var(--teal-dark); border: 1px solid rgba(65,179,163,0.3); }
+        .badge-nih { background: rgba(14,42,71,0.1); color: var(--navy); border: 1px solid rgba(14,42,71,0.2); }
+        .badge-a { background: rgba(119,141,169,0.15); color: #3a5070; border: 1px solid rgba(119,141,169,0.3); }
+
+        /* ── KV TABLE (deal terms) ── */
+        .kv-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.87rem; }
+        .kv-table tr { border-bottom: 1px solid var(--border); }
+        .kv-table tr:last-child { border-bottom: none; }
+        .kv-table td { padding: 0.65rem 0; }
+        .kv-table td:first-child { font-weight: 600; color: var(--text); width: 45%; }
+        .kv-table td:last-child { color: var(--text-mid); }
+
+        /* ── DEAL HIGHLIGHT BOX ── */
+        .deal-box {
+            background: linear-gradient(135deg, var(--navy) 0%, #0a1e35 100%);
+            border: 1px solid rgba(65,179,163,0.25);
+            border-radius: 12px;
+            padding: 1.75rem 2rem;
+            margin: 1.5rem 0;
+            color: var(--white);
+        }
+        .deal-box h4 { color: var(--teal-light); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 0.5rem; }
+        .deal-box p { color: rgba(255,255,255,0.75); font-size: 0.88rem; margin: 0; }
+
+        /* ── TEAM GRID ── */
+        .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.25rem 0; }
+        @media (max-width: 600px) { .team-grid { grid-template-columns: 1fr; } }
+        .team-card {
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--teal);
+            border-radius: 10px;
+            padding: 1.25rem;
+            background: var(--white);
+        }
+        .team-card-name { font-size: 0.95rem; font-weight: 800; color: var(--text); margin-bottom: 2px; }
+        .team-card-role { font-size: 0.75rem; font-weight: 600; color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 0.6rem; }
+        .team-card-creds { font-size: 0.78rem; color: var(--slate); font-style: italic; margin-bottom: 0.6rem; }
+        .team-card p { font-size: 0.82rem; color: var(--text-mid); margin: 0; line-height: 1.6; }
+
+        /* ── MARKET STATS ── */
+        .market-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.25rem 0; }
+        @media (max-width: 600px) { .market-stats { grid-template-columns: 1fr 1fr; } }
+        .market-stat {
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.1rem;
+            text-align: center;
+        }
+        .market-stat-num { font-size: 1.5rem; font-weight: 900; color: var(--teal-dark); letter-spacing: -0.5px; }
+        .market-stat-label { font-size: 0.73rem; color: var(--text-mid); margin-top: 4px; line-height: 1.4; }
+
+        /* ── COMPETITOR TABLE ── */
+        .comp-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.83rem; }
+        .comp-table th {
+            background: var(--navy);
+            color: var(--teal-light);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+        .comp-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-mid);
+            vertical-align: top;
+        }
+        .comp-table tr:last-child td { border-bottom: none; }
+        .comp-table tr:nth-child(even) td { background: var(--cream); }
+        .comp-table td:first-child { font-weight: 700; color: var(--text); }
+
+        /* ── RISKS ── */
+        .risk-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0; }
+        .risk-list li {
+            font-size: 0.85rem;
+            color: var(--text-mid);
+            padding-left: 1.2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        .risk-list li::before { content: '•'; position: absolute; left: 0; color: var(--teal); }
+
+        /* ── FOOTER ── */
+        .doc-footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border);
+            font-size: 0.72rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+        .page-num {
+            text-align: right;
+            font-size: 0.72rem;
+            color: var(--slate);
+            margin-top: 0.5rem;
+        }
+
+        /* ── PRINT ── */
+        @media print {
+            body { max-width: 100%; padding: 0; font-size: 12px; }
+            .cover { margin: 0; }
+            .no-print { display: none; }
+        }
+
+        /* ── NAV BAR ── */
+        .doc-nav {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            border-bottom: 2px solid var(--teal);
+            padding: 0.6rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            z-index: 100;
+            margin: 0 -1.5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+        .doc-nav-brand { font-size: 0.85rem; font-weight: 800; color: var(--navy); }
+        .doc-nav-brand span { color: var(--teal); }
+        .doc-nav-links { display: flex; gap: 1rem; }
+        .doc-nav-links a { font-size: 0.72rem; font-weight: 600; color: var(--text-mid); text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px; }
+        .doc-nav-links a:hover { color: var(--teal-dark); }
+        .doc-nav-back { font-size: 0.75rem; font-weight: 600; color: var(--teal-dark); text-decoration: none; }
+        .doc-nav-back:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL3X97DZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- Sticky Nav -->
+<nav class="doc-nav no-print">
+    <span class="doc-nav-brand">NEG<span>+</span> Innovations</span>
+    <div class="doc-nav-links">
+        <a href="#snapshot">Snapshot</a>
+        <a href="#company">Company</a>
+        <a href="#traction">Traction</a>
+        <a href="#market">Market</a>
+        <a href="#team">Team</a>
+        <a href="#terms">Terms</a>
+        <a href="#risks">Risks</a>
+    </div>
+    <a class="doc-nav-back" href="investors.html">← Investors</a>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     COVER
+══════════════════════════════════════════════════ -->
+<div class="cover">
+    <div class="cover-top">
+        <div class="cover-brand">
+            <div class="cover-logo">NEG<span>+</span> Innovations, Inc.</div>
+            <div class="cover-sub">Confidential Executive Summary · 2026</div>
+        </div>
+        <div class="cover-badge">Accredited Investors Only</div>
+    </div>
+
+    <div class="cover-meta">
+        <div class="cover-meta-row">
+            <div class="cover-meta-label">Company</div>
+            <div class="cover-meta-val">NEG+ Innovations, Inc.</div>
+        </div>
+        <div class="cover-meta-row">
+            <div class="cover-meta-label">Market</div>
+            <div class="cover-meta-val">Women's Pelvic Health / Medical Devices</div>
+        </div>
+        <div class="cover-meta-row">
+            <div class="cover-meta-label">Founder</div>
+            <div class="cover-meta-val">Jimmy Belotte, MD, PhD, MBA, FACOG</div>
+        </div>
+        <div class="cover-meta-row">
+            <div class="cover-meta-label">Products</div>
+            <div class="cover-meta-val">4-Device Portfolio (Surgical · Diagnostic · Monitoring)</div>
+        </div>
+        <div class="cover-meta-row">
+            <div class="cover-meta-label">Stage</div>
+            <div class="cover-meta-val">Pre-Seed / Seed — SAFE Round Open</div>
+        </div>
+        <div class="cover-meta-row">
+            <div class="cover-meta-label">Headquarters</div>
+            <div class="cover-meta-val">Weston, Massachusetts · Delaware C-Corp</div>
+        </div>
+    </div>
+
+    <div class="cover-highlights">
+        <h3>Company Highlights</h3>
+        <ul>
+            <li>Physician-founded: each device emerged directly from documented surgical deficiencies encountered in active women's health practice — zero laboratory-first product risk</li>
+            <li>~$16.2B combined TAM across four programs spanning intraoperative, diagnostic, pelvic-floor, and intrapartum markets</li>
+            <li>Dual strategic-acquirer pool: gyn-surgery majors (Medtronic, Stryker, Hologic, Olympus, BSC, CooperSurgical) and maternal-fetal monitoring incumbents (Philips, GE HealthCare, Masimo)</li>
+            <li>QSBS-eligible Delaware C-Corp — up to 100% federal capital gains exclusion under IRC §1202 for qualifying investors at current stage</li>
+            <li>Founder co-invests on identical terms — no founder preference, no separate economics</li>
+            <li>Advisory board includes a former FDA Principal Deputy Commissioner and a serial medtech CEO with MIT PhD and two acquired companies</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Confidential notice -->
+<div class="confidential-bar">
+    CONFIDENTIAL — This document is intended solely for verified accredited investors under Reg D Rule 506(b). Do not distribute. Not an offer to sell securities.
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     EXECUTIVE SNAPSHOT
+══════════════════════════════════════════════════ -->
+<div class="doc-section" id="snapshot">
+    <div class="section-label">Executive Snapshot</div>
+    <h2>NEG+ Innovations at a Glance</h2>
+
+    <div class="snapshot-box">
+        <p>NEG+ Innovations, Inc. is a physician-led medical device company advancing women's pelvic health through precision surgical and diagnostic innovation. Founded by Dr. Jimmy Belotte — an OB/GYN, gynecologic oncology clinical developer at GlaxoSmithKline, and reproductive physiologist — the company's four-device portfolio addresses documented, unmet clinical needs across four adjacent market segments: minimally invasive gynecologic surgery (MIGS), pelvic organ prolapse quantification, pelvic pain management, and intrapartum fetal monitoring. Each invention was conceived from first-hand surgical practice, validated through voice-of-customer research and engineering feasibility, and formalized into intellectual property prior to capital raise.</p>
+    </div>
+
+    <p>The company is structured as a Delaware C-Corporation with a parallel PLLC medical affiliate (NEG+ Innovations PLLC), providing full IP ownership, clean cap table, QSBS eligibility, and both strategic-acquirer pools simultaneously accessible. The founding team and advisory board encompass FDA regulatory strategy, clinical development, biomedical engineering, and capital markets expertise — covering every function required from pre-clinical through commercialization without reliance on outsourced scientific leadership.</p>
+
+    <p>NEG+ is currently raising its initial Seed round via SAFE instrument under Reg D Rule 506(b), with proceeds deployed toward prototype engineering, provisional-to-PCT patent conversion, NIH STTR/SBIR grant development, and regulatory strategy initiation. The founder participates as a co-investor on identical economic terms alongside every outside investor.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     COMPANY SUMMARY
+══════════════════════════════════════════════════ -->
+<div class="doc-section" id="company">
+    <div class="section-label">Company Summary</div>
+    <h2>Opportunity, Products &amp; Business Model</h2>
+
+    <h3>Opportunity</h3>
+    <p>Women's pelvic health represents one of the most underserved and underinvested segments in surgical medicine. An estimated 1 in 3 women will experience a pelvic floor disorder in her lifetime, yet the diagnostic and surgical tools currently available to clinicians remain largely unchanged from instruments introduced decades ago. Intraoperative precision, objective quantification, and real-time monitoring are either absent or fragmented across disconnected platforms — creating avoidable surgical variability, extended procedural times, and suboptimal patient outcomes.</p>
+    <p>Existing solutions share a common failure: they were engineered without clinical operator input, leading to tools that prioritize manufacturing convenience over surgical utility. NEG+ addresses this gap by developing devices that emerged from the operating room itself — built on documented deficiencies that Dr. Belotte directly encountered and systematically validated before engineering began.</p>
+
+    <h3>Product Portfolio</h3>
+    <div style="overflow-x:auto;">
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Device</th>
+                <th>Indication</th>
+                <th>Regulatory Path</th>
+                <th>Market Segment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Belotte Colpotomizer™</td>
+                <td>Precision colpotomy and vaginal cuff creation in minimally invasive hysterectomy</td>
+                <td>FDA 510(k)</td>
+                <td>MIGS / Gyn Surgery</td>
+            </tr>
+            <tr>
+                <td>POP-Q AutoSense™</td>
+                <td>Automated, standardized pelvic organ prolapse quantification (POP-Q staging)</td>
+                <td>FDA De Novo / NIH STTR</td>
+                <td>Urogynecology / Diagnostics</td>
+            </tr>
+            <tr>
+                <td>Pudendal Nerve Block Device™</td>
+                <td>Precision pudendal nerve block delivery for pelvic floor pain and surgical anesthesia</td>
+                <td>FDA 510(k)</td>
+                <td>Pelvic Pain / Regional Anesthesia</td>
+            </tr>
+            <tr>
+                <td>MUMS™</td>
+                <td>Multi-parameter intrapartum uterine monitoring system (SaMD + hardware platform)</td>
+                <td>FDA De Novo / PMA · SBIR Phase I</td>
+                <td>Maternal-Fetal Monitoring</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h3>Business Model</h3>
+    <div class="two-col">
+        <div class="info-card">
+            <h4>Device Sales &amp; Licensing</h4>
+            <p>Direct capital equipment and per-procedure consumable revenue model following FDA clearance. Licensing optionality preserved for strategic partnerships ahead of full commercialization.</p>
+        </div>
+        <div class="info-card">
+            <h4>NIH Grant Funding (Non-Dilutive)</h4>
+            <p>Active NIH STTR Phase I Specific Aims submission for POP-Q AutoSense™ and SBIR Phase I preparation for MUMS™ — providing non-dilutive capital to advance clinical validation alongside equity financing.</p>
+        </div>
+        <div class="info-card">
+            <h4>Strategic Acquisition</h4>
+            <p>Primary exit strategy via strategic acquisition by one of 11 identified strategic acquirers across two pools: gyn-surgery majors and maternal-fetal monitoring incumbents. Single-device divestiture optionality preserved.</p>
+        </div>
+        <div class="info-card">
+            <h4>Year-5 Platform Revenue Target</h4>
+            <p>Full Investor Companion (Edition 2) includes a Year-5 platform revenue model (~$189M across four programs), capital deployment schedule, and acquirer map available to NDA-executed investors.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     DEVELOPMENT TRACTION
+══════════════════════════════════════════════════ -->
+<div class="doc-section" id="traction">
+    <div class="section-label">Development Traction</div>
+    <h2>Milestones &amp; Progress</h2>
+
+    <h3>Capital Deployment Milestone Map</h3>
+    <p>Each round is tied to defined regulatory and technical inflection points — providing investors clear de-risking benchmarks and sequential value creation events.</p>
+
+    <div style="overflow-x:auto;">
+    <table class="milestone-table">
+        <thead>
+            <tr>
+                <th>Milestone</th>
+                <th>Device / Program</th>
+                <th>Timeline</th>
+                <th>Round</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pre-clinical feasibility — bench prototype validation</td>
+                <td>Belotte Colpotomizer™ · PNB Device™</td>
+                <td>2026</td>
+                <td><span class="badge badge-seed">Seed</span></td>
+            </tr>
+            <tr>
+                <td>NIH STTR Phase I Specific Aims submission</td>
+                <td>POP-Q AutoSense™</td>
+                <td>2026</td>
+                <td><span class="badge badge-nih">NIH</span></td>
+            </tr>
+            <tr>
+                <td>MUMS™ ISA + SaMD concept design · SBIR Phase I preparation</td>
+                <td>MUMS™</td>
+                <td>2026</td>
+                <td><span class="badge badge-seed">Seed</span></td>
+            </tr>
+            <tr>
+                <td>Patent filings — provisional to PCT conversion</td>
+                <td>Full Portfolio</td>
+                <td>2026</td>
+                <td><span class="badge badge-seed">Seed</span></td>
+            </tr>
+            <tr>
+                <td>ISO 13485 QMS implementation · Design History File initiation</td>
+                <td>Belotte Colpotomizer™</td>
+                <td>2026–2027</td>
+                <td><span class="badge badge-seed">Seed</span></td>
+            </tr>
+            <tr>
+                <td>IDE submission — first-in-human feasibility study</td>
+                <td>Belotte Colpotomizer™ · PNB Device™</td>
+                <td>2026–2027</td>
+                <td><span class="badge badge-seed">Seed</span></td>
+            </tr>
+            <tr>
+                <td>FDA 510(k) submission — Belotte Colpotomizer™</td>
+                <td>Belotte Colpotomizer™</td>
+                <td>2027–2028</td>
+                <td><span class="badge badge-a">Series A</span></td>
+            </tr>
+            <tr>
+                <td>NIH STTR Phase I award + clinical validation study initiation</td>
+                <td>POP-Q AutoSense™</td>
+                <td>2027</td>
+                <td><span class="badge badge-nih">NIH</span></td>
+            </tr>
+            <tr>
+                <td>FDA 510(k) clearance — Belotte Colpotomizer™ (commercial launch)</td>
+                <td>Belotte Colpotomizer™</td>
+                <td>2028</td>
+                <td><span class="badge badge-a">Series A</span></td>
+            </tr>
+            <tr>
+                <td>MUMS™ pivotal clinical trial initiation (De Novo / PMA pathway)</td>
+                <td>MUMS™</td>
+                <td>2028–2030</td>
+                <td><span class="badge badge-a">Series A+</span></td>
+            </tr>
+            <tr>
+                <td>Platform exit / strategic acquisition or IPO target</td>
+                <td>Full Portfolio</td>
+                <td>2030–2032</td>
+                <td><span class="badge badge-a">Exit</span></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <h3>Key Structural Achievements</h3>
+    <div class="two-col">
+        <div class="info-card">
+            <h4>Intellectual Property</h4>
+            <p>Provisional patent filings initiated across the portfolio. All IP formally assigned to and vested in NEG+ Innovations, Inc. (C-Corp). PCT conversion budgeted within Seed proceeds.</p>
+        </div>
+        <div class="info-card">
+            <h4>Regulatory Architecture</h4>
+            <p>FDA 510(k), De Novo, IDE, and PMA pathway design completed for all four devices. ISA (Investigational Study Agreement) framework in preparation for POP-Q AutoSense™ IRB submission.</p>
+        </div>
+        <div class="info-card">
+            <h4>Advisory Board</h4>
+            <p>Fully assembled: former FDA Principal Deputy Commissioner (regulatory), serial MIT medtech CEO (engineering), biomedical engineering specialist (ISO 13485 / DHF), and clinical research leadership.</p>
+        </div>
+        <div class="info-card">
+            <h4>Corporate Structure</h4>
+            <p>Delaware C-Corp fully formed. PLLC medical affiliate established. Clean cap table with single founder. QSBS eligibility confirmed. Investor-ready documentation prepared.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     INDUSTRY & MARKET
+══════════════════════════════════════════════════ -->
+<div class="doc-section" id="market">
+    <div class="section-label">Industry &amp; Market Analysis</div>
+    <h2>Women's Pelvic Health Device Market</h2>
+
+    <div class="market-stats">
+        <div class="market-stat">
+            <div class="market-stat-num">~$16.2B</div>
+            <div class="market-stat-label">Combined TAM across four device programs</div>
+        </div>
+        <div class="market-stat">
+            <div class="market-stat-num">1 in 3</div>
+            <div class="market-stat-label">Women affected by pelvic floor disorders in their lifetime</div>
+        </div>
+        <div class="market-stat">
+            <div class="market-stat-num">600K+</div>
+            <div class="market-stat-label">Hysterectomies performed annually in the United States</div>
+        </div>
+        <div class="market-stat">
+            <div class="market-stat-num">11</div>
+            <div class="market-stat-label">Identified strategic acquirers across two distinct pools</div>
+        </div>
+        <div class="market-stat">
+            <div class="market-stat-num">~$189M</div>
+            <div class="market-stat-label">Year-5 platform revenue projection (full Investor Companion)</div>
+        </div>
+        <div class="market-stat">
+            <div class="market-stat-num">2</div>
+            <div class="market-stat-label">Distinct acquirer pools — gyn-surgery &amp; maternal-fetal monitoring</div>
+        </div>
+    </div>
+
+    <h3>Market Segments</h3>
+    <div class="two-col">
+        <div class="info-card">
+            <h4>MIGS / Gyn Surgery</h4>
+            <p>The global minimally invasive gynecology market is projected to grow substantially through 2030, driven by increasing hysterectomy volumes, adoption of robotic platforms, and demand for precision surgical tools. The Belotte Colpotomizer™ addresses a direct intraoperative bottleneck in laparoscopic and robotic hysterectomy.</p>
+        </div>
+        <div class="info-card">
+            <h4>Pelvic Floor / Urogynecology</h4>
+            <p>Pelvic organ prolapse affects approximately 50% of parous women. Current POP-Q assessment is manual, examiner-dependent, and highly variable. POP-Q AutoSense™ introduces the first automated, standardized measurement platform — addressing a persistent clinical workflow gap.</p>
+        </div>
+        <div class="info-card">
+            <h4>Pelvic Pain / Regional Anesthesia</h4>
+            <p>Pudendal nerve block is used across a broad range of gynecologic procedures and pelvic pain management. The market for precision regional anesthesia devices in OBGYN is underdeveloped relative to orthopedic counterparts — representing a significant whitespace opportunity.</p>
+        </div>
+        <div class="info-card">
+            <h4>Maternal-Fetal Monitoring</h4>
+            <p>The global fetal monitoring market exceeds $3B and is growing at a high single-digit CAGR. MUMS™ targets an unmet need in intrapartum monitoring by providing multi-parameter, integrated uterine and fetal surveillance — a SaMD + hardware platform positioned for De Novo clearance.</p>
+        </div>
+    </div>
+
+    <h3>Regulatory &amp; Reimbursement Environment</h3>
+    <p>The FDA has accelerated 510(k) and De Novo pathway timelines for women's health devices under recent policy initiatives addressing sex-based research gaps. CPT reimbursement codes exist for all clinical procedures targeted by NEG+'s portfolio — eliminating reimbursement pathway risk at the device level. NIH STTR/SBIR grant programs specifically fund small business medical device development in reproductive health, providing non-dilutive capital access aligned with NEG+'s pipeline.</p>
+
+    <h3>Venture Financing in Women's Health MedTech</h3>
+    <p>Women's health technology attracted over $1.8B in venture investment in 2024, with medical devices representing the fastest-growing subsector. Despite the scale of unmet need, femtech and women's health devices remain structurally underfunded relative to comparable male-health equivalents — creating a favorable entry environment for differentiated, physician-originated innovations with clear regulatory paths and large strategic acquirer bases.</p>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     COMPETITORS
+══════════════════════════════════════════════════ -->
+<div class="doc-section" id="competition">
+    <div class="section-label">Competitive Landscape</div>
+    <h2>Competition</h2>
+
+    <div style="overflow-x:auto;">
+    <table class="comp-table">
+        <thead>
+            <tr>
+                <th>Competitor / Incumbent</th>
+                <th>Relevant Product</th>
+                <th>NEG+ Differentiation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hologic / CooperSurgical</td>
+                <td>Conventional colpotomy rings and vaginal cuff devices for hysterectomy</td>
+                <td>Belotte Colpotomizer™ provides precision anatomical guidance — not available in incumbent portfolio. Direct intraoperative workflow improvement.</td>
+            </tr>
+            <tr>
+                <td>Medtronic / Olympus</td>
+                <td>Broad MIGS platform — energy devices, insufflators, robotic surgery tools</td>
+                <td>NEG+ is procedure-specific and complementary to — not competing with — robotic platforms. Acquirer fit, not direct competition.</td>
+            </tr>
+            <tr>
+                <td>Manual POP-Q Assessment</td>
+                <td>Clinician-performed, examiner-dependent prolapse staging (current standard of care)</td>
+                <td>POP-Q AutoSense™ is the first automated platform — eliminating inter-examiner variability, creating a defensible market entry with no direct device competitor.</td>
+            </tr>
+            <tr>
+                <td>Philips / GE HealthCare / Masimo</td>
+                <td>Conventional CTG / fetal heart rate monitors</td>
+                <td>MUMS™ integrates multi-parameter intrapartum monitoring — beyond single-parameter CTG. SaMD layer creates recurring software revenue absent in hardware-only incumbents.</td>
+            </tr>
+            <tr>
+                <td>Nuo Therapeutics / Regional Anesthesia Incumbents</td>
+                <td>General-purpose nerve block kits and neurostimulators</td>
+                <td>PNB Device™ is gynecology-specific with anatomical guidance — purpose-built vs. repurposed orthopedic instruments currently used off-label in pelvic procedures.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     EXECUTIVE TEAM
+══════════════════════════════════════════════════ -->
+<div class="doc-section" id="team">
+    <div class="section-label">Leadership</div>
+    <h2>Executive Team &amp; Advisory Board</h2>
+
+    <div class="team-grid">
+        <div class="team-card">
+            <div class="team-card-name">Jimmy Belotte, MD, PhD, MBA, FACOG</div>
+            <div class="team-card-role">Founder, CEO &amp; Board Chair</div>
+            <div class="team-card-creds">GlaxoSmithKline · Albert Einstein / Montefiore · Brandeis EMBA</div>
+            <p>Board-certified OB/GYN and inventor. Medical Director, Oncology Clinical Development at GlaxoSmithKline — leading Phase I/II regulatory strategy and protocol design in gynecologic oncology. Former Clinical Associate Professor, Albert Einstein College of Medicine. PhD in Reproductive Physiology. MBA with concentrations in healthcare and finance. Each NEG+ device emerged from direct surgical experience. Co-invests on identical terms alongside outside investors.</p>
+        </div>
+        <div class="team-card">
+            <div class="team-card-name">Advisory: Serial MedTech CEO</div>
+            <div class="team-card-role">Board of Directors — Strategic &amp; Engineering</div>
+            <div class="team-card-creds">PhD &amp; MS, MIT · MBA, MIT Sloan · 9 Patents</div>
+            <p>Current CEO of Kytopen (cell engineering platform). Prior CEO of Erbi Biosystems, acquired by Merck KGaA / MilliporeSigma. Former CTO at Automation Engineering Inc. (acquired by Mycronic AB) and Teradyne. Nine patents across precision engineering, medical devices, and cell therapy. R&amp;D 100 Award recipient.</p>
+        </div>
+        <div class="team-card">
+            <div class="team-card-name">Advisory: Former FDA Principal Deputy Commissioner</div>
+            <div class="team-card-role">Regulatory Advisory</div>
+            <div class="team-card-creds">Senior FDA Leadership · Device &amp; Drug Regulatory Strategy</div>
+            <p>Direct senior-level FDA regulatory expertise applied to NEG+'s 510(k), De Novo, IDE, and PMA pathway design. Provides regulatory strategy guidance across the full four-device portfolio — a material risk-reduction asset unavailable to most pre-seed medtech companies.</p>
+        </div>
+        <div class="team-card">
+            <div class="team-card-name">Advisory: Biomedical Engineering</div>
+            <div class="team-card-role">Device Engineering &amp; Quality Systems</div>
+            <div class="team-card-creds">ISO 13485 · FDA 21 CFR Part 820 · Design History File</div>
+            <p>Mechanical engineering execution, FDA design controls (21 CFR Part 820), ISO 13485 QMS implementation, and Design History File architecture — covering the full engineering compliance stack required from pre-clinical through IDE submission.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     INVESTMENT TERMS
+══════════════════════════════════════════════════ -->
+<div class="doc-section" id="terms">
+    <div class="section-label">Current Offering</div>
+    <h2>Investment Terms</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Current Round — Seed</h3>
+            <table class="kv-table">
+                <tr><td>Instrument</td><td>SAFE (Simple Agreement for Future Equity)</td></tr>
+                <tr><td>Regulation</td><td>Reg D, Rule 506(b) — Accredited Investors Only</td></tr>
+                <tr><td>Target Close</td><td>2026 — Milestone-Linked Tranches</td></tr>
+                <tr><td>Use of Proceeds</td><td>Engineering, IP, NIH Grant Development, Clinical Prep</td></tr>
+                <tr><td>Minimum Investment</td><td>Available Upon NDA Execution</td></tr>
+                <tr><td>Valuation Cap / Discount</td><td>Available Upon NDA Execution</td></tr>
+                <tr><td>Subsequent Rounds</td><td>Series Seed → Series A (milestone-gated)</td></tr>
+            </table>
+        </div>
+        <div>
+            <h3>Structural Protections</h3>
+            <table class="kv-table">
+                <tr><td>Entity</td><td>Delaware C-Corporation</td></tr>
+                <tr><td>IP Ownership</td><td>All IP formally assigned to and vested in the C-Corp</td></tr>
+                <tr><td>Cap Table</td><td>Clean — single founder, investor-ready</td></tr>
+                <tr><td>QSBS Eligibility</td><td>Yes — IRC §1202, up to 100% federal exclusion</td></tr>
+                <tr><td>Founder Co-Investment</td><td>Identical terms — no founder preference</td></tr>
+                <tr><td>PLLC Affiliate</td><td>NEG+ Innovations PLLC — medical operations entity</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="deal-box">
+        <h4>Investor Companion — Edition 2 · MUMS Integrated</h4>
+        <p>Available to accredited investors upon NDA execution. Includes: updated market sizing (~$16.2B combined TAM), Year-5 platform revenue model (~$189M), acquirer map (11 strategics, two pools), capital deployment schedule, and full SAFE term sheet. Contact <strong>investors@negplus.com</strong> or request access at negplus.com/investors.html.</p>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     RISKS
+══════════════════════════════════════════════════ -->
+<div class="doc-section" id="risks">
+    <div class="section-label">Risk Factors</div>
+    <h2>Risks</h2>
+
+    <p>You should be aware that an investment in NEG+ Innovations, Inc. involves considerable risks, including the possible loss of all or a material portion of your investment. The risks set forth below are not the only risks facing investors.</p>
+
+    <h3>Investment Risks</h3>
+    <p>An investment in NEG+ Innovations is a speculative private placement investment and is not suitable for anyone without a high tolerance for risk and a low need for liquidity. Investors should only invest amounts they are prepared to lose in their entirety. There can be no assurance that investors will receive any return of capital or profit.</p>
+
+    <h3>Medical Device Development Risks</h3>
+    <ul class="risk-list">
+        <li>Inability to complete pre-clinical feasibility, bench validation, or prototype development within projected timelines or budgets</li>
+        <li>Failure to obtain FDA 510(k) clearance, De Novo authorization, or IDE approval for one or more devices in the portfolio</li>
+        <li>Delays or failures in NIH STTR Phase I or SBIR Phase I grant applications, reducing non-dilutive capital availability</li>
+        <li>Adverse outcomes in first-in-human feasibility studies or IDE-governed clinical investigations</li>
+        <li>Changes in FDA regulatory requirements or guidance documents affecting 510(k), De Novo, or PMA pathways</li>
+        <li>Inability to achieve ISO 13485 QMS certification or maintain Design History File integrity as required by 21 CFR Part 820</li>
+    </ul>
+
+    <h3>Company Risks</h3>
+    <ul class="risk-list">
+        <li>Need for substantial additional capital beyond the current Seed round to complete development and commercialization — no assurance that Series A or subsequent financing will be available on favorable terms or at all</li>
+        <li>Dependence on the founding physician-scientist and key advisory board members — loss of key personnel could materially impair development and regulatory strategy</li>
+        <li>Issuance of additional equity securities at prices dilutive to current SAFE investors upon conversion</li>
+        <li>Inability to protect intellectual property — patents may not issue, may be challenged, or may not provide sufficient commercial protection</li>
+        <li>Potential for strategic acquirers to develop competing technologies internally, reducing acquisition interest or valuation</li>
+        <li>Failure to achieve projected revenue milestones in Year-5 platform model — projections are not guarantees of future performance</li>
+        <li>Manufacturing scale-up challenges, supply chain disruptions, or inability to identify and qualify contract manufacturers</li>
+    </ul>
+
+    <h3>Industry &amp; Market Risks</h3>
+    <ul class="risk-list">
+        <li>The women's health medical device market is subject to significant competition from large, well-capitalized incumbents with established distribution channels and customer relationships</li>
+        <li>Changes in hospital purchasing patterns, GPO contracting, or payer reimbursement policies could adversely affect commercial adoption following clearance</li>
+        <li>Adverse clinical data from competing products or broad regulatory actions affecting the medical device industry could impact the company's development and commercialization timeline</li>
+        <li>Macroeconomic conditions, interest rate environment, and private market valuation compression could adversely affect the company's ability to raise future capital or achieve exit valuations</li>
+    </ul>
+
+    <h3>Litigation Risks</h3>
+    <p>Medical device companies are subject to product liability, intellectual property infringement, and regulatory enforcement risks. Clinical investigations carry inherent risks of adverse events, protocol deviations, and regulatory scrutiny. As a pre-revenue company, NEG+ does not yet carry commercial product liability insurance, and there is no guarantee that adequate coverage will be available at commercially reasonable terms when required.</p>
+
+    <p style="font-style:italic; color: var(--slate); margin-top: 1.5rem; font-size: 0.82rem;">Investors must understand that by investing in NEG+ Innovations, Inc. they are voluntarily assuming all of the risks of the investment. This overview is not intended to be, nor should it be construed as, investment, tax, or legal advice. Any offer or solicitation of an investment may be made only by delivery of the Confidential Private Placement Memorandum and SAFE documents to verified accredited investors. Investors should rely solely on those offering documents in making any investment decision.</p>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+    <p><strong>NEG+ Innovations, Inc.</strong> · Weston, Massachusetts · Delaware C-Corporation<br>
+    Contact: <a href="mailto:investors@negplus.com" style="color:var(--teal-dark);">investors@negplus.com</a> · <a href="https://negplus.com" style="color:var(--teal-dark);">negplus.com</a> · Data Room: <a href="https://negplus.com/dataroom.html" style="color:var(--teal-dark);">negplus.com/dataroom.html</a></p>
+    <p style="margin-top:0.5rem;">This document is <strong>CONFIDENTIAL</strong> and intended solely for verified accredited investors under Regulation D, Rule 506(b). It does not constitute an offer to sell or a solicitation of an offer to buy any security. Securities offered have not been registered under the Securities Act of 1933, as amended, and may not be offered or sold in the United States absent registration or an applicable exemption from registration requirements. &copy; 2026 NEG+ Innovations, Inc. All rights reserved.</p>
+</div>
+
+</body>
+</html>
