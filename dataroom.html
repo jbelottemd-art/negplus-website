@@ -815,16 +815,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             View Document
                         </a>
                     </div>
-                    <div class="doc-card">
+                    <div class="doc-card" style="border: 1px solid rgba(65,179,163,0.35); background: rgba(65,179,163,0.04);">
                         <div class="doc-card-top">
                             <svg class="doc-type-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E53E3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
                             <span class="doc-name">SAFE Documents</span>
+                            <span style="margin-left:auto;background:rgba(65,179,163,0.15);border:1px solid rgba(65,179,163,0.4);color:var(--gold);font-size:0.65rem;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;padding:2px 8px;border-radius:50px;">Action Required</span>
                         </div>
-                        <p class="doc-desc">Simple Agreement for Future Equity — subscription and agreement documents.</p>
-                        <a class="btn-view-doc" href="https://negplusinnovationsinc.sharepoint.com/:f:/r/sites/Investors/Shared%20Documents/SAFE%20Documents?csf=1&web=1&e=LVXDwG" target="_blank" rel="noopener" data-doc="SAFE Documents">
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            View Folder
-                        </a>
+                        <p class="doc-desc">Simple Agreement for Future Equity — review, sign, and fund your SAFE investment.</p>
+                        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.25rem;">
+                            <a class="btn-view-doc" href="https://negplusinnovationsinc.sharepoint.com/:f:/r/sites/Investors/Shared%20Documents/SAFE%20Documents?csf=1&web=1&e=LVXDwG" target="_blank" rel="noopener" data-doc="SAFE Documents">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                Review SAFE Documents
+                            </a>
+                            <a class="btn-view-doc btn-esign" href="DOCUSIGN_LINK_HERE" target="_blank" rel="noopener" data-doc="SAFE E-Sign" onclick="track('esign_clicked',{document_name:'SAFE Agreement'});" style="background:rgba(0,107,230,0.12);border-color:rgba(0,107,230,0.4);color:#3b9eff;">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                                E-Sign SAFE Agreement — DocuSign
+                            </a>
+                        </div>
                     </div>
                     <div class="doc-card">
                         <div class="doc-card-top">
@@ -900,6 +907,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <a href="https://negplus.com/#contact">Schedule a Call</a>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <!-- ── FUND YOUR SAFE ── -->
+            <div class="sidebar-card" style="border:1px solid rgba(65,179,163,0.3);background:linear-gradient(135deg,rgba(65,179,163,0.06) 0%,rgba(14,42,71,0.3) 100%);">
+                <div class="sidebar-card-head">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    <h4 style="color:var(--gold);">Fund Your SAFE</h4>
+                </div>
+                <div class="sidebar-card-body">
+                    <p style="font-size:0.75rem;color:rgba(255,255,255,0.5);line-height:1.6;margin-bottom:1rem;">After executing your SAFE agreement, fund your investment via Mercury instant payment or request wire transfer instructions.</p>
+
+                    <!-- Option A: Mercury Payment Link -->
+                    <a href="MERCURY_PAYMENT_LINK_HERE" target="_blank" rel="noopener"
+                       onclick="track('fund_safe_mercury_clicked',{});"
+                       style="display:flex;align-items:center;gap:0.6rem;background:var(--gold);color:var(--black);font-size:0.8rem;font-weight:800;padding:0.75rem 1rem;border-radius:8px;text-decoration:none;margin-bottom:0.6rem;letter-spacing:0.3px;transition:background 0.2s;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                        Pay via Mercury
+                        <span style="margin-left:auto;font-size:0.65rem;font-weight:600;opacity:0.7;">ACH · Wire · Card</span>
+                    </a>
+
+                    <!-- Option B: Request Wire Instructions -->
+                    <a href="mailto:investors@negplus.com?subject=Wire%20Transfer%20Instructions%20Request%20%E2%80%94%20SAFE%20Funding&body=Hello%2C%0A%0AI%20have%20executed%20my%20SAFE%20agreement%20and%20would%20like%20to%20fund%20my%20investment%20via%20wire%20transfer.%0A%0APlease%20provide%20wire%20transfer%20instructions%20for%3A%0A%0AInvestor%20Name%3A%20%0AInvestment%20Amount%3A%20%24%0ABank%20of%20Origin%3A%20%0APreferred%20Transfer%20Date%3A%20%0A%0AThank%20you."
+                       onclick="track('fund_safe_wire_clicked',{});"
+                       style="display:flex;align-items:center;gap:0.6rem;background:transparent;color:rgba(255,255,255,0.75);font-size:0.8rem;font-weight:700;padding:0.7rem 1rem;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.15);letter-spacing:0.3px;transition:border-color 0.2s;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Request Wire Instructions
+                    </a>
+
+                    <p style="font-size:0.68rem;color:rgba(255,255,255,0.25);margin-top:0.85rem;line-height:1.5;">Wire instructions are sent encrypted via email after SAFE execution. Payable to: <strong style="color:rgba(255,255,255,0.4);">NEG+ Innovations, Inc.</strong></p>
                 </div>
             </div>
 
