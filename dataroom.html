@@ -196,6 +196,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 1.25rem; background: rgba(0,0,0,0.2);
             border-radius: 10px; border-left: 3px solid var(--gold);
         }
+        /* accredited investor section */
+        .ai-section {
+            margin-bottom: 1.75rem;
+        }
+        .ai-section-title {
+            font-size: 0.78rem; font-weight: 700; letter-spacing: 1.2px;
+            text-transform: uppercase; color: var(--gold);
+            margin-bottom: 0.85rem; display: flex; align-items: center; gap: 6px;
+        }
+        .ai-options { display: flex; flex-direction: column; gap: 0.6rem; }
+        .ai-option {
+            display: flex; align-items: flex-start; gap: 10px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(65,179,163,0.1);
+            border-radius: 10px; padding: 0.75rem 1rem;
+            cursor: pointer; transition: background 0.15s, border-color 0.15s;
+        }
+        .ai-option:hover { background: rgba(65,179,163,0.07); border-color: rgba(65,179,163,0.25); }
+        .ai-option input[type="radio"] {
+            margin-top: 2px; flex-shrink: 0;
+            width: 16px; height: 16px; accent-color: var(--gold); cursor: pointer;
+        }
+        .ai-option span {
+            font-size: 0.8rem; color: rgba(255,255,255,0.65); line-height: 1.55;
+        }
+        .ai-option span strong { color: rgba(255,255,255,0.9); display: block; margin-bottom: 2px; }
+        .ai-divider {
+            height: 1px; background: rgba(65,179,163,0.12);
+            margin: 1.5rem 0;
+        }
         .nda-check-label {
             display: flex; align-items: flex-start; gap: 12px;
             cursor: pointer; margin-bottom: 1.75rem;
@@ -207,6 +237,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .nda-check-label span {
             font-size: 0.83rem; color: rgba(255,255,255,0.7); line-height: 1.6;
         }
+        .gate-error {
+            margin-bottom: 1rem; padding: 0.7rem 1rem;
+            background: rgba(192,57,43,0.12); border: 1px solid rgba(192,57,43,0.3);
+            border-radius: 8px; font-size: 0.78rem; color: #e57373;
+            display: none; line-height: 1.5;
+        }
+        .gate-error.visible { display: block; }
         .btn-access {
             display: flex; align-items: center; justify-content: center; gap: 8px;
             width: 100%; background: var(--gold); color: var(--black);
@@ -471,19 +508,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
         </div>
-        <h2>Confidentiality Acknowledgment Required</h2>
+        <h2>Investor Certification &amp; Confidentiality</h2>
         <div class="nda-body">
-            The following materials are strictly confidential and subject to your executed Non-Disclosure Agreement with NEG+ Innovations, Inc. Unauthorized disclosure, reproduction, or distribution of these materials is strictly prohibited. These materials do not constitute an offer to sell or a solicitation of an offer to buy any securities. Any investment offering is made only to verified accredited investors pursuant to Regulation D, Rule 506(b).
+            Access to this data room is restricted to verified accredited investors subject to an executed Non-Disclosure Agreement with NEG+ Innovations, Inc. Unauthorized disclosure is strictly prohibited. These materials do not constitute an offer to sell or solicitation to buy securities. All offerings are made pursuant to Regulation D, Rule 506(b).
+        </div>
+
+        <!-- Step 1: Accredited Investor Certification -->
+        <div class="ai-section">
+            <div class="ai-section-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                Step 1 — Accredited Investor Certification (Select one)
+            </div>
+            <div class="ai-options">
+                <label class="ai-option">
+                    <input type="radio" name="ai_category" value="income">
+                    <span>
+                        <strong>Individual — Income</strong>
+                        I have had individual income exceeding $200,000 (or $300,000 jointly with spouse) in each of the two most recent years and reasonably expect the same this year.
+                    </span>
+                </label>
+                <label class="ai-option">
+                    <input type="radio" name="ai_category" value="net_worth">
+                    <span>
+                        <strong>Individual — Net Worth</strong>
+                        My individual or joint net worth exceeds $1,000,000, excluding the value of my primary residence.
+                    </span>
+                </label>
+                <label class="ai-option">
+                    <input type="radio" name="ai_category" value="professional">
+                    <span>
+                        <strong>Licensed Professional</strong>
+                        I hold a valid Series 7, Series 65, or Series 82 license in good standing.
+                    </span>
+                </label>
+                <label class="ai-option">
+                    <input type="radio" name="ai_category" value="entity">
+                    <span>
+                        <strong>Entity / Institution</strong>
+                        I represent an entity (trust, corporation, partnership, fund) with total assets exceeding $5,000,000, or all equity owners are accredited investors.
+                    </span>
+                </label>
+                <label class="ai-option">
+                    <input type="radio" name="ai_category" value="knowledgeable">
+                    <span>
+                        <strong>Knowledgeable Employee</strong>
+                        I am a knowledgeable employee of a registered investment fund, or a director, executive officer, or general partner of the issuer.
+                    </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="ai-divider"></div>
+
+        <!-- Step 2: NDA Acknowledgment -->
+        <div class="ai-section-title" style="margin-bottom:0.85rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Step 2 — Non-Disclosure Agreement
         </div>
         <label class="nda-check-label">
             <input type="checkbox" id="nda-checkbox">
-            <span>I am a verified accredited investor and I have executed a Non-Disclosure Agreement with NEG+ Innovations, Inc. I agree to maintain strict confidentiality of all materials accessed in this data room.</span>
+            <span>I have executed a Non-Disclosure Agreement with NEG+ Innovations, Inc. and agree to maintain strict confidentiality of all materials accessed in this data room. I understand that unauthorized disclosure is prohibited and may result in legal action.</span>
         </label>
+
+        <div class="gate-error" id="gate-error"></div>
+
         <button class="btn-access" id="btn-access" disabled>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <polyline points="20 6 9 17 4 12"/>
             </svg>
-            I Agree — Access Data Room
+            Certify &amp; Access Data Room
         </button>
     </div>
 </div>
@@ -857,6 +950,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const btnSignout   = document.getElementById('btn-signout');
     const btnAccess    = document.getElementById('btn-access');
     const ndaCheck     = document.getElementById('nda-checkbox');
+    const gateError    = document.getElementById('gate-error');
     const loginError   = document.getElementById('login-error');
     const navUser      = document.getElementById('nav-user');
     const navAvatar    = document.getElementById('nav-avatar');
@@ -935,15 +1029,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (wireBtn) wireBtn.addEventListener('click', () => track('wire_instructions_requested'));
     }
 
-    /* ── NDA GATE ── */
-    ndaCheck.addEventListener('change', () => {
-        btnAccess.disabled = !ndaCheck.checked;
+    /* ── NDA + ACCREDITED INVESTOR GATE ── */
+    function updateAccessBtn() {
+        const aiSelected = document.querySelector('input[name="ai_category"]:checked');
+        btnAccess.disabled = !(aiSelected && ndaCheck.checked);
+    }
+
+    document.querySelectorAll('input[name="ai_category"]').forEach(r => {
+        r.addEventListener('change', updateAccessBtn);
     });
+    ndaCheck.addEventListener('change', updateAccessBtn);
 
     btnAccess.addEventListener('click', () => {
-        if (!ndaCheck.checked) return;
+        const aiSelected = document.querySelector('input[name="ai_category"]:checked');
+        if (!aiSelected) {
+            gateError.textContent = 'Please select the accredited investor category that applies to you.';
+            gateError.classList.add('visible'); return;
+        }
+        if (!ndaCheck.checked) {
+            gateError.textContent = 'Please confirm your Non-Disclosure Agreement acknowledgment.';
+            gateError.classList.add('visible'); return;
+        }
+        gateError.classList.remove('visible');
         sessionStorage.setItem('nda_acknowledged', '1');
-        track('nda_acknowledged');
+        sessionStorage.setItem('ai_category', aiSelected.value);
+        track('nda_acknowledged', { ai_category: aiSelected.value });
         const accounts = msalInstance.getAllAccounts();
         if (accounts.length > 0) showDataRoom(accounts[0]);
     });
