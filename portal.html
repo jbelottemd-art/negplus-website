@@ -175,6 +175,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: flex; align-items: center; justify-content: center; gap: 6px;
         }
 
+        /* ── EMPLOYEE REQUEST FORM FIELDS ── */
+        .er-field { display: flex; flex-direction: column; gap: 0.28rem; }
+        .er-field label { font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.5px; }
+        .er-field input, .er-field select, .er-field textarea { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.6rem 0.8rem; font-size: 0.86rem; color: var(--white); font-family: inherit; outline: none; transition: border-color 0.2s; width: 100%; }
+        .er-field input::placeholder, .er-field textarea::placeholder { color: rgba(255,255,255,0.28); }
+        .er-field input:focus, .er-field select:focus, .er-field textarea:focus { border-color: var(--gold); }
+        .er-field select option { background: #1B263B; color: var(--white); }
+        .er-field input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.6); cursor: pointer; }
+        .er-field textarea { resize: none; }
+
         /* ──────────────────────────────────────────── PORTAL VIEW */
         #view-portal {
             display: none; flex: 1; padding: 2.5rem 2rem 4rem;
@@ -389,7 +399,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             Secured via Microsoft Entra ID · Internal access only
         </div>
 
+        <!-- Request Access Toggle -->
+        <div style="margin-top:1.5rem;text-align:center;">
+            <button id="toggle-request" style="background:none;border:none;color:var(--gold-light);font-size:0.8rem;cursor:pointer;text-decoration:underline;font-family:inherit;">Don't have an account? Request access →</button>
+        </div>
+
+    </div><!-- /login-card -->
+
+    <!-- Employee Access Request Form -->
+    <div class="login-card" id="request-card" style="display:none;margin-top:1.5rem;max-width:420px;">
+        <div class="login-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7DD3CB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            New Employee Access Request
+        </div>
+        <h2 style="font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:0.4rem;">Request a Portal Account</h2>
+        <p style="font-size:0.82rem;color:rgba(255,255,255,0.55);margin-bottom:1.25rem;line-height:1.5;">Submit your details and the IT administrator will create your <strong style="color:rgba(255,255,255,0.75);">@negplus.com</strong> Microsoft account within 1–2 business days.</p>
+
+        <form id="employee-request-form" novalidate style="display:flex;flex-direction:column;gap:0.8rem;">
+            <div class="er-field">
+                <label for="er-name">Full Name <span style="color:var(--gold);">*</span></label>
+                <input type="text" id="er-name" placeholder="Dr. Jane Smith" required>
+            </div>
+            <div class="er-field">
+                <label for="er-email">Personal Email <span style="color:var(--gold);">*</span></label>
+                <input type="email" id="er-email" placeholder="jane.smith@gmail.com" required>
+            </div>
+            <div class="er-field">
+                <label for="er-title">Job Title <span style="color:var(--gold);">*</span></label>
+                <input type="text" id="er-title" placeholder="Clinical Research Coordinator">
+            </div>
+            <div class="er-field">
+                <label for="er-dept">Department</label>
+                <select id="er-dept">
+                    <option value="" disabled selected>Select department…</option>
+                    <option>Clinical Operations</option>
+                    <option>Research &amp; Development</option>
+                    <option>Administration</option>
+                    <option>Finance</option>
+                    <option>Legal &amp; Compliance</option>
+                    <option>Investor Relations</option>
+                    <option>Other</option>
+                </select>
+            </div>
+            <div class="er-field">
+                <label for="er-start">Expected Start Date</label>
+                <input type="date" id="er-start">
+            </div>
+            <div class="er-field">
+                <label for="er-note">Additional Notes</label>
+                <textarea id="er-note" rows="2" placeholder="Any additional context for IT…"></textarea>
+            </div>
+            <div id="er-error" style="font-size:0.8rem;color:#ff6b6b;min-height:1rem;"></div>
+            <button type="submit" class="btn-ms" style="margin-top:0.25rem;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Submit Access Request
+            </button>
+        </form>
+
+        <p style="font-size:0.75rem;color:rgba(255,255,255,0.35);text-align:center;margin-top:1rem;">Your request will be sent to <strong style="color:rgba(255,255,255,0.5);">administration@negplus.com</strong></p>
+        <div style="margin-top:1rem;text-align:center;">
+            <button id="toggle-signin" style="background:none;border:none;color:var(--gold-light);font-size:0.8rem;cursor:pointer;text-decoration:underline;font-family:inherit;">← Back to sign in</button>
+        </div>
     </div>
+
 </div>
 
 <!-- ══════════════════════════════════════════════════
@@ -745,6 +817,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         showError('Sign-in error: ' + (e.errorMessage || e.message || 'Unknown error. Please try again.'));
     });
 
+})();
+</script>
+
+<script>
+/* ── EMPLOYEE ACCESS REQUEST FORM ── */
+(function () {
+    var toggleRequest = document.getElementById('toggle-request');
+    var toggleSignin  = document.getElementById('toggle-signin');
+    var requestCard   = document.getElementById('request-card');
+    var loginCard     = document.querySelector('.login-card');
+    var form          = document.getElementById('employee-request-form');
+
+    if (toggleRequest) {
+        toggleRequest.addEventListener('click', function () {
+            loginCard.style.display = 'none';
+            requestCard.style.display = 'block';
+        });
+    }
+    if (toggleSignin) {
+        toggleSignin.addEventListener('click', function () {
+            requestCard.style.display = 'none';
+            loginCard.style.display = 'block';
+        });
+    }
+
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var name  = document.getElementById('er-name').value.trim();
+            var email = document.getElementById('er-email').value.trim();
+            var title = document.getElementById('er-title').value.trim();
+            var dept  = document.getElementById('er-dept').value;
+            var start = document.getElementById('er-start').value;
+            var note  = document.getElementById('er-note').value.trim();
+            var errEl = document.getElementById('er-error');
+
+            errEl.textContent = '';
+            if (!name)  { errEl.textContent = 'Please enter your full name.'; return; }
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errEl.textContent = 'Please enter a valid email address.'; return; }
+            if (!title) { errEl.textContent = 'Please enter your job title.'; return; }
+
+            var body = 'Hello,\n\n'
+                + 'I am requesting a NEG+ Innovations employee portal account.\n\n'
+                + 'Full Name: ' + name + '\n'
+                + 'Personal Email: ' + email + '\n'
+                + 'Job Title: ' + title + '\n'
+                + 'Department: ' + (dept || 'N/A') + '\n'
+                + 'Expected Start Date: ' + (start || 'N/A') + '\n'
+                + 'Notes: ' + (note || 'N/A') + '\n\n'
+                + 'Please create my @negplus.com Microsoft 365 account at your earliest convenience.\n\n'
+                + 'Thank you,\n' + name;
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'portal_access_request', department: dept || 'unknown' });
+            if (typeof gtag === 'function') gtag('event', 'portal_access_request', { department: dept || 'unknown' });
+
+            window.location.href = 'mailto:administration@negplus.com'
+                + '?subject=' + encodeURIComponent('Portal Access Request — ' + name + ' (' + (dept || title) + ')')
+                + '&body='    + encodeURIComponent(body);
+        });
+    }
 })();
 </script>
 
