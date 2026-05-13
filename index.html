@@ -41,6 +41,49 @@
             --slate:      #778DA9;
         }
 
+        /* ── PROBLEM CARDS ── */
+        .problem-card {
+            background: rgba(65,179,163,0.07);
+            border: 1px solid rgba(65,179,163,0.2);
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+            cursor: default;
+        }
+        .problem-card:hover {
+            background: rgba(65,179,163,0.18);
+            border-color: rgba(65,179,163,0.55);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(65,179,163,0.15);
+        }
+        .problem-card-label {
+            color: var(--gold);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .problem-card-title {
+            color: rgba(255,255,255,0.6);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            transition: color 0.25s ease;
+        }
+        .problem-card:hover .problem-card-title {
+            color: #ffffff;
+        }
+        .problem-card-body {
+            color: var(--slate);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            transition: color 0.25s ease;
+        }
+        .problem-card:hover .problem-card-body {
+            color: rgba(200,215,230,0.9);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html { scroll-behavior: smooth; }
@@ -2085,25 +2128,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="section-body" style="color:var(--slate);max-width:700px;margin:0 auto;">The United States spends more on healthcare per capita than any other nation on earth — yet we rank last or near-last among peer nations on avoidable mortality, maternal survival, and chronic disease management. This is not a funding problem. It is an innovation and prioritization problem.</p>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-bottom:3rem;">
-            <div style="background:rgba(65,179,163,0.07);border:1px solid rgba(65,179,163,0.2);border-radius:12px;padding:1.75rem;">
-                <div style="color:var(--gold);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Intrapartum Monitoring</div>
-                <p style="color:var(--white);font-weight:600;margin-bottom:0.5rem;font-size:1rem;">Technology Unchanged Since the 1970s</p>
-                <p style="color:var(--slate);font-size:0.9rem;line-height:1.6;">Fetal monitoring relies on concepts that have not meaningfully evolved in over 50 years — while preventable perinatal deaths continue to occur annually.</p>
+            <div class="problem-card">
+                <div class="problem-card-label">Intrapartum Monitoring</div>
+                <p class="problem-card-title">Technology Unchanged Since the 1970s</p>
+                <p class="problem-card-body">Fetal monitoring relies on concepts that have not meaningfully evolved in over 50 years — while preventable perinatal deaths continue to occur annually.</p>
             </div>
-            <div style="background:rgba(65,179,163,0.07);border:1px solid rgba(65,179,163,0.2);border-radius:12px;padding:1.75rem;">
-                <div style="color:var(--gold);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Gynecologic Surgery</div>
-                <p style="color:var(--white);font-weight:600;margin-bottom:0.5rem;font-size:1rem;">No Standardized Colpotomy Platform Exists</p>
-                <p style="color:var(--slate);font-size:0.9rem;line-height:1.6;">600,000 hysterectomies annually, yet colpotomy — a critical surgical step — is still performed with tools designed for other purposes, producing surgeon-dependent outcomes.</p>
+            <div class="problem-card">
+                <div class="problem-card-label">Gynecologic Surgery</div>
+                <p class="problem-card-title">No Standardized Colpotomy Platform Exists</p>
+                <p class="problem-card-body">600,000 hysterectomies annually, yet colpotomy — a critical surgical step — is still performed with tools designed for other purposes, producing surgeon-dependent outcomes.</p>
             </div>
-            <div style="background:rgba(65,179,163,0.07);border:1px solid rgba(65,179,163,0.2);border-radius:12px;padding:1.75rem;">
-                <div style="color:var(--gold);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Pelvic Diagnostics</div>
-                <p style="color:var(--white);font-weight:600;margin-bottom:0.5rem;font-size:1rem;">Manual Staging With No Digital Standard</p>
-                <p style="color:var(--slate);font-size:0.9rem;line-height:1.6;">Pelvic organ prolapse staging remains a manual, examiner-dependent process — driving a 37.7% surgical recurrence rate from staging variability alone.</p>
+            <div class="problem-card">
+                <div class="problem-card-label">Pelvic Diagnostics</div>
+                <p class="problem-card-title">Manual Staging With No Digital Standard</p>
+                <p class="problem-card-body">Pelvic organ prolapse staging remains a manual, examiner-dependent process — driving a 37.7% surgical recurrence rate from staging variability alone.</p>
             </div>
-            <div style="background:rgba(65,179,163,0.07);border:1px solid rgba(65,179,163,0.2);border-radius:12px;padding:1.75rem;">
-                <div style="color:var(--gold);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.75rem;">Interventional Analgesia</div>
-                <p style="color:var(--white);font-weight:600;margin-bottom:0.5rem;font-size:1rem;">A Blind Procedure With Predictable Failures</p>
-                <p style="color:var(--slate);font-size:0.9rem;line-height:1.6;">Pudendal nerve blocks are performed by landmark and feel — no depth control, no anatomic confirmation. Published success rates range from 50–80%. No purpose-built precision device exists.</p>
+            <div class="problem-card">
+                <div class="problem-card-label">Interventional Analgesia</div>
+                <p class="problem-card-title">A Blind Procedure With Predictable Failures</p>
+                <p class="problem-card-body">Pudendal nerve blocks are performed by landmark and feel — no depth control, no anatomic confirmation. Published success rates range from 50–80%. No purpose-built precision device exists.</p>
             </div>
         </div>
         <div style="text-align:center;padding:2rem;background:rgba(65,179,163,0.05);border:1px solid rgba(65,179,163,0.15);border-radius:12px;max-width:800px;margin:0 auto;">
