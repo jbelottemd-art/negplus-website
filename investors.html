@@ -614,8 +614,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ── HERO ── -->
 <div class="page-hero">
-    <img src="pexels-kampus-8636589.jpg" class="page-hero-bg" alt="" aria-hidden="true" loading="eager">
-    <div class="page-hero-content">
+    <div id="spline-mount" style="position:absolute;inset:0;z-index:0;opacity:0;transition:opacity 1.2s ease;overflow:hidden;pointer-events:none;"></div>
+    <div id="spline-fallback" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
+    <img src="pexels-kampus-8636589.jpg" class="page-hero-bg" alt="" aria-hidden="true" loading="eager" style="position:relative;z-index:1;">
+    <div class="page-hero-content" style="position:relative;z-index:2;">
         <div class="page-hero-eyebrow">Reg D · Rule 506(b) · Accredited Investors Only</div>
         <h1>The Category Is Being <span>Written Right Now</span></h1>
         <p>Strategic acquirers — Hologic, Intuitive Surgical, Stryker, Medtronic — are actively paying premium multiples for women's health device platforms. NEG+ Innovations is building squarely in their acquisition lane with a physician-designed, IP-protected, reimbursement-ready precision technology platform. Women's health is not a niche. It is one of the largest, least-penetrated markets in all of medicine.</p>
@@ -1168,5 +1170,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   }
 </script>
+<script src="hero3d.js" defer></script>
+<script src="spline.js" defer></script>
 </body>
 </html>

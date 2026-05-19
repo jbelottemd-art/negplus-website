@@ -1,5 +1,5 @@
 // NEG+ Innovations — Service Worker
-const CACHE_NAME = 'negplus-v1';
+const CACHE_NAME = 'negplus-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -16,7 +16,9 @@ const STATIC_ASSETS = [
   '/logo.svg',
   '/og-image.png',
   '/icon-192.png',
-  '/icon-512.png'
+  '/icon-512.png',
+  '/hero3d.js',
+  '/spline.js'
 ];
 
 // Install: cache static assets

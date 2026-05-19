@@ -621,8 +621,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ── PAGE HERO ── -->
 <div class="page-hero">
-    <img src="pexels-carloscruz-artegrafia-172084181-11198240.jpg" class="page-hero-bg" alt="" aria-hidden="true" loading="eager">
-    <div class="page-hero-content">
+    <div id="spline-mount" style="position:absolute;inset:0;z-index:0;opacity:0;transition:opacity 1.2s ease;overflow:hidden;pointer-events:none;"></div>
+    <div id="spline-fallback" style="position:absolute;inset:0;z-index:0;pointer-events:none;"></div>
+    <img src="pexels-carloscruz-artegrafia-172084181-11198240.jpg" class="page-hero-bg" alt="" aria-hidden="true" loading="eager" style="position:relative;z-index:1;">
+    <div class="page-hero-content" style="position:relative;z-index:2;">
         <div class="page-hero-eyebrow">Research &amp; Development</div>
         <h1>Pioneering <span>Next-Generation</span> Surgical Solutions</h1>
         <p>Rigorous, evidence-driven innovation across an expanding portfolio of independent women's health device programs — spanning surgical instrumentation, pelvic diagnostics, interventional analgesia, and intrapartum monitoring.</p>
@@ -1416,5 +1418,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   }
 </script>
+<script src="hero3d.js" defer></script>
+<script src="spline.js" defer></script>
 </body>
 </html>
