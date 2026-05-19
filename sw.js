@@ -1,5 +1,7 @@
 // NEG+ Innovations — Service Worker
-const CACHE_NAME = 'negplus-v2';
+const CACHE_NAME = 'negplus-v3';
+
+// Static assets that rarely change (images, icons, fonts)
 const STATIC_ASSETS = [
   '/',
   '/index.html',
@@ -16,12 +18,13 @@ const STATIC_ASSETS = [
   '/logo.svg',
   '/og-image.png',
   '/icon-192.png',
-  '/icon-512.png',
-  '/hero3d.js',
-  '/spline.js'
+  '/icon-512.png'
 ];
 
-// Install: cache static assets
+// JS files served network-first so updates land without hard refresh
+const NETWORK_FIRST_JS = ['/hero3d.js', '/spline.js', '/ga-events.js'];
+
+// Install: pre-cache static assets
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS))
@@ -29,7 +32,7 @@ self.addEventListener('install', event => {
   self.skipWaiting();
 });
 
-// Activate: clean up old caches
+// Activate: delete stale caches and claim all clients immediately
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
@@ -39,7 +42,7 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Fetch: network-first for HTML, cache-first for assets
+// Fetch strategy
 self.addEventListener('fetch', event => {
   const { request } = event;
   const url = new URL(request.url);
@@ -54,7 +57,12 @@ self.addEventListener('fetch', event => {
   }
 
   // Network-first for HTML pages
-  if (request.headers.get('accept') && request.headers.get('accept').includes('text/html')) {
+  const isHTML = request.headers.get('accept') && request.headers.get('accept').includes('text/html');
+
+  // Network-first for JS files that change frequently
+  const isNetworkFirstJS = NETWORK_FIRST_JS.some(p => url.pathname.endsWith(p.replace('/', '')));
+
+  if (isHTML || isNetworkFirstJS) {
     event.respondWith(
       fetch(request)
         .then(response => {
@@ -67,7 +75,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Cache-first for static assets
+  // Cache-first for images, icons, and other static assets
   event.respondWith(
     caches.match(request).then(cached => cached || fetch(request))
   );
