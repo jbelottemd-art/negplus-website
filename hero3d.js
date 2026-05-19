@@ -108,7 +108,8 @@
     // Master group — offset to the right so the gyroscope sits off-center
     // (clear of the hero text column on the left)
     const master = new THREE.Group();
-    master.position.x = 2.6;
+    master.position.x = 4.8;
+    master.scale.setScalar(0.52);
     scene.add(master);
 
     const tealSolid  = new THREE.MeshBasicMaterial({ color: 0x41B3A3 });
