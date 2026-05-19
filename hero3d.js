@@ -31,7 +31,7 @@
       if (!window.THREE) return;
       const THREE = window.THREE;
 
-      const W = mount.offsetWidth  || window.innerWidth;
+      const W = mount.offsetWidth  || Math.round(window.innerWidth * 0.38);
       const H = mount.offsetHeight || 680;
 
       // Renderer
@@ -105,6 +105,8 @@
   // Evokes: inertial navigation, precision measurement, surgical guidance
   // ═══════════════════════════════════════════════════════════════════════════
   function buildGyroscope(THREE, scene, state) {
+    scene.scale.setScalar(0.78); // fit within left-side canvas without spilling into text
+
     const tealSolid  = new THREE.MeshBasicMaterial({ color: 0x41B3A3 });
     const slateSolid = new THREE.MeshBasicMaterial({ color: 0x5A8FA8 });
     const tealDim    = new THREE.MeshBasicMaterial({ color: 0x2d8c80, transparent: true, opacity: 0.7 });
