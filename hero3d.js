@@ -108,7 +108,7 @@
     // Master group — offset to the right so the gyroscope sits off-center
     // (clear of the hero text column on the left)
     const master = new THREE.Group();
-    master.position.x = 4.8;
+    master.position.x = 7.2;
     master.scale.setScalar(0.52);
     scene.add(master);
 
