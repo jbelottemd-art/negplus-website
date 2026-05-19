@@ -31,7 +31,7 @@
       if (!window.THREE) return;
       const THREE = window.THREE;
 
-      const W = mount.offsetWidth  || Math.round(window.innerWidth * 0.38);
+      const W = mount.offsetWidth  || window.innerWidth;
       const H = mount.offsetHeight || 680;
 
       // Renderer
@@ -105,20 +105,23 @@
   // Evokes: inertial navigation, precision measurement, surgical guidance
   // ═══════════════════════════════════════════════════════════════════════════
   function buildGyroscope(THREE, scene, state) {
-    scene.scale.setScalar(0.78); // fit within left-side canvas without spilling into text
+    // Master group — offset to the right so the gyroscope sits off-center
+    // (clear of the hero text column on the left)
+    const master = new THREE.Group();
+    master.position.x = 2.6;
+    scene.add(master);
 
     const tealSolid  = new THREE.MeshBasicMaterial({ color: 0x41B3A3 });
     const slateSolid = new THREE.MeshBasicMaterial({ color: 0x5A8FA8 });
     const tealDim    = new THREE.MeshBasicMaterial({ color: 0x2d8c80, transparent: true, opacity: 0.7 });
 
-    // Outer ring — large, rotates around Y
-    const outerGeo  = new THREE.TorusGeometry(2.1, 0.032, 12, 100);
-    const outerRing = new THREE.Mesh(outerGeo, tealSolid);
+    // Outer ring — rotates around Y
+    const outerRing  = new THREE.Mesh(new THREE.TorusGeometry(2.1, 0.032, 12, 100), tealSolid);
     const outerPivot = new THREE.Group();
     outerPivot.add(outerRing);
-    scene.add(outerPivot);
+    master.add(outerPivot);
 
-    // Equatorial tick marks on outer ring
+    // Tick marks on outer ring
     const tickMat = new THREE.MeshBasicMaterial({ color: 0x41B3A3, transparent: true, opacity: 0.6 });
     for (let i = 0; i < 24; i++) {
       const angle = (i / 24) * Math.PI * 2;
@@ -129,53 +132,50 @@
     }
 
     // Mid ring — tilted 60°, rotates around X
-    const midGeo   = new THREE.TorusGeometry(1.5, 0.030, 12, 90);
-    const midRing  = new THREE.Mesh(midGeo, slateSolid);
+    const midRing  = new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.030, 12, 90), slateSolid);
     midRing.rotation.x = Math.PI / 3;
     const midPivot = new THREE.Group();
     midPivot.add(midRing);
-    scene.add(midPivot);
+    master.add(midPivot);
 
     // Inner ring — tilted 45° on Z, rotates around Z
-    const innerGeo   = new THREE.TorusGeometry(0.95, 0.028, 10, 80);
-    const innerRing  = new THREE.Mesh(innerGeo, tealDim);
+    const innerRing  = new THREE.Mesh(new THREE.TorusGeometry(0.95, 0.028, 10, 80), tealDim);
     innerRing.rotation.z = Math.PI / 4;
     const innerPivot = new THREE.Group();
     innerPivot.add(innerRing);
-    scene.add(innerPivot);
+    master.add(innerPivot);
 
-    // Central hub sphere — pulsing
-    const hubMat  = new THREE.MeshBasicMaterial({ color: 0x41B3A3, transparent: true, opacity: 0.65 });
-    const hub     = new THREE.Mesh(new THREE.SphereGeometry(0.22, 20, 16), hubMat);
-    scene.add(hub);
+    // Central hub
+    const hubMat = new THREE.MeshBasicMaterial({ color: 0x41B3A3, transparent: true, opacity: 0.65 });
+    const hub    = new THREE.Mesh(new THREE.SphereGeometry(0.22, 20, 16), hubMat);
+    master.add(hub);
 
-    // Hub glow ring (flat torus at equator of hub)
+    // Hub equatorial glow ring
     const glowRing = new THREE.Mesh(
       new THREE.TorusGeometry(0.28, 0.012, 8, 40),
       new THREE.MeshBasicMaterial({ color: 0x41B3A3, transparent: true, opacity: 0.5 })
     );
-    scene.add(glowRing);
+    master.add(glowRing);
 
-    // Axis pole lines (thin lines through the centre on each axis)
-    const axisMat = new THREE.LineBasicMaterial({ color: 0x41B3A3, transparent: true, opacity: 0.25 });
-    [[2.3,0,0],[-2.3,0,0],[0,2.3,0],[0,-2.3,0],[0,0,2.3],[0,0,-2.3]].forEach(function (pair, i) {
-      if (i % 2 === 0) {
-        const geo = new THREE.BufferGeometry().setFromPoints([
-          new THREE.Vector3(...pair),
-          new THREE.Vector3(...[[2.3,0,0],[-2.3,0,0],[0,2.3,0],[0,-2.3,0],[0,0,2.3],[0,0,-2.3]][i + 1])
-        ]);
-        scene.add(new THREE.Line(geo, axisMat));
-      }
-    });
+    // Axis pole lines
+    const axisMat  = new THREE.LineBasicMaterial({ color: 0x41B3A3, transparent: true, opacity: 0.25 });
+    const axisEnds = [[2.3,0,0],[-2.3,0,0],[0,2.3,0],[0,-2.3,0],[0,0,2.3],[0,0,-2.3]];
+    for (let i = 0; i < axisEnds.length; i += 2) {
+      const geo = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(...axisEnds[i]),
+        new THREE.Vector3(...axisEnds[i + 1])
+      ]);
+      master.add(new THREE.Line(geo, axisMat));
+    }
 
-    addParticles(THREE, scene, 260, 0x41B3A3, 7.5);
+    // Particles span the full canvas for depth (not offset with master group)
+    addParticles(THREE, scene, 260, 0x41B3A3, 10);
 
     state.animate = function (frame) {
       outerPivot.rotation.y += 0.0055;
       midPivot.rotation.x   += 0.0085;
       innerPivot.rotation.z += 0.011;
       glowRing.rotation.z   += 0.018;
-      // Hub pulse
       const pulse = 1 + 0.12 * Math.sin(frame * 0.028);
       hub.scale.setScalar(pulse);
     };
