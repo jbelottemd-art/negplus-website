@@ -1149,6 +1149,18 @@
             text-overflow: ellipsis;
             font-size: 0.78rem;
         }
+        .ip-counsel-logo {
+            height: 22px;
+            width: auto;
+            display: block;
+            flex-shrink: 0;
+            filter: brightness(0) saturate(100%) invert(18%) sepia(12%) saturate(600%) hue-rotate(180deg) brightness(90%);
+        }
+        @media (prefers-color-scheme: dark) {
+            .ip-counsel-logo { filter: brightness(0) invert(1) opacity(0.85); }
+        }
+        :root[data-theme="dark"] .ip-counsel-logo { filter: brightness(0) invert(1) opacity(0.85); }
+        :root[data-theme="light"] .ip-counsel-logo { filter: brightness(0) saturate(100%) invert(18%) sepia(12%) saturate(600%) hue-rotate(180deg) brightness(90%); }
 
         /* ── PHOTO IMAGES ── */
         /* About section photo */
@@ -2926,6 +2938,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="ip-counsel-label">Patent &amp; IP Counsel</span>
             <a href="https://wardpatent.com" target="_blank" rel="noopener" class="ip-counsel-firm">Ward Law Office LLC</a>
             <span class="ip-counsel-desc">— Boutique patent &amp; trademark law firm · Mechanical, Chemical &amp; Electrical disciplines · International IP prosecution</span>
+        </div>
+        <div class="ip-counsel-bar">
+            <span class="ip-counsel-label">Corporate Counsel</span>
+            <a href="https://www.morse.law" target="_blank" rel="noopener" class="ip-counsel-firm" style="display:flex;align-items:center;gap:0.5rem;">
+                <img src="morse-logo.svg" alt="Morse, Barnes-Brown &amp; Pendleton PC" class="ip-counsel-logo">
+            </a>
+            <span class="ip-counsel-desc">— Corporate governance &amp; SAFE execution · Elizabeth A. Resteghini &amp; Monica B. Sax · CityPoint, Waltham MA</span>
         </div>
         <div class="ip-grid">
             <div class="ip-card">
