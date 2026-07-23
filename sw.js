@@ -1,5 +1,5 @@
 // NEG+ Innovations — Service Worker
-const CACHE_NAME = 'negplus-v3';
+const CACHE_NAME = 'negplus-v4';
 
 // Static assets that rarely change (images, icons, fonts)
 const STATIC_ASSETS = [
